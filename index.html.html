@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Tableau des signaux</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{--bg:#09090b;--card:#131316;--line:#27272a;--line2:#1e1e22;--tx:#e4e4e7;--dim:#a1a1aa;--dim2:#71717a;--dim3:#52525b;--amb:#f59e0b;--amb-bg:#2a1c05;--grn:#34d399;--grn-bg:#052e22;--red:#f87171;--red-bg:#2d0f0f}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--tx);margin:0;font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:820px;margin:0 auto;padding:24px 16px 60px}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+h1{font-size:18px;font-weight:500;margin:0;letter-spacing:-.01em}
+h2{font-size:14px;font-weight:500;color:var(--dim);margin:0 0 8px}
+header{border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:16px}
+.row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.sub{font-size:12px;color:var(--dim2);margin:2px 0 0}
+.lbl{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--dim2)}
+.card{border:1px solid var(--line);border-radius:8px;padding:12px;margin-bottom:12px}
+.empty{border:1px dashed var(--line);border-radius:8px;padding:20px;text-align:center;color:var(--dim2);font-size:13px}
+.banner{display:inline-block;margin-top:8px;border:1px solid #78500a;background:var(--amb-bg);color:#fcd34d;border-radius:6px;padding:6px 10px;font-size:12px}
+button{font:inherit;cursor:pointer;border-radius:6px;border:1px solid var(--line);background:transparent;color:var(--dim2);padding:3px 8px;font-size:12px;transition:.12s}
+button:hover{color:var(--tx);border-color:var(--dim3)}
+button.primary{background:var(--amb);color:#18120a;border-color:var(--amb);font-weight:500;padding:7px 16px;font-size:13px}
+button.primary:hover{background:#fbbf24;color:#18120a}
+button.on-g{border-color:#047857;background:var(--grn-bg);color:var(--grn)}
+button.on-r{border-color:#b91c1c;background:var(--red-bg);color:var(--red)}
+button.link{border:none;padding:2px 0;background:none}
+textarea{width:100%;background:#0e0e11;border:1px solid var(--line);border-radius:6px;color:var(--tx);padding:8px;font-size:12px;resize:vertical}
+textarea:focus{outline:none;border-color:var(--amb)}
+.tag{font-size:11px;padding:2px 7px;border-radius:5px;border:1px solid}
+.t-g{background:var(--grn-bg);color:var(--grn);border-color:#065f46}
+.t-r{background:var(--red-bg);color:var(--red);border-color:#991b1b}
+.t-n{background:#1c1c20;color:var(--grn);border-color:var(--line)}
+.g{color:var(--grn)}.r{color:var(--red)}.d{color:var(--dim2)}.d3{color:var(--dim3)}
+.grid{display:grid;gap:4px 16px;margin-top:8px;font-size:12px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:560px){.grid{grid-template-columns:repeat(4,1fr)}}
+.stats{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:560px){.stats{grid-template-columns:repeat(4,1fr)}}
+.big{font-size:19px}
+.gauge{position:relative;height:8px;border-radius:4px;background:#26262b;margin-top:12px}
+.pin{position:absolute;top:50%;transform:translateY(-50%);width:8px;height:16px;border-radius:2px}
+.gends{display:flex;justify-content:space-between;margin-top:4px;font-size:11px;color:var(--dim3)}
+.legend{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:8px;font-size:11px;color:var(--dim3)}
+.sw{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px;vertical-align:middle}
+.ann{margin-top:8px;padding-top:8px;border-top:1px solid var(--line2)}
+.note{margin-top:6px;font-size:12px;color:var(--dim2);font-style:italic}
+.msg{font-size:12px}
+footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--dim3)}
+.sec{margin-bottom:24px}
+.hidden{display:none}
+input[type=text],input[type=password]{background:#0e0e11;border:1px solid var(--line);border-radius:6px;color:var(--tx);padding:6px 8px;font-size:12px;font-family:ui-monospace,Menlo,Consolas,monospace;width:100%}
+input:focus{outline:none;border-color:var(--amb)}
+.cfg{display:grid;gap:8px 12px;grid-template-columns:1fr}
+@media(min-width:560px){.cfg{grid-template-columns:repeat(2,1fr)}}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:middle}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="row">
+      <div>
+        <h1>Tableau des signaux</h1>
+        <p class="sub">Entrées, stops suiveurs, sorties et journal d'observation <span style="color:var(--amb)">— version 4, source pré-configurée</span></p>
+      </div>
+      <div class="row" style="gap:12px">
+        <span id="status" style="font-size:12px;color:var(--dim2)"></span>
+        <span id="gen" class="mono" style="font-size:12px;color:var(--dim2)"></span>
+        <button class="link" id="btn-refresh">Actualiser</button>
+        <button class="link" id="btn-cfg">Source</button>
+        <button class="link" id="btn-save">Sauvegarder</button>
+        <button class="link" id="btn-load">Restaurer</button>
+        <input type="file" id="file" accept=".json" class="hidden">
+      </div>
+    </div>
+    <div class="banner">Mode observation — stratégie non validée. On note, on n'engage pas.</div>
+  </header>
+
+  <section class="card hidden" id="cfg">
+    <div class="lbl" style="margin-bottom:10px">Source automatique — récupération depuis GitHub</div>
+    <div class="cfg">
+      <div><div class="lbl" style="margin-bottom:4px">Propriétaire</div>
+        <input type="text" id="c-owner" placeholder="nom d'utilisateur GitHub"></div>
+      <div><div class="lbl" style="margin-bottom:4px">Dépôt</div>
+        <input type="text" id="c-repo" placeholder="nom du dépôt"></div>
+      <div><div class="lbl" style="margin-bottom:4px">Fichier</div>
+        <input type="text" id="c-path" placeholder="chemin du fichier"></div>
+      <div><div class="lbl" style="margin-bottom:4px">Branche</div>
+        <input type="text" id="c-branch" placeholder="branche"></div>
+    </div>
+    <div style="margin-top:10px">
+      <div class="lbl" style="margin-bottom:4px">Jeton de lecture — uniquement si le dépôt est privé</div>
+      <input type="password" id="c-token" placeholder="github_pat_… (laisser vide si le dépôt est public)">
+      <p class="d3" style="font-size:12px;margin:6px 0 0">Jeton restreint recommandé : lecture seule, ce seul dépôt, avec expiration. Il est enregistré dans ce navigateur uniquement et n'est envoyé qu'à GitHub.</p>
+    </div>
+    <div class="row" style="justify-content:flex-start;gap:12px;margin-top:12px">
+      <button class="primary" id="btn-cfg-save">Enregistrer et tester</button>
+      <button id="btn-cfg-clear">Effacer</button>
+      <span id="cfg-msg" class="msg"></span>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="lbl" style="margin-bottom:8px">Importer un scan (bloc de l'email, ou contenu de signals.json)</div>
+    <textarea id="paste" rows="3" placeholder='Colle ici le bloc complet, accolades comprises : {"generated":...}'></textarea>
+    <div class="row" style="justify-content:flex-start;gap:12px;margin-top:8px">
+      <button class="primary" id="btn-import">Importer</button>
+      <span id="msg" class="msg"></span>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Positions suivies <span class="d3" id="n-act"></span></h2>
+    <div id="active"></div>
+    <div class="legend hidden" id="legend">
+      <span><i class="sw" style="background:#dc2626"></i>invalidation</span>
+      <span><i class="sw" style="background:#f87171"></i>stop suiveur</span>
+      <span><i class="sw" style="background:#a1a1aa"></i>entrée</span>
+      <span><i class="sw" style="background:#f59e0b"></i>prix</span>
+      <span><i class="sw" style="background:#10b981"></i>extrême</span>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Sorties alertées <span class="d3" id="n-clo"></span></h2>
+    <div id="closed"></div>
+  </section>
+
+  <section id="bilan"></section>
+
+  <footer>Données enregistrées dans ce navigateur uniquement. Utilise « Sauvegarder » régulièrement pour en garder une copie sur ton disque.</footer>
+</div>
+
+<script>
+"use strict";
+var state = { data: { generated: null, active: [], history: [] }, notes: {}, open: null };
+
+function load() {
+  try {
+    var d = localStorage.getItem("signals-board-v1");
+    if (d) state.data = JSON.parse(d);
+    var n = localStorage.getItem("signals-notes-v1");
+    if (n) state.notes = JSON.parse(n);
+  } catch (e) {}
+}
+function save() {
+  try {
+    localStorage.setItem("signals-board-v1", JSON.stringify(state.data));
+    localStorage.setItem("signals-notes-v1", JSON.stringify(state.notes));
+  } catch (e) {}
+}
+
+function fmt(n, d) {
+  d = d === undefined ? 2 : d;
+  if (n === null || n === undefined || !isFinite(n)) return "\u2014";
+  return n.toLocaleString("fr-FR", { minimumFractionDigits: d, maximumFractionDigits: d });
+}
+function fp(p) {
+  if (p === null || p === undefined || !isFinite(p)) return "\u2014";
+  var d = p < 0.001 ? 8 : p < 0.01 ? 6 : p < 1 ? 4 : 2;
+  return p.toLocaleString("fr-FR", { minimumFractionDigits: d, maximumFractionDigits: d });
+}
+function dt(ts) {
+  if (!ts) return "\u2014";
+  var x = new Date(ts * 1000);
+  return x.toLocaleDateString("fr-FR", { day: "2-digit", month: "2-digit" }) + " " +
+         x.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
+}
+function sid(s) { return s.pair + "-" + (s.id || s.entry_ts); }
+function esc(s) {
+  return String(s === undefined || s === null ? "" : s)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+function cls(v) { return v > 0 ? "g" : v < 0 ? "r" : "d"; }
+
+function gauge(s) {
+  var pts = [
+    [s.stop_init, "invalidation", "#dc2626"], [s.stop, "stop suiveur", "#f87171"],
+    [s.entry, "entr\u00e9e", "#a1a1aa"], [s.last_price, "prix", "#f59e0b"],
+    [s.extreme, "extr\u00eame", "#10b981"]
+  ].filter(function (p) { return isFinite(p[0]); });
+  if (pts.length < 2) return "";
+  var vals = pts.map(function (p) { return p[0]; });
+  var lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals);
+  var span = (hi - lo) || 1;
+  var pins = pts.map(function (p) {
+    var left = 3 + ((p[0] - lo) / span) * 94;
+    return '<div class="pin" title="' + p[1] + " " + fp(p[0]) +
+           '" style="left:calc(' + left + '% - 4px);background:' + p[2] + '"></div>';
+  }).join("");
+  return '<div class="gauge">' + pins + '</div><div class="gends"><span class="mono">' +
+         fp(lo) + '</span><span class="mono">' + fp(hi) + '</span></div>';
+}
+
+function annot(id) {
+  var n = state.notes[id] || {}, v = n.verdict, o = state.open === id;
+  var b1 = '<button data-verdict="pris" data-id="' + esc(id) + '"' +
+           (v === "pris" ? ' class="on-g"' : "") + ">Je l'aurais pris</button>";
+  var b2 = '<button data-verdict="passe" data-id="' + esc(id) + '"' +
+           (v === "passe" ? ' class="on-r"' : "") + ">Je l'aurais pass\u00e9</button>";
+  var tog = '<button class="link" data-toggle="' + esc(id) + '" style="margin-left:auto">' +
+            (n.text ? "Note \u2713" : "Ajouter une note") + "</button>";
+  var body = o
+    ? '<textarea data-note="' + esc(id) + '" rows="2" placeholder="Ce que montre le graphique, contexte, ce que tu en penses\u2026" style="margin-top:8px">' + esc(n.text || "") + "</textarea>"
+    : (n.text ? '<p class="note">' + esc(n.text) + "</p>" : "");
+  return '<div class="ann"><div class="row" style="justify-content:flex-start;gap:8px">' +
+         '<span class="lbl" style="margin-right:4px">Mon avis</span>' + b1 + b2 + tog +
+         "</div>" + body + "</div>";
+}
+
+function renderActive() {
+  var el = document.getElementById("active"), a = state.data.active || [];
+  document.getElementById("n-act").textContent = "(" + a.length + ")";
+  document.getElementById("legend").className = a.length ? "legend" : "legend hidden";
+  if (!a.length) {
+    el.innerHTML = '<div class="empty">Aucune position en cours. Le prochain email d\'entr\u00e9e alimentera cette vue.</div>';
+    return;
+  }
+  el.innerHTML = a.map(function (s) {
+    var sd = s.last_price ? Math.abs(s.last_price - s.stop) / s.last_price * 100 : null;
+    return '<div class="card"><div class="row">' +
+      '<div class="row" style="gap:10px;justify-content:flex-start">' +
+        '<span class="mono" style="font-weight:500">' + esc(s.pair) + "</span>" +
+        '<span class="tag ' + (s.dir === "long" ? "t-g" : "t-r") + '">' +
+          (s.dir === "long" ? "hausse" : "baisse") + "</span>" +
+        '<span class="d" style="font-size:12px">score ' + esc(s.score) + "</span>" +
+        (s.breakeven ? '<span class="tag t-n">point mort acquis</span>' : "") +
+      "</div>" +
+      '<span class="mono ' + cls(s.r_latent) + '">' + (s.r_latent > 0 ? "+" : "") +
+        fmt(s.r_latent) + "R latent</span></div>" +
+      '<div class="grid mono">' +
+        '<div><span class="d">Entr\u00e9e </span>' + fp(s.entry) + "</div>" +
+        '<div><span class="d">le </span>' + dt(s.entry_ts) + "</div>" +
+        '<div><span class="d">Stop suiveur </span><span style="color:#fca5a5">' + fp(s.stop) + "</span></div>" +
+        '<div><span class="d">\u00e0 </span>' + (sd === null ? "\u2014" : fmt(sd) + " %") + "</div>" +
+      "</div>" + gauge(s) + annot(sid(s)) + "</div>";
+  }).join("");
+}
+
+function closedList() {
+  return (state.data.history || []).filter(function (h) { return h.r !== undefined; });
+}
+
+function renderClosed() {
+  var el = document.getElementById("closed"), c = closedList();
+  document.getElementById("n-clo").textContent = "(" + c.length + ")";
+  if (!c.length) {
+    el.innerHTML = '<div class="empty">Aucune sortie pour le moment.</div>';
+    return;
+  }
+  el.innerHTML = c.slice().reverse().map(function (h) {
+    return '<div class="card" style="padding:8px 12px"><div class="row">' +
+      '<div class="row mono" style="gap:10px;justify-content:flex-start">' +
+        '<span class="d3" style="font-size:12px">' + dt(h.exit_ts) + "</span>" +
+        "<span>" + esc(h.pair) + "</span>" +
+        '<span class="' + (h.dir === "long" ? "g" : "r") + '" style="font-size:12px">' +
+          (h.dir === "long" ? "hausse" : "baisse") + "</span>" +
+        '<span class="d" style="font-size:12px">' + esc(h.motif) + "</span>" +
+      "</div>" +
+      '<div class="mono"><span class="d" style="font-size:12px;margin-right:8px">' +
+        fp(h.entry) + " \u2192 " + fp(h.exit) + "</span>" +
+        '<span class="' + cls(h.r) + '">' + (h.r > 0 ? "+" : "") + fmt(h.r) + "R</span></div>" +
+      "</div>" + annot(sid(h)) + "</div>";
+  }).join("");
+}
+
+function renderBilan() {
+  var el = document.getElementById("bilan"), c = closedList();
+  if (!c.length) { el.innerHTML = ""; return; }
+  var wins = c.filter(function (h) { return h.r > 0; });
+  var tot = c.reduce(function (a, h) { return a + h.r; }, 0);
+  var byM = {};
+  c.forEach(function (h) { (byM[h.motif] = byM[h.motif] || []).push(h.r); });
+  var cards = [["Signaux clos", c.length, ""], ["Taux de r\u00e9ussite", wins.length / c.length * 100, "%"],
+               ["R moyen", tot / c.length, "R"], ["R cumul\u00e9", tot, "R"]];
+  var html = '<div class="card"><h2>Bilan d\'observation</h2><div class="stats">' +
+    cards.map(function (x) {
+      return '<div><div class="lbl">' + x[0] + '</div><div class="mono big">' +
+        fmt(x[1], x[2] === "" ? 0 : 2) + '<span class="d" style="font-size:12px"> ' + x[2] + "</span></div></div>";
+    }).join("") + "</div>";
+  html += '<div class="d" style="margin-top:12px;font-size:12px">' +
+    Object.keys(byM).map(function (m) {
+      var rs = byM[m], mo = rs.reduce(function (a, b) { return a + b; }, 0) / rs.length;
+      return '<span style="margin-right:16px">' + esc(m) + " : " + rs.length + " (" + fmt(mo) + "R moy.)</span>";
+    }).join("") + "</div>";
+
+  var pris = c.filter(function (h) { var n = state.notes[sid(h)]; return n && n.verdict === "pris"; });
+  var pas = c.filter(function (h) { var n = state.notes[sid(h)]; return n && n.verdict === "passe"; });
+  var na = pris.length + pas.length;
+  html += '<div style="margin-top:16px;padding-top:12px;border-top:1px solid var(--line)">';
+  if (na < 3) {
+    html += '<p class="d3" style="font-size:12px;margin:0">Annote les signaux avec \u00ab Je l\'aurais pris \u00bb ou \u00ab Je l\'aurais pass\u00e9 \u00bb : \u00e0 partir de 3 annot\u00e9s, cette section compare ton jugement \u00e0 celui du d\u00e9tecteur.</p>';
+  } else {
+    var moy = function (a) { return a.length ? a.reduce(function (x, h) { return x + h.r; }, 0) / a.length : null; };
+    var mp = moy(pris), mx = moy(pas), mt = tot / c.length;
+    html += '<div class="lbl" style="margin-bottom:8px">Ton jugement vs le d\u00e9tecteur</div>' +
+      '<div class="stats" style="grid-template-columns:repeat(3,1fr)">' +
+      '<div><div class="lbl">Que tu aurais pris</div><div class="mono ' + cls(mp) + '">' +
+        (mp === null ? "\u2014" : fmt(mp) + "R") + ' <span class="d3">(' + pris.length + ")</span></div></div>" +
+      '<div><div class="lbl">Que tu aurais pass\u00e9</div><div class="mono ' + cls(mx) + '">' +
+        (mx === null ? "\u2014" : fmt(mx) + "R") + ' <span class="d3">(' + pas.length + ")</span></div></div>" +
+      '<div><div class="lbl">Tous signaux</div><div class="mono">' + fmt(mt) + "R</div></div></div>" +
+      '<p class="d3" style="font-size:12px;margin:8px 0 0">' +
+      (na < 20 ? "\u00c9chantillon encore petit \u2014 indicatif seulement."
+               : (mp !== null && mp > mt ? "Ton filtre discr\u00e9tionnaire fait mieux que l'ensemble sur cet \u00e9chantillon."
+                                         : "Ton filtre ne bat pas l'ensemble des signaux sur cet \u00e9chantillon.")) + "</p>";
+  }
+  html += "</div>";
+  if (c.length < 20) {
+    html += '<p class="d3" style="font-size:12px;margin:12px 0 0">Moins de 20 signaux clos : ces chiffres d\u00e9crivent, ils ne concluent pas.</p>';
+  }
+  el.innerHTML = html + "</div>";
+}
+
+function render() {
+  document.getElementById("gen").textContent =
+    state.data.generated ? "Import : " + state.data.generated : "";
+  renderActive(); renderClosed(); renderBilan();
+}
+
+function msg(t, okc) {
+  var m = document.getElementById("msg");
+  m.textContent = t;
+  m.className = "msg " + (okc ? "g" : "r");
+}
+
+function doImport() {
+  var txt = document.getElementById("paste").value;
+  if (!txt.trim()) { msg("Colle d'abord le bloc de donn\u00e9es de l'email.", false); return; }
+  var a = txt.indexOf("{"), b = txt.lastIndexOf("}"), p;
+  if (a === -1 || b <= a) { msg("Bloc illisible : colle le bloc complet, accolades comprises.", false); return; }
+  try { p = JSON.parse(txt.slice(a, b + 1)); }
+  catch (e) { msg("Bloc illisible : colle le bloc complet, accolades comprises.", false); return; }
+  if (!Array.isArray(p.active) && !Array.isArray(p.history)) {
+    msg("Ce bloc ne provient pas du d\u00e9tecteur.", false); return;
+  }
+  var hist = (state.data.history || []).slice();
+  var seen = {};
+  hist.forEach(function (h) { seen[sid(h)] = 1; });
+  (p.history || []).forEach(function (h) { if (!seen[sid(h)]) { hist.push(h); seen[sid(h)] = 1; } });
+  var closedIds = {};
+  hist.forEach(function (h) { closedIds[sid(h)] = 1; });
+  var act = (p.active || []).filter(function (s) { return !closedIds[sid(s)]; });
+  hist.sort(function (x, y) { return (x.exit_ts || 0) - (y.exit_ts || 0); });
+  state.data = { generated: p.generated || state.data.generated, active: act, history: hist };
+  document.getElementById("paste").value = "";
+  save(); render();
+  msg("Import r\u00e9ussi \u2014 " + act.length + " suivie(s).", true);
+}
+
+document.getElementById("btn-import").addEventListener("click", doImport);
+
+document.getElementById("btn-save").addEventListener("click", function () {
+  var blob = new Blob([JSON.stringify({ data: state.data, notes: state.notes }, null, 1)],
+    { type: "application/json" });
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "signaux-sauvegarde-" + new Date().toISOString().slice(0, 10) + ".json";
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+});
+
+document.getElementById("btn-load").addEventListener("click", function () {
+  document.getElementById("file").click();
+});
+document.getElementById("file").addEventListener("change", function (e) {
+  var f = e.target.files && e.target.files[0];
+  if (!f) return;
+  var rd = new FileReader();
+  rd.onload = function () {
+    try {
+      var d = JSON.parse(rd.result);
+      if (d.data) state.data = d.data;
+      if (d.notes) state.notes = d.notes;
+      save(); render(); msg("Sauvegarde restaur\u00e9e.", true);
+    } catch (x) { msg("Fichier de sauvegarde illisible.", false); }
+  };
+  rd.readAsText(f);
+  e.target.value = "";
+});
+
+document.addEventListener("click", function (e) {
+  var b = e.target.closest ? e.target.closest("button") : null;
+  if (!b) return;
+  if (b.dataset.verdict) {
+    var id = b.dataset.id, n = state.notes[id] || {};
+    n.verdict = n.verdict === b.dataset.verdict ? null : b.dataset.verdict;
+    state.notes[id] = n; save(); render();
+  } else if (b.dataset.toggle) {
+    state.open = state.open === b.dataset.toggle ? null : b.dataset.toggle;
+    render();
+    var ta = document.querySelector('textarea[data-note="' + b.dataset.toggle + '"]');
+    if (ta) { ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); }
+  }
+});
+
+document.addEventListener("input", function (e) {
+  var id = e.target.dataset ? e.target.dataset.note : null;
+  if (!id) return;
+  var n = state.notes[id] || {};
+  n.text = e.target.value;
+  state.notes[id] = n;
+  clearTimeout(window.__t);
+  window.__t = setTimeout(save, 400);
+});
+
+/* ---------- source distante GitHub ---------- */
+var cfg = { owner: "reggiefox-888", repo: "Detecteur", path: "signals.json", branch: "main", token: "" };
+
+function cfgLoad() {
+  try {
+    var c = localStorage.getItem("signals-source-v1");
+    if (c) { var p = JSON.parse(c); for (var k in p) if (k in cfg) cfg[k] = p[k]; }
+  } catch (e) {}
+  document.getElementById("c-owner").value = cfg.owner;
+  document.getElementById("c-repo").value = cfg.repo;
+  document.getElementById("c-path").value = cfg.path;
+  document.getElementById("c-branch").value = cfg.branch;
+  document.getElementById("c-token").value = cfg.token;
+}
+function cfgSave() {
+  try { localStorage.setItem("signals-source-v1", JSON.stringify(cfg)); } catch (e) {}
+}
+function cfgReady() { return !!(cfg.owner && cfg.repo && cfg.path); }
+
+function setStatus(txt, kind) {
+  var el = document.getElementById("status");
+  if (!txt) { el.textContent = ""; return; }
+  var col = kind === "ok" ? "#34d399" : kind === "err" ? "#f87171" : "#71717a";
+  el.innerHTML = '<span class="dot" style="background:' + col + '"></span>' + txt;
+}
+
+function applyBoard(p, source) {
+  if (!p || (!Array.isArray(p.active) && !Array.isArray(p.history))) {
+    throw new Error("format inattendu");
+  }
+  var hist = (state.data.history || []).slice(), seen = {};
+  hist.forEach(function (x) { seen[sid(x)] = 1; });
+  (p.history || []).forEach(function (x) { if (!seen[sid(x)]) { hist.push(x); seen[sid(x)] = 1; } });
+  var closedIds = {};
+  hist.forEach(function (x) { closedIds[sid(x)] = 1; });
+  var act = (p.active || []).filter(function (s) { return !closedIds[sid(s)]; });
+  hist.sort(function (x, y) { return (x.exit_ts || 0) - (y.exit_ts || 0); });
+  state.data = { generated: p.generated || state.data.generated, active: act, history: hist };
+  save(); render();
+  setStatus((source || "\u00c0 jour") + " \u2014 " + act.length + " suivie(s)", "ok");
+}
+
+function fetchRemote(silent) {
+  if (!cfgReady()) {
+    if (!silent) setStatus("Source non configur\u00e9e", "err");
+    return Promise.resolve(false);
+  }
+  setStatus("R\u00e9cup\u00e9ration\u2026", "wait");
+  var url, opts = { cache: "no-store" };
+  if (cfg.token) {
+    url = "https://api.github.com/repos/" + encodeURIComponent(cfg.owner) + "/" +
+          encodeURIComponent(cfg.repo) + "/contents/" + cfg.path +
+          "?ref=" + encodeURIComponent(cfg.branch || "main");
+    opts.headers = { Authorization: "Bearer " + cfg.token, Accept: "application/vnd.github.raw" };
+  } else {
+    url = "https://raw.githubusercontent.com/" + encodeURIComponent(cfg.owner) + "/" +
+          encodeURIComponent(cfg.repo) + "/" + encodeURIComponent(cfg.branch || "main") +
+          "/" + cfg.path + "?t=" + Date.now();
+  }
+  if (typeof fetch !== "function") {
+    setStatus("R\u00e9cup\u00e9ration auto indisponible dans ce navigateur \u2014 utilise le collage manuel", "err");
+    return Promise.resolve(false);
+  }
+  return fetch(url, opts).then(function (r) {
+    if (r.status === 401 || r.status === 403) throw new Error("acc\u00e8s refus\u00e9 \u2014 v\u00e9rifie le jeton");
+    if (r.status === 404) throw new Error("fichier introuvable \u2014 v\u00e9rifie d\u00e9p\u00f4t, branche et chemin");
+    if (!r.ok) throw new Error("erreur " + r.status);
+    return r.text();
+  }).then(function (t) {
+    applyBoard(JSON.parse(t), "Actualis\u00e9");
+    return true;
+  }).catch(function (e) {
+    var m = String(e.message || e);
+    if (/Failed to fetch|NetworkError|Load failed/i.test(m)) {
+      m = "connexion impossible \u2014 v\u00e9rifie ta connexion internet";
+    }
+    setStatus(m, "err");
+    return false;
+  });
+}
+
+document.getElementById("btn-cfg").addEventListener("click", function () {
+  var p = document.getElementById("cfg");
+  p.className = p.className.indexOf("hidden") >= 0 ? "card" : "card hidden";
+});
+document.getElementById("btn-refresh").addEventListener("click", function () { fetchRemote(false); });
+document.getElementById("btn-cfg-save").addEventListener("click", function () {
+  cfg.owner = document.getElementById("c-owner").value.trim();
+  cfg.repo = document.getElementById("c-repo").value.trim();
+  cfg.path = document.getElementById("c-path").value.trim() || "signals.json";
+  cfg.branch = document.getElementById("c-branch").value.trim() || "main";
+  cfg.token = document.getElementById("c-token").value.trim();
+  cfgSave();
+  var m = document.getElementById("cfg-msg");
+  m.textContent = "Test en cours\u2026"; m.className = "msg d";
+  fetchRemote(false).then(function (okr) {
+    m.textContent = okr ? "Connexion r\u00e9ussie." : "\u00c9chec \u2014 voir le message en haut.";
+    m.className = "msg " + (okr ? "g" : "r");
+  });
+});
+document.getElementById("btn-cfg-clear").addEventListener("click", function () {
+  cfg = { owner: "reggiefox-888", repo: "Detecteur", path: "signals.json", branch: "main", token: "" };
+  cfgSave(); cfgLoad();
+  document.getElementById("cfg-msg").textContent = "Configuration effac\u00e9e.";
+  document.getElementById("cfg-msg").className = "msg d";
+  setStatus("", "");
+});
+
+load();
+cfgLoad();
+render();
+if (cfgReady()) { fetchRemote(true); }
+else { document.getElementById("cfg").className = "card"; setStatus("Source \u00e0 configurer", ""); }
+</script>
+</body>
+</html>
