@@ -1,0 +1,99 @@
+# Test d'envoi d'email — exécution manuelle uniquement
+# Emplacement OBLIGATOIRE dans le dépôt : .github/workflows/test_email.yml
+#
+# Ce workflow ne fait qu'une chose : envoyer un email de vérification en
+# utilisant EXACTEMENT la même fonction send_email() que le détecteur.
+# Si cet email arrive, la chaîne (secrets -> Gmail -> ta boîte) est validée
+# et les vraies alertes partiront de la même façon.
+#
+# Il n'a pas de "schedule" : il ne se déclenche QUE si tu cliques sur
+# "Run workflow". Il ne scanne aucune paire et n'écrit aucun état.
+#
+# Utilisation : onglet Actions -> "Test email" -> bouton "Run workflow".
+
+name: Test email
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Recuperer le depot
+        uses: actions/checkout@v5
+
+      - name: Installer Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Verifier les secrets
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          ALERT_TO: ${{ secrets.ALERT_TO }}
+        run: |
+          python - <<'PY'
+          import os
+          noms = ["SMTP_HOST", "SMTP_PORT", "SMTP_USER", "SMTP_PASS", "ALERT_TO"]
+          manquants = [n for n in noms if not os.environ.get(n)]
+          for n in noms:
+              v = os.environ.get(n, "")
+              # On n'affiche JAMAIS la valeur : seulement present/absent + longueur
+              etat = f"present ({len(v)} caracteres)" if v else "ABSENT"
+              print(f"  {n:<10} : {etat}")
+          if manquants:
+              print("\n[!] Secrets manquants : " + ", ".join(manquants))
+              print("    Depot > Settings > Secrets and variables > Actions")
+              raise SystemExit(1)
+          if len(os.environ["SMTP_PASS"].replace(" ", "")) != 16:
+              print("\n[!] SMTP_PASS ne fait pas 16 caracteres.")
+              print("    Un mot de passe d'application Google en fait exactement 16,")
+              print("    sans les espaces. Verifie que tu n'as pas colle ton mot de")
+              print("    passe Gmail habituel a la place.")
+              raise SystemExit(1)
+          print("\nSecrets OK.")
+          PY
+
+      - name: Envoyer l'email de test
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          ALERT_TO: ${{ secrets.ALERT_TO }}
+        run: |
+          python - <<'PY'
+          from datetime import datetime, timezone
+          from detecteur_alertes import send_email
+
+          now = datetime.now(timezone.utc)
+          corps = (
+              "Test de configuration reussi.\n"
+              "=" * 40 + "\n\n"
+              f"Envoye le {now:%d/%m/%Y a %H:%M} UTC depuis GitHub Actions.\n\n"
+              "Si tu lis ce message, la chaine d'alerte fonctionne :\n"
+              "  - les secrets du depot sont correctement enregistres\n"
+              "  - la connexion a Gmail est etablie\n"
+              "  - les emails arrivent bien dans ta boite\n\n"
+              "Les vraies alertes emprunteront exactement ce chemin.\n"
+              "Elles auront pour objet : [Candidats] N detecte(s) - X hausse / Y baisse\n\n"
+              "Rappel : le detecteur n'envoie un email QUE lorsqu'il trouve\n"
+              "au moins un candidat. Un scan sans resultat reste silencieux.\n\n"
+              "Pense a ajouter cette adresse a tes contacts pour que les\n"
+              "prochains messages n'atterrissent pas dans les indesirables."
+          )
+          ok = send_email("[Test] Detecteur d'opportunites - configuration OK", corps)
+          print(corps)
+          if not ok:
+              print("\n[!] L'envoi a echoue. Causes frequentes :")
+              print("    - SMTP_PASS n'est pas un mot de passe d'application Google")
+              print("    - la validation en deux etapes a ete desactivee")
+              print("    - SMTP_HOST/PORT incorrects (attendu smtp.gmail.com / 465)")
+              raise SystemExit(1)
+          print("\nEmail envoye. Verifie ta boite, et le dossier Spam.")
+          PY
