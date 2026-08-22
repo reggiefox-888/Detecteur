@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Détecteur v3 — retournement scoré + suivi de position + alertes de sortie
+Détecteur v4 — univers élargi + suivi de position + alertes de sortie
 ==========================================================================
 
 CE QUI CHANGE (v3)
@@ -42,13 +42,27 @@ import urllib.request
 from datetime import datetime, timezone
 from email.message import EmailMessage
 
-PAIRS = [
+# --- univers scanné -------------------------------------------------------
+# Les 30 lignes du portefeuille sont TOUJOURS incluses, quel que soit leur rang.
+PORTFOLIO = [
     "SOLUSD", "AVAXUSD", "SUIUSD", "ADAUSD", "XRPUSD", "LINKUSD", "ETHUSD",
     "DOGEUSD", "DOTUSD", "APTUSD", "NEARUSD", "TIAUSD", "INJUSD", "TAOUSD",
     "FETUSD", "ARBUSD", "RENDERUSD", "JUPUSD", "ENAUSD", "ONDOUSD",
     "STXUSD", "POLUSD", "AAVEUSD", "TONUSD", "XLMUSD", "FILUSD",
     "HBARUSD", "GRTUSD", "PEPEUSD", "SHIBUSD",
 ]
+
+# Le reste de l'univers est découvert automatiquement à chaque scan :
+# toutes les paires USD de Kraken, classées par volume quotidien en dollars,
+# les MAX_PAIRS premières retenues. Un volume minimal écarte les paires
+# trop illiquides, où le spread mangerait tout avantage éventuel.
+MAX_PAIRS = 150            # taille totale de l'univers scanné
+MIN_DOLLAR_VOL = 200_000   # volume 24h minimum, en dollars
+UNIVERSE_CACHE_H = 24      # l'univers n'est recalculé qu'une fois par jour
+
+EXCLUS = {"USDT", "USDC", "DAI", "USDG", "EURC", "PYUSD", "TUSD", "USDS",
+          "RLUSD", "FDUSD", "USD", "ZUSD", "EUR", "GBP", "AUD", "CAD",
+          "CHF", "JPY"}
 
 INTERVAL_MIN = 60
 SCORE_MIN = 40
@@ -71,6 +85,8 @@ MACRO_EVENTS_UTC = [
 ]
 MACRO_WINDOW_H = 2
 API = "https://api.kraken.com/0/public/OHLC"
+API_PAIRS = "https://api.kraken.com/0/public/AssetPairs"
+API_TICKER = "https://api.kraken.com/0/public/Ticker"
 
 # ----------------------------------------------------------- indicateurs
 
@@ -222,6 +238,79 @@ def track(sig, closed, rsi, atr):
 
 # ----------------------------------------------------------- infrastructure
 
+def _get(url, retries=2, timeout=25):
+    for a in range(retries + 1):
+        try:
+            with urllib.request.urlopen(url, timeout=timeout) as r:
+                return json.loads(r.read().decode())
+        except Exception as e:
+            if a == retries:
+                return {"error": [str(e)]}
+            time.sleep(2)
+
+
+def build_universe(state):
+    """Univers = portefeuille + paires USD les plus liquides.
+    Deux requêtes seulement (AssetPairs + Ticker global), recalculé une
+    fois par jour et mémorisé dans l'état."""
+    cached = state.get("universe")
+    ts = state.get("universe_ts", 0)
+    if cached and time.time() - ts < UNIVERSE_CACHE_H * 3600:
+        print(f"  Univers en cache : {len(cached)} paires.")
+        return cached
+
+    d = _get(API_PAIRS)
+    if d.get("error"):
+        print(f"  [!] AssetPairs : {d['error']}")
+        return cached or list(PORTFOLIO)
+    usd = []
+    for _, info in d.get("result", {}).items():
+        alt = info.get("altname", "")
+        base = info.get("base", "").lstrip("X").lstrip("Z")
+        quote = info.get("quote", "").lstrip("X").lstrip("Z")
+        if quote != "USD" or base in EXCLUS or base.endswith("x"):
+            continue
+        if any(t in alt for t in (".", "_")):
+            continue
+        usd.append(alt)
+    usd = sorted(set(usd))
+
+    t = _get(API_TICKER)
+    vols = {}
+    if not t.get("error"):
+        for k, v in t.get("result", {}).items():
+            try:
+                # v["v"][1] = volume 24h, v["c"][0] = dernier prix
+                vols[k] = float(v["v"][1]) * float(v["c"][0])
+            except (KeyError, ValueError, IndexError):
+                continue
+
+    def dv(p):
+        if p in vols:
+            return vols[p]
+        for k in vols:
+            if k.replace("X", "").replace("Z", "") == p:
+                return vols[k]
+        return 0.0
+
+    liquides = [(p, dv(p)) for p in usd if p not in PORTFOLIO]
+    liquides = [(p, v) for p, v in liquides if v >= MIN_DOLLAR_VOL]
+    liquides.sort(key=lambda x: -x[1])
+
+    univers = list(PORTFOLIO)
+    for p, _ in liquides:
+        if len(univers) >= MAX_PAIRS:
+            break
+        univers.append(p)
+
+    state["universe"] = univers
+    state["universe_ts"] = time.time()
+    print(f"  Univers reconstruit : {len(univers)} paires "
+          f"({len(PORTFOLIO)} du portefeuille + {len(univers) - len(PORTFOLIO)} "
+          f"parmi {len(liquides)} liquides sur {len(usd)} paires USD).")
+    return univers
+
+
 def fetch_ohlc(pair, retries=2):
     url = f"{API}?pair={pair}&interval={INTERVAL_MIN}"
     for a in range(retries + 1):
@@ -254,11 +343,14 @@ def load_state():
         with open(STATE_FILE) as f:
             st = json.load(f)
         st.setdefault("last_by_pair", {})
+        st.setdefault("universe", None)
+        st.setdefault("universe_ts", 0)
         st.setdefault("active", [])
         st.setdefault("history", [])
         return st
     except Exception:
-        return {"last_by_pair": {}, "active": [], "history": []}
+        return {"last_by_pair": {}, "active": [], "history": [],
+                "universe": None, "universe_ts": 0}
 
 
 def save_json(path, data):
@@ -296,7 +388,7 @@ def fp(p):
 
 def main():
     now = datetime.now(timezone.utc)
-    print(f"[{now:%Y-%m-%d %H:%M} UTC] scan de {len(PAIRS)} paires (v3 suivi)")
+    print(f"[{now:%Y-%m-%d %H:%M} UTC] scan (v4 univers elargi)")
     ev = in_macro_window(now)
     if ev:
         print(f"  Fenêtre macro ({ev} UTC ±{MACRO_WINDOW_H}h) — scan suspendu "
@@ -304,10 +396,15 @@ def main():
         return
 
     state = load_state()
+    pairs = build_universe(state)
     entries, exits, still_open = [], [], []
     active_by_pair = {s["pair"]: s for s in state["active"]}
+    # une position ouverte est toujours suivie, même si sa paire sort de l'univers
+    for p in active_by_pair:
+        if p not in pairs:
+            pairs = pairs + [p]
 
-    for pair in PAIRS:
+    for pair in pairs:
         candles = fetch_ohlc(pair)
         time.sleep(1.1)
         if not candles or len(candles) < 100:
