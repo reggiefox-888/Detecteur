@@ -1,5 +1,22 @@
 {
- "generated": "2026-08-22 17:54 UTC",
- "active": [],
+ "generated": "2026-08-22 23:08 UTC",
+ "active": [
+  {
+   "id": "1787432400",
+   "dir": "short",
+   "score": 47,
+   "entry": 0.216,
+   "entry_ts": 1787432400,
+   "stop_init": 0.24483372527768238,
+   "risk": 0.02883372527768238,
+   "pair": "STXUSD",
+   "stop": 0.2435554898,
+   "extreme": 0.216,
+   "breakeven": false,
+   "last_price": 0.223,
+   "r_latent": -0.24,
+   "maj_ts": 1787436000
+  }
+ ],
  "history": []
 }
