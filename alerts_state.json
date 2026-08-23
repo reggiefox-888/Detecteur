@@ -79,7 +79,11 @@
    "TRIAUSD": 1787497085.3370955,
    "CAKEUSD": 1787497121.4229336,
    "KNTQUSD": 1787500516.548074,
-   "MNTUSD": 1787500532.080228
+   "MNTUSD": 1787500532.080228,
+   "INJUSD": 1787504303.968833,
+   "AAVEUSD": 1787504342.6326687,
+   "PENGUUSD": 1787504414.9400911,
+   "CFGUSD": 1787504637.7930899
   },
   "5m": {
    "ENAUSD": 1787479142.9034076,
@@ -94,6 +98,66 @@
  },
  "active": [
   {
+   "id": "1787500800",
+   "sens": "short",
+   "score": 62,
+   "rsi": 77.7,
+   "meche": 29,
+   "volume_x": 2.98,
+   "prix": 5.276,
+   "ts": 1787500800,
+   "pair": "INJUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 5.276,
+   "variation": -0.0
+  },
+  {
+   "id": "1787500800",
+   "sens": "short",
+   "score": 50,
+   "rsi": 70.4,
+   "meche": 76,
+   "volume_x": 1.46,
+   "prix": 139.84,
+   "ts": 1787500800,
+   "pair": "AAVEUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 139.84,
+   "variation": -0.0
+  },
+  {
+   "id": "1787502600",
+   "sens": "short",
+   "score": 72,
+   "rsi": 80.3,
+   "meche": 35,
+   "volume_x": 6.67,
+   "prix": 0.009393,
+   "ts": 1787502600,
+   "pair": "PENGUUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.009393,
+   "variation": -0.0
+  },
+  {
    "id": "1787497200",
    "sens": "short",
    "score": 64,
@@ -106,11 +170,34 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": false,
+   "fwd": {
+    "1": -1.58,
+    "3": -1.02
+   },
+   "efm": 0.33,
+   "eam": -2.53,
+   "bougies_ecoulees": 3,
+   "prix_actuel": 0.18295,
+   "variation": -1.02
+  },
+  {
+   "id": "1787502600",
+   "sens": "short",
+   "score": 47,
+   "rsi": 71.6,
+   "meche": 60,
+   "volume_x": 1.21,
+   "prix": 0.1434,
+   "ts": 1787502600,
+   "pair": "CFGUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
    "fwd": {},
    "efm": null,
    "eam": null,
    "bougies_ecoulees": 0,
-   "prix_actuel": 0.18111,
+   "prix_actuel": 0.1434,
    "variation": -0.0
   },
   {
@@ -126,12 +213,15 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.5035,
-   "variation": -0.0
+   "fwd": {
+    "1": -1.11,
+    "3": -2.9
+   },
+   "efm": -0.1,
+   "eam": -3.4,
+   "bougies_ecoulees": 3,
+   "prix_actuel": 0.5181,
+   "variation": -2.9
   }
  ],
  "history": [
@@ -733,8 +823,8 @@
  ],
  "perps_ts": 1787464459.9909942,
  "last_scan": {
-  "1j": 1787497121.4229429,
-  "30m": 1787500533.368512,
-  "5m": 1787500533.3685138
+  "1j": 1787504661.2428415,
+  "30m": 1787504661.2428446,
+  "5m": 1787504661.2428453
  }
 }
