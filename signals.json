@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-22 23:52 UTC",
+ "generated": "2026-08-23 02:47 UTC",
  "active": [
   {
    "id": "1787432400",
@@ -10,13 +10,26 @@
    "stop_init": 0.24483372527768238,
    "risk": 0.02883372527768238,
    "pair": "STXUSD",
-   "stop": 0.2435554898,
+   "stop": 0.2409778466,
    "extreme": 0.216,
    "breakeven": false,
-   "last_price": 0.223,
-   "r_latent": -0.24,
-   "maj_ts": 1787436000
+   "last_price": 0.2217,
+   "r_latent": -0.2,
+   "maj_ts": 1787446800
   }
  ],
- "history": []
+ "history": [],
+ "watch": [
+  {
+   "dir": "short",
+   "score": 85,
+   "rsi": 82.3,
+   "seuil": 0.3741,
+   "last": 0.3935,
+   "dist": 4.93,
+   "restant": 3,
+   "ts": 1787446800,
+   "pair": "TRACUSD"
+  }
+ ]
 }
