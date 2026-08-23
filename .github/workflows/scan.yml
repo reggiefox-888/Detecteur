@@ -1,39 +1,27 @@
-# Détecteur d'opportunités — exécution horaire dans le cloud (GitHub Actions)
-# Emplacement OBLIGATOIRE dans le dépôt : .github/workflows/scan.yml
-#
-# Ce fichier fait tourner detecteur_alertes.py toutes les heures sur les
-# serveurs de GitHub. Les identifiants email sont lus depuis les "Secrets"
-# du dépôt (Settings > Secrets and variables > Actions) — jamais en clair.
-# Le fichier d'état (alerts_state.json) est sauvegardé dans le dépôt après
-# chaque scan, ce qui évite les alertes en double d'une exécution à l'autre.
-#
-# Notes honnêtes :
-#  - L'horaire GitHub peut glisser de quelques minutes : sans importance ici.
-#  - Dépôt PRIVÉ recommandé. Quota gratuit : 2000 min/mois ; ce scan en
-#    consomme environ 700-900. Ça tient.
-#  - L'onglet "Actions" > exécution > logs montre la sortie console de
-#    chaque scan : c'est là qu'on lira les éventuelles erreurs de paires.
-
 name: Detecteur opportunites
 
 on:
   schedule:
-    - cron: "7 * * * *"        # chaque heure, à h+07 (UTC)
-  workflow_dispatch: {}         # bouton "Run workflow" pour tester à la main
+    - cron: "7 * * * *"
+  workflow_dispatch: {}
 
 permissions:
-  contents: write               # nécessaire pour sauvegarder l'état
+  contents: write
+
+concurrency:
+  group: detecteur-scan
+  cancel-in-progress: false
 
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - name: Recuperer le depot
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Installer Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -51,5 +39,18 @@ jobs:
           git config user.name "detecteur-bot"
           git config user.email "actions@users.noreply.github.com"
           git add alerts_state.json signals.json 2>/dev/null || true
-          git diff --cached --quiet || git commit -m "maj etat [skip ci]"
-          git push
+          if git diff --cached --quiet; then
+            echo "Rien a sauvegarder."
+            exit 0
+          fi
+          git commit -m "maj etat [skip ci]"
+          for i in 1 2 3; do
+            if git pull --rebase --autostash origin main && git push origin main; then
+              echo "Etat sauvegarde (tentative $i)."
+              exit 0
+            fi
+            echo "Tentative $i echouee, nouvel essai dans 5s..."
+            sleep 5
+          done
+          echo "::warning::Sauvegarde impossible apres 3 tentatives."
+          echo "Le scan s'est bien deroule ; au pire une alerte pourra se repeter."
