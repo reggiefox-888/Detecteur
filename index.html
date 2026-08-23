@@ -68,6 +68,10 @@ input:focus{outline:none;border-color:var(--amb)}
 @media(min-width:560px){.pos-out{grid-template-columns:repeat(5,1fr)}}
 .bar{position:relative;height:6px;border-radius:3px;background:#26262b;margin-top:8px;overflow:hidden}
 .bar>i{position:absolute;top:0;bottom:0;left:0;border-radius:3px}
+.spark{margin-top:10px;border:1px solid var(--line2);border-radius:6px;background:#0e0e11;padding:6px}
+.spark svg{display:block;width:100%;height:70px}
+.spark-l{display:flex;justify-content:space-between;font-size:10px;color:var(--dim3);margin-top:2px}
+.spark-w{height:70px;display:flex;align-items:center;justify-content:center;color:var(--dim3);font-size:11px}
 .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:middle}
 </style>
 </head>
@@ -77,11 +81,12 @@ input:focus{outline:none;border-color:var(--amb)}
     <div class="row">
       <div>
         <h1>Tableau des signaux</h1>
-        <p class="sub">Entrées, stops suiveurs, sorties et journal d'observation <span style="color:var(--amb)">— version 13, sens au choix</span></p>
+        <p class="sub">Entrées, stops suiveurs, sorties et journal d'observation <span style="color:var(--amb)">— version 15, graphiques</span></p>
       </div>
       <div class="row" style="gap:12px">
         <span id="status" style="font-size:12px;color:var(--dim2)"></span>
         <span id="gen" class="mono" style="font-size:12px;color:var(--dim2)"></span>
+        <button class="link" id="btn-scan">Lancer un scan</button>
         <button class="link" id="btn-refresh">Actualiser</button>
         <button class="link" id="btn-cfg">Source</button>
         <button class="link" id="btn-save">Sauvegarder</button>
@@ -116,6 +121,15 @@ input:focus{outline:none;border-color:var(--amb)}
       <div class="lbl" style="margin-bottom:4px">Jeton de lecture — uniquement si le dépôt est privé</div>
       <input type="password" id="c-token" placeholder="github_pat_… (laisser vide si le dépôt est public)">
       <p class="d3" style="font-size:12px;margin:6px 0 0">Jeton restreint recommandé : lecture seule, ce seul dépôt, avec expiration. Il est enregistré dans ce navigateur uniquement et n'est envoyé qu'à GitHub.</p>
+    </div>
+    <div style="margin-top:10px">
+      <div class="lbl" style="margin-bottom:4px">Jeton de déclenchement — facultatif, pour lancer un scan depuis cette page</div>
+      <input type="password" id="c-dispatch" placeholder="github_pat_… (laisser vide : le bouton ouvrira GitHub)">
+      <p class="d3" style="font-size:12px;margin:6px 0 0">
+        Sans jeton, « Lancer un scan » ouvre simplement la page GitHub où tu cliques toi-même.
+        Avec un jeton, la page déclenche le scan directement — il faut alors la permission
+        « Actions : Read and write », qui donne un accès en écriture à ton dépôt.
+        À n’utiliser que si tu es à l’aise avec ça.</p>
     </div>
     <div class="row" style="justify-content:flex-start;gap:12px;margin-top:12px">
       <button class="primary" id="btn-cfg-save">Enregistrer et tester</button>
@@ -331,13 +345,104 @@ function renderActive() {
         '<div><span class="d">Prix </span>' + fp(s.last_price) + "</div>" +
         '<div><span class="d">Stop suiveur </span><span style="color:#fca5a5">' + fp(s.stop) + "</span></div>" +
         '<div><span class="d">\u00e0 </span>' + (sd === null ? "\u2014" : fmt(sd) + " %") + "</div>" +
-      "</div>" + gauge(s) + sim(s) +
-      posForm("sig-" + sid(s), s.pair, s.dir, s.last_price, s.stop) +
+      "</div>" +
+      sparkline(s.pair, s.mode, [
+        { v: s.entry, c: "#a1a1aa" },
+        { v: s.stop, c: "#f87171" },
+        { v: s.stop_init, c: "#dc2626", d: "1 4" }
+      ]) + gauge(s) + sim(s) +
+      posForm("sig-" + sid(s), s.pair, s.dir, s.last_price, s.stop, s.mode) +
       annot(sid(s)) + "</div>";
   }).join("");
 }
 
 /* ---------- carnet de positions ---------- */
+/* ---------- mini-graphiques de cours ---------- */
+var ohlc = {};            // "PAIR_INTERVAL" -> {rows, ts, etat}
+var fileAttente = [];     // requetes en attente
+var enCours = false;
+var INTERVALLES = { "1j": 1440, "30m": 30, "5m": 5 };
+var TTL_MS = { 1440: 300000, 30: 120000, 5: 60000 };
+
+function traiterFile() {
+  if (enCours || !fileAttente.length || typeof fetch !== "function") return;
+  enCours = true;
+  var job = fileAttente.shift();
+  var url = "https://api.kraken.com/0/public/OHLC?pair=" + job.pair +
+            "&interval=" + job.interval;
+  fetch(url, { cache: "no-store" }).then(function (r) { return r.json(); })
+    .then(function (d) {
+      if (d.error && d.error.length) throw new Error(d.error[0]);
+      var res = d.result || {};
+      var k = null;
+      for (var x in res) { if (x !== "last") { k = x; break; } }
+      if (!k) throw new Error("vide");
+      var rows = res[k].slice(-70).map(function (c) {
+        return { t: +c[0], h: +c[2], l: +c[3], c: +c[4] };
+      });
+      ohlc[job.cle] = { rows: rows, ts: Date.now(), etat: "ok" };
+    }).catch(function () {
+      ohlc[job.cle] = { rows: null, ts: Date.now(), etat: "err" };
+    }).then(function () {
+      enCours = false;
+      setTimeout(function () { traiterFile(); render(); }, 350);
+    });
+}
+
+function demander(pair, interval) {
+  var cle = pair + "_" + interval;
+  var e = ohlc[cle];
+  if (e && Date.now() - e.ts < (TTL_MS[interval] || 120000)) return e;
+  if (e && e.etat === "attente") return e;
+  ohlc[cle] = { rows: (e && e.rows) || null, ts: Date.now(), etat: "attente" };
+  if (!fileAttente.some(function (j) { return j.cle === cle; })) {
+    fileAttente.push({ cle: cle, pair: pair, interval: interval });
+  }
+  traiterFile();
+  return ohlc[cle];
+}
+
+function sparkline(pair, mode, niveaux) {
+  var interval = INTERVALLES[mode || "1j"] || 1440;
+  var e = demander(pair, interval);
+  if (!e || !e.rows || !e.rows.length) {
+    return '<div class="spark"><div class="spark-w">' +
+      (e && e.etat === "err" ? "graphique indisponible" : "chargement du graphique\u2026") +
+      "</div></div>";
+  }
+  var rows = e.rows, W = 600, H = 70, P = 4;
+  var vals = [];
+  rows.forEach(function (r) { vals.push(r.h, r.l); });
+  (niveaux || []).forEach(function (n) { if (isFinite(n.v)) vals.push(n.v); });
+  var lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals);
+  var span = (hi - lo) || 1;
+  var X = function (i) { return P + i / (rows.length - 1 || 1) * (W - 2 * P); };
+  var Y = function (v) { return P + (1 - (v - lo) / span) * (H - 2 * P); };
+
+  var aire = rows.map(function (r, i) { return X(i) + "," + Y(r.c); }).join(" ");
+  var monte = rows[rows.length - 1].c >= rows[0].c;
+  var col = monte ? "#34d399" : "#f87171";
+
+  var lignes = (niveaux || []).filter(function (n) { return isFinite(n.v); })
+    .map(function (n) {
+      var y = Y(n.v);
+      return '<line x1="' + P + '" y1="' + y + '" x2="' + (W - P) + '" y2="' + y +
+        '" stroke="' + n.c + '" stroke-width="1" stroke-dasharray="' +
+        (n.d || "3 3") + '" opacity="0.9"/>';
+    }).join("");
+
+  var dernier = rows[rows.length - 1].c;
+  return '<div class="spark"><svg viewBox="0 0 ' + W + " " + H +
+    '" preserveAspectRatio="none">' + lignes +
+    '<polyline points="' + aire + '" fill="none" stroke="' + col +
+    '" stroke-width="1.4" vector-effect="non-scaling-stroke"/>' +
+    '<circle cx="' + X(rows.length - 1) + '" cy="' + Y(dernier) +
+    '" r="2.5" fill="' + col + '"/></svg>' +
+    '<div class="spark-l"><span>' + rows.length + " bougies \u00b7 " +
+    (mode === "5m" ? "5 min" : mode === "30m" ? "30 min" : "1 jour") + "</span>" +
+    "<span>" + fp(lo) + " \u2013 " + fp(hi) + "</span></div></div>";
+}
+
 function badgeMode(x) {
   var c = x.mode || "1j";
   var nom = x.mode_nom || (c === "1j" ? "journalier" : c);
@@ -369,10 +474,11 @@ function calcPos(p) {
            liq: liq, distLiq: distLiq, liqPct: liqPct, live: !!live[p.pair] };
 }
 
-function posForm(cle, pair, dir, prixDefaut, stopSignal) {
+function posForm(cle, pair, dir, prixDefaut, stopSignal, mode) {
   if (openForm !== cle) {
     return '<button data-openpos="' + esc(cle) + '" data-pair="' + esc(pair) +
       '" data-dir="' + esc(dir) + '" data-px="' + esc(prixDefaut) +
+      '" data-mode="' + esc(mode || "1j") +
       '" data-stop="' + esc(stopSignal === undefined || stopSignal === null ? "" : stopSignal) +
       '" style="margin-top:8px">Ouvrir une position</button>';
   }
@@ -464,6 +570,10 @@ function renderPositions() {
         ? '<div class="warn">Liquidation AVANT le stop du signal : \u00e0 ce levier, la position ' +
           'serait ferm\u00e9e d\u2019office avant que la th\u00e8se ne soit invalid\u00e9e.</div>'
         : "") +
+      sparkline(p.pair, p.mode || "1j", [
+        { v: p.entry, c: "#a1a1aa" },
+        { v: c.liq, c: "#dc2626", d: "1 4" }
+      ].concat(p.stop ? [{ v: p.stop, c: "#f87171" }] : [])) +
       '<div class="row" style="justify-content:flex-start;gap:8px;margin-top:10px">' +
         '<input type="number" step="any" data-exit="' + esc(p.id) + '" placeholder="prix de sortie" style="width:140px">' +
         '<button data-closepos="' + esc(p.id) + '">Cl\u00f4turer</button>' +
@@ -529,7 +639,9 @@ function renderWatch() {
             (L ? '<span class="live">\u25cf</span>' : "") + "</div>" +
           '<div><span class="d">Seuil d\u2019exc\u00e8s </span>' +
             (x.dir === "long" ? "RSI 30" : "RSI 70") + "</div>" +
-        "</div>" + posForm("app-" + x.pair, x.pair, x.dir, px, null) + "</div>";
+        "</div>" +
+        sparkline(x.pair, x.mode, []) +
+        posForm("app-" + x.pair, x.pair, x.dir, px, null, x.mode) + "</div>";
     }).join("");
 }
 
@@ -694,6 +806,7 @@ document.addEventListener("click", function (e) {
   if (b.dataset.openpos) {
     openForm = b.dataset.openpos;
     brouillon = { dir: b.dataset.dir, pair: b.dataset.pair,
+                  mode: b.dataset.mode || "1j",
                   stop: b.dataset.stop ? parseFloat(b.dataset.stop) : null,
                   sigdir: b.dataset.dir };
     render();
@@ -844,7 +957,7 @@ function startLive() {
 }
 
 /* ---------- source distante GitHub ---------- */
-var cfg = { owner: "reggiefox-888", repo: "Detecteur", path: "signals.json", branch: "main", token: "" };
+var cfg = { owner: "reggiefox-888", repo: "Detecteur", path: "signals.json", branch: "main", token: "", dispatch: "" };
 
 function cfgLoad() {
   try {
@@ -856,6 +969,7 @@ function cfgLoad() {
   document.getElementById("c-path").value = cfg.path;
   document.getElementById("c-branch").value = cfg.branch;
   document.getElementById("c-token").value = cfg.token;
+  document.getElementById("c-dispatch").value = cfg.dispatch;
 }
 function cfgSave() {
   try { localStorage.setItem("signals-source-v1", JSON.stringify(cfg)); } catch (e) {}
@@ -928,6 +1042,49 @@ function fetchRemote(silent) {
   });
 }
 
+function lancerScan() {
+  if (!cfgReady()) { setStatus("Source non configur\u00e9e", "err"); return; }
+  var actions = "https://github.com/" + cfg.owner + "/" + cfg.repo +
+                "/actions/workflows/scan.yml";
+  if (!cfg.dispatch) {
+    window.open(actions, "_blank");
+    setStatus("Page GitHub ouverte \u2014 clique sur \u00ab Run workflow \u00bb", "wait");
+    return;
+  }
+  setStatus("D\u00e9clenchement du scan\u2026", "wait");
+  fetch("https://api.github.com/repos/" + cfg.owner + "/" + cfg.repo +
+        "/actions/workflows/scan.yml/dispatches", {
+    method: "POST",
+    headers: { Authorization: "Bearer " + cfg.dispatch,
+               Accept: "application/vnd.github+json",
+               "Content-Type": "application/json" },
+    body: JSON.stringify({ ref: cfg.branch || "main" })
+  }).then(function (r) {
+    if (r.status === 204) {
+      setStatus("Scan lanc\u00e9 \u2014 r\u00e9sultats dans 3 \u00e0 6 min", "ok");
+      var essais = 0;
+      var t = setInterval(function () {
+        essais++;
+        fetchRemote(true);
+        if (essais >= 8) clearInterval(t);   // ~8 min de surveillance
+      }, 60000);
+      return;
+    }
+    if (r.status === 401 || r.status === 403) {
+      throw new Error("jeton refus\u00e9 \u2014 permission \u00ab Actions: Read and write \u00bb requise");
+    }
+    if (r.status === 404) {
+      throw new Error("workflow introuvable \u2014 v\u00e9rifie le nom scan.yml");
+    }
+    throw new Error("erreur " + r.status);
+  }).catch(function (e) {
+    setStatus(String(e.message || e), "err");
+    window.open(actions, "_blank");
+  });
+}
+
+document.getElementById("btn-scan").addEventListener("click", lancerScan);
+
 document.getElementById("btn-cfg").addEventListener("click", function () {
   var p = document.getElementById("cfg");
   p.className = p.className.indexOf("hidden") >= 0 ? "card" : "card hidden";
@@ -939,6 +1096,7 @@ document.getElementById("btn-cfg-save").addEventListener("click", function () {
   cfg.path = document.getElementById("c-path").value.trim() || "signals.json";
   cfg.branch = document.getElementById("c-branch").value.trim() || "main";
   cfg.token = document.getElementById("c-token").value.trim();
+  cfg.dispatch = document.getElementById("c-dispatch").value.trim();
   cfgSave();
   var m = document.getElementById("cfg-msg");
   m.textContent = "Test en cours\u2026"; m.className = "msg d";
@@ -948,7 +1106,7 @@ document.getElementById("btn-cfg-save").addEventListener("click", function () {
   });
 });
 document.getElementById("btn-cfg-clear").addEventListener("click", function () {
-  cfg = { owner: "reggiefox-888", repo: "Detecteur", path: "signals.json", branch: "main", token: "" };
+  cfg = { owner: "reggiefox-888", repo: "Detecteur", path: "signals.json", branch: "main", token: "", dispatch: "" };
   cfgSave(); cfgLoad();
   document.getElementById("cfg-msg").textContent = "Configuration effac\u00e9e.";
   document.getElementById("cfg-msg").className = "msg d";
