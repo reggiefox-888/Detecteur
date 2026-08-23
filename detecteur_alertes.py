@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Détecteur v6 — entrée directe, suivi 2 ATR, univers élargi + suivi de position + alertes de sortie
+Détecteur v8 — trois modes : journalier, 30 min, 5 min, univers élargi + suivi de position + alertes de sortie
 ==========================================================================
 
 CE QUI CHANGE (v3)
@@ -64,17 +64,42 @@ EXCLUS = {"USDT", "USDC", "DAI", "USDG", "EURC", "PYUSD", "TUSD", "USDS",
           "RLUSD", "FDUSD", "USD", "ZUSD", "EUR", "GBP", "AUD", "CAD",
           "CHF", "JPY"}
 
-INTERVAL_MIN = 60
-SCORE_MIN = 40
+# --- deux modes simultanés, mesurés (test_horizons.py, 6 horizons, ~1000
+# --- signaux chacun, facteurs de profit BRUT et NET de frais) :
+#       5 min  brut 1,51  net 0,47      1 h   brut 0,82  net 0,44
+#      15 min  brut 1,46  net 0,52      4 h   brut 0,77  net 0,57
+#      30 min  brut 1,34  net 0,56      1 j   brut 1,13  net 1,02
+#
+# JOURNALIER  seul horizon dont l'espérance nette est positive (+0,006R).
+#             Stop moyen 20,8 % : incompatible avec un fort levier.
+# 30 MINUTES  meilleur compromis parmi les horizons courts. Signal brut
+#             solide (1,34) mais frais à 0,403R : NET PERDANT (0,56).
+#             Conservé pour l'observation des retournements rapides,
+#             pas parce qu'il serait rentable.
+#
+# L'horizon 1 h, utilisé jusqu'ici, était le pire des six sur les deux
+# critères. Il est abandonné.
+MODES = [
+    # cle          intervalle  scan tous les   univers  cooldown  email
+    {"nom": "journalier", "cle": "1j", "interval": 1440,
+     "scan_every_min": 60, "max_pairs": 150, "cooldown_h": 48, "email": True},
+    {"nom": "30 minutes", "cle": "30m", "interval": 30,
+     "scan_every_min": 30, "max_pairs": 150, "cooldown_h": 6, "email": True},
+    # Le 5 minutes n'envoie PAS d'email : le test a mesuré ~4,6 signaux par
+    # paire et par jour, soit près de 200 par jour sur 40 paires. Il alimente
+    # le tableau, qu'on consulte à la demande. Univers réduit aux 40 paires
+    # les plus liquides pour tenir dans une fenêtre de scan de 10 minutes.
+    {"nom": "5 minutes", "cle": "5m", "interval": 5,
+     "scan_every_min": 10, "max_pairs": 40, "cooldown_h": 2, "email": False},
+]
+
+SCORE_MIN = 40             # seuil du score de retournement
 RSI_LEN, MA_LEN, ATR_LEN = 14, 20, 14
-CONFIRM_BARS = 3
-ATR_STOP_MULT = 1.5
-TRAIL_MULT = 2.0           # mesuré : 1,08 de facteur de profit contre 0,90 à 3 ATR
-                           # et 0,90 à 4 ATR, sur 1006 signaux (test_sortie.py).
-                           # Écart cohérent sur les 4 variantes de sortie et
-                           # sur les deux moitiés de période (1,01 et 1,14).
-MAX_HOLD = 240
-COOLDOWN_HOURS = 24
+ATR_STOP_MULT = 1.5        # marge sous le pivot pour le stop initial
+TRAIL_MULT = 2.0           # mesuré : facteur 1,08 contre 0,90 à 3 et 4 ATR
+                           # (test_sortie.py, 1006 signaux, tenu sur les deux
+                           # moitiés de période : 1,01 et 1,14)
+MAX_HOLD = 60              # bougies : sortie forcée (60 j ou 30 h selon le mode)
 HISTORY_KEEP = 50
 
 BASE = os.path.dirname(os.path.abspath(__file__))
@@ -373,8 +398,8 @@ def build_universe(state):
     return univers
 
 
-def fetch_ohlc(pair, retries=2):
-    url = f"{API}?pair={pair}&interval={INTERVAL_MIN}"
+def fetch_ohlc(pair, interval, retries=2):
+    url = f"{API}?pair={pair}&interval={interval}"
     for a in range(retries + 1):
         try:
             with urllib.request.urlopen(url, timeout=15) as r:
@@ -405,17 +430,21 @@ def load_state():
         with open(STATE_FILE) as f:
             st = json.load(f)
         st.setdefault("last_by_pair", {})
+        if st["last_by_pair"] and not all(
+                isinstance(v, dict) for v in st["last_by_pair"].values()):
+            st["last_by_pair"] = {}      # ancien format : on repart propre
         st.setdefault("universe", None)
         st.setdefault("universe_ts", 0)
         st.setdefault("perps", None)
         st.setdefault("perps_ts", 0)
+        st.setdefault("last_scan", {})
         st.setdefault("active", [])
         st.setdefault("history", [])
         return st
     except Exception:
         return {"last_by_pair": {}, "active": [], "history": [],
                 "universe": None, "universe_ts": 0,
-                "perps": None, "perps_ts": 0}
+                "perps": None, "perps_ts": 0, "last_scan": {}}
 
 
 def save_json(path, data):
@@ -453,126 +482,183 @@ def fp(p):
 
 def main():
     now = datetime.now(timezone.utc)
-    print(f"[{now:%Y-%m-%d %H:%M} UTC] scan (v6 suivi 2 ATR)")
+    print(f"[{now:%Y-%m-%d %H:%M} UTC] scan (v8 multi-mode : "
+          + " + ".join(m["nom"] for m in MODES) + ")")
     ev = in_macro_window(now)
     if ev:
-        print(f"  Fenêtre macro ({ev} UTC ±{MACRO_WINDOW_H}h) — scan suspendu "
-              f"(entrées ET suivi).")
+        print(f"  Fenêtre macro ({ev} UTC ±{MACRO_WINDOW_H}h) — scan suspendu.")
         return
 
     state = load_state()
     pairs = build_universe(state)
     bases = perp_bases(state)
+
     entries, exits, still_open, watch = [], [], [], []
-    active_by_pair = {s["pair"]: s for s in state["active"]}
-    # une position ouverte est toujours suivie, même si sa paire sort de l'univers
-    for p in active_by_pair:
+    # positions ouvertes indexées par (paire, mode)
+    active_by_key = {(s["pair"], s.get("mode", "1j")): s for s in state["active"]}
+    for (p, _m) in active_by_key:
         if p not in pairs:
             pairs = pairs + [p]
 
+    # Quels modes sont dus ? Chacun a sa propre cadence : inutile de
+    # retélécharger des bougies journalières toutes les 10 minutes.
+    dus = []
+    for m in MODES:
+        ecoule = (time.time() - state["last_scan"].get(m["cle"], 0)) / 60
+        if ecoule >= m["scan_every_min"] - 1:
+            dus.append(m)
+    if not dus:
+        print("  Aucun mode dû à cette exécution.")
+        return
+    print("  Modes scannés : " + ", ".join(m["nom"] for m in dus))
+
     for pair in pairs:
-        candles = fetch_ohlc(pair)
-        time.sleep(1.1)
-        if not candles or len(candles) < 100:
-            if pair in active_by_pair:
-                still_open.append(active_by_pair[pair])
-            continue
-        closed = candles[:-1]
-        rsi = rsi_series([c["c"] for c in closed])
-        atr = atr_series(closed)
+        for mode in dus:
+            cle, interval = mode["cle"], mode["interval"]
+            if pairs.index(pair) >= mode["max_pairs"]:
+                continue
+            candles = fetch_ohlc(pair, interval)
+            time.sleep(1.1)
+            if not candles or len(candles) < 100:
+                k = (pair, cle)
+                if k in active_by_key:
+                    still_open.append(active_by_key[k])
+                continue
+            closed = candles[:-1]
+            rsi = rsi_series([c["c"] for c in closed])
+            atr = atr_series(closed)
 
-        if pair in active_by_pair:
-            status, res = track(active_by_pair[pair], closed, rsi, atr)
-            if status == "closed":
-                exits.append(res)
-                state["last_by_pair"][pair] = time.time()
-            else:
-                still_open.append(res)
-            continue
+            k = (pair, cle)
+            if k in active_by_key:
+                status, res = track(active_by_key[k], closed, rsi, atr)
+                res["mode"] = cle
+                res["mode_nom"] = mode["nom"]
+                if status == "closed":
+                    exits.append(res)
+                    state["last_by_pair"].setdefault(cle, {})[pair] = time.time()
+                else:
+                    still_open.append(res)
+                continue
 
-        w = detect_watch(closed, rsi)
-        if w:
-            w["pair"] = pair
-            w["perp"] = has_perp(pair, bases)
-            watch.append(w)
+            w = detect_watch(closed, rsi)
+            if w:
+                w.update({"pair": pair, "mode": cle, "mode_nom": mode["nom"],
+                          "perp": has_perp(pair, bases)})
+                watch.append(w)
 
-        last_ts = state["last_by_pair"].get(pair, 0)
-        if time.time() - last_ts < COOLDOWN_HOURS * 3600:
-            continue
-        sig = detect_entry(closed, rsi, atr)
-        if sig:
-            sig["pair"] = pair
-            sig["perp"] = has_perp(pair, bases)
-            status, res = track(sig, closed, rsi, atr)
-            if status == "open":
-                entries.append(res)
-                still_open.append(res)
-                state["last_by_pair"][pair] = time.time()
+            last_ts = state["last_by_pair"].get(cle, {}).get(pair, 0)
+            if time.time() - last_ts < mode["cooldown_h"] * 3600:
+                continue
+            sig = detect_entry(closed, rsi, atr)
+            if sig:
+                sig.update({"pair": pair, "mode": cle, "mode_nom": mode["nom"],
+                            "perp": has_perp(pair, bases)})
+                status, res = track(sig, closed, rsi, atr)
+                if status == "open":
+                    res["mode"] = cle
+                    res["mode_nom"] = mode["nom"]
+                    entries.append(res)
+                    still_open.append(res)
+                    state["last_by_pair"].setdefault(cle, {})[pair] = time.time()
 
+    for m in dus:
+        state["last_scan"][m["cle"]] = time.time()
     state["active"] = still_open
     state["history"] = (state["history"] + exits)[-HISTORY_KEEP:]
     save_json(STATE_FILE, state)
 
-    watch.sort(key=lambda x: x["reste"])
+    watch.sort(key=lambda x: (x["mode"], x["reste"]))
     board = {"generated": now.strftime("%Y-%m-%d %H:%M UTC"),
+             "modes": [{"cle": m["cle"], "nom": m["nom"]} for m in MODES],
              "active": still_open, "history": state["history"],
-             "watch": watch[:25]}
+             "watch": watch[:40]}
     save_json(SIGNALS_FILE, board)
 
-    if entries or exits:
-        lines = [f"Scan du {now:%d/%m/%Y %H:%M} UTC", "=" * 56, ""]
-        if entries:
-            lines.append(f"ENTRÉES CONFIRMÉES ({len(entries)})")
-            for s in entries:
-                sd = (s["entry"] - s["stop_init"]) / s["entry"] * 100
-                if s["dir"] == "short":
-                    sd = -sd
-                lines += [
-                    f"  {s['dir'].upper():5} {s['pair']}  score {s['score']}",
-                    f"    Entrée {fp(s['entry'])} | Invalidation {fp(s['stop_init'])}"
-                    f" ({abs(sd):.2f} %)",
-                    f"    Perpétuel Kraken : "
-                    + ("oui" if s.get("perp") else "NON — spot uniquement"
-                       if s.get("perp") is False else "inconnu"), ""]
-        if exits:
-            lines.append(f"ALERTES DE SORTIE ({len(exits)})")
-            for s in exits:
-                lines += [
-                    f"  {s['pair']} ({s['dir']}) — {s['motif']}",
-                    f"    Entrée {fp(s['entry'])} -> Sortie {fp(s['exit'])}"
-                    f"  |  Résultat : {s['r']:+.2f}R", ""]
+    def par_mode(liste):
+        d = {}
+        for x in liste:
+            d.setdefault(x.get("mode", "1j"), []).append(x)
+        return d
+
+    modes_mail = {m["cle"] for m in MODES if m["email"]}
+    e_mail = [x for x in entries if x.get("mode") in modes_mail]
+    x_mail = [x for x in exits if x.get("mode") in modes_mail]
+
+    if e_mail or x_mail:
+        entries, exits = e_mail, x_mail
+        lines = [f"Scan du {now:%d/%m/%Y %H:%M} UTC", "=" * 60, ""]
+        for mode in MODES:
+            cle, nom = mode["cle"], mode["nom"]
+            e_m = [x for x in entries if x.get("mode") == cle]
+            x_m = [x for x in exits if x.get("mode") == cle]
+            if not e_m and not x_m:
+                continue
+            lines += [f"### MODE {nom.upper()}", ""]
+            if e_m:
+                lines.append(f"  ENTRÉES ({len(e_m)})")
+                for s in e_m:
+                    sd = abs(s["entry"] - s["stop_init"]) / s["entry"] * 100
+                    lines += [
+                        f"    {s['dir'].upper():5} {s['pair']}  score {s['score']}",
+                        f"      Entrée {fp(s['entry'])} | Invalidation "
+                        f"{fp(s['stop_init'])} ({sd:.2f} %)",
+                        f"      Perpétuel : " + ("oui" if s.get("perp")
+                                                 else "NON — spot uniquement"
+                                                 if s.get("perp") is False else "inconnu"),
+                        ""]
+            if x_m:
+                lines.append(f"  SORTIES ({len(x_m)})")
+                for s in x_m:
+                    lines += [f"    {s['pair']} ({s['dir']}) — {s['motif']}",
+                              f"      {fp(s['entry'])} -> {fp(s['exit'])}  |  "
+                              f"{s['r']:+.2f}R", ""]
+        po = par_mode(still_open)
         if still_open:
             lines.append(f"POSITIONS SUIVIES ({len(still_open)})")
-            for s in still_open:
-                lines.append(f"  {s['pair']} {s['dir']} | stop suiveur {fp(s['stop'])}"
-                             f" | latent {s['r_latent']:+.2f}R"
-                             f"{' | point mort acquis' if s.get('breakeven') else ''}")
+            for mode in MODES:
+                for s in po.get(mode["cle"], []):
+                    lines.append(f"  [{mode['nom']}] {s['pair']} {s['dir']} | "
+                                 f"stop {fp(s['stop'])} | latent {s['r_latent']:+.2f}R")
             lines.append("")
         lines += [
-            "-" * 56,
-            "MODE OBSERVATION : stratégie non validée par backtest long.",
-            "Chaque signal se note dans le journal, rien ne s'engage.",
+            "-" * 60,
+            "MODE OBSERVATION.",
+            "Journalier : seul horizon dont l'espérance nette est positive",
+            "  (facteur 1,02 net de frais). Stop moyen 20,8 % : levier faible.",
+            "30 minutes : meilleur signal brut (1,34) mais NET PERDANT (0,56),",
+            "  les frais y pèsent 0,403R. Observation uniquement.",
+            "5 minutes  : signal brut le plus fort (1,51) mais frais à 0,634R,",
+            "  net 0,47. Visible dans le tableau, jamais par email (trop nombreux).",
             "",
-            "=== DONNÉES TABLEAU DE BORD (copier tout le bloc, accolades",
-            "=== comprises, et le coller dans l'application) ===",
+            "=== DONNÉES TABLEAU DE BORD (copier tout le bloc) ===",
             json.dumps(board, separators=(",", ":")),
         ]
         n_e, n_x = len(entries), len(exits)
-        subject = f"[Signaux] {n_e} entrée(s), {n_x} sortie(s), {len(still_open)} suivie(s)"
+        det = "  ".join(f"{m['cle']}:{len([x for x in entries if x.get('mode')==m['cle']])}"
+                        for m in MODES)
+        subject = f"[Signaux] {n_e} entrée(s) ({det}), {n_x} sortie(s)"
         body = "\n".join(lines)
         print("\n" + body + "\n")
         send_email(subject, body)
     else:
-        print(f"  Aucun événement. Positions suivies : {len(still_open)}, "
-              f"en surveillance : {len(watch)}.")
+        pw = par_mode(watch)
+        print(f"  Aucun événement. Suivies : {len(still_open)}, "
+              f"en approche : "
+              + ", ".join(f"{m['nom']} {len(pw.get(m['cle'], []))}" for m in MODES) + ".")
+
     if watch:
-        print(f"\n  APPROCHE ({len(watch)}) — RSI entrant en zone d'alerte :")
-        for w in watch[:10]:
-            print(f"    {w['pair']:<12} {w['dir']:<5} RSI {w['rsi']:>5}  "
-                  f"encore {w['reste']:>4} pts avant la zone d'excès"
-                  + ("" if w.get("perp") else "  [pas de perp]"
-                     if w.get("perp") is False else "  [perp inconnu]"))
-        print("  (l'approche ne déclenche pas d'email : ce ne sont pas des signaux)")
+        pw = par_mode(watch)
+        for mode in MODES:
+            lst = pw.get(mode["cle"], [])
+            if not lst:
+                continue
+            print(f"\n  APPROCHE — {mode['nom']} ({len(lst)}) :")
+            for w in lst[:8]:
+                print(f"    {w['pair']:<12} {w['dir']:<5} RSI {w['rsi']:>5}  "
+                      f"encore {w['reste']:>4} pts"
+                      + ("" if w.get("perp") else "  [pas de perp]"
+                         if w.get("perp") is False else ""))
+        print("  (l'approche ne déclenche pas d'email)")
 
     print("  Scan terminé.")
 
