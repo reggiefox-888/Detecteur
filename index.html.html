@@ -53,6 +53,14 @@ input[type=text],input[type=password]{background:#0e0e11;border:1px solid var(--
 input:focus{outline:none;border-color:var(--amb)}
 .cfg{display:grid;gap:8px 12px;grid-template-columns:1fr}
 @media(min-width:560px){.cfg{grid-template-columns:repeat(2,1fr)}}
+.sim{margin-top:10px;padding-top:10px;border-top:1px solid var(--line2)}
+.sim-in{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.sim-in input{width:90px}
+.sim-out{display:grid;gap:8px 14px;grid-template-columns:repeat(2,1fr);margin-top:10px;font-size:12px}
+@media(min-width:560px){.sim-out{grid-template-columns:repeat(4,1fr)}}
+.live{font-size:11px;color:var(--grn);margin-left:6px}
+.stale{font-size:11px;color:var(--dim3);margin-left:6px}
+.warn{margin-top:8px;padding:6px 9px;border-radius:6px;border:1px solid #b91c1c;background:var(--red-bg);color:#fca5a5;font-size:12px}
 .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:middle}
 </style>
 </head>
@@ -62,7 +70,7 @@ input:focus{outline:none;border-color:var(--amb)}
     <div class="row">
       <div>
         <h1>Tableau des signaux</h1>
-        <p class="sub">Entrées, stops suiveurs, sorties et journal d'observation <span style="color:var(--amb)">— version 4, source pré-configurée</span></p>
+        <p class="sub">Entrées, stops suiveurs, sorties et journal d'observation <span style="color:var(--amb)">— version 6, prix en direct</span></p>
       </div>
       <div class="row" style="gap:12px">
         <span id="status" style="font-size:12px;color:var(--dim2)"></span>
@@ -193,6 +201,53 @@ function gauge(s) {
          fp(lo) + '</span><span class="mono">' + fp(hi) + '</span></div>';
 }
 
+function sim(s0) {
+  var s = withLive(s0);
+  var k = "sim-" + sid(s);
+  var p = state.notes[k] || {};
+  var mise = p.mise === undefined ? "" : p.mise;
+  var lev = p.lev === undefined ? "" : p.lev;
+  var head = '<div class="sim"><div class="sim-in">' +
+    '<span class="lbl" style="margin-right:2px">Simulation</span>' +
+    '<input type="number" step="any" min="0" data-sim="mise" data-key="' + esc(k) +
+      '" value="' + esc(mise) + '" placeholder="montant \u20ac">' +
+    '<input type="number" step="any" min="1" max="100" data-sim="lev" data-key="' + esc(k) +
+      '" value="' + esc(lev) + '" placeholder="levier">' +
+    "</div>";
+  var m = parseFloat(mise), L = parseFloat(lev);
+  if (!(m > 0) || !(L >= 1)) {
+    return head + '<p class="d3" style="font-size:12px;margin:8px 0 0">Saisis un montant et un levier pour voir le r\u00e9sultat en direct, ce qu\u2019il adviendrait au stop, et le prix de liquidation.</p></div>';
+  }
+  var e = s.entry, lp = s.last_price, st = s.stop;
+  var sens = s.dir === "long" ? 1 : -1;
+  var varPct = (lp - e) / e * 100 * sens;          // variation favorable en %
+  var varStop = (st - e) / e * 100 * sens;         // variation au stop
+  var notion = m * L;
+  var pnl = notion * varPct / 100;
+  var pnlStop = notion * varStop / 100;
+  var liqPct = -100 / L;                           // perte totale du capital engag\u00e9
+  var liqPrix = e * (1 + sens * liqPct / 100);
+  var distLiq = Math.abs(liqPrix - lp) / lp * 100;
+  var stopAvantLiq = Math.abs(varStop) < Math.abs(liqPct);
+
+  var cell = function (lab, val, cl) {
+    return '<div><div class="lbl">' + lab + '</div><div class="mono ' + (cl || "") + '">' + val + "</div></div>";
+  };
+  var out = '<div class="sim-out">' +
+    cell("Position notionnelle", fmt(notion) + " \u20ac", "") +
+    cell("R\u00e9sultat actuel", (pnl >= 0 ? "+" : "") + fmt(pnl) + " \u20ac", cls(pnl)) +
+    cell("Si le stop est touch\u00e9", fmt(pnlStop) + " \u20ac", "r") +
+    cell("Prix de liquidation", fp(liqPrix), "r") + "</div>";
+  var av = '<p class="d3" style="font-size:12px;margin:8px 0 0">\u00c0 ce levier, une variation de ' +
+    fmt(Math.abs(liqPct)) + " % contre toi efface le capital engag\u00e9. La liquidation est \u00e0 " +
+    fmt(distLiq) + " % du prix actuel ; le stop, lui, est \u00e0 " + fmt(Math.abs(varStop - varPct)) + " %.</p>";
+  var alerte = stopAvantLiq ? "" :
+    '<div class="warn">Liquidation AVANT le stop : \u00e0 ' + fmt(L) + "x, la position serait ferm\u00e9e d\u2019office (perte de " +
+    fmt(m) + " \u20ac) avant m\u00eame que l\u2019invalidation du signal ne soit atteinte. Le stop suppose " +
+    fmt(Math.abs(varStop)) + " % de marge, le levier n\u2019en laisse que " + fmt(Math.abs(liqPct)) + " %.</div>";
+  return head + out + av + alerte + "</div>";
+}
+
 function annot(id) {
   var n = state.notes[id] || {}, v = n.verdict, o = state.open === id;
   var b1 = '<button data-verdict="pris" data-id="' + esc(id) + '"' +
@@ -217,7 +272,8 @@ function renderActive() {
     el.innerHTML = '<div class="empty">Aucune position en cours. Le prochain email d\'entr\u00e9e alimentera cette vue.</div>';
     return;
   }
-  el.innerHTML = a.map(function (s) {
+  el.innerHTML = a.map(function (s0) {
+    var s = withLive(s0);
     var sd = s.last_price ? Math.abs(s.last_price - s.stop) / s.last_price * 100 : null;
     return '<div class="card"><div class="row">' +
       '<div class="row" style="gap:10px;justify-content:flex-start">' +
@@ -228,13 +284,15 @@ function renderActive() {
         (s.breakeven ? '<span class="tag t-n">point mort acquis</span>' : "") +
       "</div>" +
       '<span class="mono ' + cls(s.r_latent) + '">' + (s.r_latent > 0 ? "+" : "") +
-        fmt(s.r_latent) + "R latent</span></div>" +
+        fmt(s.r_latent) + "R latent" +
+        (s.live ? '<span class="live">\u25cf direct</span>'
+                : '<span class="stale">dernier scan</span>') + "</span></div>" +
       '<div class="grid mono">' +
         '<div><span class="d">Entr\u00e9e </span>' + fp(s.entry) + "</div>" +
-        '<div><span class="d">le </span>' + dt(s.entry_ts) + "</div>" +
+        '<div><span class="d">Prix </span>' + fp(s.last_price) + "</div>" +
         '<div><span class="d">Stop suiveur </span><span style="color:#fca5a5">' + fp(s.stop) + "</span></div>" +
         '<div><span class="d">\u00e0 </span>' + (sd === null ? "\u2014" : fmt(sd) + " %") + "</div>" +
-      "</div>" + gauge(s) + annot(sid(s)) + "</div>";
+      "</div>" + gauge(s) + sim(s) + annot(sid(s)) + "</div>";
   }).join("");
 }
 
@@ -396,6 +454,17 @@ document.addEventListener("click", function (e) {
 });
 
 document.addEventListener("input", function (e) {
+  var f = e.target.dataset ? e.target.dataset.sim : null;
+  if (f) {
+    var k = e.target.dataset.key, n = state.notes[k] || {};
+    n[f] = e.target.value;
+    state.notes[k] = n;
+    var pos = e.target.selectionStart;
+    save(); render();
+    var again = document.querySelector('input[data-sim="' + f + '"][data-key="' + k + '"]');
+    if (again) { again.focus(); try { again.setSelectionRange(pos, pos); } catch (x) {} }
+    return;
+  }
   var id = e.target.dataset ? e.target.dataset.note : null;
   if (!id) return;
   var n = state.notes[id] || {};
@@ -404,6 +473,63 @@ document.addEventListener("input", function (e) {
   clearTimeout(window.__t);
   window.__t = setTimeout(save, 400);
 });
+
+/* ---------- prix instantanes Kraken ---------- */
+var live = {};        // { PAIRUSD: {price, ts} }
+var liveTimer = null;
+
+/* Recalcule tout ce qui depend du prix : R latent, extreme, point mort.
+   Le stop suiveur n'est PAS recalcule : il ne bouge qu'au scan horaire,
+   c'est le detecteur qui en est la source de verite. */
+function withLive(s) {
+  var L = live[s.pair];
+  if (!L || !isFinite(L.price)) return s;
+  var o = {};
+  for (var k in s) o[k] = s[k];
+  o.last_price = L.price;
+  o.live = true;
+  o.live_ts = L.ts;
+  var sens = s.dir === "long" ? 1 : -1;
+  o.extreme = s.dir === "long" ? Math.max(s.extreme, L.price) : Math.min(s.extreme, L.price);
+  if (s.risk > 0) {
+    o.r_latent = Math.round(((L.price - s.entry) * sens / s.risk) * 100) / 100;
+    o.breakeven = s.breakeven || ((o.extreme - s.entry) * sens / s.risk) >= 1;
+  }
+  return o;
+}
+
+function fetchLive() {
+  var pairs = (state.data.active || []).map(function (s) { return s.pair; });
+  if (!pairs.length || typeof fetch !== "function") return Promise.resolve(false);
+  var url = "https://api.kraken.com/0/public/Ticker?pair=" + pairs.join(",");
+  return fetch(url, { cache: "no-store" }).then(function (r) {
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    return r.json();
+  }).then(function (d) {
+    if (d.error && d.error.length) throw new Error(d.error[0]);
+    var res = d.result || {}, now = Date.now(), n = 0;
+    for (var key in res) {
+      var px = parseFloat(res[key].c && res[key].c[0]);
+      if (!isFinite(px)) continue;
+      var norm = key.replace(/^X/, "").replace("ZUSD", "USD");
+      pairs.forEach(function (p) {
+        if (p === key || p === norm || p.replace("USD", "") === norm.replace("USD", "")) {
+          live[p] = { price: px, ts: now }; n++;
+        }
+      });
+    }
+    if (n) render();
+    return n > 0;
+  }).catch(function (e) {
+    return false;
+  });
+}
+
+function startLive() {
+  if (liveTimer) clearInterval(liveTimer);
+  fetchLive();
+  liveTimer = setInterval(fetchLive, 60000);   // toutes les 60 s
+}
 
 /* ---------- source distante GitHub ---------- */
 var cfg = { owner: "reggiefox-888", repo: "Detecteur", path: "signals.json", branch: "main", token: "" };
@@ -430,6 +556,8 @@ function setStatus(txt, kind) {
   var col = kind === "ok" ? "#34d399" : kind === "err" ? "#f87171" : "#71717a";
   el.innerHTML = '<span class="dot" style="background:' + col + '"></span>' + txt;
 }
+
+function applyBoardThenLive(p, source) { applyBoard(p, source); startLive(); }
 
 function applyBoard(p, source) {
   if (!p || (!Array.isArray(p.active) && !Array.isArray(p.history))) {
@@ -474,7 +602,7 @@ function fetchRemote(silent) {
     if (!r.ok) throw new Error("erreur " + r.status);
     return r.text();
   }).then(function (t) {
-    applyBoard(JSON.parse(t), "Actualis\u00e9");
+    applyBoardThenLive(JSON.parse(t), "Actualis\u00e9");
     return true;
   }).catch(function (e) {
     var m = String(e.message || e);
@@ -516,6 +644,7 @@ document.getElementById("btn-cfg-clear").addEventListener("click", function () {
 load();
 cfgLoad();
 render();
+startLive();
 if (cfgReady()) { fetchRemote(true); }
 else { document.getElementById("cfg").className = "card"; setStatus("Source \u00e0 configurer", ""); }
 </script>
