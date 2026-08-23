@@ -61,6 +61,13 @@ input:focus{outline:none;border-color:var(--amb)}
 .live{font-size:11px;color:var(--grn);margin-left:6px}
 .stale{font-size:11px;color:var(--dim3);margin-left:6px}
 .warn{margin-top:8px;padding:6px 9px;border-radius:6px;border:1px solid #b91c1c;background:var(--red-bg);color:#fca5a5;font-size:12px}
+.posform{margin-top:8px;padding:10px;border:1px solid var(--amb);border-radius:6px;background:#17130a}
+.posform .cfg{grid-template-columns:repeat(2,1fr)}
+@media(min-width:560px){.posform .cfg{grid-template-columns:repeat(4,1fr)}}
+.pos-out{display:grid;gap:6px 14px;grid-template-columns:repeat(2,1fr);margin-top:8px;font-size:12px}
+@media(min-width:560px){.pos-out{grid-template-columns:repeat(5,1fr)}}
+.bar{position:relative;height:6px;border-radius:3px;background:#26262b;margin-top:8px;overflow:hidden}
+.bar>i{position:absolute;top:0;bottom:0;left:0;border-radius:3px}
 .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:middle}
 </style>
 </head>
@@ -70,7 +77,7 @@ input:focus{outline:none;border-color:var(--amb)}
     <div class="row">
       <div>
         <h1>Tableau des signaux</h1>
-        <p class="sub">Entrées, stops suiveurs, sorties et journal d'observation <span style="color:var(--amb)">— version 7, surveillance</span></p>
+        <p class="sub">Entrées, stops suiveurs, sorties et journal d'observation <span style="color:var(--amb)">— version 10, carnet de positions</span></p>
       </div>
       <div class="row" style="gap:12px">
         <span id="status" style="font-size:12px;color:var(--dim2)"></span>
@@ -119,6 +126,11 @@ input:focus{outline:none;border-color:var(--amb)}
   </section>
 
   <section class="sec">
+    <h2>Mes positions <span class="d3" id="n-pos"></span></h2>
+    <div id="positions"></div>
+  </section>
+
+  <section class="sec">
     <h2>Positions suivies <span class="d3" id="n-act"></span></h2>
     <div id="active"></div>
     <div class="legend hidden" id="legend">
@@ -131,7 +143,7 @@ input:focus{outline:none;border-color:var(--amb)}
   </section>
 
   <section class="sec">
-    <h2>En surveillance <span class="d3" id="n-wat"></span></h2>
+    <h2>En approche <span class="d3" id="n-wat"></span></h2>
     <div id="watch"></div>
   </section>
 
@@ -155,12 +167,15 @@ function load() {
     if (d) state.data = JSON.parse(d);
     var n = localStorage.getItem("signals-notes-v1");
     if (n) state.notes = JSON.parse(n);
+    var p = localStorage.getItem("signals-positions-v1");
+    if (p) positions = JSON.parse(p);
   } catch (e) {}
 }
 function save() {
   try {
     localStorage.setItem("signals-board-v1", JSON.stringify(state.data));
     localStorage.setItem("signals-notes-v1", JSON.stringify(state.notes));
+    localStorage.setItem("signals-positions-v1", JSON.stringify(positions));
   } catch (e) {}
 }
 
@@ -246,11 +261,14 @@ function sim(s0) {
   var av = '<p class="d3" style="font-size:12px;margin:8px 0 0">\u00c0 ce levier, une variation de ' +
     fmt(Math.abs(liqPct)) + " % contre toi efface le capital engag\u00e9. La liquidation est \u00e0 " +
     fmt(distLiq) + " % du prix actuel ; le stop, lui, est \u00e0 " + fmt(Math.abs(varStop - varPct)) + " %.</p>";
+  var pasDePerp = (s.perp === false && L > 1)
+    ? '<div class="warn">Cette paire n\u2019a pas de perp\u00e9tuel sur Kraken : le levier n\u2019y est pas disponible. La simulation ci-dessus est th\u00e9orique.</div>'
+    : "";
   var alerte = stopAvantLiq ? "" :
     '<div class="warn">Liquidation AVANT le stop : \u00e0 ' + fmt(L) + "x, la position serait ferm\u00e9e d\u2019office (perte de " +
     fmt(m) + " \u20ac) avant m\u00eame que l\u2019invalidation du signal ne soit atteinte. Le stop suppose " +
     fmt(Math.abs(varStop)) + " % de marge, le levier n\u2019en laisse que " + fmt(Math.abs(liqPct)) + " %.</div>";
-  return head + out + av + alerte + "</div>";
+  return head + out + av + pasDePerp + alerte + "</div>";
 }
 
 function annot(id) {
@@ -287,6 +305,7 @@ function renderActive() {
           (s.dir === "long" ? "hausse" : "baisse") + "</span>" +
         '<span class="d" style="font-size:12px">score ' + esc(s.score) + "</span>" +
         (s.breakeven ? '<span class="tag t-n">point mort acquis</span>' : "") +
+        (s.perp === false ? '<span class="tag" style="border-color:#52525b;color:#a1a1aa">spot uniquement</span>' : "") +
       "</div>" +
       '<span class="mono ' + cls(s.r_latent) + '">' + (s.r_latent > 0 ? "+" : "") +
         fmt(s.r_latent) + "R latent" +
@@ -297,8 +316,128 @@ function renderActive() {
         '<div><span class="d">Prix </span>' + fp(s.last_price) + "</div>" +
         '<div><span class="d">Stop suiveur </span><span style="color:#fca5a5">' + fp(s.stop) + "</span></div>" +
         '<div><span class="d">\u00e0 </span>' + (sd === null ? "\u2014" : fmt(sd) + " %") + "</div>" +
-      "</div>" + gauge(s) + sim(s) + annot(sid(s)) + "</div>";
+      "</div>" + gauge(s) + sim(s) +
+      posForm("sig-" + sid(s), s.pair, s.dir, s.last_price, s.stop) +
+      annot(sid(s)) + "</div>";
   }).join("");
+}
+
+/* ---------- carnet de positions ---------- */
+function prixLive(pair, fallback) {
+  var L = live[pair];
+  return (L && isFinite(L.price)) ? L.price : fallback;
+}
+
+function calcPos(p) {
+  var px = prixLive(p.pair, p.entry);
+  var sens = p.dir === "long" ? 1 : -1;
+  var varPct = (px - p.entry) / p.entry * 100 * sens;
+  var notion = p.amount * p.leverage;
+  var pnl = notion * varPct / 100;
+  var pnlPct = varPct * p.leverage;
+  var liqPct = -100 / p.leverage;
+  var liq = p.entry * (1 + sens * liqPct / 100);
+  var distLiq = Math.abs(liq - px) / px * 100;
+  return { px: px, varPct: varPct, notion: notion, pnl: pnl, pnlPct: pnlPct,
+           liq: liq, distLiq: distLiq, liqPct: liqPct, live: !!live[p.pair] };
+}
+
+function posForm(cle, pair, dir, prixDefaut, stopSignal) {
+  if (openForm !== cle) {
+    return '<button data-openpos="' + esc(cle) + '" data-pair="' + esc(pair) +
+      '" data-dir="' + esc(dir) + '" data-px="' + esc(prixDefaut) +
+      '" data-stop="' + esc(stopSignal === undefined || stopSignal === null ? "" : stopSignal) +
+      '" style="margin-top:8px">Ouvrir une position</button>';
+  }
+  var px = prixLive(pair, prixDefaut);
+  return '<div class="posform"><div class="lbl" style="margin-bottom:8px">' +
+    "Nouvelle position \u2014 " + esc(pair) + " \u00b7 " +
+    (dir === "long" ? "hausse" : "baisse") + "</div><div class=\"cfg\">" +
+    '<div><div class="lbl" style="margin-bottom:4px">Prix d\u2019entr\u00e9e</div>' +
+      '<input type="number" step="any" id="np-entry" value="' + px + '"></div>' +
+    '<div><div class="lbl" style="margin-bottom:4px">Montant \u20ac</div>' +
+      '<input type="number" step="any" min="0" id="np-amount" placeholder="500"></div>' +
+    '<div><div class="lbl" style="margin-bottom:4px">Levier</div>' +
+      '<input type="number" step="1" min="1" max="50" id="np-lev" value="1"></div>' +
+    '<div style="display:flex;align-items:flex-end;gap:8px">' +
+      '<button class="primary" data-savepos="' + esc(cle) + '">Enregistrer</button>' +
+      '<button data-cancelpos="1">Annuler</button></div>' +
+    "</div><p class=\"d3\" style=\"font-size:12px;margin:8px 0 0\">" +
+    "Carnet de suivi uniquement : aucune position n\u2019est ouverte sur Kraken." +
+    "</p></div>";
+}
+
+function renderPositions() {
+  var el = document.getElementById("positions");
+  var ouvertes = positions.filter(function (p) { return p.status === "open"; });
+  var closes = positions.filter(function (p) { return p.status === "closed"; });
+  document.getElementById("n-pos").textContent = "(" + ouvertes.length + ")";
+  if (!positions.length) {
+    el.innerHTML = '<div class="empty">Aucune position. Utilise \u00ab Ouvrir une position \u00bb ' +
+      'sur un signal ou une paire en approche.</div>';
+    return;
+  }
+  var html = ouvertes.map(function (p) {
+    var c = calcPos(p);
+    var liqProche = c.distLiq < 15;
+    var largeur = Math.max(0, Math.min(100, 100 - c.distLiq / 30 * 100));
+    return '<div class="card"><div class="row">' +
+      '<div class="row" style="gap:10px;justify-content:flex-start">' +
+        '<span class="mono" style="font-weight:500">' + esc(p.pair) + "</span>" +
+        '<span class="tag ' + (p.dir === "long" ? "t-g" : "t-r") + '">' +
+          (p.dir === "long" ? "hausse" : "baisse") + "</span>" +
+        '<span class="d" style="font-size:12px">' + fmt(p.amount) + " \u20ac \u00b7 " +
+          fmt(p.leverage, 0) + "x</span>" +
+        (c.live ? '<span class="live">\u25cf direct</span>' : '<span class="stale">dernier scan</span>') +
+      "</div>" +
+      '<span class="mono ' + cls(c.pnl) + '" style="font-size:15px">' +
+        (c.pnl >= 0 ? "+" : "") + fmt(c.pnl) + " \u20ac <span style=\"font-size:12px\">(" +
+        (c.pnlPct >= 0 ? "+" : "") + fmt(c.pnlPct) + " %)</span></span></div>" +
+      '<div class="pos-out mono">' +
+        '<div><span class="d">Entr\u00e9e </span>' + fp(p.entry) + "</div>" +
+        '<div><span class="d">Prix </span>' + fp(c.px) + "</div>" +
+        '<div><span class="d">Variation </span><span class="' + cls(c.varPct) + '">' +
+          (c.varPct >= 0 ? "+" : "") + fmt(c.varPct) + " %</span></div>" +
+        '<div><span class="d">Notionnel </span>' + fmt(c.notion) + " \u20ac</div>" +
+        '<div><span class="d">Liquidation </span><span class="r">' + fp(c.liq) + "</span></div>" +
+      "</div>" +
+      (p.leverage > 1
+        ? '<div class="bar"><i style="width:' + largeur + '%;background:' +
+          (liqProche ? "#dc2626" : "#3f3f46") + '"></i></div>' +
+          '<p class="d3" style="font-size:12px;margin:6px 0 0">Liquidation \u00e0 ' +
+          fmt(c.distLiq) + ' % du prix actuel' +
+          (p.stop ? ' \u00b7 stop du d\u00e9tecteur \u00e0 ' + fp(p.stop) : "") + "</p>"
+        : "") +
+      (p.leverage > 1 && p.stop && (
+        (p.dir === "long" && c.liq > p.stop) || (p.dir === "short" && c.liq < p.stop))
+        ? '<div class="warn">Liquidation AVANT le stop du signal : \u00e0 ce levier, la position ' +
+          'serait ferm\u00e9e d\u2019office avant que la th\u00e8se ne soit invalid\u00e9e.</div>'
+        : "") +
+      '<div class="row" style="justify-content:flex-start;gap:8px;margin-top:10px">' +
+        '<input type="number" step="any" data-exit="' + esc(p.id) + '" placeholder="prix de sortie" style="width:140px">' +
+        '<button data-closepos="' + esc(p.id) + '">Cl\u00f4turer</button>' +
+        '<button data-delpos="' + esc(p.id) + '" class="link" style="margin-left:auto">Supprimer</button>' +
+      "</div></div>";
+  }).join("");
+
+  if (closes.length) {
+    var tot = closes.reduce(function (a, p) { return a + (p.pnl || 0); }, 0);
+    var gag = closes.filter(function (p) { return (p.pnl || 0) > 0; }).length;
+    html += '<div class="card"><div class="lbl" style="margin-bottom:8px">' +
+      "Positions cl\u00f4tur\u00e9es (" + closes.length + ")</div>" +
+      closes.slice().reverse().map(function (p) {
+        return '<div class="row mono" style="font-size:12px;padding:3px 0">' +
+          "<span>" + esc(p.pair) + " \u00b7 " + fmt(p.leverage, 0) + "x \u00b7 " +
+          fp(p.entry) + " \u2192 " + fp(p.exit) + "</span>" +
+          '<span class="' + cls(p.pnl) + '">' + (p.pnl >= 0 ? "+" : "") +
+          fmt(p.pnl) + " \u20ac</span></div>";
+      }).join("") +
+      '<div class="row mono" style="margin-top:8px;padding-top:8px;border-top:1px solid var(--line)">' +
+      '<span class="d" style="font-size:12px">Total \u00b7 ' + gag + "/" + closes.length +
+      " gagnantes</span>" + '<span class="' + cls(tot) + '">' + (tot >= 0 ? "+" : "") +
+      fmt(tot) + " \u20ac</span></div></div>";
+  }
+  el.innerHTML = html;
 }
 
 function renderWatch() {
@@ -306,34 +445,33 @@ function renderWatch() {
   var w = (state.data.watch || []).slice();
   document.getElementById("n-wat").textContent = "(" + w.length + ")";
   if (!w.length) {
-    el.innerHTML = '<div class="empty">Aucun exc\u00e8s en attente de confirmation.</div>';
+    el.innerHTML = '<div class="empty">Aucune paire en zone d\u2019alerte RSI.</div>';
     return;
   }
   el.innerHTML = '<p class="d3" style="font-size:12px;margin:0 0 8px">' +
-    'Exc\u00e8s rep\u00e9r\u00e9s, confirmation pas encore obtenue. M\u00eames crit\u00e8res que pour un signal, ' +
-    'rien n\u2019est assoupli. Aucun email n\u2019est envoy\u00e9 tant qu\u2019il n\u2019y a pas confirmation, ' +
-    'et la plupart de ces lignes n\u2019aboutiront pas.</p>' +
+    'RSI entrant en zone d\u2019alerte, sans avoir atteint le seuil d\u2019exc\u00e8s. ' +
+    'Ce ne sont PAS des signaux et aucun email n\u2019est envoy\u00e9 : simplement une vue ' +
+    'sur ce qui se pr\u00e9pare. La plupart n\u2019iront pas jusqu\u2019\u00e0 l\u2019exc\u00e8s.</p>' +
     w.map(function (x) {
       var L = live[x.pair];
       var px = (L && isFinite(L.price)) ? L.price : x.last;
-      var d = x.dir === "long" ? (x.seuil - px) / px * 100 : (px - x.seuil) / px * 100;
-      var proche = d <= 1.0;
+      var proche = x.reste <= 3;
       return '<div class="card" style="padding:8px 12px"><div class="row">' +
         '<div class="row" style="gap:10px;justify-content:flex-start">' +
           '<span class="mono" style="font-weight:500">' + esc(x.pair) + "</span>" +
           '<span class="tag ' + (x.dir === "long" ? "t-g" : "t-r") + '">' +
-            (x.dir === "long" ? "rebond attendu" : "repli attendu") + "</span>" +
-          '<span class="d" style="font-size:12px">score ' + esc(x.score) +
-          " \u00b7 RSI " + esc(x.rsi) + "</span>" +
+            (x.dir === "long" ? "vers survente" : "vers surachat") + "</span>" +
+          '<span class="d" style="font-size:12px">RSI ' + esc(x.rsi) + "</span>" +
+          (x.perp === false ? '<span class="tag" style="border-color:#52525b;color:#a1a1aa">spot uniquement</span>' : "") +
         "</div>" +
         '<span class="mono ' + (proche ? "g" : "d") + '" style="font-size:12px">' +
-          (d > 0 ? "+" : "") + fmt(d) + " % \u00e0 parcourir</span></div>" +
-        '<div class="grid mono" style="grid-template-columns:repeat(3,1fr)">' +
+          "encore " + fmt(x.reste, 1) + " pts de RSI</span></div>" +
+        '<div class="grid mono" style="grid-template-columns:repeat(2,1fr)">' +
           '<div><span class="d">Prix </span>' + fp(px) +
             (L ? '<span class="live">\u25cf</span>' : "") + "</div>" +
-          '<div><span class="d">Confirmation \u00e0 </span>' + fp(x.seuil) + "</div>" +
-          '<div><span class="d">Reste </span>' + esc(x.restant) + " bougie(s)</div>" +
-        "</div></div>";
+          '<div><span class="d">Seuil d\u2019exc\u00e8s </span>' +
+            (x.dir === "long" ? "RSI 30" : "RSI 70") + "</div>" +
+        "</div>" + posForm("app-" + x.pair, x.pair, x.dir, px, null) + "</div>";
     }).join("");
 }
 
@@ -415,7 +553,7 @@ function renderBilan() {
 function render() {
   document.getElementById("gen").textContent =
     state.data.generated ? "Import : " + state.data.generated : "";
-  renderActive(); renderWatch(); renderClosed(); renderBilan();
+  renderPositions(); renderActive(); renderWatch(); renderClosed(); renderBilan();
 }
 
 function msg(t, okc) {
@@ -483,6 +621,59 @@ document.getElementById("file").addEventListener("change", function (e) {
 document.addEventListener("click", function (e) {
   var b = e.target.closest ? e.target.closest("button") : null;
   if (!b) return;
+  if (b.dataset.openpos) {
+    openForm = b.dataset.openpos; render();
+    var f = document.getElementById("np-amount");
+    if (f) f.focus();
+    return;
+  }
+  if (b.dataset.cancelpos) { openForm = null; render(); return; }
+  if (b.dataset.savepos) {
+    var entry = parseFloat((document.getElementById("np-entry") || {}).value);
+    var amount = parseFloat((document.getElementById("np-amount") || {}).value);
+    var lev = parseFloat((document.getElementById("np-lev") || {}).value);
+    if (!(entry > 0) || !(amount > 0) || !(lev >= 1)) {
+      msg("Prix, montant et levier doivent \u00eatre renseign\u00e9s.", false);
+      return;
+    }
+    var src = document.querySelector('[data-openpos="' + b.dataset.savepos + '"]');
+    var meta = src ? src.dataset : null;
+    var cle = b.dataset.savepos;
+    var carte = document.querySelector('[data-savepos="' + cle + '"]').closest(".card");
+    var pair = (meta && meta.pair) || (carte ? (carte.querySelector(".mono") || {}).textContent : "");
+    var dir = (meta && meta.dir) || "long";
+    var stop = meta && meta.stop ? parseFloat(meta.stop) : null;
+    if (!meta) {
+      var last = positions.__pending || {};
+      pair = last.pair || pair; dir = last.dir || dir; stop = last.stop || stop;
+    }
+    positions.push({ id: String(Date.now()), pair: pair, dir: dir, entry: entry,
+                     amount: amount, leverage: lev, stop: isFinite(stop) ? stop : null,
+                     opened_ts: Math.floor(Date.now() / 1000), status: "open" });
+    openForm = null; save(); render();
+    msg("Position enregistr\u00e9e dans ton carnet.", true);
+    return;
+  }
+  if (b.dataset.closepos) {
+    var id = b.dataset.closepos;
+    var inp = document.querySelector('[data-exit="' + id + '"]');
+    var p = positions.filter(function (x) { return x.id === id; })[0];
+    if (!p) return;
+    var ex = parseFloat(inp && inp.value);
+    if (!(ex > 0)) ex = prixLive(p.pair, p.entry);
+    var sens = p.dir === "long" ? 1 : -1;
+    p.exit = ex;
+    p.pnl = p.amount * p.leverage * ((ex - p.entry) / p.entry * 100 * sens) / 100;
+    p.status = "closed";
+    p.closed_ts = Math.floor(Date.now() / 1000);
+    save(); render();
+    return;
+  }
+  if (b.dataset.delpos) {
+    positions = positions.filter(function (x) { return x.id !== b.dataset.delpos; });
+    save(); render();
+    return;
+  }
   if (b.dataset.verdict) {
     var id = b.dataset.id, n = state.notes[id] || {};
     n.verdict = n.verdict === b.dataset.verdict ? null : b.dataset.verdict;
@@ -517,6 +708,8 @@ document.addEventListener("input", function (e) {
 });
 
 /* ---------- prix instantanes Kraken ---------- */
+var positions = [];   // carnet de suivi saisi par l'utilisateur
+var openForm = null;  // cle de la carte dont le formulaire est ouvert
 var live = {};        // { PAIRUSD: {price, ts} }
 var liveTimer = null;
 
@@ -544,6 +737,9 @@ function fetchLive() {
   var pairs = (state.data.active || []).map(function (s) { return s.pair; });
   (state.data.watch || []).forEach(function (x) {
     if (pairs.indexOf(x.pair) === -1) pairs.push(x.pair);
+  });
+  positions.forEach(function (p) {
+    if (p.status === "open" && pairs.indexOf(p.pair) === -1) pairs.push(p.pair);
   });
   pairs = pairs.slice(0, 40);
   if (!pairs.length || typeof fetch !== "function") return Promise.resolve(false);
