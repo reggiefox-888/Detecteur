@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Détecteur v8 — trois modes : journalier, 30 min, 5 min, univers élargi + suivi de position + alertes de sortie
+Détecteur v9 — observation pure : excès constatés et mesurés, univers élargi + suivi de position + alertes de sortie
 ==========================================================================
 
 CE QUI CHANGE (v3)
@@ -180,17 +180,18 @@ def score_reversal(candles, i, rsi):
 
 # ----------------------------------------------------------- entrée confirmée
 
-def detect_entry(closed, rsi, atr):
-    """Entrée SANS confirmation, sur la dernière bougie close.
+def detect_exces(closed, rsi):
+    """Excès de surachat/survente sur la dernière bougie close.
 
-    CHANGEMENT MESURÉ (test_confirmation.py, 510 excès, 76 paires, 2 ans) :
-      A. confirmation au plus haut/bas : 36,1 % des excès, entrée 9,29 %
-         plus loin, avantage +0,48 vs hasard
-      D. aucune confirmation           : 100 % des excès, entrée immédiate,
-         avantage +1,59
-    La confirmation éliminait 64 % des signaux et divisait l'avantage par
-    trois. Elle est supprimée. Réserve honnête : le ratio potentiel/douleur
-    de D (0,93) est un peu moins bon que celui de A (1,02).
+    AUCUN stop, aucun R, aucune position. Le détecteur constate un état du
+    marché et note le prix ; c'est le suivi qui mesurera ensuite ce que le
+    prix a fait, en pourcentage.
+
+    Ce que la recherche a établi sur ces excès (1,1 M de bougies, 27 600
+    signaux, Binance 4 ans) : le potentiel favorable y est identique au
+    hasard (EFM +12,9 % contre +11,5 %) mais l'excursion adverse est 60 %
+    plus grande (-19,6 % contre -12,3 %). Ces excès marquent une asymétrie
+    de risque DÉFAVORABLE. L'outil les mesure, il ne les recommande pas.
     """
     j = len(closed) - 1
     if j < MA_LEN + RSI_LEN + 2:
@@ -198,18 +199,17 @@ def detect_entry(closed, rsi, atr):
     sc, direction = score_reversal(closed, j, rsi)
     if sc < SCORE_MIN or direction is None:
         return None
-    a0 = atr[j]
-    if not a0 or a0 <= 0:
-        return None
-    entry = closed[j]["c"]
-    pivot = closed[j]["l"] if direction == "long" else closed[j]["h"]
-    stop = pivot - ATR_STOP_MULT * a0 if direction == "long" else pivot + ATR_STOP_MULT * a0
-    if (direction == "long" and stop >= entry) or (direction == "short" and stop <= entry):
-        return None
+    c = closed[j]
+    rng = c["h"] - c["l"]
+    bh, bl = max(c["o"], c["c"]), min(c["o"], c["c"])
+    meche = ((bl - c["l"]) / rng if direction == "long" else (c["h"] - bh) / rng) if rng > 0 else 0
+    vols = [closed[k]["v"] for k in range(j - MA_LEN, j)]
+    va = sum(vols) / len(vols) if vols else 0
     return {
-        "id": f"{closed[j]['t']}", "dir": direction, "score": sc,
-        "entry": entry, "entry_ts": closed[j]["t"],
-        "stop_init": stop, "risk": abs(entry - stop),
+        "id": f"{c['t']}", "sens": direction, "score": sc,
+        "rsi": round(rsi[j], 1), "meche": round(meche * 100),
+        "volume_x": round(c["v"] / va, 2) if va > 0 else None,
+        "prix": c["c"], "ts": c["t"],
     }
 
 
@@ -238,55 +238,45 @@ def detect_watch(closed, rsi):
             "last": closed[j]["c"], "ts": closed[j]["t"]}
 
 
-# ----------------------------------------------------------- suivi de position
+# ----------------------------------------------------------- suivi
 
-def track(sig, closed, rsi, atr):
-    """Recalcule la position depuis l'entrée. Renvoie ('open', sig_maj) ou
-    ('closed', evenement)."""
-    entry_idx = next((k for k, c in enumerate(closed) if c["t"] == sig["entry_ts"]), None)
-    if entry_idx is None:
-        last = closed[-1]["c"]
-        r = (last - sig["entry"]) / sig["risk"]
-        if sig["dir"] == "short":
-            r = -r
-        return "closed", {**sig, "motif": "hors historique", "r": round(r, 2),
-                          "exit": last, "exit_ts": closed[-1]["t"]}
-    entry, risk, d = sig["entry"], sig["risk"], sig["dir"]
-    stop, extreme, be = sig["stop_init"], entry, False
-    for j in range(entry_idx + 1, len(closed)):
-        c = closed[j]
-        if d == "long" and c["l"] <= stop:
-            return "closed", {**sig, "motif": "stop suiveur", "exit": stop,
-                              "r": round((stop - entry) / risk, 2), "exit_ts": c["t"]}
-        if d == "short" and c["h"] >= stop:
-            return "closed", {**sig, "motif": "stop suiveur", "exit": stop,
-                              "r": round((entry - stop) / risk, 2), "exit_ts": c["t"]}
-        extreme = max(extreme, c["h"]) if d == "long" else min(extreme, c["l"])
-        if not be:
-            g = ((extreme - entry) if d == "long" else (entry - extreme)) / risk
-            if g >= 1.0:
-                stop = max(stop, entry) if d == "long" else min(stop, entry)
-                be = True
-        aj = atr[j] or atr[entry_idx]
-        stop = (max(stop, extreme - TRAIL_MULT * aj) if d == "long"
-                else min(stop, extreme + TRAIL_MULT * aj))
-        sc, sd = score_reversal(closed, j, rsi)
-        if sc >= SCORE_MIN and sd is not None and sd != d:
-            out = c["c"]
-            r = (out - entry) / risk if d == "long" else (entry - out) / risk
-            return "closed", {**sig, "motif": "signal inverse", "exit": out,
-                              "r": round(r, 2), "exit_ts": c["t"]}
-        if j - entry_idx >= MAX_HOLD:
-            out = c["c"]
-            r = (out - entry) / risk if d == "long" else (entry - out) / risk
-            return "closed", {**sig, "motif": "duree max", "exit": out,
-                              "r": round(r, 2), "exit_ts": c["t"]}
-    last = closed[-1]["c"]
-    r_lat = (last - entry) / risk if d == "long" else (entry - last) / risk
-    return "open", {**sig, "stop": round(stop, 10), "extreme": round(extreme, 10),
-                    "breakeven": be, "last_price": last, "r_latent": round(r_lat, 2),
-                    "maj_ts": closed[-1]["t"]}
+HORIZONS_SUIVI = [1, 3, 5, 10]     # en bougies du mode concerné
 
+
+def suivi(obs, closed):
+    """Mesure ce que le prix a fait depuis l'excès, en POURCENTAGE.
+    Renvoie (etat, obs_maj) où etat vaut "encours" ou "complet"."""
+    idx = next((k for k, c in enumerate(closed) if c["t"] == obs["ts"]), None)
+    if idx is None:
+        return "complet", {**obs, "hors_historique": True}
+    sens = 1 if obs["sens"] == "long" else -1
+    px = obs["prix"]
+    dispo = len(closed) - 1 - idx
+
+    fwd = dict(obs.get("fwd", {}))
+    for n in HORIZONS_SUIVI:
+        if str(n) in fwd or idx + n >= len(closed):
+            continue
+        fwd[str(n)] = round((closed[idx + n]["c"] - px) / px * 100 * sens, 2)
+
+    fin = min(len(closed), idx + 1 + max(HORIZONS_SUIVI))
+    seg = closed[idx + 1: fin]
+    efm = eam = None
+    if seg:
+        if sens == 1:
+            efm = round((max(c["h"] for c in seg) - px) / px * 100, 2)
+            eam = round((min(c["l"] for c in seg) - px) / px * 100, 2)
+        else:
+            efm = round((px - min(c["l"] for c in seg)) / px * 100, 2)
+            eam = round((px - max(c["h"] for c in seg)) / px * 100, 2)
+
+    maj = {**obs, "fwd": fwd, "efm": efm, "eam": eam,
+           "bougies_ecoulees": dispo, "prix_actuel": closed[-1]["c"],
+           "variation": round((closed[-1]["c"] - px) / px * 100 * sens, 2)}
+    return ("complet" if dispo >= max(HORIZONS_SUIVI) else "encours"), maj
+
+
+# ----------------------------------------------------------- infrastructure
 # ----------------------------------------------------------- infrastructure
 
 def _get(url, retries=2, timeout=25):
@@ -482,7 +472,7 @@ def fp(p):
 
 def main():
     now = datetime.now(timezone.utc)
-    print(f"[{now:%Y-%m-%d %H:%M} UTC] scan (v8 multi-mode : "
+    print(f"[{now:%Y-%m-%d %H:%M} UTC] scan (v9 observation pure : "
           + " + ".join(m["nom"] for m in MODES) + ")")
     ev = in_macro_window(now)
     if ev:
@@ -493,15 +483,6 @@ def main():
     pairs = build_universe(state)
     bases = perp_bases(state)
 
-    entries, exits, still_open, watch = [], [], [], []
-    # positions ouvertes indexées par (paire, mode)
-    active_by_key = {(s["pair"], s.get("mode", "1j")): s for s in state["active"]}
-    for (p, _m) in active_by_key:
-        if p not in pairs:
-            pairs = pairs + [p]
-
-    # Quels modes sont dus ? Chacun a sa propre cadence : inutile de
-    # retélécharger des bougies journalières toutes les 10 minutes.
     dus = []
     for m in MODES:
         ecoule = (time.time() - state["last_scan"].get(m["cle"], 0)) / 60
@@ -512,6 +493,12 @@ def main():
         return
     print("  Modes scannés : " + ", ".join(m["nom"] for m in dus))
 
+    nouveaux, termines, encours, approche = [], [], [], []
+    suivies = {(o["pair"], o.get("mode", "1j")): o for o in state["active"]}
+    for (p, _m) in suivies:
+        if p not in pairs:
+            pairs = pairs + [p]
+
     for pair in pairs:
         for mode in dus:
             cle, interval = mode["cle"], mode["interval"]
@@ -519,147 +506,141 @@ def main():
                 continue
             candles = fetch_ohlc(pair, interval)
             time.sleep(1.1)
+            k = (pair, cle)
             if not candles or len(candles) < 100:
-                k = (pair, cle)
-                if k in active_by_key:
-                    still_open.append(active_by_key[k])
+                if k in suivies:
+                    encours.append(suivies[k])
                 continue
             closed = candles[:-1]
             rsi = rsi_series([c["c"] for c in closed])
-            atr = atr_series(closed)
 
-            k = (pair, cle)
-            if k in active_by_key:
-                status, res = track(active_by_key[k], closed, rsi, atr)
-                res["mode"] = cle
-                res["mode_nom"] = mode["nom"]
-                if status == "closed":
-                    exits.append(res)
-                    state["last_by_pair"].setdefault(cle, {})[pair] = time.time()
-                else:
-                    still_open.append(res)
+            if k in suivies:
+                etat, maj = suivi(suivies[k], closed)
+                maj["mode"], maj["mode_nom"] = cle, mode["nom"]
+                (termines if etat == "complet" else encours).append(maj)
                 continue
 
             w = detect_watch(closed, rsi)
             if w:
                 w.update({"pair": pair, "mode": cle, "mode_nom": mode["nom"],
                           "perp": has_perp(pair, bases)})
-                watch.append(w)
+                approche.append(w)
 
             last_ts = state["last_by_pair"].get(cle, {}).get(pair, 0)
             if time.time() - last_ts < mode["cooldown_h"] * 3600:
                 continue
-            sig = detect_entry(closed, rsi, atr)
-            if sig:
-                sig.update({"pair": pair, "mode": cle, "mode_nom": mode["nom"],
-                            "perp": has_perp(pair, bases)})
-                status, res = track(sig, closed, rsi, atr)
-                if status == "open":
-                    res["mode"] = cle
-                    res["mode_nom"] = mode["nom"]
-                    entries.append(res)
-                    still_open.append(res)
-                    state["last_by_pair"].setdefault(cle, {})[pair] = time.time()
+            e = detect_exces(closed, rsi)
+            if e:
+                e.update({"pair": pair, "mode": cle, "mode_nom": mode["nom"],
+                          "perp": has_perp(pair, bases)})
+                etat, maj = suivi(e, closed)
+                nouveaux.append(maj)
+                (termines if etat == "complet" else encours).append(maj)
+                state["last_by_pair"].setdefault(cle, {})[pair] = time.time()
 
     for m in dus:
         state["last_scan"][m["cle"]] = time.time()
-    state["active"] = still_open
-    state["history"] = (state["history"] + exits)[-HISTORY_KEEP:]
+    state["active"] = encours
+    state["history"] = (state["history"] + termines)[-200:]
     save_json(STATE_FILE, state)
 
-    watch.sort(key=lambda x: (x["mode"], x["reste"]))
+    approche.sort(key=lambda x: (x["mode"], x["reste"]))
     board = {"generated": now.strftime("%Y-%m-%d %H:%M UTC"),
+             "type": "observation",
+             "horizons": HORIZONS_SUIVI,
              "modes": [{"cle": m["cle"], "nom": m["nom"]} for m in MODES],
-             "active": still_open, "history": state["history"],
-             "watch": watch[:40]}
+             "active": encours, "history": state["history"],
+             "watch": approche[:40]}
     save_json(SIGNALS_FILE, board)
 
-    def par_mode(liste):
-        d = {}
-        for x in liste:
-            d.setdefault(x.get("mode", "1j"), []).append(x)
-        return d
+    # ---- bilan cumulé, la seule chose qui compte vraiment
+    hist = [o for o in state["history"] if o.get("efm") is not None]
+    bilan = ""
+    if len(hist) >= 5:
+        n = len(hist)
+        f3 = [o["fwd"].get("3") for o in hist if o.get("fwd", {}).get("3") is not None]
+        efm = sum(o["efm"] for o in hist) / n
+        eam = sum(o["eam"] for o in hist) / n
+        bilan = (f"\n  BILAN CUMULÉ ({n} excès observés jusqu'au bout)\n"
+                 f"    Variation moyenne à +3 bougies : "
+                 f"{(sum(f3)/len(f3) if f3 else 0):+.2f} %\n"
+                 f"    Excursion favorable moyenne    : {efm:+.2f} %\n"
+                 f"    Excursion adverse moyenne      : {eam:+.2f} %\n"
+                 f"    Rapport potentiel/risque       : "
+                 f"{abs(efm/eam) if eam else 0:.2f}\n"
+                 f"    (mesuré sur l'historique Binance : 0,66 — "
+                 f"plus de risque que de potentiel)")
+        print(bilan)
 
     modes_mail = {m["cle"] for m in MODES if m["email"]}
-    e_mail = [x for x in entries if x.get("mode") in modes_mail]
-    x_mail = [x for x in exits if x.get("mode") in modes_mail]
+    n_mail = [x for x in nouveaux if x.get("mode") in modes_mail]
+    t_mail = [x for x in termines if x.get("mode") in modes_mail]
 
-    if e_mail or x_mail:
-        entries, exits = e_mail, x_mail
-        lines = [f"Scan du {now:%d/%m/%Y %H:%M} UTC", "=" * 60, ""]
+    if n_mail or t_mail:
+        lines = [f"Observation du {now:%d/%m/%Y %H:%M} UTC", "=" * 60, "",
+                 "Ce message CONSTATE des états de marché. Il ne propose ni",
+                 "entrée, ni stop, ni position — ces excès ont une asymétrie",
+                 "de risque défavorable, mesurée sur 4 ans de données.", ""]
         for mode in MODES:
             cle, nom = mode["cle"], mode["nom"]
-            e_m = [x for x in entries if x.get("mode") == cle]
-            x_m = [x for x in exits if x.get("mode") == cle]
-            if not e_m and not x_m:
+            nm = [x for x in n_mail if x.get("mode") == cle]
+            tm = [x for x in t_mail if x.get("mode") == cle]
+            if not nm and not tm:
                 continue
-            lines += [f"### MODE {nom.upper()}", ""]
-            if e_m:
-                lines.append(f"  ENTRÉES ({len(e_m)})")
-                for s in e_m:
-                    sd = abs(s["entry"] - s["stop_init"]) / s["entry"] * 100
+            lines += [f"### {nom.upper()}", ""]
+            if nm:
+                lines.append(f"  EXCÈS CONSTATÉS ({len(nm)})")
+                for o in nm:
                     lines += [
-                        f"    {s['dir'].upper():5} {s['pair']}  score {s['score']}",
-                        f"      Entrée {fp(s['entry'])} | Invalidation "
-                        f"{fp(s['stop_init'])} ({sd:.2f} %)",
-                        f"      Perpétuel : " + ("oui" if s.get("perp")
-                                                 else "NON — spot uniquement"
-                                                 if s.get("perp") is False else "inconnu"),
+                        f"    {o['pair']}  {'SURVENTE' if o['sens']=='long' else 'SURACHAT'}"
+                        f"  RSI {o['rsi']}  score {o['score']}",
+                        f"      prix {fp(o['prix'])} | mèche {o['meche']} % du range"
+                        f" | volume x{o.get('volume_x') or '?'}",
+                        f"      perpétuel : " + ("oui" if o.get("perp") else "non"
+                                                 if o.get("perp") is False else "inconnu"),
                         ""]
-            if x_m:
-                lines.append(f"  SORTIES ({len(x_m)})")
-                for s in x_m:
-                    lines += [f"    {s['pair']} ({s['dir']}) — {s['motif']}",
-                              f"      {fp(s['entry'])} -> {fp(s['exit'])}  |  "
-                              f"{s['r']:+.2f}R", ""]
-        po = par_mode(still_open)
-        if still_open:
-            lines.append(f"POSITIONS SUIVIES ({len(still_open)})")
-            for mode in MODES:
-                for s in po.get(mode["cle"], []):
-                    lines.append(f"  [{mode['nom']}] {s['pair']} {s['dir']} | "
-                                 f"stop {fp(s['stop'])} | latent {s['r_latent']:+.2f}R")
+            if tm:
+                lines.append(f"  OBSERVATIONS TERMINÉES ({len(tm)})")
+                for o in tm:
+                    f = o.get("fwd", {})
+                    lines += [
+                        f"    {o['pair']} ({'survente' if o['sens']=='long' else 'surachat'})",
+                        f"      +1 {f.get('1', '?')} %  +3 {f.get('3', '?')} %  "
+                        f"+5 {f.get('5', '?')} %  +10 {f.get('10', '?')} %",
+                        f"      meilleur {o.get('efm', '?')} %  |  pire {o.get('eam', '?')} %",
+                        ""]
+        if encours:
+            lines.append(f"EN COURS D'OBSERVATION ({len(encours)})")
+            for o in encours[:15]:
+                lines.append(f"  [{o.get('mode_nom','?')}] {o['pair']} "
+                             f"{'survente' if o['sens']=='long' else 'surachat'} | "
+                             f"{o.get('variation', 0):+.2f} % depuis l'excès "
+                             f"({o.get('bougies_ecoulees', 0)} bougies)")
             lines.append("")
-        lines += [
-            "-" * 60,
-            "MODE OBSERVATION.",
-            "Journalier : seul horizon dont l'espérance nette est positive",
-            "  (facteur 1,02 net de frais). Stop moyen 20,8 % : levier faible.",
-            "30 minutes : meilleur signal brut (1,34) mais NET PERDANT (0,56),",
-            "  les frais y pèsent 0,403R. Observation uniquement.",
-            "5 minutes  : signal brut le plus fort (1,51) mais frais à 0,634R,",
-            "  net 0,47. Visible dans le tableau, jamais par email (trop nombreux).",
-            "",
-            "=== DONNÉES TABLEAU DE BORD (copier tout le bloc) ===",
-            json.dumps(board, separators=(",", ":")),
-        ]
-        n_e, n_x = len(entries), len(exits)
-        det = "  ".join(f"{m['cle']}:{len([x for x in entries if x.get('mode')==m['cle']])}"
-                        for m in MODES)
-        subject = f"[Signaux] {n_e} entrée(s) ({det}), {n_x} sortie(s)"
+        lines += [bilan, "", "-" * 60,
+                  "=== DONNÉES TABLEAU DE BORD (copier tout le bloc) ===",
+                  json.dumps(board, separators=(",", ":"))]
+        subject = (f"[Observation] {len(n_mail)} excès constaté(s), "
+                   f"{len(t_mail)} observation(s) terminée(s)")
         body = "\n".join(lines)
         print("\n" + body + "\n")
         send_email(subject, body)
     else:
-        pw = par_mode(watch)
-        print(f"  Aucun événement. Suivies : {len(still_open)}, "
-              f"en approche : "
-              + ", ".join(f"{m['nom']} {len(pw.get(m['cle'], []))}" for m in MODES) + ".")
+        print(f"  Aucun nouvel excès. En cours : {len(encours)}, "
+              f"terminés au total : {len(state['history'])}.")
 
-    if watch:
-        pw = par_mode(watch)
+    if approche:
+        pa = {}
+        for x in approche:
+            pa.setdefault(x["mode"], []).append(x)
         for mode in MODES:
-            lst = pw.get(mode["cle"], [])
+            lst = pa.get(mode["cle"], [])
             if not lst:
                 continue
             print(f"\n  APPROCHE — {mode['nom']} ({len(lst)}) :")
             for w in lst[:8]:
                 print(f"    {w['pair']:<12} {w['dir']:<5} RSI {w['rsi']:>5}  "
-                      f"encore {w['reste']:>4} pts"
-                      + ("" if w.get("perp") else "  [pas de perp]"
-                         if w.get("perp") is False else ""))
-        print("  (l'approche ne déclenche pas d'email)")
-
+                      f"encore {w['reste']:>4} pts")
     print("  Scan terminé.")
 
 
