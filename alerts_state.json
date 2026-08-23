@@ -145,12 +145,12 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": true,
-   "stop": 10.8364594431,
-   "extreme": 11.23325,
+   "stop": 11.0619943072,
+   "extreme": 11.3037,
    "breakeven": false,
-   "last_price": 11.23325,
-   "r_latent": 0.0,
-   "maj_ts": 1787461200
+   "last_price": 11.29701,
+   "r_latent": 0.16,
+   "maj_ts": 1787468400
   },
   {
    "id": "1787356800",
@@ -183,12 +183,12 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": true,
-   "stop": 2332.5972996696,
-   "extreme": 2379.88,
+   "stop": 2366.9188643921,
+   "extreme": 2396.22,
    "breakeven": false,
-   "last_price": 2379.88,
-   "r_latent": 0.0,
-   "maj_ts": 1787461200
+   "last_price": 2392.44,
+   "r_latent": 0.27,
+   "maj_ts": 1787468400
   },
   {
    "id": "1787356800",
@@ -297,12 +297,12 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": true,
-   "stop": 0.0150868528,
-   "extreme": 0.01561,
+   "stop": 0.0153326109,
+   "extreme": 0.01565,
    "breakeven": false,
-   "last_price": 0.01561,
-   "r_latent": 0.0,
-   "maj_ts": 1787461200
+   "last_price": 0.01565,
+   "r_latent": 0.08,
+   "maj_ts": 1787468400
   },
   {
    "id": "1787356800",
@@ -487,12 +487,12 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": true,
-   "stop": 259.2578319856,
-   "extreme": 267.71,
+   "stop": 262.4144698161,
+   "extreme": 268.33,
    "breakeven": false,
-   "last_price": 267.71,
-   "r_latent": 0.0,
-   "maj_ts": 1787461200
+   "last_price": 267.3,
+   "r_latent": -0.05,
+   "maj_ts": 1787468400
   },
   {
    "id": "1787356800",
@@ -639,12 +639,12 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": false,
-   "stop": 0.0281909021,
-   "extreme": 0.02849,
+   "stop": 0.0282394725,
+   "extreme": 0.02851,
    "breakeven": false,
-   "last_price": 0.02849,
-   "r_latent": 0.0,
-   "maj_ts": 1787461200
+   "last_price": 0.02836,
+   "r_latent": -0.43,
+   "maj_ts": 1787468400
   },
   {
    "id": "1787356800",
@@ -753,12 +753,12 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": false,
-   "stop": 0.4355815086,
-   "extreme": 0.4452,
+   "stop": 0.4431620667,
+   "extreme": 0.4514,
    "breakeven": false,
-   "last_price": 0.4452,
-   "r_latent": 0.0,
-   "maj_ts": 1787461200
+   "last_price": 0.4506,
+   "r_latent": 0.56,
+   "maj_ts": 1787468400
   },
   {
    "id": "1787356800",
@@ -848,12 +848,12 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": true,
-   "stop": 0.2163759777,
-   "extreme": 0.22139,
+   "stop": 0.2209664268,
+   "extreme": 0.22466,
    "breakeven": false,
-   "last_price": 0.22139,
-   "r_latent": 0.0,
-   "maj_ts": 1787461200
+   "last_price": 0.22466,
+   "r_latent": 0.65,
+   "maj_ts": 1787468400
   },
   {
    "id": "1787356800",
@@ -905,12 +905,12 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": true,
-   "stop": 2.2190571077,
-   "extreme": 2.269,
+   "stop": 2.2445203914,
+   "extreme": 2.303,
    "breakeven": false,
-   "last_price": 2.269,
-   "r_latent": 0.0,
-   "maj_ts": 1787463000
+   "last_price": 2.3,
+   "r_latent": 0.62,
+   "maj_ts": 1787468400
   },
   {
    "id": "1787356800",
@@ -962,12 +962,12 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": true,
-   "stop": 0.1823428586,
-   "extreme": 0.18598,
+   "stop": 0.1856618612,
+   "extreme": 0.18873,
    "breakeven": false,
-   "last_price": 0.18598,
-   "r_latent": 0.0,
-   "maj_ts": 1787463000
+   "last_price": 0.18849,
+   "r_latent": 0.69,
+   "maj_ts": 1787468400
   },
   {
    "id": "1787356800",
@@ -1454,8 +1454,8 @@
  ],
  "perps_ts": 1787464459.9909942,
  "last_scan": {
-  "1j": 1787464875.866456,
-  "30m": 1787464875.8664582,
-  "5m": 1787464875.8664587
+  "1j": 1787471742.5434341,
+  "30m": 1787471742.5434363,
+  "5m": 1787471742.5434368
  }
 }
