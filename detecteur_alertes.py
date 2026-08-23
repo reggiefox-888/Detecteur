@@ -246,11 +246,16 @@ HORIZONS_SUIVI = [1, 3, 5, 10]     # en bougies du mode concerné
 def suivi(obs, closed):
     """Mesure ce que le prix a fait depuis l'excès, en POURCENTAGE.
     Renvoie (etat, obs_maj) où etat vaut "encours" ou "complet"."""
-    idx = next((k for k, c in enumerate(closed) if c["t"] == obs["ts"]), None)
+    ts = obs.get("ts") or obs.get("entry_ts")
+    px = obs.get("prix") or obs.get("entry")
+    if ts is None or px is None:
+        # observation issue d'une version antérieure : format incompatible,
+        # on la clôt proprement plutôt que de planter.
+        return "complet", {**obs, "format_obsolete": True}
+    idx = next((k for k, c in enumerate(closed) if c["t"] == ts), None)
     if idx is None:
         return "complet", {**obs, "hors_historique": True}
-    sens = 1 if obs["sens"] == "long" else -1
-    px = obs["prix"]
+    sens = 1 if obs.get("sens", obs.get("dir")) == "long" else -1
     dispo = len(closed) - 1 - idx
 
     fwd = dict(obs.get("fwd", {}))
@@ -428,6 +433,17 @@ def load_state():
         st.setdefault("perps", None)
         st.setdefault("perps_ts", 0)
         st.setdefault("last_scan", {})
+        # --- migration : les observations d'une version antérieure n'ont pas
+        # les champs attendus (elles portaient entry_ts / entry / stop / risk).
+        # On les écarte silencieusement plutôt que de risquer un plantage.
+        avant = len(st.get("active", []))
+        st["active"] = [o for o in st.get("active", [])
+                        if o.get("ts") is not None and o.get("prix") is not None
+                        and o.get("sens") is not None]
+        if avant != len(st["active"]):
+            print(f"  Migration : {avant - len(st['active'])} observation(s) "
+                  f"d'un format antérieur écartée(s).")
+        st["history"] = [o for o in st.get("history", []) if o.get("ts") is not None]
         st.setdefault("active", [])
         st.setdefault("history", [])
         return st
