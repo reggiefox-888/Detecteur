@@ -53,6 +53,14 @@ input[type=text],input[type=password]{background:#0e0e11;border:1px solid var(--
 input:focus{outline:none;border-color:var(--amb)}
 .cfg{display:grid;gap:8px 12px;grid-template-columns:1fr}
 @media(min-width:560px){.cfg{grid-template-columns:repeat(2,1fr)}}
+.sim{margin-top:10px;padding-top:10px;border-top:1px solid var(--line2)}
+.sim-in{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.sim-in input{width:90px}
+.sim-out{display:grid;gap:8px 14px;grid-template-columns:repeat(2,1fr);margin-top:10px;font-size:12px}
+@media(min-width:560px){.sim-out{grid-template-columns:repeat(4,1fr)}}
+.live{font-size:11px;color:var(--grn);margin-left:6px}
+.stale{font-size:11px;color:var(--dim3);margin-left:6px}
+.warn{margin-top:8px;padding:6px 9px;border-radius:6px;border:1px solid #b91c1c;background:var(--red-bg);color:#fca5a5;font-size:12px}
 .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:middle}
 </style>
 </head>
@@ -62,7 +70,7 @@ input:focus{outline:none;border-color:var(--amb)}
     <div class="row">
       <div>
         <h1>Tableau des signaux</h1>
-        <p class="sub">Entrées, stops suiveurs, sorties et journal d'observation <span style="color:var(--amb)">— version 3, source auto</span></p>
+        <p class="sub">Entrées, stops suiveurs, sorties et journal d'observation <span style="color:var(--amb)">— version 7, surveillance</span></p>
       </div>
       <div class="row" style="gap:12px">
         <span id="status" style="font-size:12px;color:var(--dim2)"></span>
@@ -81,13 +89,13 @@ input:focus{outline:none;border-color:var(--amb)}
     <div class="lbl" style="margin-bottom:10px">Source automatique — récupération depuis GitHub</div>
     <div class="cfg">
       <div><div class="lbl" style="margin-bottom:4px">Propriétaire</div>
-        <input type="text" id="c-owner" placeholder="reggiefox-888"></div>
+        <input type="text" id="c-owner" placeholder="nom d'utilisateur GitHub"></div>
       <div><div class="lbl" style="margin-bottom:4px">Dépôt</div>
-        <input type="text" id="c-repo" placeholder="Detecteur"></div>
+        <input type="text" id="c-repo" placeholder="nom du dépôt"></div>
       <div><div class="lbl" style="margin-bottom:4px">Fichier</div>
-        <input type="text" id="c-path" placeholder="signals.json"></div>
+        <input type="text" id="c-path" placeholder="chemin du fichier"></div>
       <div><div class="lbl" style="margin-bottom:4px">Branche</div>
-        <input type="text" id="c-branch" placeholder="main"></div>
+        <input type="text" id="c-branch" placeholder="branche"></div>
     </div>
     <div style="margin-top:10px">
       <div class="lbl" style="margin-bottom:4px">Jeton de lecture — uniquement si le dépôt est privé</div>
@@ -120,6 +128,11 @@ input:focus{outline:none;border-color:var(--amb)}
       <span><i class="sw" style="background:#f59e0b"></i>prix</span>
       <span><i class="sw" style="background:#10b981"></i>extrême</span>
     </div>
+  </section>
+
+  <section class="sec">
+    <h2>En surveillance <span class="d3" id="n-wat"></span></h2>
+    <div id="watch"></div>
   </section>
 
   <section class="sec">
@@ -193,6 +206,53 @@ function gauge(s) {
          fp(lo) + '</span><span class="mono">' + fp(hi) + '</span></div>';
 }
 
+function sim(s0) {
+  var s = withLive(s0);
+  var k = "sim-" + sid(s);
+  var p = state.notes[k] || {};
+  var mise = p.mise === undefined ? "" : p.mise;
+  var lev = p.lev === undefined ? "" : p.lev;
+  var head = '<div class="sim"><div class="sim-in">' +
+    '<span class="lbl" style="margin-right:2px">Simulation</span>' +
+    '<input type="number" step="any" min="0" data-sim="mise" data-key="' + esc(k) +
+      '" value="' + esc(mise) + '" placeholder="montant \u20ac">' +
+    '<input type="number" step="any" min="1" max="100" data-sim="lev" data-key="' + esc(k) +
+      '" value="' + esc(lev) + '" placeholder="levier">' +
+    "</div>";
+  var m = parseFloat(mise), L = parseFloat(lev);
+  if (!(m > 0) || !(L >= 1)) {
+    return head + '<p class="d3" style="font-size:12px;margin:8px 0 0">Saisis un montant et un levier pour voir le r\u00e9sultat en direct, ce qu\u2019il adviendrait au stop, et le prix de liquidation.</p></div>';
+  }
+  var e = s.entry, lp = s.last_price, st = s.stop;
+  var sens = s.dir === "long" ? 1 : -1;
+  var varPct = (lp - e) / e * 100 * sens;          // variation favorable en %
+  var varStop = (st - e) / e * 100 * sens;         // variation au stop
+  var notion = m * L;
+  var pnl = notion * varPct / 100;
+  var pnlStop = notion * varStop / 100;
+  var liqPct = -100 / L;                           // perte totale du capital engag\u00e9
+  var liqPrix = e * (1 + sens * liqPct / 100);
+  var distLiq = Math.abs(liqPrix - lp) / lp * 100;
+  var stopAvantLiq = Math.abs(varStop) < Math.abs(liqPct);
+
+  var cell = function (lab, val, cl) {
+    return '<div><div class="lbl">' + lab + '</div><div class="mono ' + (cl || "") + '">' + val + "</div></div>";
+  };
+  var out = '<div class="sim-out">' +
+    cell("Position notionnelle", fmt(notion) + " \u20ac", "") +
+    cell("R\u00e9sultat actuel", (pnl >= 0 ? "+" : "") + fmt(pnl) + " \u20ac", cls(pnl)) +
+    cell("Si le stop est touch\u00e9", fmt(pnlStop) + " \u20ac", "r") +
+    cell("Prix de liquidation", fp(liqPrix), "r") + "</div>";
+  var av = '<p class="d3" style="font-size:12px;margin:8px 0 0">\u00c0 ce levier, une variation de ' +
+    fmt(Math.abs(liqPct)) + " % contre toi efface le capital engag\u00e9. La liquidation est \u00e0 " +
+    fmt(distLiq) + " % du prix actuel ; le stop, lui, est \u00e0 " + fmt(Math.abs(varStop - varPct)) + " %.</p>";
+  var alerte = stopAvantLiq ? "" :
+    '<div class="warn">Liquidation AVANT le stop : \u00e0 ' + fmt(L) + "x, la position serait ferm\u00e9e d\u2019office (perte de " +
+    fmt(m) + " \u20ac) avant m\u00eame que l\u2019invalidation du signal ne soit atteinte. Le stop suppose " +
+    fmt(Math.abs(varStop)) + " % de marge, le levier n\u2019en laisse que " + fmt(Math.abs(liqPct)) + " %.</div>";
+  return head + out + av + alerte + "</div>";
+}
+
 function annot(id) {
   var n = state.notes[id] || {}, v = n.verdict, o = state.open === id;
   var b1 = '<button data-verdict="pris" data-id="' + esc(id) + '"' +
@@ -217,7 +277,8 @@ function renderActive() {
     el.innerHTML = '<div class="empty">Aucune position en cours. Le prochain email d\'entr\u00e9e alimentera cette vue.</div>';
     return;
   }
-  el.innerHTML = a.map(function (s) {
+  el.innerHTML = a.map(function (s0) {
+    var s = withLive(s0);
     var sd = s.last_price ? Math.abs(s.last_price - s.stop) / s.last_price * 100 : null;
     return '<div class="card"><div class="row">' +
       '<div class="row" style="gap:10px;justify-content:flex-start">' +
@@ -228,14 +289,52 @@ function renderActive() {
         (s.breakeven ? '<span class="tag t-n">point mort acquis</span>' : "") +
       "</div>" +
       '<span class="mono ' + cls(s.r_latent) + '">' + (s.r_latent > 0 ? "+" : "") +
-        fmt(s.r_latent) + "R latent</span></div>" +
+        fmt(s.r_latent) + "R latent" +
+        (s.live ? '<span class="live">\u25cf direct</span>'
+                : '<span class="stale">dernier scan</span>') + "</span></div>" +
       '<div class="grid mono">' +
         '<div><span class="d">Entr\u00e9e </span>' + fp(s.entry) + "</div>" +
-        '<div><span class="d">le </span>' + dt(s.entry_ts) + "</div>" +
+        '<div><span class="d">Prix </span>' + fp(s.last_price) + "</div>" +
         '<div><span class="d">Stop suiveur </span><span style="color:#fca5a5">' + fp(s.stop) + "</span></div>" +
         '<div><span class="d">\u00e0 </span>' + (sd === null ? "\u2014" : fmt(sd) + " %") + "</div>" +
-      "</div>" + gauge(s) + annot(sid(s)) + "</div>";
+      "</div>" + gauge(s) + sim(s) + annot(sid(s)) + "</div>";
   }).join("");
+}
+
+function renderWatch() {
+  var el = document.getElementById("watch");
+  var w = (state.data.watch || []).slice();
+  document.getElementById("n-wat").textContent = "(" + w.length + ")";
+  if (!w.length) {
+    el.innerHTML = '<div class="empty">Aucun exc\u00e8s en attente de confirmation.</div>';
+    return;
+  }
+  el.innerHTML = '<p class="d3" style="font-size:12px;margin:0 0 8px">' +
+    'Exc\u00e8s rep\u00e9r\u00e9s, confirmation pas encore obtenue. M\u00eames crit\u00e8res que pour un signal, ' +
+    'rien n\u2019est assoupli. Aucun email n\u2019est envoy\u00e9 tant qu\u2019il n\u2019y a pas confirmation, ' +
+    'et la plupart de ces lignes n\u2019aboutiront pas.</p>' +
+    w.map(function (x) {
+      var L = live[x.pair];
+      var px = (L && isFinite(L.price)) ? L.price : x.last;
+      var d = x.dir === "long" ? (x.seuil - px) / px * 100 : (px - x.seuil) / px * 100;
+      var proche = d <= 1.0;
+      return '<div class="card" style="padding:8px 12px"><div class="row">' +
+        '<div class="row" style="gap:10px;justify-content:flex-start">' +
+          '<span class="mono" style="font-weight:500">' + esc(x.pair) + "</span>" +
+          '<span class="tag ' + (x.dir === "long" ? "t-g" : "t-r") + '">' +
+            (x.dir === "long" ? "rebond attendu" : "repli attendu") + "</span>" +
+          '<span class="d" style="font-size:12px">score ' + esc(x.score) +
+          " \u00b7 RSI " + esc(x.rsi) + "</span>" +
+        "</div>" +
+        '<span class="mono ' + (proche ? "g" : "d") + '" style="font-size:12px">' +
+          (d > 0 ? "+" : "") + fmt(d) + " % \u00e0 parcourir</span></div>" +
+        '<div class="grid mono" style="grid-template-columns:repeat(3,1fr)">' +
+          '<div><span class="d">Prix </span>' + fp(px) +
+            (L ? '<span class="live">\u25cf</span>' : "") + "</div>" +
+          '<div><span class="d">Confirmation \u00e0 </span>' + fp(x.seuil) + "</div>" +
+          '<div><span class="d">Reste </span>' + esc(x.restant) + " bougie(s)</div>" +
+        "</div></div>";
+    }).join("");
 }
 
 function closedList() {
@@ -316,7 +415,7 @@ function renderBilan() {
 function render() {
   document.getElementById("gen").textContent =
     state.data.generated ? "Import : " + state.data.generated : "";
-  renderActive(); renderClosed(); renderBilan();
+  renderActive(); renderWatch(); renderClosed(); renderBilan();
 }
 
 function msg(t, okc) {
@@ -343,7 +442,8 @@ function doImport() {
   hist.forEach(function (h) { closedIds[sid(h)] = 1; });
   var act = (p.active || []).filter(function (s) { return !closedIds[sid(s)]; });
   hist.sort(function (x, y) { return (x.exit_ts || 0) - (y.exit_ts || 0); });
-  state.data = { generated: p.generated || state.data.generated, active: act, history: hist };
+  state.data = { generated: p.generated || state.data.generated, active: act,
+                 history: hist, watch: p.watch || [] };
   document.getElementById("paste").value = "";
   save(); render();
   msg("Import r\u00e9ussi \u2014 " + act.length + " suivie(s).", true);
@@ -396,6 +496,17 @@ document.addEventListener("click", function (e) {
 });
 
 document.addEventListener("input", function (e) {
+  var f = e.target.dataset ? e.target.dataset.sim : null;
+  if (f) {
+    var k = e.target.dataset.key, n = state.notes[k] || {};
+    n[f] = e.target.value;
+    state.notes[k] = n;
+    var pos = e.target.selectionStart;
+    save(); render();
+    var again = document.querySelector('input[data-sim="' + f + '"][data-key="' + k + '"]');
+    if (again) { again.focus(); try { again.setSelectionRange(pos, pos); } catch (x) {} }
+    return;
+  }
   var id = e.target.dataset ? e.target.dataset.note : null;
   if (!id) return;
   var n = state.notes[id] || {};
@@ -405,8 +516,69 @@ document.addEventListener("input", function (e) {
   window.__t = setTimeout(save, 400);
 });
 
+/* ---------- prix instantanes Kraken ---------- */
+var live = {};        // { PAIRUSD: {price, ts} }
+var liveTimer = null;
+
+/* Recalcule tout ce qui depend du prix : R latent, extreme, point mort.
+   Le stop suiveur n'est PAS recalcule : il ne bouge qu'au scan horaire,
+   c'est le detecteur qui en est la source de verite. */
+function withLive(s) {
+  var L = live[s.pair];
+  if (!L || !isFinite(L.price)) return s;
+  var o = {};
+  for (var k in s) o[k] = s[k];
+  o.last_price = L.price;
+  o.live = true;
+  o.live_ts = L.ts;
+  var sens = s.dir === "long" ? 1 : -1;
+  o.extreme = s.dir === "long" ? Math.max(s.extreme, L.price) : Math.min(s.extreme, L.price);
+  if (s.risk > 0) {
+    o.r_latent = Math.round(((L.price - s.entry) * sens / s.risk) * 100) / 100;
+    o.breakeven = s.breakeven || ((o.extreme - s.entry) * sens / s.risk) >= 1;
+  }
+  return o;
+}
+
+function fetchLive() {
+  var pairs = (state.data.active || []).map(function (s) { return s.pair; });
+  (state.data.watch || []).forEach(function (x) {
+    if (pairs.indexOf(x.pair) === -1) pairs.push(x.pair);
+  });
+  pairs = pairs.slice(0, 40);
+  if (!pairs.length || typeof fetch !== "function") return Promise.resolve(false);
+  var url = "https://api.kraken.com/0/public/Ticker?pair=" + pairs.join(",");
+  return fetch(url, { cache: "no-store" }).then(function (r) {
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    return r.json();
+  }).then(function (d) {
+    if (d.error && d.error.length) throw new Error(d.error[0]);
+    var res = d.result || {}, now = Date.now(), n = 0;
+    for (var key in res) {
+      var px = parseFloat(res[key].c && res[key].c[0]);
+      if (!isFinite(px)) continue;
+      var norm = key.replace(/^X/, "").replace("ZUSD", "USD");
+      pairs.forEach(function (p) {
+        if (p === key || p === norm || p.replace("USD", "") === norm.replace("USD", "")) {
+          live[p] = { price: px, ts: now }; n++;
+        }
+      });
+    }
+    if (n) render();
+    return n > 0;
+  }).catch(function (e) {
+    return false;
+  });
+}
+
+function startLive() {
+  if (liveTimer) clearInterval(liveTimer);
+  fetchLive();
+  liveTimer = setInterval(fetchLive, 60000);   // toutes les 60 s
+}
+
 /* ---------- source distante GitHub ---------- */
-var cfg = { owner: "", repo: "", path: "signals.json", branch: "main", token: "" };
+var cfg = { owner: "reggiefox-888", repo: "Detecteur", path: "signals.json", branch: "main", token: "" };
 
 function cfgLoad() {
   try {
@@ -431,6 +603,8 @@ function setStatus(txt, kind) {
   el.innerHTML = '<span class="dot" style="background:' + col + '"></span>' + txt;
 }
 
+function applyBoardThenLive(p, source) { applyBoard(p, source); startLive(); }
+
 function applyBoard(p, source) {
   if (!p || (!Array.isArray(p.active) && !Array.isArray(p.history))) {
     throw new Error("format inattendu");
@@ -442,9 +616,11 @@ function applyBoard(p, source) {
   hist.forEach(function (x) { closedIds[sid(x)] = 1; });
   var act = (p.active || []).filter(function (s) { return !closedIds[sid(s)]; });
   hist.sort(function (x, y) { return (x.exit_ts || 0) - (y.exit_ts || 0); });
-  state.data = { generated: p.generated || state.data.generated, active: act, history: hist };
+  state.data = { generated: p.generated || state.data.generated, active: act,
+                 history: hist, watch: p.watch || [] };
   save(); render();
-  setStatus((source || "\u00c0 jour") + " \u2014 " + act.length + " suivie(s)", "ok");
+  setStatus((source || "\u00c0 jour") + " \u2014 " + act.length + " suivie(s), " +
+            (p.watch || []).length + " en surveillance", "ok");
 }
 
 function fetchRemote(silent) {
@@ -464,13 +640,17 @@ function fetchRemote(silent) {
           encodeURIComponent(cfg.repo) + "/" + encodeURIComponent(cfg.branch || "main") +
           "/" + cfg.path + "?t=" + Date.now();
   }
+  if (typeof fetch !== "function") {
+    setStatus("R\u00e9cup\u00e9ration auto indisponible dans ce navigateur \u2014 utilise le collage manuel", "err");
+    return Promise.resolve(false);
+  }
   return fetch(url, opts).then(function (r) {
     if (r.status === 401 || r.status === 403) throw new Error("acc\u00e8s refus\u00e9 \u2014 v\u00e9rifie le jeton");
     if (r.status === 404) throw new Error("fichier introuvable \u2014 v\u00e9rifie d\u00e9p\u00f4t, branche et chemin");
     if (!r.ok) throw new Error("erreur " + r.status);
     return r.text();
   }).then(function (t) {
-    applyBoard(JSON.parse(t), "Actualis\u00e9");
+    applyBoardThenLive(JSON.parse(t), "Actualis\u00e9");
     return true;
   }).catch(function (e) {
     var m = String(e.message || e);
@@ -502,7 +682,7 @@ document.getElementById("btn-cfg-save").addEventListener("click", function () {
   });
 });
 document.getElementById("btn-cfg-clear").addEventListener("click", function () {
-  cfg = { owner: "", repo: "", path: "signals.json", branch: "main", token: "" };
+  cfg = { owner: "reggiefox-888", repo: "Detecteur", path: "signals.json", branch: "main", token: "" };
   cfgSave(); cfgLoad();
   document.getElementById("cfg-msg").textContent = "Configuration effac\u00e9e.";
   document.getElementById("cfg-msg").className = "msg d";
@@ -512,8 +692,9 @@ document.getElementById("btn-cfg-clear").addEventListener("click", function () {
 load();
 cfgLoad();
 render();
+startLive();
 if (cfgReady()) { fetchRemote(true); }
-else { document.getElementById("cfg").className = "card"; setStatus("Source non configur\u00e9e", ""); }
+else { document.getElementById("cfg").className = "card"; setStatus("Source \u00e0 configurer", ""); }
 </script>
 </body>
 </html>
