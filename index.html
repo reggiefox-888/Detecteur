@@ -77,7 +77,7 @@ input:focus{outline:none;border-color:var(--amb)}
     <div class="row">
       <div>
         <h1>Tableau des signaux</h1>
-        <p class="sub">Entrées, stops suiveurs, sorties et journal d'observation <span style="color:var(--amb)">— version 12, trois modes</span></p>
+        <p class="sub">Entrées, stops suiveurs, sorties et journal d'observation <span style="color:var(--amb)">— version 13, sens au choix</span></p>
       </div>
       <div class="row" style="gap:12px">
         <span id="status" style="font-size:12px;color:var(--dim2)"></span>
@@ -376,22 +376,45 @@ function posForm(cle, pair, dir, prixDefaut, stopSignal) {
       '" data-stop="' + esc(stopSignal === undefined || stopSignal === null ? "" : stopSignal) +
       '" style="margin-top:8px">Ouvrir une position</button>';
   }
-  var px = prixLive(pair, prixDefaut);
+  var b = brouillon;
+  var choisi = b.dir || dir;
+  var px = b.entry !== undefined ? b.entry : prixLive(pair, prixDefaut);
+  var inverse = choisi !== dir;
+  var btnDir = [["long", "Hausse"], ["short", "Baisse"]].map(function (o) {
+    var actif = choisi === o[0];
+    return '<button data-setdir="' + o[0] + '"' +
+      (actif ? ' class="' + (o[0] === "long" ? "on-g" : "on-r") + '"' : "") +
+      ">" + o[1] + "</button>";
+  }).join(" ");
+
   return '<div class="posform"><div class="lbl" style="margin-bottom:8px">' +
-    "Nouvelle position \u2014 " + esc(pair) + " \u00b7 " +
-    (dir === "long" ? "hausse" : "baisse") + "</div><div class=\"cfg\">" +
+    "Nouvelle position \u2014 " + esc(pair) + "</div>" +
+    '<div class="row" style="justify-content:flex-start;gap:8px;margin-bottom:10px">' +
+      '<span class="lbl" style="margin-right:2px">Sens</span>' + btnDir +
+      (inverse
+        ? '<span class="d3" style="font-size:12px;margin-left:6px">' +
+          "\u2260 sens du signal (" + (dir === "long" ? "hausse" : "baisse") + ")</span>"
+        : "") +
+    "</div>" +
+    '<div class="cfg">' +
     '<div><div class="lbl" style="margin-bottom:4px">Prix d\u2019entr\u00e9e</div>' +
       '<input type="number" step="any" id="np-entry" value="' + px + '"></div>' +
     '<div><div class="lbl" style="margin-bottom:4px">Montant \u20ac</div>' +
-      '<input type="number" step="any" min="0" id="np-amount" placeholder="500"></div>' +
+      '<input type="number" step="any" min="0" id="np-amount" value="' +
+      (b.amount === undefined ? "" : esc(b.amount)) + '" placeholder="500"></div>' +
     '<div><div class="lbl" style="margin-bottom:4px">Levier</div>' +
-      '<input type="number" step="1" min="1" max="50" id="np-lev" value="1"></div>' +
+      '<input type="number" step="1" min="1" max="50" id="np-lev" value="' +
+      (b.lev === undefined ? "1" : esc(b.lev)) + '"></div>' +
     '<div style="display:flex;align-items:flex-end;gap:8px">' +
       '<button class="primary" data-savepos="' + esc(cle) + '">Enregistrer</button>' +
       '<button data-cancelpos="1">Annuler</button></div>' +
-    "</div><p class=\"d3\" style=\"font-size:12px;margin:8px 0 0\">" +
-    "Carnet de suivi uniquement : aucune position n\u2019est ouverte sur Kraken." +
-    "</p></div>";
+    "</div>" +
+    (inverse
+      ? '<p class="d3" style="font-size:12px;margin:8px 0 0">Sens oppos\u00e9 au signal : ' +
+        "le stop du d\u00e9tecteur ne s\u2019applique plus et ne sera pas repris.</p>"
+      : "") +
+    '<p class="d3" style="font-size:12px;margin:8px 0 0">' +
+    "Carnet de suivi uniquement : aucune position n\u2019est ouverte sur Kraken.</p></div>";
 }
 
 function renderPositions() {
@@ -415,6 +438,7 @@ function renderPositions() {
           (p.dir === "long" ? "hausse" : "baisse") + "</span>" +
         '<span class="d" style="font-size:12px">' + fmt(p.amount) + " \u20ac \u00b7 " +
           fmt(p.leverage, 0) + "x</span>" +
+        (p.contre_signal ? '<span class="tag" style="border-color:#52525b;color:#a1a1aa">contre le signal</span>' : "") +
         (c.live ? '<span class="live">\u25cf direct</span>' : '<span class="stale">dernier scan</span>') +
       "</div>" +
       '<span class="mono ' + cls(c.pnl) + '" style="font-size:15px">' +
@@ -656,13 +680,28 @@ document.getElementById("file").addEventListener("change", function (e) {
 document.addEventListener("click", function (e) {
   var b = e.target.closest ? e.target.closest("button") : null;
   if (!b) return;
+  if (b.dataset.setdir) {
+    var ne = document.getElementById("np-entry");
+    var na = document.getElementById("np-amount");
+    var nl = document.getElementById("np-lev");
+    if (ne) brouillon.entry = ne.value;
+    if (na) brouillon.amount = na.value;
+    if (nl) brouillon.lev = nl.value;
+    brouillon.dir = b.dataset.setdir;
+    render();
+    return;
+  }
   if (b.dataset.openpos) {
-    openForm = b.dataset.openpos; render();
+    openForm = b.dataset.openpos;
+    brouillon = { dir: b.dataset.dir, pair: b.dataset.pair,
+                  stop: b.dataset.stop ? parseFloat(b.dataset.stop) : null,
+                  sigdir: b.dataset.dir };
+    render();
     var f = document.getElementById("np-amount");
     if (f) f.focus();
     return;
   }
-  if (b.dataset.cancelpos) { openForm = null; render(); return; }
+  if (b.dataset.cancelpos) { openForm = null; brouillon = {}; render(); return; }
   if (b.dataset.savepos) {
     var entry = parseFloat((document.getElementById("np-entry") || {}).value);
     var amount = parseFloat((document.getElementById("np-amount") || {}).value);
@@ -671,22 +710,17 @@ document.addEventListener("click", function (e) {
       msg("Prix, montant et levier doivent \u00eatre renseign\u00e9s.", false);
       return;
     }
-    var src = document.querySelector('[data-openpos="' + b.dataset.savepos + '"]');
-    var meta = src ? src.dataset : null;
-    var cle = b.dataset.savepos;
-    var carte = document.querySelector('[data-savepos="' + cle + '"]').closest(".card");
-    var pair = (meta && meta.pair) || (carte ? (carte.querySelector(".mono") || {}).textContent : "");
-    var dir = (meta && meta.dir) || "long";
-    var stop = meta && meta.stop ? parseFloat(meta.stop) : null;
-    if (!meta) {
-      var last = positions.__pending || {};
-      pair = last.pair || pair; dir = last.dir || dir; stop = last.stop || stop;
-    }
-    positions.push({ id: String(Date.now()), pair: pair, dir: dir, entry: entry,
-                     amount: amount, leverage: lev, stop: isFinite(stop) ? stop : null,
-                     opened_ts: Math.floor(Date.now() / 1000), status: "open" });
-    openForm = null; save(); render();
-    msg("Position enregistr\u00e9e dans ton carnet.", true);
+    var dirFinal = brouillon.dir || "long";
+    var memeSens = dirFinal === brouillon.sigdir;
+    positions.push({
+      id: String(Date.now()), pair: brouillon.pair, dir: dirFinal,
+      entry: entry, amount: amount, leverage: lev,
+      stop: memeSens && isFinite(brouillon.stop) ? brouillon.stop : null,
+      contre_signal: !memeSens,
+      opened_ts: Math.floor(Date.now() / 1000), status: "open"
+    });
+    openForm = null; brouillon = {}; save(); render();
+    msg("Position enregistr\u00e9e" + (memeSens ? "." : " (sens oppos\u00e9 au signal)."), true);
     return;
   }
   if (b.dataset.closepos) {
@@ -745,6 +779,7 @@ document.addEventListener("input", function (e) {
 /* ---------- prix instantanes Kraken ---------- */
 var positions = [];   // carnet de suivi saisi par l'utilisateur
 var openForm = null;  // cle de la carte dont le formulaire est ouvert
+var brouillon = {};   // saisies en cours : {dir, entry, amount, lev, stop, pair}
 var live = {};        // { PAIRUSD: {price, ts} }
 var liveTimer = null;
 
