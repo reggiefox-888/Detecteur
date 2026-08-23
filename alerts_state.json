@@ -54,7 +54,10 @@
    "XTZUSD": 1787464743.580373,
    "RIVERUSD": 1787464807.0875912,
    "SYRUPUSD": 1787464823.0805955,
-   "LCXUSD": 1787475932.0143547
+   "LCXUSD": 1787475932.0143547,
+   "ENAUSD": 1787482628.0069847,
+   "ETHFIUSD": 1787482801.6375222,
+   "UAIUSD": 1787482892.4134707
   },
   "5m": {
    "ENAUSD": 1787479142.9034076
@@ -73,12 +76,12 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": true,
-   "stop": 11.1824508566,
-   "extreme": 11.40217,
+   "stop": 11.2502929835,
+   "extreme": 11.45793,
    "breakeven": false,
-   "last_price": 11.37198,
-   "r_latent": 0.35,
-   "maj_ts": 1787475600
+   "last_price": 11.41914,
+   "r_latent": 0.47,
+   "maj_ts": 1787479200
   },
   {
    "id": "1787461200",
@@ -92,12 +95,31 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": true,
-   "stop": 2395.5490666884,
+   "stop": 2396.8786850528,
    "extreme": 2424.89,
    "breakeven": false,
-   "last_price": 2410.65,
-   "r_latent": 0.65,
-   "maj_ts": 1787475600
+   "last_price": 2413.14,
+   "r_latent": 0.7,
+   "maj_ts": 1787479200
+  },
+  {
+   "id": "1787479200",
+   "dir": "short",
+   "score": 71,
+   "entry": 0.1783,
+   "entry_ts": 1787479200,
+   "stop_init": 0.18838125941062198,
+   "risk": 0.01008125941062199,
+   "pair": "ENAUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
+   "stop": 0.1883812594,
+   "extreme": 0.1783,
+   "breakeven": false,
+   "last_price": 0.1783,
+   "r_latent": 0.0,
+   "maj_ts": 1787479200
   },
   {
    "id": "1787461200",
@@ -111,12 +133,12 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": true,
-   "stop": 0.0156568187,
-   "extreme": 0.01594,
+   "stop": 0.0157929713,
+   "extreme": 0.01607,
    "breakeven": false,
-   "last_price": 0.01594,
-   "r_latent": 0.63,
-   "maj_ts": 1787475600
+   "last_price": 0.01607,
+   "r_latent": 0.88,
+   "maj_ts": 1787479200
   },
   {
    "id": "1787461200",
@@ -130,12 +152,12 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": true,
-   "stop": 266.112751,
-   "extreme": 271.66,
+   "stop": 268.0221169337,
+   "extreme": 273.25,
    "breakeven": false,
-   "last_price": 270.88,
-   "r_latent": 0.38,
-   "maj_ts": 1787475600
+   "last_price": 272.63,
+   "r_latent": 0.58,
+   "maj_ts": 1787479200
   },
   {
    "id": "1787461200",
@@ -152,9 +174,9 @@
    "stop": 0.028537714,
    "extreme": 0.0288,
    "breakeven": true,
-   "last_price": 0.02879,
-   "r_latent": 1.0,
-   "maj_ts": 1787477400
+   "last_price": 0.02875,
+   "r_latent": 0.87,
+   "maj_ts": 1787479200
   },
   {
    "id": "1787473800",
@@ -168,12 +190,12 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": false,
-   "stop": 0.0209530049,
-   "extreme": 0.02487,
+   "stop": 0.0219956474,
+   "extreme": 0.02592,
    "breakeven": false,
-   "last_price": 0.02391,
-   "r_latent": 0.21,
-   "maj_ts": 1787477400
+   "last_price": 0.02583,
+   "r_latent": 0.76,
+   "maj_ts": 1787479200
   },
   {
    "id": "1787461200",
@@ -187,12 +209,31 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": false,
-   "stop": 0.4457310913,
-   "extreme": 0.4527,
+   "stop": 0.4494431562,
+   "extreme": 0.4566,
+   "breakeven": true,
+   "last_price": 0.4558,
+   "r_latent": 1.1,
+   "maj_ts": 1787479200
+  },
+  {
+   "id": "1787481000",
+   "dir": "short",
+   "score": 62,
+   "entry": 0.6385,
+   "entry_ts": 1787481000,
+   "stop_init": 0.6569306180104557,
+   "risk": 0.018430618010455757,
+   "pair": "ETHFIUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
+   "stop": 0.656930618,
+   "extreme": 0.6385,
    "breakeven": false,
-   "last_price": 0.4518,
-   "r_latent": 0.69,
-   "maj_ts": 1787477400
+   "last_price": 0.6385,
+   "r_latent": 0.0,
+   "maj_ts": 1787481000
   },
   {
    "id": "1787461200",
@@ -206,12 +247,12 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": true,
-   "stop": 0.2242407434,
-   "extreme": 0.22721,
+   "stop": 0.227093141,
+   "extreme": 0.23015,
    "breakeven": true,
-   "last_price": 0.22718,
-   "r_latent": 1.15,
-   "maj_ts": 1787477400
+   "last_price": 0.22767,
+   "r_latent": 1.25,
+   "maj_ts": 1787481000
   },
   {
    "id": "1787463000",
@@ -225,12 +266,31 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": true,
-   "stop": 2.2748657603,
+   "stop": 2.2801036403,
    "extreme": 2.324,
    "breakeven": true,
-   "last_price": 2.303,
-   "r_latent": 0.68,
-   "maj_ts": 1787477400
+   "last_price": 2.305,
+   "r_latent": 0.72,
+   "maj_ts": 1787481000
+  },
+  {
+   "id": "1787481000",
+   "dir": "short",
+   "score": 66,
+   "entry": 0.27187,
+   "entry_ts": 1787481000,
+   "stop_init": 0.2835954177685341,
+   "risk": 0.011725417768534085,
+   "pair": "UAIUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false,
+   "stop": 0.2835954178,
+   "extreme": 0.27187,
+   "breakeven": false,
+   "last_price": 0.27187,
+   "r_latent": 0.0,
+   "maj_ts": 1787481000
   },
   {
    "id": "1787463000",
@@ -244,12 +304,12 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": true,
-   "stop": 0.1885389489,
-   "extreme": 0.19136,
+   "stop": 0.1919207263,
+   "extreme": 0.19493,
    "breakeven": true,
-   "last_price": 0.19126,
-   "r_latent": 1.45,
-   "maj_ts": 1787477400
+   "last_price": 0.19414,
+   "r_latent": 2.24,
+   "maj_ts": 1787481000
   }
  ],
  "history": [
@@ -721,8 +781,8 @@
  ],
  "perps_ts": 1787464459.9909942,
  "last_scan": {
-  "1j": 1787476088.642147,
-  "30m": 1787479313.7885308,
-  "5m": 1787479313.7885327
+  "1j": 1787482943.800301,
+  "30m": 1787482943.8003035,
+  "5m": 1787482943.8003044
  }
 }
