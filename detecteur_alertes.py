@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Détecteur v5 — entrée directe, univers élargi + suivi de position + alertes de sortie
+Détecteur v6 — entrée directe, suivi 2 ATR, univers élargi + suivi de position + alertes de sortie
 ==========================================================================
 
 CE QUI CHANGE (v3)
@@ -69,7 +69,10 @@ SCORE_MIN = 40
 RSI_LEN, MA_LEN, ATR_LEN = 14, 20, 14
 CONFIRM_BARS = 3
 ATR_STOP_MULT = 1.5
-TRAIL_MULT = 3.0
+TRAIL_MULT = 2.0           # mesuré : 1,08 de facteur de profit contre 0,90 à 3 ATR
+                           # et 0,90 à 4 ATR, sur 1006 signaux (test_sortie.py).
+                           # Écart cohérent sur les 4 variantes de sortie et
+                           # sur les deux moitiés de période (1,01 et 1,14).
 MAX_HOLD = 240
 COOLDOWN_HOURS = 24
 HISTORY_KEEP = 50
@@ -450,7 +453,7 @@ def fp(p):
 
 def main():
     now = datetime.now(timezone.utc)
-    print(f"[{now:%Y-%m-%d %H:%M} UTC] scan (v5 entree directe)")
+    print(f"[{now:%Y-%m-%d %H:%M} UTC] scan (v6 suivi 2 ATR)")
     ev = in_macro_window(now)
     if ev:
         print(f"  Fenêtre macro ({ev} UTC ±{MACRO_WINDOW_H}h) — scan suspendu "
