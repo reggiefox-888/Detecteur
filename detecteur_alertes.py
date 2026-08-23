@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Détecteur v4 — univers élargi + suivi de position + alertes de sortie
+Détecteur v5 — entrée directe, univers élargi + suivi de position + alertes de sortie
 ==========================================================================
 
 CE QUI CHANGE (v3)
@@ -87,6 +87,7 @@ MACRO_WINDOW_H = 2
 API = "https://api.kraken.com/0/public/OHLC"
 API_PAIRS = "https://api.kraken.com/0/public/AssetPairs"
 API_TICKER = "https://api.kraken.com/0/public/Ticker"
+API_FUTURES = "https://futures.kraken.com/derivatives/api/v3/instruments"
 
 # ----------------------------------------------------------- indicateurs
 
@@ -152,67 +153,61 @@ def score_reversal(candles, i, rsi):
 # ----------------------------------------------------------- entrée confirmée
 
 def detect_entry(closed, rsi, atr):
-    """Une entrée confirmée SUR LA DERNIÈRE bougie close, sinon None."""
+    """Entrée SANS confirmation, sur la dernière bougie close.
+
+    CHANGEMENT MESURÉ (test_confirmation.py, 510 excès, 76 paires, 2 ans) :
+      A. confirmation au plus haut/bas : 36,1 % des excès, entrée 9,29 %
+         plus loin, avantage +0,48 vs hasard
+      D. aucune confirmation           : 100 % des excès, entrée immédiate,
+         avantage +1,59
+    La confirmation éliminait 64 % des signaux et divisait l'avantage par
+    trois. Elle est supprimée. Réserve honnête : le ratio potentiel/douleur
+    de D (0,93) est un peu moins bon que celui de A (1,02).
+    """
     j = len(closed) - 1
-    if j < MA_LEN + RSI_LEN + CONFIRM_BARS + 2:
+    if j < MA_LEN + RSI_LEN + 2:
         return None
-    for k in range(1, CONFIRM_BARS + 1):
-        i = j - k
-        sc, direction = score_reversal(closed, i, rsi)
-        if sc < SCORE_MIN or direction is None:
-            continue
-        seuil = closed[i]["h"] if direction == "long" else closed[i]["l"]
-        confirmed_before = any(
-            (closed[m]["c"] > seuil if direction == "long" else closed[m]["c"] < seuil)
-            for m in range(i + 1, j)
-        )
-        if confirmed_before:
-            continue
-        now_ok = closed[j]["c"] > seuil if direction == "long" else closed[j]["c"] < seuil
-        if not now_ok:
-            continue
-        pivot = (min(c["l"] for c in closed[i:j + 1]) if direction == "long"
-                 else max(c["h"] for c in closed[i:j + 1]))
-        a0 = atr[j]
-        if not a0 or a0 <= 0:
-            return None
-        entry = closed[j]["c"]
-        stop = pivot - ATR_STOP_MULT * a0 if direction == "long" else pivot + ATR_STOP_MULT * a0
-        if (direction == "long" and stop >= entry) or (direction == "short" and stop <= entry):
-            return None
-        return {
-            "id": f"{closed[j]['t']}", "dir": direction, "score": sc,
-            "entry": entry, "entry_ts": closed[j]["t"],
-            "stop_init": stop, "risk": abs(entry - stop),
-        }
-    return None
+    sc, direction = score_reversal(closed, j, rsi)
+    if sc < SCORE_MIN or direction is None:
+        return None
+    a0 = atr[j]
+    if not a0 or a0 <= 0:
+        return None
+    entry = closed[j]["c"]
+    pivot = closed[j]["l"] if direction == "long" else closed[j]["h"]
+    stop = pivot - ATR_STOP_MULT * a0 if direction == "long" else pivot + ATR_STOP_MULT * a0
+    if (direction == "long" and stop >= entry) or (direction == "short" and stop <= entry):
+        return None
+    return {
+        "id": f"{closed[j]['t']}", "dir": direction, "score": sc,
+        "entry": entry, "entry_ts": closed[j]["t"],
+        "stop_init": stop, "risk": abs(entry - stop),
+    }
+
 
 def detect_watch(closed, rsi):
-    """Excès repéré mais PAS encore confirmé, et fenêtre encore ouverte.
-    Aucun critère n'est assoupli : c'est exactement le même excès que pour
-    une entrée, simplement observé avant la confirmation."""
+    """RSI qui APPROCHE d'une zone d'excès, sans y être encore.
+
+    La confirmation ayant été supprimée, un excès devient immédiatement une
+    entrée : il n'y a plus rien à « attendre ». Cette section montre donc
+    désormais ce qui se prépare — les paires dont le RSI entre en zone
+    d'alerte (30-38 ou 62-70) mais n'a pas atteint le seuil d'excès.
+    Aucun critère n'est assoupli : ce ne sont PAS des signaux.
+    """
     j = len(closed) - 1
-    if j < MA_LEN + RSI_LEN + CONFIRM_BARS + 2:
+    if j < MA_LEN + RSI_LEN + 2:
         return None
-    for k in range(0, CONFIRM_BARS):
-        i = j - k
-        sc, direction = score_reversal(closed, i, rsi)
-        if sc < SCORE_MIN or direction is None:
-            continue
-        seuil = closed[i]["h"] if direction == "long" else closed[i]["l"]
-        deja = any(
-            (closed[m]["c"] > seuil if direction == "long" else closed[m]["c"] < seuil)
-            for m in range(i + 1, j + 1)
-        )
-        if deja:
-            return None          # confirmé : ce n'est plus de la surveillance
-        last = closed[j]["c"]
-        dist = ((seuil - last) / last * 100 if direction == "long"
-                else (last - seuil) / last * 100)
-        return {"dir": direction, "score": sc, "rsi": round(rsi[i], 1),
-                "seuil": seuil, "last": last, "dist": round(dist, 2),
-                "restant": CONFIRM_BARS - k, "ts": closed[i]["t"]}
-    return None
+    r = rsi[j]
+    if r is None:
+        return None
+    if 30 < r <= 38:
+        direction, reste = "long", round(r - 30, 1)
+    elif 62 <= r < 70:
+        direction, reste = "short", round(70 - r, 1)
+    else:
+        return None
+    return {"dir": direction, "rsi": round(r, 1), "reste": reste,
+            "last": closed[j]["c"], "ts": closed[j]["t"]}
 
 
 # ----------------------------------------------------------- suivi de position
@@ -275,6 +270,42 @@ def _get(url, retries=2, timeout=25):
             if a == retries:
                 return {"error": [str(e)]}
             time.sleep(2)
+
+
+def perp_bases(state):
+    """Actifs disposant d'un perpétuel sur Kraken Futures. Une requête par
+    jour, mémorisée. Renvoie None si l'information est indisponible —
+    dans ce cas le détecteur n'affirme rien plutôt que d'induire en erreur."""
+    cached = state.get("perps")
+    ts = state.get("perps_ts", 0)
+    if cached is not None and time.time() - ts < UNIVERSE_CACHE_H * 3600:
+        return set(cached)
+    d = _get(API_FUTURES)
+    if d.get("error") or not d.get("instruments"):
+        print("  [!] Liste des perpétuels indisponible.")
+        return set(cached) if cached is not None else None
+    bases = set()
+    for ins in d["instruments"]:
+        sym = (ins.get("symbol") or "").upper()
+        if not sym.startswith("PF_") or not sym.endswith("USD"):
+            continue
+        if not ins.get("tradeable", True):
+            continue
+        b = sym[3:-3]
+        bases.add(b)
+        if b == "XBT":
+            bases.add("BTC")
+    state["perps"] = sorted(bases)
+    state["perps_ts"] = time.time()
+    print(f"  Perpétuels disponibles : {len(bases)} actifs.")
+    return bases
+
+
+def has_perp(pair, bases):
+    """True / False / None (inconnu)."""
+    if bases is None:
+        return None
+    return pair[:-3] in bases
 
 
 def build_universe(state):
@@ -373,12 +404,15 @@ def load_state():
         st.setdefault("last_by_pair", {})
         st.setdefault("universe", None)
         st.setdefault("universe_ts", 0)
+        st.setdefault("perps", None)
+        st.setdefault("perps_ts", 0)
         st.setdefault("active", [])
         st.setdefault("history", [])
         return st
     except Exception:
         return {"last_by_pair": {}, "active": [], "history": [],
-                "universe": None, "universe_ts": 0}
+                "universe": None, "universe_ts": 0,
+                "perps": None, "perps_ts": 0}
 
 
 def save_json(path, data):
@@ -416,7 +450,7 @@ def fp(p):
 
 def main():
     now = datetime.now(timezone.utc)
-    print(f"[{now:%Y-%m-%d %H:%M} UTC] scan (v4 univers elargi)")
+    print(f"[{now:%Y-%m-%d %H:%M} UTC] scan (v5 entree directe)")
     ev = in_macro_window(now)
     if ev:
         print(f"  Fenêtre macro ({ev} UTC ±{MACRO_WINDOW_H}h) — scan suspendu "
@@ -425,6 +459,7 @@ def main():
 
     state = load_state()
     pairs = build_universe(state)
+    bases = perp_bases(state)
     entries, exits, still_open, watch = [], [], [], []
     active_by_pair = {s["pair"]: s for s in state["active"]}
     # une position ouverte est toujours suivie, même si sa paire sort de l'univers
@@ -455,6 +490,7 @@ def main():
         w = detect_watch(closed, rsi)
         if w:
             w["pair"] = pair
+            w["perp"] = has_perp(pair, bases)
             watch.append(w)
 
         last_ts = state["last_by_pair"].get(pair, 0)
@@ -463,6 +499,7 @@ def main():
         sig = detect_entry(closed, rsi, atr)
         if sig:
             sig["pair"] = pair
+            sig["perp"] = has_perp(pair, bases)
             status, res = track(sig, closed, rsi, atr)
             if status == "open":
                 entries.append(res)
@@ -473,7 +510,7 @@ def main():
     state["history"] = (state["history"] + exits)[-HISTORY_KEEP:]
     save_json(STATE_FILE, state)
 
-    watch.sort(key=lambda x: x["dist"])
+    watch.sort(key=lambda x: x["reste"])
     board = {"generated": now.strftime("%Y-%m-%d %H:%M UTC"),
              "active": still_open, "history": state["history"],
              "watch": watch[:25]}
@@ -490,7 +527,10 @@ def main():
                 lines += [
                     f"  {s['dir'].upper():5} {s['pair']}  score {s['score']}",
                     f"    Entrée {fp(s['entry'])} | Invalidation {fp(s['stop_init'])}"
-                    f" ({abs(sd):.2f} %)", ""]
+                    f" ({abs(sd):.2f} %)",
+                    f"    Perpétuel Kraken : "
+                    + ("oui" if s.get("perp") else "NON — spot uniquement"
+                       if s.get("perp") is False else "inconnu"), ""]
         if exits:
             lines.append(f"ALERTES DE SORTIE ({len(exits)})")
             for s in exits:
@@ -523,12 +563,13 @@ def main():
         print(f"  Aucun événement. Positions suivies : {len(still_open)}, "
               f"en surveillance : {len(watch)}.")
     if watch:
-        print(f"\n  EN SURVEILLANCE ({len(watch)}) — excès repérés, confirmation attendue :")
+        print(f"\n  APPROCHE ({len(watch)}) — RSI entrant en zone d'alerte :")
         for w in watch[:10]:
-            print(f"    {w['pair']:<12} {w['dir']:<5} score {w['score']:>3} "
-                  f"RSI {w['rsi']:>5}  confirmation à {fp(w['seuil'])} "
-                  f"({w['dist']:+.2f} %)  {w['restant']} bougie(s) restante(s)")
-        print("  (la surveillance ne déclenche pas d'email : rien n'est confirmé)")
+            print(f"    {w['pair']:<12} {w['dir']:<5} RSI {w['rsi']:>5}  "
+                  f"encore {w['reste']:>4} pts avant la zone d'excès"
+                  + ("" if w.get("perp") else "  [pas de perp]"
+                     if w.get("perp") is False else "  [perp inconnu]"))
+        print("  (l'approche ne déclenche pas d'email : ce ne sont pas des signaux)")
 
     print("  Scan terminé.")
 
