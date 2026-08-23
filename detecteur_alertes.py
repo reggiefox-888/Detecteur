@@ -187,6 +187,34 @@ def detect_entry(closed, rsi, atr):
         }
     return None
 
+def detect_watch(closed, rsi):
+    """Excès repéré mais PAS encore confirmé, et fenêtre encore ouverte.
+    Aucun critère n'est assoupli : c'est exactement le même excès que pour
+    une entrée, simplement observé avant la confirmation."""
+    j = len(closed) - 1
+    if j < MA_LEN + RSI_LEN + CONFIRM_BARS + 2:
+        return None
+    for k in range(0, CONFIRM_BARS):
+        i = j - k
+        sc, direction = score_reversal(closed, i, rsi)
+        if sc < SCORE_MIN or direction is None:
+            continue
+        seuil = closed[i]["h"] if direction == "long" else closed[i]["l"]
+        deja = any(
+            (closed[m]["c"] > seuil if direction == "long" else closed[m]["c"] < seuil)
+            for m in range(i + 1, j + 1)
+        )
+        if deja:
+            return None          # confirmé : ce n'est plus de la surveillance
+        last = closed[j]["c"]
+        dist = ((seuil - last) / last * 100 if direction == "long"
+                else (last - seuil) / last * 100)
+        return {"dir": direction, "score": sc, "rsi": round(rsi[i], 1),
+                "seuil": seuil, "last": last, "dist": round(dist, 2),
+                "restant": CONFIRM_BARS - k, "ts": closed[i]["t"]}
+    return None
+
+
 # ----------------------------------------------------------- suivi de position
 
 def track(sig, closed, rsi, atr):
@@ -397,7 +425,7 @@ def main():
 
     state = load_state()
     pairs = build_universe(state)
-    entries, exits, still_open = [], [], []
+    entries, exits, still_open, watch = [], [], [], []
     active_by_pair = {s["pair"]: s for s in state["active"]}
     # une position ouverte est toujours suivie, même si sa paire sort de l'univers
     for p in active_by_pair:
@@ -424,6 +452,11 @@ def main():
                 still_open.append(res)
             continue
 
+        w = detect_watch(closed, rsi)
+        if w:
+            w["pair"] = pair
+            watch.append(w)
+
         last_ts = state["last_by_pair"].get(pair, 0)
         if time.time() - last_ts < COOLDOWN_HOURS * 3600:
             continue
@@ -440,8 +473,10 @@ def main():
     state["history"] = (state["history"] + exits)[-HISTORY_KEEP:]
     save_json(STATE_FILE, state)
 
+    watch.sort(key=lambda x: x["dist"])
     board = {"generated": now.strftime("%Y-%m-%d %H:%M UTC"),
-             "active": still_open, "history": state["history"]}
+             "active": still_open, "history": state["history"],
+             "watch": watch[:25]}
     save_json(SIGNALS_FILE, board)
 
     if entries or exits:
@@ -485,8 +520,15 @@ def main():
         print("\n" + body + "\n")
         send_email(subject, body)
     else:
-        msg = f"  Aucun événement. Positions suivies : {len(still_open)}."
-        print(msg)
+        print(f"  Aucun événement. Positions suivies : {len(still_open)}, "
+              f"en surveillance : {len(watch)}.")
+    if watch:
+        print(f"\n  EN SURVEILLANCE ({len(watch)}) — excès repérés, confirmation attendue :")
+        for w in watch[:10]:
+            print(f"    {w['pair']:<12} {w['dir']:<5} score {w['score']:>3} "
+                  f"RSI {w['rsi']:>5}  confirmation à {fp(w['seuil'])} "
+                  f"({w['dist']:+.2f} %)  {w['restant']} bougie(s) restante(s)")
+        print("  (la surveillance ne déclenche pas d'email : rien n'est confirmé)")
 
     print("  Scan terminé.")
 
