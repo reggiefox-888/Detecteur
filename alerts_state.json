@@ -12,12 +12,12 @@
    "stop_init": 0.24483372527768238,
    "risk": 0.02883372527768238,
    "pair": "STXUSD",
-   "stop": 0.2409778466,
-   "extreme": 0.216,
+   "stop": 0.2349937147,
+   "extreme": 0.2091,
    "breakeven": false,
-   "last_price": 0.2217,
-   "r_latent": -0.2,
-   "maj_ts": 1787446800
+   "last_price": 0.2143,
+   "r_latent": 0.06,
+   "maj_ts": 1787450400
   }
  ],
  "history": [],

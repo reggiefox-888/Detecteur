@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-23 02:47 UTC",
+ "generated": "2026-08-23 03:31 UTC",
  "active": [
   {
    "id": "1787432400",
@@ -10,25 +10,36 @@
    "stop_init": 0.24483372527768238,
    "risk": 0.02883372527768238,
    "pair": "STXUSD",
-   "stop": 0.2409778466,
-   "extreme": 0.216,
+   "stop": 0.2349937147,
+   "extreme": 0.2091,
    "breakeven": false,
-   "last_price": 0.2217,
-   "r_latent": -0.2,
-   "maj_ts": 1787446800
+   "last_price": 0.2143,
+   "r_latent": 0.06,
+   "maj_ts": 1787450400
   }
  ],
  "history": [],
  "watch": [
   {
-   "dir": "short",
-   "score": 85,
-   "rsi": 82.3,
-   "seuil": 0.3741,
-   "last": 0.3935,
-   "dist": 4.93,
+   "dir": "long",
+   "score": 44,
+   "rsi": 29.0,
+   "seuil": 2.383,
+   "last": 2.369,
+   "dist": 0.59,
    "restant": 3,
-   "ts": 1787446800,
+   "ts": 1787450400,
+   "pair": "RIVERUSD"
+  },
+  {
+   "dir": "short",
+   "score": 80,
+   "rsi": 84.8,
+   "seuil": 0.3935,
+   "last": 0.4126,
+   "dist": 4.63,
+   "restant": 3,
+   "ts": 1787450400,
    "pair": "TRACUSD"
   }
  ]
