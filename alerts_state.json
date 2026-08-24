@@ -185,13 +185,14 @@
    "perp": true,
    "fwd": {
     "1": 3.22,
-    "3": 2.11
+    "3": 2.11,
+    "5": 2.85
    },
    "efm": 4.17,
    "eam": -1.02,
-   "bougies_ecoulees": 4,
-   "prix_actuel": 0.004669,
-   "variation": 1.52
+   "bougies_ecoulees": 7,
+   "prix_actuel": 0.004719,
+   "variation": 2.61
   },
   {
    "id": "1787443200",
@@ -232,30 +233,6 @@
    "bougies_ecoulees": 0,
    "prix_actuel": 4.5273,
    "variation": -0.0
-  },
-  {
-   "id": "1787585400",
-   "sens": "short",
-   "score": 77,
-   "rsi": 78.7,
-   "meche": 77,
-   "volume_x": 6.13,
-   "prix": 0.24366,
-   "ts": 1787585400,
-   "pair": "KNTQUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {
-    "1": -5.5,
-    "3": -7.86,
-    "5": -0.23
-   },
-   "efm": 6.59,
-   "eam": -11.17,
-   "bougies_ecoulees": 7,
-   "prix_actuel": 0.23076,
-   "variation": 5.29
   },
   {
    "id": "1787443200",
@@ -316,30 +293,6 @@
    "bougies_ecoulees": 0,
    "prix_actuel": 0.3792,
    "variation": -0.0
-  },
-  {
-   "id": "1787585400",
-   "sens": "short",
-   "score": 68,
-   "rsi": 74.0,
-   "meche": 75,
-   "volume_x": 10.04,
-   "prix": 0.8226,
-   "ts": 1787585400,
-   "pair": "VIRTUALUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {
-    "1": -0.09,
-    "3": 4.84,
-    "5": 4.53
-   },
-   "efm": 6.01,
-   "eam": -0.69,
-   "bougies_ecoulees": 7,
-   "prix_actuel": 0.7838,
-   "variation": 4.72
   },
   {
    "id": "1787443200",
@@ -1602,6 +1555,56 @@
    "bougies_ecoulees": 10,
    "prix_actuel": 0.000741,
    "variation": -3.52
+  },
+  {
+   "id": "1787585400",
+   "sens": "short",
+   "score": 77,
+   "rsi": 78.7,
+   "meche": 77,
+   "volume_x": 6.13,
+   "prix": 0.24366,
+   "ts": 1787585400,
+   "pair": "KNTQUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false,
+   "fwd": {
+    "1": -5.5,
+    "3": -7.86,
+    "5": -0.23,
+    "10": 6.22
+   },
+   "efm": 8.19,
+   "eam": -11.17,
+   "bougies_ecoulees": 10,
+   "prix_actuel": 0.2285,
+   "variation": 6.22
+  },
+  {
+   "id": "1787585400",
+   "sens": "short",
+   "score": 68,
+   "rsi": 74.0,
+   "meche": 75,
+   "volume_x": 10.04,
+   "prix": 0.8226,
+   "ts": 1787585400,
+   "pair": "VIRTUALUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
+   "fwd": {
+    "1": -0.09,
+    "3": 4.84,
+    "5": 4.53,
+    "10": 4.22
+   },
+   "efm": 6.46,
+   "eam": -0.69,
+   "bougies_ecoulees": 10,
+   "prix_actuel": 0.7879,
+   "variation": 4.22
   }
  ],
  "universe": [
@@ -2002,8 +2005,8 @@
  ],
  "perps_ts": 1787550946.8784692,
  "last_scan": {
-  "1j": 1787601056.2679234,
-  "30m": 1787601056.2679257,
-  "5m": 1787601056.2679265
+  "1j": 1787605778.1638944,
+  "30m": 1787605778.163896,
+  "5m": 1787605778.1638966
  }
 }
