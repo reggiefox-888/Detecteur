@@ -67,7 +67,7 @@
    "AEROUSD": 1787464714.3835473,
    "XTZUSD": 1787464743.580373,
    "RIVERUSD": 1787464807.0875912,
-   "SYRUPUSD": 1787464823.0805955,
+   "SYRUPUSD": 1787572476.2691,
    "LCXUSD": 1787475932.0143547,
    "ENAUSD": 1787485846.9618502,
    "ETHFIUSD": 1787485952.814799,
@@ -267,6 +267,26 @@
    "variation": -0.0
   },
   {
+   "id": "1787569200",
+   "sens": "short",
+   "score": 63,
+   "rsi": 72.7,
+   "meche": 67,
+   "volume_x": 13.23,
+   "prix": 0.20545,
+   "ts": 1787569200,
+   "pair": "SYRUPUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.20545,
+   "variation": -0.0
+  },
+  {
    "id": "1787563800",
    "sens": "short",
    "score": 56,
@@ -279,12 +299,15 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": false,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.03073,
-   "variation": -0.0
+   "fwd": {
+    "1": -0.55,
+    "3": -0.29
+   },
+   "efm": -0.03,
+   "eam": -0.72,
+   "bougies_ecoulees": 3,
+   "prix_actuel": 0.03082,
+   "variation": -0.29
   },
   {
    "id": "1787443200",
@@ -327,30 +350,6 @@
    "variation": -0.0
   },
   {
-   "id": "1787549400",
-   "sens": "short",
-   "score": 49,
-   "rsi": 78.3,
-   "meche": 4,
-   "volume_x": 2.62,
-   "prix": 0.31638,
-   "ts": 1787549400,
-   "pair": "UAIUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {
-    "1": -1.11,
-    "3": -8.29,
-    "5": -8.84
-   },
-   "efm": 0.74,
-   "eam": -10.79,
-   "bougies_ecoulees": 8,
-   "prix_actuel": 0.34303,
-   "variation": -8.42
-  },
-  {
    "id": "1787558400",
    "sens": "short",
    "score": 44,
@@ -365,13 +364,14 @@
    "perp": false,
    "fwd": {
     "1": -0.54,
-    "3": 2.01
+    "3": 2.01,
+    "5": 0.23
    },
    "efm": 2.46,
    "eam": -3.22,
-   "bougies_ecoulees": 3,
-   "prix_actuel": 0.14767,
-   "variation": 2.01
+   "bougies_ecoulees": 6,
+   "prix_actuel": 0.15185,
+   "variation": -0.76
   },
   {
    "id": "1787443200",
@@ -1319,6 +1319,31 @@
    "bougies_ecoulees": 23,
    "prix_actuel": 0.0914686,
    "variation": 1.29
+  },
+  {
+   "id": "1787549400",
+   "sens": "short",
+   "score": 49,
+   "rsi": 78.3,
+   "meche": 4,
+   "volume_x": 2.62,
+   "prix": 0.31638,
+   "ts": 1787549400,
+   "pair": "UAIUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false,
+   "fwd": {
+    "1": -1.11,
+    "3": -8.29,
+    "5": -8.84,
+    "10": -3.82
+   },
+   "efm": 0.74,
+   "eam": -10.79,
+   "bougies_ecoulees": 11,
+   "prix_actuel": 0.34955,
+   "variation": -10.48
   }
  ],
  "universe": [
@@ -1719,8 +1744,8 @@
  ],
  "perps_ts": 1787550946.8784692,
  "last_scan": {
-  "1j": 1787567382.8246431,
-  "30m": 1787567382.8246462,
-  "5m": 1787567382.8246467
+  "1j": 1787572581.9844964,
+  "30m": 1787572581.9844987,
+  "5m": 1787572581.9844992
  }
 }
