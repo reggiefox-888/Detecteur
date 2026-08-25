@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-25 11:02 UTC",
+ "generated": "2026-08-25 14:07 UTC",
  "type": "observation",
  "horizons": [
   1,
@@ -483,6 +483,46 @@
    "variation": -0.0
   },
   {
+   "id": "1787664600",
+   "sens": "long",
+   "score": 48,
+   "rsi": 21.5,
+   "meche": 40,
+   "volume_x": 0.4,
+   "prix": 0.00668,
+   "ts": 1787664600,
+   "pair": "FLRUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.00668,
+   "variation": 0.0
+  },
+  {
+   "id": "1787664600",
+   "sens": "long",
+   "score": 42,
+   "rsi": 26.9,
+   "meche": 40,
+   "volume_x": 0.97,
+   "prix": 0.2081,
+   "ts": 1787664600,
+   "pair": "EIGENUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.2081,
+   "variation": 0.0
+  },
+  {
    "id": "1787529600",
    "sens": "short",
    "score": 52,
@@ -501,6 +541,26 @@
    "bougies_ecoulees": 0,
    "prix_actuel": 0.2013,
    "variation": -0.0
+  },
+  {
+   "id": "1787664600",
+   "sens": "long",
+   "score": 63,
+   "rsi": 25.2,
+   "meche": 47,
+   "volume_x": 15.37,
+   "prix": 0.00651,
+   "ts": 1787664600,
+   "pair": "TRIAUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.00651,
+   "variation": 0.0
   },
   {
    "id": "1787529600",
@@ -2571,25 +2631,25 @@
   },
   {
    "dir": "long",
-   "rsi": 30.2,
-   "reste": 0.2,
-   "last": 0.0068,
-   "ts": 1787653800,
-   "pair": "FLRUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false
-  },
-  {
-   "dir": "long",
    "rsi": 30.3,
    "reste": 0.3,
-   "last": 0.143,
-   "ts": 1787653800,
-   "pair": "VELVETUSD",
+   "last": 0.341439,
+   "ts": 1787664600,
+   "pair": "TRXUSD",
    "mode": "30m",
    "mode_nom": "30 minutes",
-   "perp": false
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 68.6,
+   "reste": 1.4,
+   "last": 1.175,
+   "ts": 1787664600,
+   "pair": "ZROUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
   }
  ]
 }
