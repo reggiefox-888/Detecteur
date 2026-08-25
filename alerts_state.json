@@ -74,7 +74,7 @@
    "GRTUSD": 1787496822.9998221,
    "BCHUSD": 1787464617.4603622,
    "XDCUSD": 1787567279.7246718,
-   "AEROUSD": 1787464714.3835473,
+   "AEROUSD": 1787691723.6864982,
    "XTZUSD": 1787464743.580373,
    "RIVERUSD": 1787464807.0875912,
    "SYRUPUSD": 1787572476.2691,
@@ -128,11 +128,12 @@
    "SPXUSD": 1787634735.3711238,
    "FLRUSD": 1787667166.2539523,
    "VVVUSD": 1787674883.407214,
-   "ZROUSD": 1787674951.4269116
+   "ZROUSD": 1787674951.4269116,
+   "XCNUSD": 1787691867.8100789
   },
   "5m": {
    "ENAUSD": 1787674759.9267595,
-   "TAOUSD": 1787492726.7391558,
+   "TAOUSD": 1787691606.1046395,
    "RENDERUSD": 1787492730.7004268,
    "JUPUSD": 1787608927.3023188,
    "AAVEUSD": 1787612587.8921547,
@@ -141,15 +142,17 @@
    "UNIUSD": 1787492759.900184,
    "FARTCOINUSD": 1787518603.1682756,
    "TIAUSD": 1787560213.911954,
-   "ARBUSD": 1787560228.6999757,
+   "ARBUSD": 1787691614.3485293,
    "XDGUSD": 1787560291.8569334,
-   "INJUSD": 1787581648.1330829,
+   "INJUSD": 1787691602.0743186,
    "PENGUUSD": 1787608976.2443318,
    "PAXGUSD": 1787615763.7941263,
    "GRTUSD": 1787643292.77476,
    "STXUSD": 1787634620.6822767,
    "POLUSD": 1787643268.9239347,
-   "NEARUSD": 1787687224.2928083
+   "NEARUSD": 1787687224.2928083,
+   "HYPEUSD": 1787691674.4135134,
+   "LTCUSD": 1787691690.2050254
   }
  },
  "active": [
@@ -234,15 +237,15 @@
    "variation": -0.0
   },
   {
-   "id": "1787686800",
+   "id": "1787691000",
    "sens": "long",
-   "score": 52,
-   "rsi": 27.8,
-   "meche": 57,
-   "volume_x": 3.27,
-   "prix": 1.8668,
-   "ts": 1787686800,
-   "pair": "NEARUSD",
+   "score": 41,
+   "rsi": 20.7,
+   "meche": 26,
+   "volume_x": 0.84,
+   "prix": 5.457,
+   "ts": 1787691000,
+   "pair": "INJUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
@@ -250,7 +253,47 @@
    "efm": null,
    "eam": null,
    "bougies_ecoulees": 0,
-   "prix_actuel": 1.8668,
+   "prix_actuel": 5.457,
+   "variation": 0.0
+  },
+  {
+   "id": "1787691300",
+   "sens": "long",
+   "score": 66,
+   "rsi": 21.6,
+   "meche": 59,
+   "volume_x": 3.72,
+   "prix": 227.9253,
+   "ts": 1787691300,
+   "pair": "TAOUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 227.9253,
+   "variation": 0.0
+  },
+  {
+   "id": "1787691300",
+   "sens": "long",
+   "score": 44,
+   "rsi": 5.5,
+   "meche": 0,
+   "volume_x": 0.35,
+   "prix": 0.0924,
+   "ts": 1787691300,
+   "pair": "ARBUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.0924,
    "variation": 0.0
   },
   {
@@ -354,6 +397,26 @@
    "variation": -0.0
   },
   {
+   "id": "1787691300",
+   "sens": "long",
+   "score": 48,
+   "rsi": 18.0,
+   "meche": 0,
+   "volume_x": 2.8,
+   "prix": 78.33,
+   "ts": 1787691300,
+   "pair": "HYPEUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 78.33,
+   "variation": 0.0
+  },
+  {
    "id": "1787529600",
    "sens": "short",
    "score": 51,
@@ -372,6 +435,26 @@
    "bougies_ecoulees": 0,
    "prix_actuel": 51.65,
    "variation": -0.0
+  },
+  {
+   "id": "1787691300",
+   "sens": "long",
+   "score": 43,
+   "rsi": 24.9,
+   "meche": 50,
+   "volume_x": 0.13,
+   "prix": 50.12,
+   "ts": 1787691300,
+   "pair": "LTCUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 50.12,
+   "variation": 0.0
   },
   {
    "id": "1787529600",
@@ -474,6 +557,26 @@
    "variation": -0.0
   },
   {
+   "id": "1787689800",
+   "sens": "long",
+   "score": 41,
+   "rsi": 29.7,
+   "meche": 36,
+   "volume_x": 1.71,
+   "prix": 0.5096,
+   "ts": 1787689800,
+   "pair": "AEROUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.5096,
+   "variation": 0.0
+  },
+  {
    "id": "1787529600",
    "sens": "short",
    "score": 55,
@@ -532,30 +635,6 @@
    "bougies_ecoulees": 0,
    "prix_actuel": 16.772,
    "variation": -0.0
-  },
-  {
-   "id": "1787671800",
-   "sens": "short",
-   "score": 65,
-   "rsi": 72.7,
-   "meche": 59,
-   "volume_x": 8.33,
-   "prix": 18.309,
-   "ts": 1787671800,
-   "pair": "VVVUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {
-    "1": 0.17,
-    "3": 2.89,
-    "5": 1.25
-   },
-   "efm": 3.75,
-   "eam": -0.88,
-   "bougies_ecoulees": 7,
-   "prix_actuel": 17.97,
-   "variation": 1.85
   },
   {
    "id": "1787529600",
@@ -618,30 +697,6 @@
    "variation": -0.0
   },
   {
-   "id": "1787671800",
-   "sens": "long",
-   "score": 52,
-   "rsi": 29.8,
-   "meche": 38,
-   "volume_x": 2.32,
-   "prix": 0.134,
-   "ts": 1787671800,
-   "pair": "VELVETUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {
-    "1": -0.75,
-    "3": -2.31,
-    "5": -2.76
-   },
-   "efm": 0.67,
-   "eam": -7.46,
-   "bougies_ecoulees": 7,
-   "prix_actuel": 0.1254,
-   "variation": -6.42
-  },
-  {
    "id": "1787529600",
    "sens": "short",
    "score": 50,
@@ -694,36 +749,35 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": false,
+   "fwd": {
+    "1": -0.76,
+    "3": -4.26
+   },
+   "efm": -0.2,
+   "eam": -4.89,
+   "bougies_ecoulees": 3,
+   "prix_actuel": 0.28688,
+   "variation": -4.26
+  },
+  {
+   "id": "1787689800",
+   "sens": "long",
+   "score": 47,
+   "rsi": 18.9,
+   "meche": 0,
+   "volume_x": 2.67,
+   "prix": 0.0036,
+   "ts": 1787689800,
+   "pair": "XCNUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
    "fwd": {},
    "efm": null,
    "eam": null,
    "bougies_ecoulees": 0,
-   "prix_actuel": 0.29965,
+   "prix_actuel": 0.0036,
    "variation": 0.0
-  },
-  {
-   "id": "1787671800",
-   "sens": "short",
-   "score": 51,
-   "rsi": 79.9,
-   "meche": 10,
-   "volume_x": 2.09,
-   "prix": 1.28,
-   "ts": 1787671800,
-   "pair": "ZROUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {
-    "1": -4.14,
-    "3": -0.78,
-    "5": 0.7
-   },
-   "efm": 3.59,
-   "eam": -4.69,
-   "bougies_ecoulees": 7,
-   "prix_actuel": 1.25,
-   "variation": 2.34
   },
   {
    "id": "1787529600",
@@ -760,13 +814,14 @@
    "perp": true,
    "fwd": {
     "1": 0.76,
-    "3": 0.31
+    "3": 0.31,
+    "5": 0.0
    },
    "efm": 1.02,
-   "eam": -0.56,
-   "bougies_ecoulees": 4,
-   "prix_actuel": 0.195,
-   "variation": -0.56
+   "eam": -1.58,
+   "bougies_ecoulees": 7,
+   "prix_actuel": 0.1936,
+   "variation": -1.27
   },
   {
    "id": "1787529600",
@@ -2514,6 +2569,106 @@
    "bougies_ecoulees": 11,
    "prix_actuel": 0.00652,
    "variation": 0.15
+  },
+  {
+   "id": "1787686800",
+   "sens": "long",
+   "score": 52,
+   "rsi": 27.8,
+   "meche": 57,
+   "volume_x": 3.27,
+   "prix": 1.8668,
+   "ts": 1787686800,
+   "pair": "NEARUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": -0.04,
+    "3": -0.12,
+    "5": 0.22,
+    "10": 0.09
+   },
+   "efm": 0.49,
+   "eam": -0.44,
+   "bougies_ecoulees": 14,
+   "prix_actuel": 1.8542,
+   "variation": -0.67
+  },
+  {
+   "id": "1787671800",
+   "sens": "short",
+   "score": 65,
+   "rsi": 72.7,
+   "meche": 59,
+   "volume_x": 8.33,
+   "prix": 18.309,
+   "ts": 1787671800,
+   "pair": "VVVUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false,
+   "fwd": {
+    "1": 0.17,
+    "3": 2.89,
+    "5": 1.25,
+    "10": 5.61
+   },
+   "efm": 6.28,
+   "eam": -0.88,
+   "bougies_ecoulees": 10,
+   "prix_actuel": 17.281,
+   "variation": 5.61
+  },
+  {
+   "id": "1787671800",
+   "sens": "long",
+   "score": 52,
+   "rsi": 29.8,
+   "meche": 38,
+   "volume_x": 2.32,
+   "prix": 0.134,
+   "ts": 1787671800,
+   "pair": "VELVETUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false,
+   "fwd": {
+    "1": -0.75,
+    "3": -2.31,
+    "5": -2.76,
+    "10": -5.75
+   },
+   "efm": 0.67,
+   "eam": -7.46,
+   "bougies_ecoulees": 10,
+   "prix_actuel": 0.1263,
+   "variation": -5.75
+  },
+  {
+   "id": "1787671800",
+   "sens": "short",
+   "score": 51,
+   "rsi": 79.9,
+   "meche": 10,
+   "volume_x": 2.09,
+   "prix": 1.28,
+   "ts": 1787671800,
+   "pair": "ZROUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
+   "fwd": {
+    "1": -4.14,
+    "3": -0.78,
+    "5": 0.7,
+    "10": 6.02
+   },
+   "efm": 6.25,
+   "eam": -4.69,
+   "bougies_ecoulees": 10,
+   "prix_actuel": 1.203,
+   "variation": 6.02
   }
  ],
  "universe": [
@@ -2915,8 +3070,8 @@
  ],
  "perps_ts": 1787643181.141648,
  "last_scan": {
-  "1j": 1787687535.7057345,
-  "30m": 1787687535.7057364,
-  "5m": 1787687535.705737
+  "1j": 1787691913.2458627,
+  "30m": 1787691913.2458649,
+  "5m": 1787691913.2458656
  }
 }
