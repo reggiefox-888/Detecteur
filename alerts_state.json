@@ -167,7 +167,7 @@
    "RENDERUSD": 1787492730.7004268,
    "JUPUSD": 1787608927.3023188,
    "AAVEUSD": 1787612587.8921547,
-   "TRUMPUSD": 1787878835.6371841,
+   "TRUMPUSD": 1787960337.2908285,
    "DASHUSD": 1787492758.5589085,
    "UNIUSD": 1787492759.900184,
    "FARTCOINUSD": 1787518603.1682756,
@@ -178,7 +178,7 @@
    "PENGUUSD": 1787702392.0864327,
    "PAXGUSD": 1787615763.7941263,
    "GRTUSD": 1787643292.77476,
-   "STXUSD": 1787634620.6822767,
+   "STXUSD": 1787960320.180436,
    "POLUSD": 1787738996.3802345,
    "NEARUSD": 1787687224.2928083,
    "HYPEUSD": 1787691674.4135134,
@@ -186,7 +186,48 @@
    "XLMUSD": 1787702364.7625816
   }
  },
- "active": [],
+ "active": [
+  {
+   "id": "1787959800",
+   "sens": "short",
+   "score": 58,
+   "rsi": 76.0,
+   "meche": 43,
+   "volume_x": 5.38,
+   "prix": 0.2628,
+   "ts": 1787959800,
+   "pair": "STXUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.2628,
+   "variation": -0.0
+  },
+  {
+   "id": "1787959800",
+   "sens": "short",
+   "score": 54,
+   "rsi": 73.2,
+   "meche": 54,
+   "volume_x": 2.12,
+   "prix": 2.736,
+   "ts": 1787959800,
+   "pair": "TRUMPUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 2.736,
+   "variation": -0.0
+  }
+ ],
  "history": [
   {
    "id": "1787492400",
@@ -3335,6 +3376,6 @@
  "last_scan": {
   "1j": 1787958686.7210836,
   "30m": 1787959461.1110568,
-  "5m": 1787959461.1110597
+  "5m": 1787960343.4691901
  }
 }
