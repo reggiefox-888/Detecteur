@@ -209,33 +209,9 @@
    },
    "efm": 0.57,
    "eam": 0.23,
-   "bougies_ecoulees": 6,
+   "bougies_ecoulees": 9,
    "prix_actuel": 0.0879,
    "variation": 0.57
-  },
-  {
-   "id": "1787981400",
-   "sens": "short",
-   "score": 55,
-   "rsi": 76.6,
-   "meche": 38,
-   "volume_x": 6.05,
-   "prix": 0.2551,
-   "ts": 1787981400,
-   "pair": "STXUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": -0.31,
-    "3": 0.16,
-    "5": 0.16
-   },
-   "efm": 1.29,
-   "eam": -0.31,
-   "bougies_ecoulees": 9,
-   "prix_actuel": 0.2518,
-   "variation": 1.29
   },
   {
    "id": "1787983500",
@@ -251,13 +227,15 @@
    "mode_nom": "5 minutes",
    "perp": true,
    "fwd": {
-    "1": -0.51
+    "1": -0.51,
+    "3": -0.44,
+    "5": -0.58
    },
    "efm": 0.69,
-   "eam": -1.31,
-   "bougies_ecoulees": 2,
-   "prix_actuel": 2.74,
-   "variation": 0.07
+   "eam": -2.48,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 2.722,
+   "variation": -0.58
   },
   {
    "id": "1787982300",
@@ -277,11 +255,11 @@
     "3": 0.56,
     "5": 1.17
    },
-   "efm": 1.23,
+   "efm": 1.4,
    "eam": 0.31,
-   "bougies_ecoulees": 6,
-   "prix_actuel": 4.4047,
-   "variation": 1.18
+   "bougies_ecoulees": 9,
+   "prix_actuel": 4.4069,
+   "variation": 1.13
   }
  ],
  "history": [
@@ -3134,6 +3112,31 @@
    "bougies_ecoulees": 12,
    "prix_actuel": 0.00896697,
    "variation": -2.35
+  },
+  {
+   "id": "1787981400",
+   "sens": "short",
+   "score": 55,
+   "rsi": 76.6,
+   "meche": 38,
+   "volume_x": 6.05,
+   "prix": 0.2551,
+   "ts": 1787981400,
+   "pair": "STXUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": -0.31,
+    "3": 0.16,
+    "5": 0.16,
+    "10": 1.45
+   },
+   "efm": 1.49,
+   "eam": -0.31,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 0.2514,
+   "variation": 1.45
   }
  ],
  "universe": [
@@ -3528,8 +3531,8 @@
  ],
  "perps_ts": 1787965681.9712038,
  "last_scan": {
-  "1j": 1787981245.258214,
+  "1j": 1787985682.4486358,
   "30m": 1787983935.7779598,
-  "5m": 1787984589.9363282
+  "5m": 1787985682.4486406
  }
 }
