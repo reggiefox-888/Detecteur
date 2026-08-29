@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-29 23:38 UTC",
+ "generated": "2026-08-29 23:51 UTC",
  "type": "observation",
  "horizons": [
   1,
@@ -21,7 +21,28 @@
    "nom": "5 minutes"
   }
  ],
- "active": [],
+ "active": [
+  {
+   "id": "1788047100",
+   "sens": "short",
+   "score": 80,
+   "rsi": 90.9,
+   "meche": 50,
+   "volume_x": 0.27,
+   "prix": 0.10662,
+   "ts": 1788047100,
+   "pair": "POLUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.10662,
+   "variation": -0.0
+  }
+ ],
  "history": [
   {
    "id": "1787492400",
@@ -3851,33 +3872,11 @@
  ],
  "watch": [
   {
-   "dir": "long",
-   "rsi": 31.4,
-   "reste": 1.4,
-   "last": 0.00810871,
-   "ts": 1788046200,
-   "pair": "AKEUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": false
-  },
-  {
    "dir": "short",
-   "rsi": 63.7,
-   "reste": 6.3,
-   "last": 0.01658,
-   "ts": 1788046200,
-   "pair": "GRTUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 63.2,
-   "reste": 6.8,
-   "last": 125.95,
-   "ts": 1788046200,
+   "rsi": 69.8,
+   "reste": 0.2,
+   "last": 126.44,
+   "ts": 1788047100,
    "pair": "AAVEUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
@@ -3885,36 +3884,58 @@
   },
   {
    "dir": "long",
-   "rsi": 37.7,
-   "reste": 7.7,
-   "last": 1.456,
-   "ts": 1788046200,
-   "pair": "RENDERUSD",
+   "rsi": 35.0,
+   "reste": 5.0,
+   "last": 0.3376,
+   "ts": 1788047100,
+   "pair": "TIAUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
   },
   {
    "dir": "short",
-   "rsi": 62.3,
-   "reste": 7.7,
-   "last": 0.1599,
-   "ts": 1788046200,
-   "pair": "ENAUSD",
+   "rsi": 64.9,
+   "reste": 5.1,
+   "last": 0.005064,
+   "ts": 1788047100,
+   "pair": "PUMPUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 64.8,
+   "reste": 5.2,
+   "last": 0.179718,
+   "ts": 1788047100,
+   "pair": "XLMUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 64.7,
+   "reste": 5.3,
+   "last": 105.77,
+   "ts": 1788047100,
+   "pair": "SOLUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
   },
   {
    "dir": "long",
-   "rsi": 37.9,
-   "reste": 7.9,
-   "last": 235.1187,
-   "ts": 1788046200,
-   "pair": "TAOUSD",
+   "rsi": 35.3,
+   "reste": 5.3,
+   "last": 1.355,
+   "ts": 1788047100,
+   "pair": "TONUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
-   "perp": true
+   "perp": false
   }
  ]
 }
