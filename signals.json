@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-29 03:21 UTC",
+ "generated": "2026-08-29 03:38 UTC",
  "type": "observation",
  "horizons": [
   1,
@@ -21,7 +21,28 @@
    "nom": "5 minutes"
   }
  ],
- "active": [],
+ "active": [
+  {
+   "id": "1787974200",
+   "sens": "short",
+   "score": 46,
+   "rsi": 70.3,
+   "meche": 44,
+   "volume_x": 2.14,
+   "prix": 2.872,
+   "ts": 1787974200,
+   "pair": "TRUMPUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 2.872,
+   "variation": -0.0
+  }
+ ],
  "history": [
   {
    "id": "1787492400",
@@ -2827,110 +2848,22 @@
  "watch": [
   {
    "dir": "long",
-   "rsi": 31.5,
-   "reste": 1.5,
-   "last": 0.682,
-   "ts": 1787973300,
-   "pair": "FILUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 32.0,
-   "reste": 2.0,
-   "last": 0.21832,
-   "ts": 1787973300,
-   "pair": "JUPUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 68.0,
-   "reste": 2.0,
-   "last": 81.04,
-   "ts": 1787973300,
-   "pair": "HYPEUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 32.7,
-   "reste": 2.7,
-   "last": 0.0877,
-   "ts": 1787973300,
-   "pair": "ARBUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 34.1,
-   "reste": 4.1,
-   "last": 0.1485,
-   "ts": 1787973300,
-   "pair": "FETUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 34.2,
-   "reste": 4.2,
-   "last": 4459.08,
-   "ts": 1787973300,
+   "rsi": 32.9,
+   "reste": 2.9,
+   "last": 4458.32,
+   "ts": 1787974200,
    "pair": "PAXGUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
   },
   {
-   "dir": "short",
-   "rsi": 64.8,
-   "reste": 5.2,
-   "last": 2.838,
-   "ts": 1787973300,
-   "pair": "TRUMPUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
    "dir": "long",
-   "rsi": 35.3,
-   "reste": 5.3,
-   "last": 0.35125,
-   "ts": 1787973300,
-   "pair": "ONDOUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 35.6,
-   "reste": 5.6,
-   "last": 0.8418,
-   "ts": 1787973300,
-   "pair": "DOTUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 36.8,
-   "reste": 6.8,
-   "last": 11.35861,
-   "ts": 1787973300,
-   "pair": "LINKUSD",
+   "rsi": 33.2,
+   "reste": 3.2,
+   "last": 0.5363,
+   "ts": 1787974200,
+   "pair": "APTUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
@@ -2939,42 +2872,9 @@
    "dir": "long",
    "rsi": 37.0,
    "reste": 7.0,
-   "last": 48.97,
-   "ts": 1787973300,
-   "pair": "LTCUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 37.4,
-   "reste": 7.4,
-   "last": 235.0305,
-   "ts": 1787973300,
-   "pair": "TAOUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 37.6,
-   "reste": 7.6,
-   "last": 7.272,
-   "ts": 1787973300,
-   "pair": "AVAXUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 37.6,
-   "reste": 7.6,
-   "last": 0.177947,
-   "ts": 1787973300,
-   "pair": "XLMUSD",
+   "last": 5.1,
+   "ts": 1787974200,
+   "pair": "INJUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
