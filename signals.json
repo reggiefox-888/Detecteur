@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-29 18:08 UTC",
+ "generated": "2026-08-29 18:21 UTC",
  "type": "observation",
  "horizons": [
   1,
@@ -3727,157 +3727,36 @@
  "watch": [
   {
    "dir": "long",
-   "rsi": 30.9,
-   "reste": 0.9,
-   "last": 0.02389,
-   "ts": 1788024600,
-   "pair": "GWEIUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false
-  },
-  {
-   "dir": "long",
-   "rsi": 31.2,
-   "reste": 1.2,
-   "last": 0.02642,
-   "ts": 1788024600,
-   "pair": "MONUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 67.8,
-   "reste": 2.2,
-   "last": 83.21,
-   "ts": 1788024600,
-   "pair": "HYPEUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 32.6,
-   "reste": 2.6,
-   "last": 0.00812031,
-   "ts": 1788024600,
+   "rsi": 34.6,
+   "reste": 4.6,
+   "last": 0.00810141,
+   "ts": 1788027300,
    "pair": "AKEUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
    "perp": false
   },
   {
    "dir": "short",
-   "rsi": 64.6,
-   "reste": 5.4,
-   "last": 1.8444,
-   "ts": 1788024600,
-   "pair": "NEARUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 63.7,
-   "reste": 6.3,
-   "last": 0.004468,
-   "ts": 1788024600,
-   "pair": "MANTRAUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
+   "rsi": 64.4,
+   "reste": 5.6,
+   "last": 1.367,
+   "ts": 1788027300,
+   "pair": "TONUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
    "perp": false
   },
   {
-   "dir": "short",
-   "rsi": 62.5,
+   "dir": "long",
+   "rsi": 37.5,
    "reste": 7.5,
-   "last": 0.0861,
-   "ts": 1788024600,
-   "pair": "XPLUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 37.6,
-   "reste": 7.6,
-   "last": 0.0383,
-   "ts": 1788024600,
-   "pair": "SANDUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 37.7,
-   "reste": 7.7,
-   "last": 0.49112,
-   "ts": 1788024600,
-   "pair": "REUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false
-  },
-  {
-   "dir": "short",
-   "rsi": 62.2,
-   "reste": 7.8,
-   "last": 0.16856,
-   "ts": 1788024600,
-   "pair": "DRVUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false
-  },
-  {
-   "dir": "long",
-   "rsi": 31.8,
-   "reste": 1.8,
-   "last": 0.10386,
-   "ts": 1788026400,
-   "pair": "POLUSD",
+   "last": 0.2441,
+   "ts": 1788027300,
+   "pair": "STXUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 34.0,
-   "reste": 4.0,
-   "last": 48.79,
-   "ts": 1788026400,
-   "pair": "LTCUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 35.9,
-   "reste": 5.9,
-   "last": 0.00812044,
-   "ts": 1788026400,
-   "pair": "AKEUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": false
-  },
-  {
-   "dir": "short",
-   "rsi": 62.1,
-   "reste": 7.9,
-   "last": 0.67869,
-   "ts": 1788026400,
-   "pair": "DGAIUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": false
   }
  ]
 }
