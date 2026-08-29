@@ -211,32 +211,7 @@
    "APTUSD": 1788020512.7712965
   }
  },
- "active": [
-  {
-   "id": "1788030000",
-   "sens": "long",
-   "score": 47,
-   "rsi": 26.2,
-   "meche": 62,
-   "volume_x": 1.68,
-   "prix": 0.10283,
-   "ts": 1788030000,
-   "pair": "POLUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 0.15,
-    "3": -0.27,
-    "5": -0.11
-   },
-   "efm": 0.18,
-   "eam": -0.47,
-   "bougies_ecoulees": 9,
-   "prix_actuel": 0.10274,
-   "variation": -0.09
-  }
- ],
+ "active": [],
  "history": [
   {
    "id": "1787492400",
@@ -3937,6 +3912,31 @@
    "bougies_ecoulees": 12,
    "prix_actuel": 0.00821321,
    "variation": 1.37
+  },
+  {
+   "id": "1788030000",
+   "sens": "long",
+   "score": 47,
+   "rsi": 26.2,
+   "meche": 62,
+   "volume_x": 1.68,
+   "prix": 0.10283,
+   "ts": 1788030000,
+   "pair": "POLUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": 0.15,
+    "3": -0.27,
+    "5": -0.11,
+    "10": -0.31
+   },
+   "efm": 0.18,
+   "eam": -0.47,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 0.10242,
+   "variation": -0.4
   }
  ],
  "universe": [
@@ -4333,6 +4333,6 @@
  "last_scan": {
   "1j": 1788030677.8510587,
   "30m": 1788032486.95888,
-  "5m": 1788033134.2363727
+  "5m": 1788034151.3726468
  }
 }
