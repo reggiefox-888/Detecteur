@@ -179,7 +179,7 @@
    "PENGUUSD": 1787702392.0864327,
    "PAXGUSD": 1787615763.7941263,
    "GRTUSD": 1787643292.77476,
-   "STXUSD": 1787960320.180436,
+   "STXUSD": 1787981924.4380262,
    "POLUSD": 1787738996.3802345,
    "NEARUSD": 1787687224.2928083,
    "HYPEUSD": 1787691674.4135134,
@@ -189,6 +189,26 @@
   }
  },
  "active": [
+  {
+   "id": "1787981400",
+   "sens": "short",
+   "score": 55,
+   "rsi": 76.6,
+   "meche": 38,
+   "volume_x": 6.05,
+   "prix": 0.2551,
+   "ts": 1787981400,
+   "pair": "STXUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.2551,
+   "variation": -0.0
+  },
   {
    "id": "1787978700",
    "sens": "long",
@@ -209,9 +229,9 @@
    },
    "efm": 4.3,
    "eam": -10.58,
-   "bougies_ecoulees": 6,
-   "prix_actuel": 0.0088637,
-   "variation": -3.47
+   "bougies_ecoulees": 9,
+   "prix_actuel": 0.0089641,
+   "variation": -2.38
   }
  ],
  "history": [
@@ -3435,6 +3455,6 @@
  "last_scan": {
   "1j": 1787981245.258214,
   "30m": 1787981245.258216,
-  "5m": 1787981245.2582164
+  "5m": 1787981949.3348088
  }
 }
