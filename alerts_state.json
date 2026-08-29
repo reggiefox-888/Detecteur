@@ -184,29 +184,30 @@
    "NEARUSD": 1787687224.2928083,
    "HYPEUSD": 1787691674.4135134,
    "LTCUSD": 1787691690.2050254,
-   "XLMUSD": 1787702364.7625816
+   "XLMUSD": 1787702364.7625816,
+   "AKEUSD": 1787979111.0265262
   }
  },
  "active": [
   {
-   "id": "1787976000",
-   "sens": "short",
-   "score": 40,
-   "rsi": 71.3,
-   "meche": 12,
-   "volume_x": 3.52,
-   "prix": 2.971,
-   "ts": 1787976000,
-   "pair": "TRUMPUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
+   "id": "1787978700",
+   "sens": "long",
+   "score": 57,
+   "rsi": 17.5,
+   "meche": 2,
+   "volume_x": 12.0,
+   "prix": 0.00918268,
+   "ts": 1787978700,
+   "pair": "AKEUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": false,
    "fwd": {},
    "efm": null,
    "eam": null,
    "bougies_ecoulees": 0,
-   "prix_actuel": 2.971,
-   "variation": -0.0
+   "prix_actuel": 0.00918268,
+   "variation": 0.0
   }
  ],
  "history": [
@@ -3430,6 +3431,6 @@
  "last_scan": {
   "1j": 1787976712.066716,
   "30m": 1787978494.7732322,
-  "5m": 1787978494.7732346
+  "5m": 1787979114.6129446
  }
 }
