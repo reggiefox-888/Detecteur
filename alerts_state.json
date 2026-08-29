@@ -186,76 +186,7 @@
    "XLMUSD": 1787702364.7625816
   }
  },
- "active": [
-  {
-   "id": "1787875200",
-   "sens": "short",
-   "score": 75,
-   "rsi": 80.5,
-   "meche": 58,
-   "volume_x": 1.87,
-   "prix": 0.2598,
-   "ts": 1787875200,
-   "pair": "STXUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.2598,
-   "variation": -0.0
-  },
-  {
-   "id": "1787959800",
-   "sens": "short",
-   "score": 58,
-   "rsi": 76.0,
-   "meche": 43,
-   "volume_x": 5.38,
-   "prix": 0.2628,
-   "ts": 1787959800,
-   "pair": "STXUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 0.19,
-    "3": 0.68,
-    "5": 1.14
-   },
-   "efm": 1.41,
-   "eam": -0.3,
-   "bougies_ecoulees": 9,
-   "prix_actuel": 0.26,
-   "variation": 1.07
-  },
-  {
-   "id": "1787959800",
-   "sens": "short",
-   "score": 54,
-   "rsi": 73.2,
-   "meche": 54,
-   "volume_x": 2.12,
-   "prix": 2.736,
-   "ts": 1787959800,
-   "pair": "TRUMPUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 0.15,
-    "3": 0.26,
-    "5": 0.11
-   },
-   "efm": 0.48,
-   "eam": -2.74,
-   "bougies_ecoulees": 9,
-   "prix_actuel": 2.797,
-   "variation": -2.23
-  }
- ],
+ "active": [],
  "history": [
   {
    "id": "1787492400",
@@ -3006,6 +2937,56 @@
    "bougies_ecoulees": 41,
    "prix_actuel": 0.009093,
    "variation": 26.77
+  },
+  {
+   "id": "1787959800",
+   "sens": "short",
+   "score": 58,
+   "rsi": 76.0,
+   "meche": 43,
+   "volume_x": 5.38,
+   "prix": 0.2628,
+   "ts": 1787959800,
+   "pair": "STXUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": 0.19,
+    "3": 0.68,
+    "5": 1.14,
+    "10": 1.07
+   },
+   "efm": 1.41,
+   "eam": -0.3,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 0.2569,
+   "variation": 2.25
+  },
+  {
+   "id": "1787959800",
+   "sens": "short",
+   "score": 54,
+   "rsi": 73.2,
+   "meche": 54,
+   "volume_x": 2.12,
+   "prix": 2.736,
+   "ts": 1787959800,
+   "pair": "TRUMPUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": 0.15,
+    "3": 0.26,
+    "5": 0.11,
+    "10": -1.13
+   },
+   "efm": 0.48,
+   "eam": -2.74,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 2.765,
+   "variation": -1.06
   }
  ],
  "universe": [
@@ -3404,6 +3385,6 @@
  "last_scan": {
   "1j": 1787963063.7755957,
   "30m": 1787962295.8008165,
-  "5m": 1787963063.7755978
+  "5m": 1787963941.8392425
  }
 }
