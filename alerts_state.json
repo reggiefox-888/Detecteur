@@ -207,32 +207,7 @@
    "PUMPUSD": 1788015090.3109376
   }
  },
- "active": [
-  {
-   "id": "1788015600",
-   "sens": "short",
-   "score": 67,
-   "rsi": 78.6,
-   "meche": 67,
-   "volume_x": 2.71,
-   "prix": 0.1959,
-   "ts": 1788015600,
-   "pair": "FARTCOINUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": -0.0,
-    "3": 0.41,
-    "5": 0.66
-   },
-   "efm": 1.07,
-   "eam": 0.0,
-   "bougies_ecoulees": 9,
-   "prix_actuel": 0.1943,
-   "variation": 0.82
-  }
- ],
+ "active": [],
  "history": [
   {
    "id": "1787492400",
@@ -3858,6 +3833,31 @@
    "bougies_ecoulees": 12,
    "prix_actuel": 4.52,
    "variation": -0.22
+  },
+  {
+   "id": "1788015600",
+   "sens": "short",
+   "score": 67,
+   "rsi": 78.6,
+   "meche": 67,
+   "volume_x": 2.71,
+   "prix": 0.1959,
+   "ts": 1788015600,
+   "pair": "FARTCOINUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": -0.0,
+    "3": 0.41,
+    "5": 0.66,
+    "10": 0.61
+   },
+   "efm": 1.07,
+   "eam": 0.0,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 0.1939,
+   "variation": 1.02
   }
  ],
  "universe": [
@@ -4254,6 +4254,6 @@
  "last_scan": {
   "1j": 1788017046.1969173,
   "30m": 1788018874.7190802,
-  "5m": 1788018874.7190824
+  "5m": 1788019762.2714279
  }
 }
