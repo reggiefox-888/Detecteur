@@ -187,48 +187,7 @@
    "XLMUSD": 1787702364.7625816
   }
  },
- "active": [
-  {
-   "id": "1787875200",
-   "sens": "short",
-   "score": 84,
-   "rsi": 92.7,
-   "meche": 23,
-   "volume_x": 83.69,
-   "prix": 0.1107,
-   "ts": 1787875200,
-   "pair": "GHSTUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": false,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.1107,
-   "variation": -0.0
-  },
-  {
-   "id": "1787875200",
-   "sens": "short",
-   "score": 87,
-   "rsi": 83.5,
-   "meche": 65,
-   "volume_x": 6.84,
-   "prix": 0.24385,
-   "ts": 1787875200,
-   "pair": "PEPECOINUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": false,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.24385,
-   "variation": -0.0
-  }
- ],
+ "active": [],
  "history": [
   {
    "id": "1787492400",
@@ -3425,6 +3384,6 @@
  "last_scan": {
   "1j": 1787967834.0115073,
   "30m": 1787967834.0115101,
-  "5m": 1787967834.0115106
+  "5m": 1787969353.1744683
  }
 }
