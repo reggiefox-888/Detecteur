@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-29 16:08 UTC",
+ "generated": "2026-08-29 16:21 UTC",
  "type": "observation",
  "horizons": [
   1,
@@ -21,7 +21,48 @@
    "nom": "5 minutes"
   }
  ],
- "active": [],
+ "active": [
+  {
+   "id": "1788020100",
+   "sens": "short",
+   "score": 45,
+   "rsi": 73.6,
+   "meche": 36,
+   "volume_x": 4.72,
+   "prix": 0.545,
+   "ts": 1788020100,
+   "pair": "APTUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.545,
+   "variation": -0.0
+  },
+  {
+   "id": "1788020100",
+   "sens": "long",
+   "score": 46,
+   "rsi": 20.3,
+   "meche": 0,
+   "volume_x": 2.5,
+   "prix": 0.00810227,
+   "ts": 1788020100,
+   "pair": "AKEUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": false,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.00810227,
+   "variation": 0.0
+  }
+ ],
  "history": [
   {
    "id": "1787492400",
@@ -3676,23 +3717,12 @@
  ],
  "watch": [
   {
-   "dir": "long",
-   "rsi": 33.0,
-   "reste": 3.0,
-   "last": 0.00838184,
-   "ts": 1788019200,
-   "pair": "AKEUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": false
-  },
-  {
    "dir": "short",
    "rsi": 66.3,
    "reste": 3.7,
-   "last": 0.152,
-   "ts": 1788019200,
-   "pair": "FETUSD",
+   "last": 0.1962,
+   "ts": 1788020100,
+   "pair": "FARTCOINUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
@@ -3701,30 +3731,8 @@
    "dir": "short",
    "rsi": 65.7,
    "reste": 4.3,
-   "last": 0.5433,
-   "ts": 1788019200,
-   "pair": "APTUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 64.9,
-   "reste": 5.1,
-   "last": 83.18,
-   "ts": 1788019200,
-   "pair": "HYPEUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 64.9,
-   "reste": 5.1,
-   "last": 0.004803,
-   "ts": 1788019200,
+   "last": 0.004819,
+   "ts": 1788020100,
    "pair": "PUMPUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
@@ -3732,33 +3740,22 @@
   },
   {
    "dir": "short",
-   "rsi": 64.2,
-   "reste": 5.8,
-   "last": 0.07554,
-   "ts": 1788019200,
-   "pair": "HBARUSD",
+   "rsi": 62.8,
+   "reste": 7.2,
+   "last": 5.092,
+   "ts": 1788020100,
+   "pair": "INJUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
   },
   {
    "dir": "short",
-   "rsi": 63.4,
-   "reste": 6.6,
-   "last": 105.13,
-   "ts": 1788019200,
-   "pair": "SOLUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 63.1,
-   "reste": 6.9,
-   "last": 0.35436,
-   "ts": 1788019200,
-   "pair": "ONDOUSD",
+   "rsi": 62.8,
+   "reste": 7.2,
+   "last": 4.5325,
+   "ts": 1788020100,
+   "pair": "UNIUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
