@@ -210,28 +210,7 @@
    "APTUSD": 1788020512.7712965
   }
  },
- "active": [
-  {
-   "id": "1788021000",
-   "sens": "short",
-   "score": 53,
-   "rsi": 78.7,
-   "meche": 13,
-   "volume_x": 5.77,
-   "prix": 4.637,
-   "ts": 1788021000,
-   "pair": "UNIUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 4.637,
-   "variation": -0.0
-  }
- ],
+ "active": [],
  "history": [
   {
    "id": "1787492400",
@@ -4328,6 +4307,6 @@
  "last_scan": {
   "1j": 1788021820.6582217,
   "30m": 1788024280.7899625,
-  "5m": 1788024280.7899652
+  "5m": 1788025147.0704408
  }
 }
