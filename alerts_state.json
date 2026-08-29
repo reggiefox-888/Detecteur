@@ -232,9 +232,9 @@
    },
    "efm": 1.12,
    "eam": -0.04,
-   "bougies_ecoulees": 6,
-   "prix_actuel": 0.2432,
-   "variation": 1.12
+   "bougies_ecoulees": 9,
+   "prix_actuel": 0.2421,
+   "variation": 0.67
   }
  ],
  "history": [
@@ -4433,6 +4433,6 @@
  "last_scan": {
   "1j": 1788044042.027836,
   "30m": 1788043275.952798,
-  "5m": 1788044042.0278409
+  "5m": 1788044953.861473
  }
 }
