@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-29 10:51 UTC",
+ "generated": "2026-08-29 11:08 UTC",
  "type": "observation",
  "horizons": [
   1,
@@ -3027,55 +3027,11 @@
  "watch": [
   {
    "dir": "long",
-   "rsi": 33.6,
-   "reste": 3.6,
-   "last": 0.2472,
-   "ts": 1788000300,
-   "pair": "STXUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 65.4,
-   "reste": 4.6,
-   "last": 234.2836,
-   "ts": 1788000300,
-   "pair": "TAOUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 64.0,
+   "rsi": 36.0,
    "reste": 6.0,
-   "last": 0.0874,
-   "ts": 1788000300,
-   "pair": "ARBUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 64.0,
-   "reste": 6.0,
-   "last": 3.635e-06,
-   "ts": 1788000300,
-   "pair": "PEPEUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 62.3,
-   "reste": 7.7,
-   "last": 0.35046,
-   "ts": 1788000300,
-   "pair": "ONDOUSD",
+   "last": 0.5341,
+   "ts": 1788001200,
+   "pair": "APTUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
