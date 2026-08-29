@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-29 20:38 UTC",
+ "generated": "2026-08-29 20:51 UTC",
  "type": "observation",
  "horizons": [
   1,
@@ -37,11 +37,12 @@
    "perp": true,
    "fwd": {
     "1": -0.08,
-    "3": -0.1
+    "3": -0.1,
+    "5": -0.25
    },
    "efm": 0.08,
    "eam": -0.39,
-   "bougies_ecoulees": 3,
+   "bougies_ecoulees": 6,
    "prix_actuel": 5.19,
    "variation": -0.1
   }
@@ -3776,44 +3777,44 @@
  "watch": [
   {
    "dir": "short",
-   "rsi": 69.2,
-   "reste": 0.8,
-   "last": 0.0882,
-   "ts": 1788035400,
-   "pair": "ARBUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 34.8,
-   "reste": 4.8,
-   "last": 0.5422,
-   "ts": 1788035400,
-   "pair": "APTUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 35.7,
-   "reste": 5.7,
-   "last": 0.01651,
-   "ts": 1788035400,
-   "pair": "GRTUSD",
+   "rsi": 65.1,
+   "reste": 4.9,
+   "last": 124.78,
+   "ts": 1788036300,
+   "pair": "AAVEUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
   },
   {
    "dir": "short",
-   "rsi": 63.7,
-   "reste": 6.3,
-   "last": 1.465,
-   "ts": 1788035400,
+   "rsi": 64.3,
+   "reste": 5.7,
+   "last": 1.466,
+   "ts": 1788036300,
    "pair": "RENDERUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 36.3,
+   "reste": 6.3,
+   "last": 235.4142,
+   "ts": 1788036300,
+   "pair": "TAOUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 36.6,
+   "reste": 6.6,
+   "last": 0.5421,
+   "ts": 1788036300,
+   "pair": "APTUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
@@ -3823,29 +3824,18 @@
    "rsi": 36.6,
    "reste": 6.6,
    "last": 0.218,
-   "ts": 1788035400,
+   "ts": 1788036300,
    "pair": "JUPUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
   },
   {
-   "dir": "long",
-   "rsi": 37.5,
-   "reste": 7.5,
-   "last": 0.1949,
-   "ts": 1788035400,
-   "pair": "FARTCOINUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
    "dir": "short",
-   "rsi": 62.2,
-   "reste": 7.8,
-   "last": 0.2461,
-   "ts": 1788035400,
+   "rsi": 63.1,
+   "reste": 6.9,
+   "last": 0.2462,
+   "ts": 1788036300,
    "pair": "STXUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
