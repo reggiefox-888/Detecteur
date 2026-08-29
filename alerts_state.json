@@ -181,7 +181,7 @@
    "INJUSD": 1787691602.0743186,
    "PENGUUSD": 1787702392.0864327,
    "PAXGUSD": 1787615763.7941263,
-   "GRTUSD": 1787643292.77476,
+   "GRTUSD": 1788006208.8563523,
    "STXUSD": 1787981924.4380262,
    "POLUSD": 1787738996.3802345,
    "NEARUSD": 1787687224.2928083,
@@ -193,23 +193,23 @@
  },
  "active": [
   {
-   "id": "1788003000",
+   "id": "1788005700",
    "sens": "short",
-   "score": 45,
-   "rsi": 75.8,
-   "meche": 12,
-   "volume_x": 2.15,
-   "prix": 0.19062,
-   "ts": 1788003000,
-   "pair": "BTRUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
+   "score": 58,
+   "rsi": 75.6,
+   "meche": 50,
+   "volume_x": 2.7,
+   "prix": 0.0166,
+   "ts": 1788005700,
+   "pair": "GRTUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
    "fwd": {},
    "efm": null,
    "eam": null,
    "bougies_ecoulees": 0,
-   "prix_actuel": 0.19062,
+   "prix_actuel": 0.0166,
    "variation": -0.0
   }
  ],
@@ -3609,6 +3609,6 @@
  "last_scan": {
   "1j": 1788003695.0398948,
   "30m": 1788005568.6469586,
-  "5m": 1788005568.6469607
+  "5m": 1788006223.588511
  }
 }
