@@ -60,7 +60,7 @@
    "DOGUSD": 1787879005.2791948,
    "SUPERUSD": 1787612734.4037683,
    "OKBUSD": 1787612759.1975164,
-   "PEPECOINUSD": 1787612784.3396838,
+   "PEPECOINUSD": 1787967798.7863212,
    "FLOKIUSD": 1787612836.854603,
    "AEROUSD": 1787627957.4245088,
    "VIRTUALUSD": 1787627965.025368,
@@ -78,7 +78,8 @@
    "BEAMUSD": 1787878943.6763353,
    "SWELLUSD": 1787878965.993531,
    "RUNEUSD": 1787878978.2735047,
-   "CHIPUSD": 1787878988.1047518
+   "CHIPUSD": 1787878988.1047518,
+   "GHSTUSD": 1787967661.1138911
   },
   "30m": {
    "LINKUSD": 1787464482.730465,
@@ -186,7 +187,48 @@
    "XLMUSD": 1787702364.7625816
   }
  },
- "active": [],
+ "active": [
+  {
+   "id": "1787875200",
+   "sens": "short",
+   "score": 84,
+   "rsi": 92.7,
+   "meche": 23,
+   "volume_x": 83.69,
+   "prix": 0.1107,
+   "ts": 1787875200,
+   "pair": "GHSTUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": false,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.1107,
+   "variation": -0.0
+  },
+  {
+   "id": "1787875200",
+   "sens": "short",
+   "score": 87,
+   "rsi": 83.5,
+   "meche": 65,
+   "volume_x": 6.84,
+   "prix": 0.24385,
+   "ts": 1787875200,
+   "pair": "PEPECOINUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": false,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.24385,
+   "variation": -0.0
+  }
+ ],
  "history": [
   {
    "id": "1787492400",
@@ -3381,8 +3423,8 @@
  ],
  "perps_ts": 1787965681.9712038,
  "last_scan": {
-  "1j": 1787963063.7755957,
-  "30m": 1787964845.0669806,
-  "5m": 1787966515.9933574
+  "1j": 1787967834.0115073,
+  "30m": 1787967834.0115101,
+  "5m": 1787967834.0115106
  }
 }
