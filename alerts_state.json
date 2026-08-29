@@ -190,76 +190,7 @@
    "AKEUSD": 1787979111.0265262
   }
  },
- "active": [
-  {
-   "id": "1787992200",
-   "sens": "long",
-   "score": 52,
-   "rsi": 27.1,
-   "meche": 50,
-   "volume_x": 2.67,
-   "prix": 1.411,
-   "ts": 1787992200,
-   "pair": "RENDERUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 0.0,
-    "3": -0.28,
-    "5": -0.07
-   },
-   "efm": 0.0,
-   "eam": -0.28,
-   "bougies_ecoulees": 6,
-   "prix_actuel": 1.41,
-   "variation": -0.07
-  },
-  {
-   "id": "1787991300",
-   "sens": "long",
-   "score": 52,
-   "rsi": 28.6,
-   "meche": 94,
-   "volume_x": 25.1,
-   "prix": 0.1575,
-   "ts": 1787991300,
-   "pair": "ENAUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 0.38,
-    "3": -0.7,
-    "5": -1.27
-   },
-   "efm": 0.44,
-   "eam": -1.46,
-   "bougies_ecoulees": 9,
-   "prix_actuel": 0.1563,
-   "variation": -0.76
-  },
-  {
-   "id": "1787992200",
-   "sens": "long",
-   "score": 40,
-   "rsi": 26.7,
-   "meche": 43,
-   "volume_x": 0.1,
-   "prix": 0.49582,
-   "ts": 1787992200,
-   "pair": "REUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.49582,
-   "variation": 0.0
-  }
- ],
+ "active": [],
  "history": [
   {
    "id": "1787492400",
@@ -3210,6 +3141,56 @@
    "bougies_ecoulees": 11,
    "prix_actuel": 2.777,
    "variation": 1.42
+  },
+  {
+   "id": "1787992200",
+   "sens": "long",
+   "score": 52,
+   "rsi": 27.1,
+   "meche": 50,
+   "volume_x": 2.67,
+   "prix": 1.411,
+   "ts": 1787992200,
+   "pair": "RENDERUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": 0.0,
+    "3": -0.28,
+    "5": -0.07,
+    "10": -0.07
+   },
+   "efm": 0.0,
+   "eam": -0.28,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 1.41,
+   "variation": -0.07
+  },
+  {
+   "id": "1787991300",
+   "sens": "long",
+   "score": 52,
+   "rsi": 28.6,
+   "meche": 94,
+   "volume_x": 25.1,
+   "prix": 0.1575,
+   "ts": 1787991300,
+   "pair": "ENAUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": 0.38,
+    "3": -0.7,
+    "5": -1.27,
+    "10": -1.08
+   },
+   "efm": 0.44,
+   "eam": -1.46,
+   "bougies_ecoulees": 15,
+   "prix_actuel": 0.1558,
+   "variation": -1.08
   }
  ],
  "universe": [
@@ -3606,6 +3587,6 @@
  "last_scan": {
   "1j": 1787994827.8713617,
   "30m": 1787994827.8713636,
-  "5m": 1787994827.871364
+  "5m": 1787996344.3625877
  }
 }
