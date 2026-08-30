@@ -242,36 +242,15 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 105.61,
-   "variation": 0.0
-  },
-  {
-   "id": "1788107700",
-   "sens": "short",
-   "score": 65,
-   "rsi": 81.1,
-   "meche": 41,
-   "volume_x": 16.23,
-   "prix": 2521.43,
-   "ts": 1788107700,
-   "pair": "ETHUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
    "fwd": {
-    "1": -0.26,
-    "3": -0.03,
-    "5": -0.07
+    "1": 0.23,
+    "3": 0.42
    },
-   "efm": 0.96,
-   "eam": -0.5,
-   "bougies_ecoulees": 9,
-   "prix_actuel": 2501.02,
-   "variation": 0.81
+   "efm": 0.42,
+   "eam": -0.13,
+   "bougies_ecoulees": 3,
+   "prix_actuel": 106.05,
+   "variation": 0.42
   },
   {
    "id": "1788109500",
@@ -288,13 +267,14 @@
    "perp": true,
    "fwd": {
     "1": 0.73,
-    "3": 1.63
+    "3": 1.63,
+    "5": 1.15
    },
-   "efm": 1.63,
+   "efm": 1.7,
    "eam": 0.17,
-   "bougies_ecoulees": 3,
-   "prix_actuel": 127.93,
-   "variation": 1.63
+   "bougies_ecoulees": 6,
+   "prix_actuel": 128.68,
+   "variation": 1.05
   },
   {
    "id": "1788109500",
@@ -311,33 +291,14 @@
    "perp": true,
    "fwd": {
     "1": 0.58,
-    "3": 2.0
+    "3": 2.0,
+    "5": 1.16
    },
    "efm": 2.23,
    "eam": 0.08,
-   "bougies_ecoulees": 3,
-   "prix_actuel": 3.728e-06,
-   "variation": 2.0
-  },
-  {
-   "id": "1788107400",
-   "sens": "short",
-   "score": 53,
-   "rsi": 71.5,
-   "meche": 61,
-   "volume_x": 4.8,
-   "prix": 17.011,
-   "ts": 1788107400,
-   "pair": "VVVUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 17.011,
-   "variation": -0.0
+   "bougies_ecoulees": 6,
+   "prix_actuel": 3.782e-06,
+   "variation": 0.58
   }
  ],
  "history": [
@@ -4690,6 +4651,31 @@
    "bougies_ecoulees": 11,
    "prix_actuel": 0.9317,
    "variation": -18.33
+  },
+  {
+   "id": "1788107700",
+   "sens": "short",
+   "score": 65,
+   "rsi": 81.1,
+   "meche": 41,
+   "volume_x": 16.23,
+   "prix": 2521.43,
+   "ts": 1788107700,
+   "pair": "ETHUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": -0.26,
+    "3": -0.03,
+    "5": -0.07,
+    "10": 0.9
+   },
+   "efm": 1.08,
+   "eam": -0.5,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 2504.94,
+   "variation": 0.65
   }
  ],
  "universe": [
@@ -5050,8 +5036,8 @@
  ],
  "perps_ts": 1788052290.4773505,
  "last_scan": {
-  "1j": 1788107426.3973217,
+  "1j": 1788111792.0142813,
   "30m": 1788111021.2310238,
-  "5m": 1788111021.231026
+  "5m": 1788111792.0142837
  }
 }
