@@ -189,7 +189,7 @@
    "TAOUSD": 1787691606.1046395,
    "RENDERUSD": 1788091923.9420223,
    "JUPUSD": 1788062353.3537195,
-   "AAVEUSD": 1788088282.8988674,
+   "AAVEUSD": 1788109905.4630356,
    "TRUMPUSD": 1787983834.4805093,
    "DASHUSD": 1788087521.1124368,
    "UNIUSD": 1788015096.4074702,
@@ -219,7 +219,7 @@
    "DOTUSD": 1788015058.1492357,
    "FILUSD": 1788015079.3182328,
    "HBARUSD": 1788015080.5367033,
-   "PEPEUSD": 1788015083.074471,
+   "PEPEUSD": 1788109913.614644,
    "DGAIUSD": 1788095520.3291023,
    "PUMPUSD": 1788040372.716425,
    "APTUSD": 1788020512.7712965,
@@ -244,13 +244,54 @@
    "perp": true,
    "fwd": {
     "1": -0.26,
-    "3": -0.03
+    "3": -0.03,
+    "5": -0.07
    },
-   "efm": 0.04,
+   "efm": 0.09,
    "eam": -0.5,
-   "bougies_ecoulees": 3,
-   "prix_actuel": 2522.12,
-   "variation": -0.03
+   "bougies_ecoulees": 6,
+   "prix_actuel": 2521.88,
+   "variation": -0.02
+  },
+  {
+   "id": "1788109500",
+   "sens": "short",
+   "score": 52,
+   "rsi": 85.8,
+   "meche": 0,
+   "volume_x": 14.41,
+   "prix": 130.05,
+   "ts": 1788109500,
+   "pair": "AAVEUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 130.05,
+   "variation": -0.0
+  },
+  {
+   "id": "1788109500",
+   "sens": "short",
+   "score": 42,
+   "rsi": 78.2,
+   "meche": 6,
+   "volume_x": 7.2,
+   "prix": 3.804e-06,
+   "ts": 1788109500,
+   "pair": "PEPEUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 3.804e-06,
+   "variation": -0.0
   }
  ],
  "history": [
@@ -4965,6 +5006,6 @@
  "last_scan": {
   "1j": 1788107426.3973217,
   "30m": 1788108211.4638646,
-  "5m": 1788109134.918457
+  "5m": 1788109928.3187656
  }
 }
