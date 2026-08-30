@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-30 07:11 UTC",
+ "generated": "2026-08-30 07:28 UTC",
  "type": "observation",
  "horizons": [
   1,
@@ -40,11 +40,11 @@
     "3": -0.04,
     "5": -0.05
    },
-   "efm": 0.03,
+   "efm": 0.04,
    "eam": -0.15,
-   "bougies_ecoulees": 6,
-   "prix_actuel": 7.34,
-   "variation": -0.05
+   "bougies_ecoulees": 9,
+   "prix_actuel": 7.333,
+   "variation": 0.04
   }
  ],
  "history": [
@@ -4027,22 +4027,22 @@
  "watch": [
   {
    "dir": "short",
-   "rsi": 68.4,
-   "reste": 1.6,
-   "last": 237.9723,
-   "ts": 1788073500,
-   "pair": "TAOUSD",
+   "rsi": 67.2,
+   "reste": 2.8,
+   "last": 0.1624,
+   "ts": 1788074400,
+   "pair": "ENAUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
   },
   {
-   "dir": "short",
-   "rsi": 68.4,
-   "reste": 1.6,
-   "last": 0.35682,
-   "ts": 1788073500,
-   "pair": "ONDOUSD",
+   "dir": "long",
+   "rsi": 33.6,
+   "reste": 3.6,
+   "last": 0.004872,
+   "ts": 1788074400,
+   "pair": "PUMPUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
@@ -4052,7 +4052,7 @@
    "rsi": 65.8,
    "reste": 4.2,
    "last": 0.246,
-   "ts": 1788073500,
+   "ts": 1788074400,
    "pair": "STXUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
@@ -4063,33 +4063,55 @@
    "rsi": 64.7,
    "reste": 5.3,
    "last": 0.682,
-   "ts": 1788073500,
+   "ts": 1788074400,
    "pair": "FILUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
   },
   {
+   "dir": "long",
+   "rsi": 36.2,
+   "reste": 6.2,
+   "last": 0.0848167,
+   "ts": 1788074400,
+   "pair": "DOGEUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 36.2,
+   "reste": 6.2,
+   "last": 0.0848167,
+   "ts": 1788074400,
+   "pair": "XDGUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": false
+  },
+  {
    "dir": "short",
-   "rsi": 64.6,
-   "reste": 5.4,
-   "last": 11.44087,
-   "ts": 1788073500,
-   "pair": "LINKUSD",
+   "rsi": 63.6,
+   "reste": 6.4,
+   "last": 0.01663,
+   "ts": 1788074400,
+   "pair": "GRTUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
   },
   {
    "dir": "short",
-   "rsi": 62.2,
-   "reste": 7.8,
-   "last": 0.1616,
-   "ts": 1788073500,
-   "pair": "ENAUSD",
+   "rsi": 63.1,
+   "reste": 6.9,
+   "last": 0.69317,
+   "ts": 1788074400,
+   "pair": "DGAIUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
-   "perp": true
+   "perp": false
   }
  ]
 }
