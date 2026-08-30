@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-30 19:11 UTC",
+ "generated": "2026-08-30 19:27 UTC",
  "type": "observation",
  "horizons": [
   1,
@@ -23,30 +23,6 @@
  ],
  "active": [
   {
-   "id": "1788114000",
-   "sens": "short",
-   "score": 45,
-   "rsi": 72.0,
-   "meche": 37,
-   "volume_x": 7.82,
-   "prix": 0.0906,
-   "ts": 1788114000,
-   "pair": "ARBUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 0.33,
-    "3": 0.33,
-    "5": 0.44
-   },
-   "efm": 0.77,
-   "eam": 0.33,
-   "bougies_ecoulees": 9,
-   "prix_actuel": 0.0899,
-   "variation": 0.77
-  },
-  {
    "id": "1788114900",
    "sens": "short",
    "score": 46,
@@ -66,9 +42,9 @@
    },
    "efm": 0.22,
    "eam": -2.79,
-   "bougies_ecoulees": 6,
-   "prix_actuel": 43.951,
-   "variation": -1.4
+   "bougies_ecoulees": 9,
+   "prix_actuel": 44.071,
+   "variation": -1.68
   }
  ],
  "history": [
@@ -4546,6 +4522,31 @@
    "bougies_ecoulees": 12,
    "prix_actuel": 0.10012,
    "variation": 1.55
+  },
+  {
+   "id": "1788114000",
+   "sens": "short",
+   "score": 45,
+   "rsi": 72.0,
+   "meche": 37,
+   "volume_x": 7.82,
+   "prix": 0.0906,
+   "ts": 1788114000,
+   "pair": "ARBUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": 0.33,
+    "3": 0.33,
+    "5": 0.44,
+    "10": 0.77
+   },
+   "efm": 0.77,
+   "eam": 0.33,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 0.0898,
+   "variation": 0.88
   }
  ],
  "watch": [
@@ -4554,7 +4555,7 @@
    "rsi": 68.4,
    "reste": 1.6,
    "last": 0.694,
-   "ts": 1788116700,
+   "ts": 1788117600,
    "pair": "FILUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
@@ -4562,14 +4563,14 @@
   },
   {
    "dir": "short",
-   "rsi": 65.6,
-   "reste": 4.4,
-   "last": 0.5491,
-   "ts": 1788116700,
-   "pair": "APTUSD",
+   "rsi": 63.4,
+   "reste": 6.6,
+   "last": 0.16305,
+   "ts": 1788117600,
+   "pair": "BTRUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
-   "perp": true
+   "perp": false
   }
  ]
 }
