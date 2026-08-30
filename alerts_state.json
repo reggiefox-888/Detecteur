@@ -227,68 +227,7 @@
    "HNTUSD": 1788100201.4967792
   }
  },
- "active": [
-  {
-   "id": "1788102000",
-   "sens": "short",
-   "score": 50,
-   "rsi": 71.2,
-   "meche": 81,
-   "volume_x": 2.95,
-   "prix": 11.56161,
-   "ts": 1788102000,
-   "pair": "LINKUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 11.56161,
-   "variation": -0.0
-  },
-  {
-   "id": "1788102000",
-   "sens": "short",
-   "score": 40,
-   "rsi": 73.0,
-   "meche": 45,
-   "volume_x": 1.59,
-   "prix": 2477.39,
-   "ts": 1788102000,
-   "pair": "ETHUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 2477.39,
-   "variation": -0.0
-  },
-  {
-   "id": "1788103800",
-   "sens": "short",
-   "score": 45,
-   "rsi": 70.3,
-   "meche": 48,
-   "volume_x": 2.46,
-   "prix": 699.15,
-   "ts": 1788103800,
-   "pair": "BNBUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 699.15,
-   "variation": -0.0
-  }
- ],
+ "active": [],
  "history": [
   {
    "id": "1787492400",
@@ -5001,6 +4940,6 @@
  "last_scan": {
   "1j": 1788102905.3953507,
   "30m": 1788105634.5706048,
-  "5m": 1788105634.570607
+  "5m": 1788106325.8438275
  }
 }
