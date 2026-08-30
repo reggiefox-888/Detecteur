@@ -85,8 +85,8 @@
    "HONEYUSD": 1788053445.5435672
   },
   "30m": {
-   "LINKUSD": 1787464482.730465,
-   "ETHUSD": 1787464486.6513112,
+   "LINKUSD": 1788105503.564032,
+   "ETHUSD": 1788105506.255626,
    "GRTUSD": 1787496822.9998221,
    "BCHUSD": 1788094812.9259162,
    "XDCUSD": 1787715702.9473977,
@@ -180,7 +180,8 @@
    "SOLUSD": 1788100099.0071895,
    "LTCUSD": 1788100194.8393419,
    "GHSTUSD": 1788100205.5493464,
-   "MONUSD": 1788100224.146319
+   "MONUSD": 1788100224.146319,
+   "BNBUSD": 1788105612.1886544
   },
   "5m": {
    "ENAUSD": 1787991730.1714704,
@@ -226,7 +227,68 @@
    "HNTUSD": 1788100201.4967792
   }
  },
- "active": [],
+ "active": [
+  {
+   "id": "1788102000",
+   "sens": "short",
+   "score": 50,
+   "rsi": 71.2,
+   "meche": 81,
+   "volume_x": 2.95,
+   "prix": 11.56161,
+   "ts": 1788102000,
+   "pair": "LINKUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 11.56161,
+   "variation": -0.0
+  },
+  {
+   "id": "1788102000",
+   "sens": "short",
+   "score": 40,
+   "rsi": 73.0,
+   "meche": 45,
+   "volume_x": 1.59,
+   "prix": 2477.39,
+   "ts": 1788102000,
+   "pair": "ETHUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 2477.39,
+   "variation": -0.0
+  },
+  {
+   "id": "1788103800",
+   "sens": "short",
+   "score": 45,
+   "rsi": 70.3,
+   "meche": 48,
+   "volume_x": 2.46,
+   "prix": 699.15,
+   "ts": 1788103800,
+   "pair": "BNBUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 699.15,
+   "variation": -0.0
+  }
+ ],
  "history": [
   {
    "id": "1787492400",
@@ -4938,7 +5000,7 @@
  "perps_ts": 1788052290.4773505,
  "last_scan": {
   "1j": 1788102905.3953507,
-  "30m": 1788102905.3953536,
-  "5m": 1788104519.9831152
+  "30m": 1788105634.5706048,
+  "5m": 1788105634.570607
  }
 }
