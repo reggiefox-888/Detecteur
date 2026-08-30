@@ -183,7 +183,7 @@
    "JUPUSD": 1788062353.3537195,
    "AAVEUSD": 1787612587.8921547,
    "TRUMPUSD": 1787983834.4805093,
-   "DASHUSD": 1787492758.5589085,
+   "DASHUSD": 1788064975.5764008,
    "UNIUSD": 1788015096.4074702,
    "FARTCOINUSD": 1788016175.091526,
    "TIAUSD": 1788015061.8120177,
@@ -240,9 +240,9 @@
    },
    "efm": -0.08,
    "eam": -1.02,
-   "bougies_ecoulees": 6,
-   "prix_actuel": 0.21332,
-   "variation": -1.02
+   "bougies_ecoulees": 9,
+   "prix_actuel": 0.21403,
+   "variation": -0.69
   },
   {
    "id": "1788061800",
@@ -262,11 +262,31 @@
     "3": 0.15,
     "5": 0.15
    },
-   "efm": 0.22,
+   "efm": 0.44,
    "eam": 0.07,
-   "bougies_ecoulees": 6,
-   "prix_actuel": 1.363,
-   "variation": 0.15
+   "bougies_ecoulees": 9,
+   "prix_actuel": 1.361,
+   "variation": 0.29
+  },
+  {
+   "id": "1788064500",
+   "sens": "long",
+   "score": 40,
+   "rsi": 21.8,
+   "meche": 9,
+   "volume_x": 4.94,
+   "prix": 40.733,
+   "ts": 1788064500,
+   "pair": "DASHUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 40.733,
+   "variation": 0.0
   }
  ],
  "history": [
@@ -4505,7 +4525,7 @@
  "perps_ts": 1788052290.4773505,
  "last_scan": {
   "1j": 1788062534.976841,
-  "30m": 1788062534.976844,
-  "5m": 1788064144.1365023
+  "30m": 1788065019.665407,
+  "5m": 1788065019.6654088
  }
 }
