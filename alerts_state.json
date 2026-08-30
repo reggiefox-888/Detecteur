@@ -217,32 +217,7 @@
    "BTRUSD": 1788054167.7531705
   }
  },
- "active": [
-  {
-   "id": "1788053700",
-   "sens": "long",
-   "score": 46,
-   "rsi": 29.5,
-   "meche": 57,
-   "volume_x": 0.59,
-   "prix": 0.17305,
-   "ts": 1788053700,
-   "pair": "BTRUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": false,
-   "fwd": {
-    "1": 1.38,
-    "3": 2.02,
-    "5": 3.91
-   },
-   "efm": 4.78,
-   "eam": 0.31,
-   "bougies_ecoulees": 9,
-   "prix_actuel": 0.18003,
-   "variation": 4.03
-  }
- ],
+ "active": [],
  "history": [
   {
    "id": "1787492400",
@@ -4093,6 +4068,31 @@
    "bougies_ecoulees": 10,
    "prix_actuel": 0.10545,
    "variation": 1.1
+  },
+  {
+   "id": "1788053700",
+   "sens": "long",
+   "score": 46,
+   "rsi": 29.5,
+   "meche": 57,
+   "volume_x": 0.59,
+   "prix": 0.17305,
+   "ts": 1788053700,
+   "pair": "BTRUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": false,
+   "fwd": {
+    "1": 1.38,
+    "3": 2.02,
+    "5": 3.91,
+    "10": 4.64
+   },
+   "efm": 4.78,
+   "eam": 0.31,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 0.18052,
+   "variation": 4.32
   }
  ],
  "universe": [
@@ -4453,8 +4453,8 @@
  ],
  "perps_ts": 1788052290.4773505,
  "last_scan": {
-  "1j": 1788053445.5435715,
+  "1j": 1788057840.3890133,
   "30m": 1788057054.6598778,
-  "5m": 1788057054.6598806
+  "5m": 1788057840.389016
  }
 }
