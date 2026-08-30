@@ -221,32 +221,7 @@
    "HNTUSD": 1788065952.0096774
   }
  },
- "active": [
-  {
-   "id": "1788071700",
-   "sens": "short",
-   "score": 62,
-   "rsi": 78.2,
-   "meche": 50,
-   "volume_x": 4.55,
-   "prix": 7.336,
-   "ts": 1788071700,
-   "pair": "AVAXUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 0.03,
-    "3": -0.04,
-    "5": -0.05
-   },
-   "efm": 0.04,
-   "eam": -0.15,
-   "bougies_ecoulees": 9,
-   "prix_actuel": 7.333,
-   "variation": 0.04
-  }
- ],
+ "active": [],
  "history": [
   {
    "id": "1787492400",
@@ -4222,6 +4197,31 @@
    "bougies_ecoulees": 12,
    "prix_actuel": 0.6936,
    "variation": -15.6
+  },
+  {
+   "id": "1788071700",
+   "sens": "short",
+   "score": 62,
+   "rsi": 78.2,
+   "meche": 50,
+   "volume_x": 4.55,
+   "prix": 7.336,
+   "ts": 1788071700,
+   "pair": "AVAXUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": 0.03,
+    "3": -0.04,
+    "5": -0.05,
+    "10": 0.08
+   },
+   "efm": 0.08,
+   "eam": -0.15,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 7.332,
+   "variation": 0.05
   }
  ],
  "universe": [
@@ -4582,8 +4582,8 @@
  ],
  "perps_ts": 1788052290.4773505,
  "last_scan": {
-  "1j": 1788071449.1005423,
-  "30m": 1788073225.5947278,
-  "5m": 1788074936.1338706
+  "1j": 1788075890.2370834,
+  "30m": 1788075890.237085,
+  "5m": 1788075890.2370856
  }
 }
