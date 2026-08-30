@@ -221,32 +221,7 @@
    "HNTUSD": 1788065952.0096774
   }
  },
- "active": [
-  {
-   "id": "1788078900",
-   "sens": "short",
-   "score": 53,
-   "rsi": 74.4,
-   "meche": 34,
-   "volume_x": 30.78,
-   "prix": 0.18944,
-   "ts": 1788078900,
-   "pair": "BTRUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": false,
-   "fwd": {
-    "1": 0.42,
-    "3": 0.96,
-    "5": 9.29
-   },
-   "efm": 10.14,
-   "eam": -0.21,
-   "bougies_ecoulees": 9,
-   "prix_actuel": 0.17604,
-   "variation": 7.07
-  }
- ],
+ "active": [],
  "history": [
   {
    "id": "1787492400",
@@ -4247,6 +4222,31 @@
    "bougies_ecoulees": 12,
    "prix_actuel": 7.332,
    "variation": 0.05
+  },
+  {
+   "id": "1788078900",
+   "sens": "short",
+   "score": 53,
+   "rsi": 74.4,
+   "meche": 34,
+   "volume_x": 30.78,
+   "prix": 0.18944,
+   "ts": 1788078900,
+   "pair": "BTRUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": false,
+   "fwd": {
+    "1": 0.42,
+    "3": 0.96,
+    "5": 9.29,
+    "10": 4.56
+   },
+   "efm": 10.14,
+   "eam": -0.21,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 0.17603,
+   "variation": 7.08
   }
  ],
  "universe": [
@@ -4609,6 +4609,6 @@
  "last_scan": {
   "1j": 1788080428.7838857,
   "30m": 1788081220.7352273,
-  "5m": 1788082152.2951303
+  "5m": 1788082927.1502604
  }
 }
