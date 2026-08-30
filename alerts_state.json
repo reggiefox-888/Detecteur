@@ -221,48 +221,7 @@
    "HNTUSD": 1788065952.0096774
   }
  },
- "active": [
-  {
-   "id": "1788067800",
-   "sens": "short",
-   "score": 69,
-   "rsi": 74.6,
-   "meche": 52,
-   "volume_x": 5.06,
-   "prix": 0.013667,
-   "ts": 1788067800,
-   "pair": "SKRUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.013667,
-   "variation": -0.0
-  },
-  {
-   "id": "1788067800",
-   "sens": "short",
-   "score": 48,
-   "rsi": 71.4,
-   "meche": 53,
-   "volume_x": 0.16,
-   "prix": 0.09826,
-   "ts": 1788067800,
-   "pair": "FOLDUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.09826,
-   "variation": -0.0
-  }
- ],
+ "active": [],
  "history": [
   {
    "id": "1787492400",
@@ -4598,8 +4557,8 @@
  ],
  "perps_ts": 1788052290.4773505,
  "last_scan": {
-  "1j": 1788066839.327761,
+  "1j": 1788071449.1005423,
   "30m": 1788070412.3898768,
-  "5m": 1788070412.389879
+  "5m": 1788071449.100545
  }
 }
