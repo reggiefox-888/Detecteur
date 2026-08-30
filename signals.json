@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-30 14:41 UTC",
+ "generated": "2026-08-30 14:57 UTC",
  "type": "observation",
  "horizons": [
   1,
@@ -23,30 +23,6 @@
  ],
  "active": [
   {
-   "id": "1788097800",
-   "sens": "short",
-   "score": 48,
-   "rsi": 70.7,
-   "meche": 50,
-   "volume_x": 4.83,
-   "prix": 7.431,
-   "ts": 1788097800,
-   "pair": "AVAXUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 0.01,
-    "3": 0.19,
-    "5": 0.26
-   },
-   "efm": 0.3,
-   "eam": -0.01,
-   "bougies_ecoulees": 9,
-   "prix_actuel": 7.409,
-   "variation": 0.3
-  },
-  {
    "id": "1788099900",
    "sens": "short",
    "score": 59,
@@ -60,13 +36,15 @@
    "mode_nom": "5 minutes",
    "perp": false,
    "fwd": {
-    "1": 0.75
+    "1": 0.75,
+    "3": 2.6,
+    "5": -0.18
    },
-   "efm": 4.18,
-   "eam": -1.23,
-   "bougies_ecoulees": 2,
-   "prix_actuel": 0.7642,
-   "variation": 2.95
+   "efm": 5.02,
+   "eam": -1.42,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 0.7888,
+   "variation": -0.18
   }
  ],
  "history": [
@@ -4369,52 +4347,77 @@
    "bougies_ecoulees": 12,
    "prix_actuel": 106.71,
    "variation": 0.13
+  },
+  {
+   "id": "1788097800",
+   "sens": "short",
+   "score": 48,
+   "rsi": 70.7,
+   "meche": 50,
+   "volume_x": 4.83,
+   "prix": 7.431,
+   "ts": 1788097800,
+   "pair": "AVAXUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": 0.01,
+    "3": 0.19,
+    "5": 0.26,
+    "10": 0.17
+   },
+   "efm": 0.3,
+   "eam": -0.01,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 7.425,
+   "variation": 0.08
   }
  ],
  "watch": [
   {
    "dir": "short",
-   "rsi": 69.5,
-   "reste": 0.5,
-   "last": 0.0899,
-   "ts": 1788100500,
-   "pair": "ARBUSD",
+   "rsi": 69.2,
+   "reste": 0.8,
+   "last": 49.92,
+   "ts": 1788101400,
+   "pair": "LTCUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
   },
   {
    "dir": "short",
-   "rsi": 67.3,
-   "reste": 2.7,
-   "last": 41.646,
-   "ts": 1788100500,
-   "pair": "DASHUSD",
+   "rsi": 64.4,
+   "reste": 5.6,
+   "last": 2478.11,
+   "ts": 1788101400,
+   "pair": "ETHUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
   },
   {
-   "dir": "long",
-   "rsi": 35.3,
-   "reste": 5.3,
-   "last": 0.2469,
-   "ts": 1788100500,
-   "pair": "STXUSD",
+   "dir": "short",
+   "rsi": 63.3,
+   "reste": 6.7,
+   "last": 5.17e-06,
+   "ts": 1788101400,
+   "pair": "SHIBUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
   },
   {
-   "dir": "long",
-   "rsi": 36.1,
-   "reste": 6.1,
-   "last": 0.1619,
-   "ts": 1788100500,
-   "pair": "BTRUSD",
+   "dir": "short",
+   "rsi": 62.9,
+   "reste": 7.1,
+   "last": 11.55377,
+   "ts": 1788101400,
+   "pair": "LINKUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
-   "perp": false
+   "perp": true
   }
  ]
 }
