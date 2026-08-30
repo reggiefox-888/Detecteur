@@ -241,33 +241,9 @@
    },
    "efm": 1.92,
    "eam": -15.42,
-   "bougies_ecoulees": 6,
-   "prix_actuel": 0.6275,
-   "variation": -4.58
-  },
-  {
-   "id": "1788064500",
-   "sens": "long",
-   "score": 40,
-   "rsi": 21.8,
-   "meche": 9,
-   "volume_x": 4.94,
-   "prix": 40.733,
-   "ts": 1788064500,
-   "pair": "DASHUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 0.05,
-    "3": -0.2,
-    "5": -0.14
-   },
-   "efm": 0.34,
-   "eam": -0.57,
    "bougies_ecoulees": 9,
-   "prix_actuel": 40.735,
-   "variation": 0.0
+   "prix_actuel": 0.642,
+   "variation": -7.0
   }
  ],
  "history": [
@@ -4195,6 +4171,31 @@
    "bougies_ecoulees": 12,
    "prix_actuel": 1.357,
    "variation": 0.59
+  },
+  {
+   "id": "1788064500",
+   "sens": "long",
+   "score": 40,
+   "rsi": 21.8,
+   "meche": 9,
+   "volume_x": 4.94,
+   "prix": 40.733,
+   "ts": 1788064500,
+   "pair": "DASHUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": 0.05,
+    "3": -0.2,
+    "5": -0.14,
+    "10": 0.0
+   },
+   "efm": 0.34,
+   "eam": -0.57,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 40.834,
+   "variation": 0.25
   }
  ],
  "universe": [
@@ -4557,6 +4558,6 @@
  "last_scan": {
   "1j": 1788066839.327761,
   "30m": 1788067834.0718675,
-  "5m": 1788067834.071871
+  "5m": 1788068512.2283046
  }
 }
