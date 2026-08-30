@@ -231,56 +231,7 @@
    "HNTUSD": 1788125392.57735
   }
  },
- "active": [
-  {
-   "id": "1788124800",
-   "sens": "long",
-   "score": 40,
-   "rsi": 26.1,
-   "meche": 67,
-   "volume_x": 0.63,
-   "prix": 49.12,
-   "ts": 1788124800,
-   "pair": "LTCUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 0.16,
-    "3": 0.1,
-    "5": -0.04
-   },
-   "efm": 0.45,
-   "eam": -0.18,
-   "bougies_ecoulees": 9,
-   "prix_actuel": 49.11,
-   "variation": -0.02
-  },
-  {
-   "id": "1788124800",
-   "sens": "long",
-   "score": 40,
-   "rsi": 27.9,
-   "meche": 10,
-   "volume_x": 2.48,
-   "prix": 0.764,
-   "ts": 1788124800,
-   "pair": "HNTUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": false,
-   "fwd": {
-    "1": 3.72,
-    "3": 6.31,
-    "5": 5.12
-   },
-   "efm": 7.02,
-   "eam": -1.15,
-   "bougies_ecoulees": 9,
-   "prix_actuel": 0.7805,
-   "variation": 2.16
-  }
- ],
+ "active": [],
  "history": [
   {
    "id": "1787492400",
@@ -4856,6 +4807,56 @@
    "bougies_ecoulees": 12,
    "prix_actuel": 0.20105,
    "variation": 0.64
+  },
+  {
+   "id": "1788124800",
+   "sens": "long",
+   "score": 40,
+   "rsi": 26.1,
+   "meche": 67,
+   "volume_x": 0.63,
+   "prix": 49.12,
+   "ts": 1788124800,
+   "pair": "LTCUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": 0.16,
+    "3": 0.1,
+    "5": -0.04,
+    "10": -0.1
+   },
+   "efm": 0.45,
+   "eam": -0.18,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 48.84,
+   "variation": -0.57
+  },
+  {
+   "id": "1788124800",
+   "sens": "long",
+   "score": 40,
+   "rsi": 27.9,
+   "meche": 10,
+   "volume_x": 2.48,
+   "prix": 0.764,
+   "ts": 1788124800,
+   "pair": "HNTUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": false,
+   "fwd": {
+    "1": 3.72,
+    "3": 6.31,
+    "5": 5.12,
+    "10": 0.92
+   },
+   "efm": 7.02,
+   "eam": -1.15,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 0.7788,
+   "variation": 1.94
   }
  ],
  "universe": [
@@ -5218,6 +5219,6 @@
  "last_scan": {
   "1j": 1788125441.706835,
   "30m": 1788127216.5854874,
-  "5m": 1788127899.1469584
+  "5m": 1788128938.2882657
  }
 }
