@@ -235,12 +235,15 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.0883,
-   "variation": -0.0
+   "fwd": {
+    "1": -0.11,
+    "3": 0.23
+   },
+   "efm": 0.23,
+   "eam": -0.11,
+   "bougies_ecoulees": 3,
+   "prix_actuel": 0.0881,
+   "variation": 0.23
   },
   {
    "id": "1788091500",
@@ -255,12 +258,15 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 1.471,
-   "variation": -0.0
+   "fwd": {
+    "1": -0.14,
+    "3": 0.41
+   },
+   "efm": 0.48,
+   "eam": -0.14,
+   "bougies_ecoulees": 3,
+   "prix_actuel": 1.465,
+   "variation": 0.41
   },
   {
    "id": "1788091500",
@@ -275,32 +281,15 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": false,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.7099,
-   "variation": -0.0
-  },
-  {
-   "id": "1788089400",
-   "sens": "short",
-   "score": 40,
-   "rsi": 75.3,
-   "meche": 8,
-   "volume_x": 22.16,
-   "prix": 0.00357,
-   "ts": 1788089400,
-   "pair": "XCNUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.00357,
-   "variation": -0.0
+   "fwd": {
+    "1": 4.48,
+    "3": 2.59
+   },
+   "efm": 5.62,
+   "eam": 1.59,
+   "bougies_ecoulees": 3,
+   "prix_actuel": 0.6915,
+   "variation": 2.59
   }
  ],
  "history": [
@@ -4790,6 +4779,6 @@
  "last_scan": {
   "1j": 1788089526.944342,
   "30m": 1788092034.9420607,
-  "5m": 1788092034.9420629
+  "5m": 1788092945.339042
  }
 }
