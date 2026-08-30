@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-30 03:28 UTC",
+ "generated": "2026-08-30 03:41 UTC",
  "type": "observation",
  "horizons": [
   1,
@@ -3902,44 +3902,33 @@
  "watch": [
   {
    "dir": "short",
-   "rsi": 68.1,
-   "reste": 1.9,
-   "last": 0.1503,
-   "ts": 1788060000,
-   "pair": "FETUSD",
+   "rsi": 64.7,
+   "reste": 5.3,
+   "last": 0.2452,
+   "ts": 1788060900,
+   "pair": "STXUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
   },
   {
-   "dir": "long",
-   "rsi": 36.5,
-   "reste": 6.5,
-   "last": 2.61,
-   "ts": 1788060000,
-   "pair": "TRUMPUSD",
+   "dir": "short",
+   "rsi": 64.6,
+   "reste": 5.4,
+   "last": 0.69025,
+   "ts": 1788060900,
+   "pair": "DGAIUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
-   "perp": true
+   "perp": false
   },
   {
-   "dir": "long",
-   "rsi": 37.6,
-   "reste": 7.6,
-   "last": 0.5375,
-   "ts": 1788060000,
-   "pair": "APTUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 37.7,
-   "reste": 7.7,
-   "last": 82.9,
-   "ts": 1788060000,
-   "pair": "HYPEUSD",
+   "dir": "short",
+   "rsi": 62.9,
+   "reste": 7.1,
+   "last": 235.5124,
+   "ts": 1788060900,
+   "pair": "TAOUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
