@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-30 21:28 UTC",
+ "generated": "2026-08-30 21:40 UTC",
  "type": "observation",
  "horizons": [
   1,
@@ -37,13 +37,14 @@
    "perp": true,
    "fwd": {
     "1": -0.02,
-    "3": 0.07
+    "3": 0.07,
+    "5": 0.38
    },
-   "efm": 0.12,
+   "efm": 0.41,
    "eam": -0.19,
-   "bougies_ecoulees": 3,
-   "prix_actuel": 104.14,
-   "variation": 0.07
+   "bougies_ecoulees": 6,
+   "prix_actuel": 104.39,
+   "variation": 0.31
   },
   {
    "id": "1788123900",
@@ -60,13 +61,14 @@
    "perp": true,
    "fwd": {
     "1": 0.1,
-    "3": -0.34
+    "3": -0.34,
+    "5": 0.4
    },
-   "efm": 0.19,
+   "efm": 0.46,
    "eam": -0.34,
-   "bougies_ecoulees": 3,
-   "prix_actuel": 0.199095,
-   "variation": -0.34
+   "bougies_ecoulees": 6,
+   "prix_actuel": 0.200365,
+   "variation": 0.29
   },
   {
    "id": "1788124800",
@@ -81,12 +83,15 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 49.12,
-   "variation": 0.0
+   "fwd": {
+    "1": 0.16,
+    "3": 0.1
+   },
+   "efm": 0.33,
+   "eam": -0.02,
+   "bougies_ecoulees": 3,
+   "prix_actuel": 49.17,
+   "variation": 0.1
   },
   {
    "id": "1788124800",
@@ -101,12 +106,15 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": false,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.764,
-   "variation": 0.0
+   "fwd": {
+    "1": 3.72,
+    "3": 6.31
+   },
+   "efm": 6.31,
+   "eam": -1.15,
+   "bougies_ecoulees": 3,
+   "prix_actuel": 0.8122,
+   "variation": 6.31
   }
  ],
  "history": [
@@ -4638,198 +4646,11 @@
  ],
  "watch": [
   {
-   "dir": "short",
-   "rsi": 69.0,
-   "reste": 1.0,
-   "last": 692.66,
-   "ts": 1787961600,
-   "pair": "BNBUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 68.6,
-   "reste": 1.4,
-   "last": 0.0857,
-   "ts": 1787961600,
-   "pair": "GHSTUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": false
-  },
-  {
-   "dir": "short",
-   "rsi": 67.7,
-   "reste": 2.3,
-   "last": 0.000855,
-   "ts": 1787961600,
-   "pair": "SWELLUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": false
-  },
-  {
-   "dir": "short",
-   "rsi": 67.5,
-   "reste": 2.5,
-   "last": 0.5411,
-   "ts": 1787961600,
-   "pair": "SPXUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 67.3,
-   "reste": 2.7,
-   "last": 0.0554,
-   "ts": 1787961600,
-   "pair": "NILUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": false
-  },
-  {
-   "dir": "short",
-   "rsi": 67.2,
-   "reste": 2.8,
-   "last": 11.45775,
-   "ts": 1787961600,
-   "pair": "LINKUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 66.4,
-   "reste": 3.6,
-   "last": 0.10704,
-   "ts": 1787961600,
-   "pair": "POLUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 66.4,
-   "reste": 3.6,
-   "last": 41.305,
-   "ts": 1787961600,
-   "pair": "DASHUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 65.6,
-   "reste": 4.4,
-   "last": 0.009136,
-   "ts": 1787961600,
-   "pair": "PENGUUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 65.5,
-   "reste": 4.5,
-   "last": 1.39661,
-   "ts": 1787961600,
-   "pair": "XRPUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 65.4,
-   "reste": 4.6,
-   "last": 14.249,
-   "ts": 1787961600,
-   "pair": "DCRUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": false
-  },
-  {
-   "dir": "short",
-   "rsi": 65.3,
-   "reste": 4.7,
-   "last": 126.77,
-   "ts": 1787961600,
-   "pair": "AAVEUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 65.3,
-   "reste": 4.7,
-   "last": 4.6811,
-   "ts": 1787961600,
-   "pair": "UNIUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 64.6,
-   "reste": 5.4,
-   "last": 16.713,
-   "ts": 1787961600,
-   "pair": "VVVUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": false
-  },
-  {
-   "dir": "short",
-   "rsi": 63.8,
-   "reste": 6.2,
-   "last": 0.1963,
-   "ts": 1787961600,
-   "pair": "FARTCOINUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 62.4,
-   "reste": 7.6,
-   "last": 0.70047,
-   "ts": 1787961600,
-   "pair": "ASTERUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 62.2,
-   "reste": 7.8,
-   "last": 0.01396,
-   "ts": 1787961600,
-   "pair": "COTIUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": true
-  },
-  {
    "dir": "long",
-   "rsi": 30.1,
-   "reste": 0.1,
-   "last": 2476.03,
-   "ts": 1788124800,
+   "rsi": 36.1,
+   "reste": 6.1,
+   "last": 2478.3,
+   "ts": 1788125700,
    "pair": "ETHUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
@@ -4837,212 +4658,36 @@
   },
   {
    "dir": "long",
-   "rsi": 31.2,
-   "reste": 1.2,
-   "last": 0.8466,
-   "ts": 1788124800,
-   "pair": "DOTUSD",
+   "rsi": 36.2,
+   "reste": 6.2,
+   "last": 5.107e-06,
+   "ts": 1788125700,
+   "pair": "SHIBUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
   },
   {
    "dir": "long",
-   "rsi": 31.6,
-   "reste": 1.6,
-   "last": 0.336,
-   "ts": 1788124800,
-   "pair": "TIAUSD",
+   "rsi": 37.8,
+   "reste": 7.8,
+   "last": 0.0846645,
+   "ts": 1788125700,
+   "pair": "DOGEUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
   },
   {
    "dir": "long",
-   "rsi": 31.8,
-   "reste": 1.8,
-   "last": 0.178459,
-   "ts": 1788124800,
-   "pair": "XLMUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 31.9,
-   "reste": 1.9,
-   "last": 0.1573,
-   "ts": 1788124800,
-   "pair": "ENAUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 32.5,
-   "reste": 2.5,
-   "last": 0.1529,
-   "ts": 1788124800,
-   "pair": "FETUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 32.5,
-   "reste": 2.5,
-   "last": 0.35407,
-   "ts": 1788124800,
-   "pair": "ONDOUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 32.8,
-   "reste": 2.8,
-   "last": 5.194,
-   "ts": 1788124800,
-   "pair": "INJUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 33.5,
-   "reste": 3.5,
-   "last": 125.74,
-   "ts": 1788124800,
-   "pair": "AAVEUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 34.0,
-   "reste": 4.0,
-   "last": 235.1685,
-   "ts": 1788124800,
-   "pair": "TAOUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 34.8,
-   "reste": 4.8,
-   "last": 42.423,
-   "ts": 1788124800,
-   "pair": "DASHUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 35.0,
-   "reste": 5.0,
-   "last": 0.01644,
-   "ts": 1788124800,
-   "pair": "GRTUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 35.2,
-   "reste": 5.2,
-   "last": 11.47493,
-   "ts": 1788124800,
-   "pair": "LINKUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 35.2,
-   "reste": 5.2,
-   "last": 0.004633,
-   "ts": 1788124800,
-   "pair": "PUMPUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 35.3,
-   "reste": 5.3,
-   "last": 7.328,
-   "ts": 1788124800,
-   "pair": "AVAXUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 35.7,
-   "reste": 5.7,
-   "last": 1.357,
-   "ts": 1788124800,
-   "pair": "TONUSD",
+   "rsi": 37.8,
+   "reste": 7.8,
+   "last": 0.0846645,
+   "ts": 1788125700,
+   "pair": "XDGUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": false
-  },
-  {
-   "dir": "long",
-   "rsi": 35.7,
-   "reste": 5.7,
-   "last": 2.494,
-   "ts": 1788124800,
-   "pair": "TRUMPUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 36.4,
-   "reste": 6.4,
-   "last": 0.07509,
-   "ts": 1788124800,
-   "pair": "HBARUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 36.9,
-   "reste": 6.9,
-   "last": 1.8708,
-   "ts": 1788124800,
-   "pair": "NEARUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "long",
-   "rsi": 37.3,
-   "reste": 7.3,
-   "last": 0.682,
-   "ts": 1788124800,
-   "pair": "FILUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
   }
  ]
 }
