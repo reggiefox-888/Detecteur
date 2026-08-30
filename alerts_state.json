@@ -230,28 +230,7 @@
    "HNTUSD": 1788100201.4967792
   }
  },
- "active": [
-  {
-   "id": "1788120000",
-   "sens": "short",
-   "score": 81,
-   "rsi": 80.6,
-   "meche": 53,
-   "volume_x": 2.43,
-   "prix": 0.021813,
-   "ts": 1788120000,
-   "pair": "SKRUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.021813,
-   "variation": -0.0
-  }
- ],
+ "active": [],
  "history": [
   {
    "id": "1787492400",
@@ -5139,6 +5118,6 @@
  "last_scan": {
   "1j": 1788120820.1476622,
   "30m": 1788121849.4808593,
-  "5m": 1788121849.4808764
+  "5m": 1788122527.51149
  }
 }
