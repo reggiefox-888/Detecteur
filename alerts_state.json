@@ -245,12 +245,15 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 81.01,
-   "variation": 0.0
+   "fwd": {
+    "1": -0.05,
+    "3": -0.3
+   },
+   "efm": 0.11,
+   "eam": -0.53,
+   "bougies_ecoulees": 3,
+   "prix_actuel": 80.77,
+   "variation": -0.3
   },
   {
    "id": "1788129300",
@@ -265,52 +268,15 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 2.436,
-   "variation": 0.0
-  },
-  {
-   "id": "1788127200",
-   "sens": "long",
-   "score": 52,
-   "rsi": 26.9,
-   "meche": 62,
-   "volume_x": 15.95,
-   "prix": 4455.43,
-   "ts": 1788127200,
-   "pair": "PAXGUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 4455.43,
-   "variation": 0.0
-  },
-  {
-   "id": "1788127200",
-   "sens": "short",
-   "score": 64,
-   "rsi": 71.8,
-   "meche": 72,
-   "volume_x": 22.18,
-   "prix": 0.06895,
-   "ts": 1788127200,
-   "pair": "USELESSUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.06895,
-   "variation": -0.0
+   "fwd": {
+    "1": -0.12,
+    "3": -0.78
+   },
+   "efm": 0.0,
+   "eam": -0.94,
+   "bougies_ecoulees": 3,
+   "prix_actuel": 2.417,
+   "variation": -0.78
   }
  ],
  "history": [
@@ -5300,6 +5266,6 @@
  "last_scan": {
   "1j": 1788129920.9052942,
   "30m": 1788129920.9052963,
-  "5m": 1788129920.905297
+  "5m": 1788130739.5107486
  }
 }
