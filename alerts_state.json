@@ -182,7 +182,9 @@
    "GHSTUSD": 1788100205.5493464,
    "MONUSD": 1788100224.146319,
    "BNBUSD": 1788105612.1886544,
-   "PEPEUSD": 1788108137.5990198
+   "PEPEUSD": 1788108137.5990198,
+   "LIGHTERUSD": 1788118974.7695777,
+   "DCRUSD": 1788118998.951433
   },
   "5m": {
    "ENAUSD": 1787991730.1714704,
@@ -230,28 +232,44 @@
  },
  "active": [
   {
-   "id": "1788114900",
+   "id": "1788116400",
    "sens": "short",
-   "score": 46,
-   "rsi": 70.9,
-   "meche": 39,
-   "volume_x": 3.8,
-   "prix": 43.344,
-   "ts": 1788114900,
-   "pair": "DASHUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 0.03,
-    "3": -1.65,
-    "5": -1.98
-   },
-   "efm": 0.22,
-   "eam": -2.79,
-   "bougies_ecoulees": 9,
-   "prix_actuel": 44.071,
-   "variation": -1.68
+   "score": 50,
+   "rsi": 80.1,
+   "meche": 0,
+   "volume_x": 6.56,
+   "prix": 3.848,
+   "ts": 1788116400,
+   "pair": "LIGHTERUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 3.848,
+   "variation": -0.0
+  },
+  {
+   "id": "1788116400",
+   "sens": "short",
+   "score": 60,
+   "rsi": 79.6,
+   "meche": 50,
+   "volume_x": 1.9,
+   "prix": 14.164,
+   "ts": 1788116400,
+   "pair": "DCRUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 14.164,
+   "variation": -0.0
   }
  ],
  "history": [
@@ -4754,6 +4772,31 @@
    "bougies_ecoulees": 12,
    "prix_actuel": 0.0898,
    "variation": 0.88
+  },
+  {
+   "id": "1788114900",
+   "sens": "short",
+   "score": 46,
+   "rsi": 70.9,
+   "meche": 39,
+   "volume_x": 3.8,
+   "prix": 43.344,
+   "ts": 1788114900,
+   "pair": "DASHUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": 0.03,
+    "3": -1.65,
+    "5": -1.98,
+    "10": -1.35
+   },
+   "efm": 0.22,
+   "eam": -2.79,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 43.486,
+   "variation": -0.33
   }
  ],
  "universe": [
@@ -5115,7 +5158,7 @@
  "perps_ts": 1788052290.4773505,
  "last_scan": {
   "1j": 1788116516.3688176,
-  "30m": 1788116516.3688204,
-  "5m": 1788118126.789443
+  "30m": 1788119000.2105956,
+  "5m": 1788119000.2105973
  }
 }
