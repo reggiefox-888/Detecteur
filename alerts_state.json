@@ -246,58 +246,8 @@
    "SKRUSD": 1788184738.174141
   }
  },
- "active": [
-  {
-   "id": "1788200400",
-   "sens": "short",
-   "score": 55,
-   "rsi": 73.6,
-   "meche": 86,
-   "volume_x": 428.66,
-   "prix": 0.682,
-   "ts": 1788200400,
-   "pair": "FILUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 0.15,
-    "3": -0.15,
-    "5": -0.0
-   },
-   "efm": 0.15,
-   "eam": -0.29,
-   "bougies_ecoulees": 9,
-   "prix_actuel": 0.684,
-   "variation": -0.29
-  }
- ],
+ "active": [],
  "history": [
-  {
-   "id": "1787559900",
-   "sens": "long",
-   "score": 54,
-   "rsi": 27.5,
-   "meche": 50,
-   "volume_x": 12.17,
-   "prix": 0.20431,
-   "ts": 1787559900,
-   "pair": "JUPUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 0.16,
-    "3": 0.85,
-    "5": 0.94,
-    "10": 1.86
-   },
-   "efm": 2.21,
-   "eam": 0.16,
-   "bougies_ecoulees": 23,
-   "prix_actuel": 0.20718,
-   "variation": 1.4
-  },
   {
    "id": "1787559900",
    "sens": "long",
@@ -5272,6 +5222,31 @@
    "bougies_ecoulees": 12,
    "prix_actuel": 84.21,
    "variation": 0.06
+  },
+  {
+   "id": "1788200400",
+   "sens": "short",
+   "score": 55,
+   "rsi": 73.6,
+   "meche": 86,
+   "volume_x": 428.66,
+   "prix": 0.682,
+   "ts": 1788200400,
+   "pair": "FILUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": 0.15,
+    "3": -0.15,
+    "5": -0.0,
+    "10": -0.29
+   },
+   "efm": 0.15,
+   "eam": -0.29,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 0.681,
+   "variation": 0.15
   }
  ],
  "universe": [
@@ -5643,6 +5618,6 @@
  "last_scan": {
   "1j": 1788201826.6419783,
   "30m": 1788202840.2187092,
-  "5m": 1788203531.6928654
+  "5m": 1788204547.1649954
  }
 }
