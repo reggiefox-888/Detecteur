@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-31 15:28 UTC",
+ "generated": "2026-08-31 15:41 UTC",
  "type": "observation",
  "horizons": [
   1,
@@ -40,11 +40,11 @@
     "3": 0.65,
     "5": 1.22
    },
-   "efm": 1.24,
+   "efm": 1.28,
    "eam": -0.45,
-   "bougies_ecoulees": 6,
-   "prix_actuel": 5.1815,
-   "variation": 0.65
+   "bougies_ecoulees": 9,
+   "prix_actuel": 5.1486,
+   "variation": 1.28
   }
  ],
  "history": [
@@ -5051,11 +5051,22 @@
  ],
  "watch": [
   {
+   "dir": "long",
+   "rsi": 34.7,
+   "reste": 4.7,
+   "last": 0.2451,
+   "ts": 1788190500,
+   "pair": "STXUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true
+  },
+  {
    "dir": "short",
-   "rsi": 69.0,
-   "reste": 1.0,
-   "last": 0.0875,
-   "ts": 1788189600,
+   "rsi": 64.1,
+   "reste": 5.9,
+   "last": 0.0873,
+   "ts": 1788190500,
    "pair": "ARBUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
@@ -5063,11 +5074,11 @@
   },
   {
    "dir": "long",
-   "rsi": 33.9,
-   "reste": 3.9,
-   "last": 0.245,
-   "ts": 1788189600,
-   "pair": "STXUSD",
+   "rsi": 35.9,
+   "reste": 5.9,
+   "last": 0.669,
+   "ts": 1788190500,
+   "pair": "FILUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
