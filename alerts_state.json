@@ -247,26 +247,6 @@
  },
  "active": [
   {
-   "id": "1788186600",
-   "sens": "long",
-   "score": 56,
-   "rsi": 20.5,
-   "meche": 38,
-   "volume_x": 0.9,
-   "prix": 0.08761,
-   "ts": 1788186600,
-   "pair": "POLUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.08761,
-   "variation": 0.0
-  },
-  {
    "id": "1788187800",
    "sens": "short",
    "score": 45,
@@ -281,11 +261,12 @@
    "perp": true,
    "fwd": {
     "1": 0.32,
-    "3": 0.65
+    "3": 0.65,
+    "5": 1.22
    },
-   "efm": 0.87,
+   "efm": 1.24,
    "eam": -0.45,
-   "bougies_ecoulees": 3,
+   "bougies_ecoulees": 6,
    "prix_actuel": 5.1815,
    "variation": 0.65
   }
@@ -5661,6 +5642,6 @@
  "last_scan": {
   "1j": 1788188461.856202,
   "30m": 1788189262.6949632,
-  "5m": 1788189262.6949658
+  "5m": 1788190148.4226453
  }
 }
