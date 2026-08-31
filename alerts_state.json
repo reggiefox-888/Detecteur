@@ -261,13 +261,14 @@
    "perp": true,
    "fwd": {
     "1": -0.75,
-    "3": -0.37
+    "3": -0.37,
+    "5": -1.09
    },
    "efm": -0.08,
-   "eam": -0.78,
-   "bougies_ecoulees": 3,
-   "prix_actuel": 0.09158,
-   "variation": -0.37
+   "eam": -1.38,
+   "bougies_ecoulees": 6,
+   "prix_actuel": 0.09075,
+   "variation": -1.27
   },
   {
    "id": "1788175200",
@@ -282,12 +283,15 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": false,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.029935,
-   "variation": -0.0
+   "fwd": {
+    "1": 3.5,
+    "3": 7.5
+   },
+   "efm": 8.11,
+   "eam": -0.06,
+   "bougies_ecoulees": 3,
+   "prix_actuel": 0.02769,
+   "variation": 7.5
   }
  ],
  "history": [
@@ -5661,6 +5665,6 @@
  "last_scan": {
   "1j": 1788174846.0404565,
   "30m": 1788175854.2876403,
-  "5m": 1788175854.287643
+  "5m": 1788176530.7626526
  }
 }
