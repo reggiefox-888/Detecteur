@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-31 19:28 UTC",
+ "generated": "2026-08-31 19:41 UTC",
  "type": "observation",
  "horizons": [
   1,
@@ -5027,32 +5027,142 @@
  "watch": [
   {
    "dir": "short",
-   "rsi": 65.9,
-   "reste": 4.1,
-   "last": 48.94,
-   "ts": 1788204000,
+   "rsi": 69.6,
+   "reste": 0.4,
+   "last": 0.32403,
+   "ts": 1788202800,
+   "pair": "CRVUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 68.7,
+   "reste": 1.3,
+   "last": 0.2177,
+   "ts": 1788202800,
+   "pair": "JUPUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 67.8,
+   "reste": 2.2,
+   "last": 84.0,
+   "ts": 1788202800,
+   "pair": "HYPEUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 33.3,
+   "reste": 3.3,
+   "last": 0.04632,
+   "ts": 1788202800,
+   "pair": "ZKPUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false
+  },
+  {
+   "dir": "short",
+   "rsi": 66.6,
+   "reste": 3.4,
+   "last": 1.395,
+   "ts": 1788202800,
+   "pair": "TONUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false
+  },
+  {
+   "dir": "short",
+   "rsi": 66.4,
+   "reste": 3.6,
+   "last": 0.12245,
+   "ts": 1788202800,
+   "pair": "CCUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false
+  },
+  {
+   "dir": "short",
+   "rsi": 65.8,
+   "reste": 4.2,
+   "last": 2484.98,
+   "ts": 1788202800,
+   "pair": "ETHUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 64.2,
+   "reste": 5.8,
+   "last": 0.7237,
+   "ts": 1788202800,
+   "pair": "DGAIUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false
+  },
+  {
+   "dir": "short",
+   "rsi": 63.5,
+   "reste": 6.5,
+   "last": 48.97,
+   "ts": 1788202800,
    "pair": "LTCUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
    "perp": true
   },
   {
    "dir": "short",
-   "rsi": 63.9,
-   "reste": 6.1,
-   "last": 0.1523,
-   "ts": 1788204000,
-   "pair": "FETUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
+   "rsi": 62.5,
+   "reste": 7.5,
+   "last": 0.038276,
+   "ts": 1788202800,
+   "pair": "PLAYUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false
   },
   {
    "dir": "short",
-   "rsi": 63.2,
-   "reste": 6.8,
-   "last": 0.0949,
-   "ts": 1788204000,
+   "rsi": 62.4,
+   "reste": 7.6,
+   "last": 1.38853,
+   "ts": 1788202800,
+   "pair": "XRPUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 37.8,
+   "reste": 7.8,
+   "last": 0.0828,
+   "ts": 1788202800,
+   "pair": "FOLDUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false
+  },
+  {
+   "dir": "short",
+   "rsi": 63.8,
+   "reste": 6.2,
+   "last": 0.0952,
+   "ts": 1788204900,
    "pair": "ARBUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
@@ -5060,14 +5170,25 @@
   },
   {
    "dir": "short",
-   "rsi": 62.6,
-   "reste": 7.4,
-   "last": 1.4,
-   "ts": 1788204000,
-   "pair": "TONUSD",
+   "rsi": 63.8,
+   "reste": 6.2,
+   "last": 48.97,
+   "ts": 1788204900,
+   "pair": "LTCUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
-   "perp": false
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 37.5,
+   "reste": 7.5,
+   "last": 7.197,
+   "ts": 1788204900,
+   "pair": "AVAXUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true
   }
  ]
 }
