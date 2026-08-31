@@ -234,7 +234,7 @@
    "HBARUSD": 1788132552.8328128,
    "PEPEUSD": 1788132558.165494,
    "DGAIUSD": 1788095520.3291023,
-   "PUMPUSD": 1788132563.4610698,
+   "PUMPUSD": 1788145130.1117601,
    "APTUSD": 1788132507.8768845,
    "BTRUSD": 1788079330.2679112,
    "TONUSD": 1788062376.9603238,
@@ -247,44 +247,24 @@
  },
  "active": [
   {
-   "id": "1788141600",
-   "sens": "short",
-   "score": 40,
-   "rsi": 74.4,
-   "meche": 4,
-   "volume_x": 2.39,
-   "prix": 0.009162,
-   "ts": 1788141600,
-   "pair": "ZORAUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.009162,
-   "variation": -0.0
-  },
-  {
-   "id": "1788048000",
-   "sens": "short",
-   "score": 63,
-   "rsi": 71.6,
-   "meche": 55,
-   "volume_x": 19.85,
-   "prix": 3.692,
-   "ts": 1788048000,
-   "pair": "AUCTIONUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
+   "id": "1788144600",
+   "sens": "long",
+   "score": 59,
+   "rsi": 19.5,
+   "meche": 21,
+   "volume_x": 26.34,
+   "prix": 0.004234,
+   "ts": 1788144600,
+   "pair": "PUMPUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
    "perp": true,
    "fwd": {},
    "efm": null,
    "eam": null,
    "bougies_ecoulees": 0,
-   "prix_actuel": 3.692,
-   "variation": -0.0
+   "prix_actuel": 0.004234,
+   "variation": 0.0
   }
  ],
  "history": [
@@ -5658,6 +5638,6 @@
  "last_scan": {
   "1j": 1788143561.0001876,
   "30m": 1788143561.0001903,
-  "5m": 1788143561.000191
+  "5m": 1788145140.6746244
  }
 }
