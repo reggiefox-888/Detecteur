@@ -175,7 +175,7 @@
    "ZIGUSD": 1788021773.7536309,
    "POLUSD": 1788167521.7295165,
    "SHAPEUSD": 1788045839.3633428,
-   "ESPORTSUSD": 1788054217.0682456,
+   "ESPORTSUSD": 1788186619.4698937,
    "HNTUSD": 1788094780.776624,
    "FOLDUSD": 1788070399.4150898,
    "AVAXUSD": 1788135162.574918,
@@ -261,13 +261,14 @@
    "perp": true,
    "fwd": {
     "1": -0.04,
-    "3": 0.14
+    "3": 0.14,
+    "5": 0.32
    },
    "efm": 0.47,
    "eam": -0.04,
-   "bougies_ecoulees": 3,
-   "prix_actuel": 4.942,
-   "variation": 0.14
+   "bougies_ecoulees": 6,
+   "prix_actuel": 4.952,
+   "variation": 0.34
   },
   {
    "id": "1788183300",
@@ -289,9 +290,9 @@
    },
    "efm": 0.4,
    "eam": -0.43,
-   "bougies_ecoulees": 6,
-   "prix_actuel": 0.20872,
-   "variation": 0.4
+   "bougies_ecoulees": 9,
+   "prix_actuel": 0.20836,
+   "variation": 0.23
   },
   {
    "id": "1788184200",
@@ -308,13 +309,14 @@
    "perp": true,
    "fwd": {
     "1": -0.17,
-    "3": -0.44
+    "3": -0.44,
+    "5": -1.44
    },
    "efm": 0.11,
-   "eam": -0.72,
-   "bougies_ecoulees": 3,
-   "prix_actuel": 0.08821,
-   "variation": -0.44
+   "eam": -2.11,
+   "bougies_ecoulees": 6,
+   "prix_actuel": 0.08697,
+   "variation": -1.84
   },
   {
    "id": "1788184200",
@@ -331,13 +333,34 @@
    "perp": false,
    "fwd": {
     "1": 2.9,
-    "3": -2.78
+    "3": -2.78,
+    "5": -5.76
    },
    "efm": 4.69,
-   "eam": -9.04,
-   "bougies_ecoulees": 3,
-   "prix_actuel": 0.033143,
-   "variation": -2.78
+   "eam": -10.65,
+   "bougies_ecoulees": 6,
+   "prix_actuel": 0.032779,
+   "variation": -1.65
+  },
+  {
+   "id": "1788184800",
+   "sens": "short",
+   "score": 71,
+   "rsi": 78.4,
+   "meche": 40,
+   "volume_x": 5.09,
+   "prix": 0.0167,
+   "ts": 1788184800,
+   "pair": "ESPORTSUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.0167,
+   "variation": -0.0
   }
  ],
  "history": [
@@ -5710,7 +5733,7 @@
  "perps_ts": 1788139702.1557093,
  "last_scan": {
   "1j": 1788183973.4135282,
-  "30m": 1788183973.4135308,
-  "5m": 1788185538.7304676
+  "30m": 1788186663.4867449,
+  "5m": 1788186663.486747
  }
 }
