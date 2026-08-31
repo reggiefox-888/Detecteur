@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-31 09:28 UTC",
+ "generated": "2026-08-31 09:41 UTC",
  "type": "observation",
  "horizons": [
   1,
@@ -42,9 +42,9 @@
    },
    "efm": 4.02,
    "eam": -3.45,
-   "bougies_ecoulees": 6,
-   "prix_actuel": 0.023337,
-   "variation": 1.16
+   "bougies_ecoulees": 9,
+   "prix_actuel": 0.023008,
+   "variation": -0.26
   }
  ],
  "history": [
@@ -5051,37 +5051,48 @@
  ],
  "watch": [
   {
+   "dir": "long",
+   "rsi": 32.6,
+   "reste": 2.6,
+   "last": 1.344,
+   "ts": 1788168900,
+   "pair": "TONUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": false
+  },
+  {
    "dir": "short",
-   "rsi": 68.8,
-   "reste": 1.2,
-   "last": 0.2091,
-   "ts": 1788168000,
-   "pair": "JUPUSD",
+   "rsi": 67.1,
+   "reste": 2.9,
+   "last": 0.0867,
+   "ts": 1788168900,
+   "pair": "ARBUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
   },
   {
    "dir": "short",
-   "rsi": 63.2,
-   "reste": 6.8,
-   "last": 2450.66,
-   "ts": 1788168000,
-   "pair": "ETHUSD",
+   "rsi": 66.7,
+   "reste": 3.3,
+   "last": 3.57e-06,
+   "ts": 1788168900,
+   "pair": "PEPEUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
   },
   {
    "dir": "short",
-   "rsi": 62.6,
-   "reste": 7.4,
-   "last": 0.678,
-   "ts": 1788168000,
-   "pair": "FILUSD",
+   "rsi": 66.3,
+   "reste": 3.7,
+   "last": 0.70462,
+   "ts": 1788168900,
+   "pair": "DGAIUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
-   "perp": true
+   "perp": false
   }
  ]
 }
