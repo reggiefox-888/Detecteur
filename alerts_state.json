@@ -247,98 +247,8 @@
    "SKRUSD": 1788184738.174141
   }
  },
- "active": [
-  {
-   "id": "1788207600",
-   "sens": "short",
-   "score": 49,
-   "rsi": 70.5,
-   "meche": 77,
-   "volume_x": 4.68,
-   "prix": 0.335,
-   "ts": 1788207600,
-   "pair": "TIAUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 0.15,
-    "3": 0.72,
-    "5": 0.3
-   },
-   "efm": 1.1,
-   "eam": 0.09,
-   "bougies_ecoulees": 9,
-   "prix_actuel": 0.3318,
-   "variation": 0.96
-  },
-  {
-   "id": "1788208200",
-   "sens": "short",
-   "score": 54,
-   "rsi": 74.6,
-   "meche": 24,
-   "volume_x": 5.24,
-   "prix": 0.33492,
-   "ts": 1788208200,
-   "pair": "CRVUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.33492,
-   "variation": -0.0
-  },
-  {
-   "id": "1788208200",
-   "sens": "long",
-   "score": 40,
-   "rsi": 27.0,
-   "meche": 10,
-   "volume_x": 3.71,
-   "prix": 0.07961,
-   "ts": 1788208200,
-   "pair": "FOLDUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.07961,
-   "variation": 0.0
-  }
- ],
+ "active": [],
  "history": [
-  {
-   "id": "1787549400",
-   "sens": "short",
-   "score": 49,
-   "rsi": 78.3,
-   "meche": 4,
-   "volume_x": 2.62,
-   "prix": 0.31638,
-   "ts": 1787549400,
-   "pair": "UAIUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {
-    "1": -1.11,
-    "3": -8.29,
-    "5": -8.84,
-    "10": -3.82
-   },
-   "efm": 0.74,
-   "eam": -10.79,
-   "bougies_ecoulees": 11,
-   "prix_actuel": 0.34955,
-   "variation": -10.48
-  },
   {
    "id": "1787558400",
    "sens": "short",
@@ -5313,6 +5223,31 @@
    "bougies_ecoulees": 12,
    "prix_actuel": 0.0999,
    "variation": -1.73
+  },
+  {
+   "id": "1788207600",
+   "sens": "short",
+   "score": 49,
+   "rsi": 70.5,
+   "meche": 77,
+   "volume_x": 4.68,
+   "prix": 0.335,
+   "ts": 1788207600,
+   "pair": "TIAUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": 0.15,
+    "3": 0.72,
+    "5": 0.3,
+    "10": 1.13
+   },
+   "efm": 1.16,
+   "eam": 0.09,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 0.3317,
+   "variation": 0.99
   }
  ],
  "universe": [
@@ -5684,6 +5619,6 @@
  "last_scan": {
   "1j": 1788210937.8138988,
   "30m": 1788210937.8139005,
-  "5m": 1788210937.813901
+  "5m": 1788211741.8889663
  }
 }
