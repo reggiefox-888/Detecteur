@@ -108,7 +108,7 @@
    "STXUSD": 1787634619.453665,
    "PENDLEUSD": 1787491273.2295587,
    "TAOUSD": 1788135191.8728466,
-   "ARBUSD": 1788135196.581266,
+   "ARBUSD": 1788199906.578248,
    "ONDOUSD": 1788135206.5385668,
    "TRUMPUSD": 1788132567.436985,
    "UNIUSD": 1788113591.0426824,
@@ -131,7 +131,7 @@
    "ZAMAUSD": 1787512020.3258893,
    "LDOUSD": 1787512138.7292101,
    "ASTERUSD": 1788135278.1818533,
-   "MINAUSD": 1787518714.8807318,
+   "MINAUSD": 1788199994.9551134,
    "PTBUSD": 1787581925.929816,
    "TOSHIUSD": 1787518855.6630642,
    "NPCUSD": 1787581829.9360235,
@@ -248,6 +248,26 @@
  },
  "active": [
   {
+   "id": "1788197400",
+   "sens": "short",
+   "score": 54,
+   "rsi": 81.5,
+   "meche": 2,
+   "volume_x": 11.73,
+   "prix": 0.0941,
+   "ts": 1788197400,
+   "pair": "ARBUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.0941,
+   "variation": -0.0
+  },
+  {
    "id": "1788196800",
    "sens": "short",
    "score": 43,
@@ -266,10 +286,10 @@
     "5": -3.02
    },
    "efm": 0.0,
-   "eam": -5.03,
-   "bougies_ecoulees": 6,
-   "prix_actuel": 0.0938,
-   "variation": -4.92
+   "eam": -5.93,
+   "bougies_ecoulees": 9,
+   "prix_actuel": 0.0942,
+   "variation": -5.37
   },
   {
    "id": "1788196800",
@@ -289,11 +309,31 @@
     "3": -0.04,
     "5": 0.11
    },
-   "efm": 0.42,
+   "efm": 0.61,
    "eam": -0.21,
-   "bougies_ecoulees": 6,
-   "prix_actuel": 84.15,
-   "variation": 0.13
+   "bougies_ecoulees": 9,
+   "prix_actuel": 84.19,
+   "variation": 0.08
+  },
+  {
+   "id": "1788197400",
+   "sens": "short",
+   "score": 40,
+   "rsi": 71.3,
+   "meche": 42,
+   "volume_x": 0.17,
+   "prix": 0.06662,
+   "ts": 1788197400,
+   "pair": "MINAUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.06662,
+   "variation": -0.0
   }
  ],
  "history": [
@@ -5666,7 +5706,7 @@
  "perps_ts": 1788139702.1557093,
  "last_scan": {
   "1j": 1788197546.2461498,
-  "30m": 1788197546.246152,
-  "5m": 1788199155.0360024
+  "30m": 1788200023.5535963,
+  "5m": 1788200023.5535986
  }
 }
