@@ -247,30 +247,6 @@
  },
  "active": [
   {
-   "id": "1788174300",
-   "sens": "long",
-   "score": 61,
-   "rsi": 24.5,
-   "meche": 84,
-   "volume_x": 6.71,
-   "prix": 0.09192,
-   "ts": 1788174300,
-   "pair": "POLUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": -0.75,
-    "3": -0.37,
-    "5": -1.09
-   },
-   "efm": -0.08,
-   "eam": -2.42,
-   "bougies_ecoulees": 9,
-   "prix_actuel": 0.08979,
-   "variation": -2.32
-  },
-  {
    "id": "1788175200",
    "sens": "short",
    "score": 56,
@@ -288,39 +264,14 @@
     "3": 7.5,
     "5": 6.15
    },
-   "efm": 8.19,
+   "efm": 9.63,
    "eam": -3.22,
-   "bougies_ecoulees": 6,
-   "prix_actuel": 0.0295,
-   "variation": 1.45
+   "bougies_ecoulees": 9,
+   "prix_actuel": 0.027479,
+   "variation": 8.2
   }
  ],
  "history": [
-  {
-   "id": "1787522400",
-   "sens": "short",
-   "score": 50,
-   "rsi": 77.2,
-   "meche": 34,
-   "volume_x": 0.97,
-   "prix": 0.012076,
-   "ts": 1787522400,
-   "pair": "NPCUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {
-    "1": -0.53,
-    "3": -1.77,
-    "5": 3.26,
-    "10": 6.49
-   },
-   "efm": 6.88,
-   "eam": -7.65,
-   "bougies_ecoulees": 10,
-   "prix_actuel": 0.011292,
-   "variation": 6.49
-  },
   {
    "id": "1787518800",
    "sens": "short",
@@ -5295,6 +5246,31 @@
    "bougies_ecoulees": 13,
    "prix_actuel": 0.0233,
    "variation": 1.0
+  },
+  {
+   "id": "1788174300",
+   "sens": "long",
+   "score": 61,
+   "rsi": 24.5,
+   "meche": 84,
+   "volume_x": 6.71,
+   "prix": 0.09192,
+   "ts": 1788174300,
+   "pair": "POLUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": -0.75,
+    "3": -0.37,
+    "5": -1.09,
+    "10": -2.71
+   },
+   "efm": -0.08,
+   "eam": -2.84,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 0.08933,
+   "variation": -2.82
   }
  ],
  "universe": [
@@ -5665,7 +5641,7 @@
  "perps_ts": 1788139702.1557093,
  "last_scan": {
   "1j": 1788174846.0404565,
-  "30m": 1788175854.2876403,
-  "5m": 1788177536.1882453
+  "30m": 1788178430.8778343,
+  "5m": 1788178430.8778367
  }
 }
