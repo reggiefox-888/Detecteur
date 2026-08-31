@@ -50,7 +50,7 @@
    "TAOUSD": 1787878756.2718377,
    "HBARUSD": 1787542468.53753,
    "PAXGUSD": 1787542494.2029593,
-   "UNIUSD": 1787542508.7034042,
+   "UNIUSD": 1788138772.351133,
    "MORPHOUSD": 1787542546.5244117,
    "LDOUSD": 1787542558.792028,
    "TRACUSD": 1787542566.270056,
@@ -82,7 +82,8 @@
    "GHSTUSD": 1787967661.1138911,
    "HNTUSD": 1788053393.5406375,
    "RIVERUSD": 1788053426.9922779,
-   "HONEYUSD": 1788053445.5435672
+   "HONEYUSD": 1788053445.5435672,
+   "SKRUSD": 1788138780.917801
   },
   "30m": {
    "LINKUSD": 1788135172.3288596,
@@ -240,7 +241,48 @@
    "SHIBUSD": 1788132560.8290195
   }
  },
- "active": [],
+ "active": [
+  {
+   "id": "1788048000",
+   "sens": "short",
+   "score": 57,
+   "rsi": 71.5,
+   "meche": 41,
+   "volume_x": 2.62,
+   "prix": 5.1417,
+   "ts": 1788048000,
+   "pair": "UNIUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 5.1417,
+   "variation": -0.0
+  },
+  {
+   "id": "1788048000",
+   "sens": "short",
+   "score": 94,
+   "rsi": 90.2,
+   "meche": 40,
+   "volume_x": 14.73,
+   "prix": 0.025333,
+   "ts": 1788048000,
+   "pair": "SKRUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": false,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.025333,
+   "variation": -0.0
+  }
+ ],
  "history": [
   {
    "id": "1787504400",
@@ -5601,8 +5643,8 @@
  ],
  "perps_ts": 1788052290.4773505,
  "last_scan": {
-  "1j": 1788134427.9643807,
+  "1j": 1788138809.022309,
   "30m": 1788138031.5649176,
-  "5m": 1788138031.5649197
+  "5m": 1788138809.0223112
  }
 }
