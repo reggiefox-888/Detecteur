@@ -260,56 +260,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.0894,
-   "variation": -0.0
-  },
-  {
-   "id": "1788193800",
-   "sens": "short",
-   "score": 62,
-   "rsi": 73.8,
-   "meche": 48,
-   "volume_x": 21.86,
-   "prix": 1.399,
-   "ts": 1788193800,
-   "pair": "TONUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 1.399,
-   "variation": -0.0
-  },
-  {
-   "id": "1788194100",
-   "sens": "short",
-   "score": 72,
-   "rsi": 82.7,
-   "meche": 28,
-   "volume_x": 4.87,
-   "prix": 1.429,
-   "ts": 1788194100,
-   "pair": "TONUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": false,
    "fwd": {
-    "1": 1.96,
-    "3": 1.96,
-    "5": 2.94
+    "1": -0.45,
+    "3": -1.23,
+    "5": -3.02
    },
-   "efm": 2.94,
-   "eam": -0.35,
-   "bougies_ecoulees": 9,
-   "prix_actuel": 1.411,
-   "variation": 1.26
+   "efm": 0.0,
+   "eam": -5.03,
+   "bougies_ecoulees": 6,
+   "prix_actuel": 0.0938,
+   "variation": -4.92
   },
   {
    "id": "1788196800",
@@ -324,109 +284,19 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 84.26,
-   "variation": -0.0
-  },
-  {
-   "id": "1788195600",
-   "sens": "short",
-   "score": 74,
-   "rsi": 77.1,
-   "meche": 81,
-   "volume_x": 11.65,
-   "prix": 46.949,
-   "ts": 1788195600,
-   "pair": "DASHUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 46.949,
-   "variation": -0.0
-  },
-  {
-   "id": "1788195000",
-   "sens": "short",
-   "score": 49,
-   "rsi": 77.6,
-   "meche": 34,
-   "volume_x": 1.2,
-   "prix": 46.703,
-   "ts": 1788195000,
-   "pair": "DASHUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
    "fwd": {
-    "1": -0.09,
-    "3": -1.64,
-    "5": -1.74
+    "1": 0.14,
+    "3": -0.04,
+    "5": 0.11
    },
-   "efm": -0.08,
-   "eam": -2.25,
-   "bougies_ecoulees": 7,
-   "prix_actuel": 46.949,
-   "variation": -0.53
+   "efm": 0.42,
+   "eam": -0.21,
+   "bougies_ecoulees": 6,
+   "prix_actuel": 84.15,
+   "variation": 0.13
   }
  ],
  "history": [
-  {
-   "id": "1787522400",
-   "sens": "short",
-   "score": 77,
-   "rsi": 87.5,
-   "meche": 51,
-   "volume_x": 0.5,
-   "prix": 0.13145,
-   "ts": 1787522400,
-   "pair": "DRVUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {
-    "1": -0.08,
-    "3": -0.43,
-    "5": 0.95,
-    "10": -6.18
-   },
-   "efm": 1.31,
-   "eam": -12.1,
-   "bougies_ecoulees": 10,
-   "prix_actuel": 0.13957,
-   "variation": -6.18
-  },
-  {
-   "id": "1787517000",
-   "sens": "short",
-   "score": 82,
-   "rsi": 85.9,
-   "meche": 33,
-   "volume_x": 5.96,
-   "prix": 0.0001342,
-   "ts": 1787517000,
-   "pair": "TOSHIUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {
-    "1": -1.49,
-    "3": -0.75,
-    "5": -0.37,
-    "10": 4.02
-   },
-   "efm": 4.02,
-   "eam": -2.46,
-   "bougies_ecoulees": 13,
-   "prix_actuel": 0.0001291,
-   "variation": 3.8
-  },
   {
    "id": "1787559900",
    "sens": "long",
@@ -5376,6 +5246,56 @@
    "bougies_ecoulees": 12,
    "prix_actuel": 5.1724,
    "variation": 0.83
+  },
+  {
+   "id": "1788194100",
+   "sens": "short",
+   "score": 72,
+   "rsi": 82.7,
+   "meche": 28,
+   "volume_x": 4.87,
+   "prix": 1.429,
+   "ts": 1788194100,
+   "pair": "TONUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": false,
+   "fwd": {
+    "1": 1.96,
+    "3": 1.96,
+    "5": 2.94,
+    "10": 2.1
+   },
+   "efm": 2.94,
+   "eam": -0.35,
+   "bougies_ecoulees": 15,
+   "prix_actuel": 1.378,
+   "variation": 3.57
+  },
+  {
+   "id": "1788195000",
+   "sens": "short",
+   "score": 49,
+   "rsi": 77.6,
+   "meche": 34,
+   "volume_x": 1.2,
+   "prix": 46.703,
+   "ts": 1788195000,
+   "pair": "DASHUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": -0.09,
+    "3": -1.64,
+    "5": -1.74,
+    "10": -2.8
+   },
+   "efm": -0.08,
+   "eam": -4.02,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 46.901,
+   "variation": -0.42
   }
  ],
  "universe": [
@@ -5747,6 +5667,6 @@
  "last_scan": {
   "1j": 1788197546.2461498,
   "30m": 1788197546.246152,
-  "5m": 1788197546.2461524
+  "5m": 1788199155.0360024
  }
 }
