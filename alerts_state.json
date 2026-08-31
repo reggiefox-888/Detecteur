@@ -245,48 +245,7 @@
    "SKRUSD": 1788184738.174141
   }
  },
- "active": [
-  {
-   "id": "1788190200",
-   "sens": "short",
-   "score": 75,
-   "rsi": 88.3,
-   "meche": 14,
-   "volume_x": 23.85,
-   "prix": 0.00708,
-   "ts": 1788190200,
-   "pair": "FLRUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.00708,
-   "variation": -0.0
-  },
-  {
-   "id": "1788190200",
-   "sens": "short",
-   "score": 51,
-   "rsi": 72.6,
-   "meche": 28,
-   "volume_x": 2.39,
-   "prix": 0.02358,
-   "ts": 1788190200,
-   "pair": "BICOUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.02358,
-   "variation": -0.0
-  }
- ],
+ "active": [],
  "history": [
   {
    "id": "1787522400",
@@ -5656,8 +5615,8 @@
  ],
  "perps_ts": 1788139702.1557093,
  "last_scan": {
-  "1j": 1788188461.856202,
+  "1j": 1788192861.7835908,
   "30m": 1788192060.0052755,
-  "5m": 1788192060.0052779
+  "5m": 1788192861.7835934
  }
 }
