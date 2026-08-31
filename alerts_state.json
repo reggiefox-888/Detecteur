@@ -242,7 +242,7 @@
    "DOGEUSD": 1788132502.5338569,
    "ONDOUSD": 1788132534.4539359,
    "SHIBUSD": 1788132560.8290195,
-   "SKRUSD": 1788166727.383023
+   "SKRUSD": 1788175783.0101604
   }
  },
  "active": [
@@ -259,12 +259,35 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
+   "fwd": {
+    "1": -0.75,
+    "3": -0.37
+   },
+   "efm": -0.08,
+   "eam": -0.78,
+   "bougies_ecoulees": 3,
+   "prix_actuel": 0.09158,
+   "variation": -0.37
+  },
+  {
+   "id": "1788175200",
+   "sens": "short",
+   "score": 56,
+   "rsi": 78.5,
+   "meche": 14,
+   "volume_x": 3.17,
+   "prix": 0.029935,
+   "ts": 1788175200,
+   "pair": "SKRUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": false,
    "fwd": {},
    "efm": null,
    "eam": null,
    "bougies_ecoulees": 0,
-   "prix_actuel": 0.09192,
-   "variation": 0.0
+   "prix_actuel": 0.029935,
+   "variation": -0.0
   }
  ],
  "history": [
@@ -5637,7 +5660,7 @@
  "perps_ts": 1788139702.1557093,
  "last_scan": {
   "1j": 1788174846.0404565,
-  "30m": 1788173029.7426593,
-  "5m": 1788174846.0404587
+  "30m": 1788175854.2876403,
+  "5m": 1788175854.287643
  }
 }
