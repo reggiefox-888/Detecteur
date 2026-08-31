@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-31 06:28 UTC",
+ "generated": "2026-08-31 06:41 UTC",
  "type": "observation",
  "horizons": [
   1,
@@ -40,11 +40,31 @@
     "3": 0.12,
     "5": -0.14
    },
-   "efm": 0.36,
+   "efm": 0.56,
    "eam": -0.4,
-   "bougies_ecoulees": 6,
-   "prix_actuel": 5.019,
-   "variation": 0.36
+   "bougies_ecoulees": 9,
+   "prix_actuel": 5.025,
+   "variation": 0.24
+  },
+  {
+   "id": "1788158100",
+   "sens": "short",
+   "score": 55,
+   "rsi": 75.2,
+   "meche": 51,
+   "volume_x": 0.7,
+   "prix": 0.8199,
+   "ts": 1788158100,
+   "pair": "HNTUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": false,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.8199,
+   "variation": -0.0
   }
  ],
  "history": [
@@ -5052,22 +5072,55 @@
  "watch": [
   {
    "dir": "short",
-   "rsi": 69.6,
-   "reste": 0.4,
-   "last": 0.757,
-   "ts": 1788157200,
-   "pair": "HNTUSD",
+   "rsi": 67.7,
+   "reste": 2.3,
+   "last": 1.42,
+   "ts": 1788158100,
+   "pair": "RENDERUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
-   "perp": false
+   "perp": true
   },
   {
    "dir": "short",
-   "rsi": 62.8,
-   "reste": 7.2,
-   "last": 41.931,
-   "ts": 1788157200,
-   "pair": "DASHUSD",
+   "rsi": 67.2,
+   "reste": 2.8,
+   "last": 0.677,
+   "ts": 1788158100,
+   "pair": "FILUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 65.1,
+   "reste": 4.9,
+   "last": 2442.19,
+   "ts": 1788158100,
+   "pair": "ETHUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 65.1,
+   "reste": 4.9,
+   "last": 0.0863,
+   "ts": 1788158100,
+   "pair": "ARBUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 63.2,
+   "reste": 6.8,
+   "last": 0.2489,
+   "ts": 1788158100,
+   "pair": "STXUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true

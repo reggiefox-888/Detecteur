@@ -238,7 +238,7 @@
    "APTUSD": 1788132507.8768845,
    "BTRUSD": 1788079330.2679112,
    "TONUSD": 1788062376.9603238,
-   "HNTUSD": 1788125392.57735,
+   "HNTUSD": 1788158539.4470422,
    "DOGEUSD": 1788132502.5338569,
    "ONDOUSD": 1788132534.4539359,
    "SHIBUSD": 1788132560.8290195,
@@ -264,11 +264,31 @@
     "3": 0.12,
     "5": -0.14
    },
-   "efm": 0.36,
+   "efm": 0.56,
    "eam": -0.4,
-   "bougies_ecoulees": 6,
-   "prix_actuel": 5.019,
-   "variation": 0.36
+   "bougies_ecoulees": 9,
+   "prix_actuel": 5.025,
+   "variation": 0.24
+  },
+  {
+   "id": "1788158100",
+   "sens": "short",
+   "score": 55,
+   "rsi": 75.2,
+   "meche": 51,
+   "volume_x": 0.7,
+   "prix": 0.8199,
+   "ts": 1788158100,
+   "pair": "HNTUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": false,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.8199,
+   "variation": -0.0
   }
  ],
  "history": [
@@ -5642,6 +5662,6 @@
  "last_scan": {
   "1j": 1788156999.2610676,
   "30m": 1788156999.2610695,
-  "5m": 1788157757.677276
+  "5m": 1788158546.1121676
  }
 }
