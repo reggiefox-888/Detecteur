@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-31 16:58 UTC",
+ "generated": "2026-08-31 17:11 UTC",
  "type": "observation",
  "horizons": [
   1,
@@ -37,13 +37,14 @@
    "perp": false,
    "fwd": {
     "1": 1.96,
-    "3": 1.96
+    "3": 1.96,
+    "5": 2.94
    },
-   "efm": 2.59,
+   "efm": 2.94,
    "eam": -0.35,
-   "bougies_ecoulees": 3,
-   "prix_actuel": 1.401,
-   "variation": 1.96
+   "bougies_ecoulees": 6,
+   "prix_actuel": 1.404,
+   "variation": 1.75
   },
   {
    "id": "1788195000",
@@ -58,12 +59,15 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 46.703,
-   "variation": -0.0
+   "fwd": {
+    "1": -0.09,
+    "3": -1.64
+   },
+   "efm": -0.08,
+   "eam": -1.64,
+   "bougies_ecoulees": 3,
+   "prix_actuel": 47.471,
+   "variation": -1.64
   }
  ],
  "history": [
@@ -5071,22 +5075,11 @@
  "watch": [
   {
    "dir": "short",
-   "rsi": 65.8,
-   "reste": 4.2,
-   "last": 0.01634,
-   "ts": 1788195000,
-   "pair": "GRTUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 65.2,
-   "reste": 4.8,
-   "last": 0.0878,
-   "ts": 1788195000,
-   "pair": "ARBUSD",
+   "rsi": 67.4,
+   "reste": 2.6,
+   "last": 0.2494,
+   "ts": 1788195900,
+   "pair": "STXUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
