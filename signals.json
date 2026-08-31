@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-31 19:58 UTC",
+ "generated": "2026-08-31 20:11 UTC",
  "type": "observation",
  "horizons": [
   1,
@@ -21,7 +21,28 @@
    "nom": "5 minutes"
   }
  ],
- "active": [],
+ "active": [
+  {
+   "id": "1788206700",
+   "sens": "short",
+   "score": 65,
+   "rsi": 77.1,
+   "meche": 78,
+   "volume_x": 2.4,
+   "prix": 0.0982,
+   "ts": 1788206700,
+   "pair": "ARBUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.0982,
+   "variation": -0.0
+  }
+ ],
  "history": [
   {
    "id": "1787559900",
@@ -5026,187 +5047,22 @@
  ],
  "watch": [
   {
-   "dir": "short",
-   "rsi": 69.2,
-   "reste": 0.8,
-   "last": 0.007768,
-   "ts": 1788048000,
-   "pair": "ZORAUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": false
-  },
-  {
-   "dir": "short",
-   "rsi": 68.6,
-   "reste": 1.4,
-   "last": 0.05186,
-   "ts": 1788048000,
-   "pair": "ZKPUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": false
-  },
-  {
-   "dir": "short",
-   "rsi": 68.4,
-   "reste": 1.6,
-   "last": 0.5477,
-   "ts": 1788048000,
-   "pair": "MNTUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 67.8,
-   "reste": 2.2,
-   "last": 101.8,
-   "ts": 1788048000,
-   "pair": "SOLUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 67.5,
-   "reste": 2.5,
-   "last": 0.0374,
-   "ts": 1788048000,
-   "pair": "TNSRUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 67.2,
-   "reste": 2.8,
-   "last": 0.5396,
-   "ts": 1788048000,
-   "pair": "SPXUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 67.1,
-   "reste": 2.9,
-   "last": 41.708,
-   "ts": 1788048000,
-   "pair": "DASHUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 66.5,
-   "reste": 3.5,
-   "last": 2416.95,
-   "ts": 1788048000,
-   "pair": "ETHUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 66.5,
-   "reste": 3.5,
-   "last": 0.2341,
-   "ts": 1788048000,
-   "pair": "STXUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 65.9,
-   "reste": 4.1,
-   "last": 16.99,
-   "ts": 1788048000,
-   "pair": "VVVUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": false
-  },
-  {
-   "dir": "short",
-   "rsi": 65.3,
-   "reste": 4.7,
-   "last": 0.000968,
-   "ts": 1788048000,
-   "pair": "PONDUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": false
-  },
-  {
-   "dir": "short",
-   "rsi": 64.8,
-   "reste": 5.2,
-   "last": 685.16,
-   "ts": 1788048000,
-   "pair": "BNBUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 64.7,
-   "reste": 5.3,
-   "last": 80.08,
-   "ts": 1788048000,
-   "pair": "HYPEUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 62.8,
-   "reste": 7.2,
-   "last": 0.1484,
-   "ts": 1788048000,
-   "pair": "ENAUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 62.1,
-   "reste": 7.9,
-   "last": 11.16119,
-   "ts": 1788048000,
-   "pair": "LINKUSD",
-   "mode": "1j",
-   "mode_nom": "journalier",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 66.9,
-   "reste": 3.1,
-   "last": 0.096,
-   "ts": 1788205800,
-   "pair": "ARBUSD",
+   "dir": "long",
+   "rsi": 35.5,
+   "reste": 5.5,
+   "last": 0.027173,
+   "ts": 1788206700,
+   "pair": "SKRUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
-   "perp": true
+   "perp": false
   },
   {
    "dir": "short",
-   "rsi": 65.1,
-   "reste": 4.9,
+   "rsi": 62.9,
+   "reste": 7.1,
    "last": 0.153,
-   "ts": 1788205800,
+   "ts": 1788206700,
    "pair": "FETUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
