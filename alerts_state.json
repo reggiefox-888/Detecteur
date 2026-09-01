@@ -263,26 +263,6 @@
   {
    "id": "1788264000",
    "sens": "short",
-   "score": 52,
-   "rsi": 70.6,
-   "meche": 67,
-   "volume_x": 5.21,
-   "prix": 0.5509,
-   "ts": 1788264000,
-   "pair": "APTUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.5509,
-   "variation": -0.0
-  },
-  {
-   "id": "1788264000",
-   "sens": "short",
    "score": 50,
    "rsi": 85.1,
    "meche": 7,
@@ -298,55 +278,11 @@
     "3": -0.04,
     "5": 0.11
    },
-   "efm": 0.45,
+   "efm": 1.7,
    "eam": -0.63,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.5509,
-   "variation": 0.11
-  },
-  {
-   "id": "1788262800",
-   "sens": "short",
-   "score": 55,
-   "rsi": 78.8,
-   "meche": 28,
-   "volume_x": 7.96,
-   "prix": 1.9749,
-   "ts": 1788262800,
-   "pair": "NEARUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 0.02,
-    "3": -0.14,
-    "5": -0.51
-   },
-   "efm": 0.17,
-   "eam": -1.22,
    "bougies_ecoulees": 9,
-   "prix_actuel": 1.9754,
-   "variation": -0.03
-  },
-  {
-   "id": "1788264000",
-   "sens": "short",
-   "score": 48,
-   "rsi": 71.1,
-   "meche": 27,
-   "volume_x": 4.84,
-   "prix": 0.1629,
-   "ts": 1788264000,
-   "pair": "ENAUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.1629,
-   "variation": -0.0
+   "prix_actuel": 0.5466,
+   "variation": 0.89
   },
   {
    "id": "1788264000",
@@ -368,33 +304,9 @@
    },
    "efm": 2.3,
    "eam": -0.18,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.1629,
-   "variation": 1.57
-  },
-  {
-   "id": "1788263100",
-   "sens": "short",
-   "score": 45,
-   "rsi": 72.8,
-   "meche": 28,
-   "volume_x": 2.75,
-   "prix": 5.899,
-   "ts": 1788263100,
-   "pair": "UNIUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 0.31,
-    "3": -0.41,
-    "5": 0.2
-   },
-   "efm": 1.12,
-   "eam": -1.03,
-   "bougies_ecoulees": 8,
-   "prix_actuel": 5.8395,
-   "variation": 1.01
+   "bougies_ecoulees": 9,
+   "prix_actuel": 0.163,
+   "variation": 1.51
   },
   {
    "id": "1788264000",
@@ -415,63 +327,13 @@
     "5": -0.48
    },
    "efm": -0.48,
-   "eam": -1.43,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.209,
-   "variation": -0.48
+   "eam": -1.9,
+   "bougies_ecoulees": 9,
+   "prix_actuel": 0.206,
+   "variation": -1.9
   }
  ],
  "history": [
-  {
-   "id": "1787632200",
-   "sens": "short",
-   "score": 44,
-   "rsi": 74.5,
-   "meche": 21,
-   "volume_x": 1.74,
-   "prix": 0.2557,
-   "ts": 1787632200,
-   "pair": "STXUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {
-    "1": -2.62,
-    "3": -12.28,
-    "5": -10.21,
-    "10": -5.59
-   },
-   "efm": -0.27,
-   "eam": -13.14,
-   "bougies_ecoulees": 12,
-   "prix_actuel": 0.2679,
-   "variation": -4.77
-  },
-  {
-   "id": "1787632200",
-   "sens": "short",
-   "score": 46,
-   "rsi": 71.1,
-   "meche": 84,
-   "volume_x": 0.88,
-   "prix": 0.4867,
-   "ts": 1787632200,
-   "pair": "SPXUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {
-    "1": -2.42,
-    "3": -2.4,
-    "5": -1.95,
-    "10": 0.31
-   },
-   "efm": 1.17,
-   "eam": -3.58,
-   "bougies_ecoulees": 12,
-   "prix_actuel": 0.499,
-   "variation": -2.53
-  },
   {
    "id": "1787674200",
    "sens": "short",
@@ -5421,6 +5283,56 @@
    "bougies_ecoulees": 11,
    "prix_actuel": 0.0988,
    "variation": -3.28
+  },
+  {
+   "id": "1788262800",
+   "sens": "short",
+   "score": 55,
+   "rsi": 78.8,
+   "meche": 28,
+   "volume_x": 7.96,
+   "prix": 1.9749,
+   "ts": 1788262800,
+   "pair": "NEARUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": 0.02,
+    "3": -0.14,
+    "5": -0.51,
+    "10": -0.2
+   },
+   "efm": 0.17,
+   "eam": -1.22,
+   "bougies_ecoulees": 13,
+   "prix_actuel": 1.9763,
+   "variation": -0.07
+  },
+  {
+   "id": "1788263100",
+   "sens": "short",
+   "score": 45,
+   "rsi": 72.8,
+   "meche": 28,
+   "volume_x": 2.75,
+   "prix": 5.899,
+   "ts": 1788263100,
+   "pair": "UNIUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": 0.31,
+    "3": -0.41,
+    "5": 0.2,
+    "10": 2.34
+   },
+   "efm": 2.5,
+   "eam": -1.03,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 5.7661,
+   "variation": 2.25
   }
  ],
  "universe": [
@@ -5802,6 +5714,6 @@
  "last_scan": {
   "1j": 1788264512.3895743,
   "30m": 1788265993.838998,
-  "5m": 1788265993.839
+  "5m": 1788267231.2929358
  }
 }
