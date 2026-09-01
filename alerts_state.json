@@ -204,7 +204,8 @@
    "PLAYUSD": 1788219030.6958265,
    "OPUSD": 1788228176.4222124,
    "ALGOUSD": 1788230269.1673653,
-   "BLESSUSD": 1788233316.784032
+   "BLESSUSD": 1788233316.784032,
+   "JASMYUSD": 1788235248.907853
   },
   "5m": {
    "ENAUSD": 1788132531.7908657,
@@ -268,12 +269,15 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 2479.43,
-   "variation": -0.0
+   "fwd": {
+    "1": 0.14,
+    "3": 0.28
+   },
+   "efm": 0.3,
+   "eam": 0.0,
+   "bougies_ecoulees": 3,
+   "prix_actuel": 2472.56,
+   "variation": 0.28
   },
   {
    "id": "1788233700",
@@ -288,12 +292,15 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 4.979,
-   "variation": -0.0
+   "fwd": {
+    "1": -0.0,
+    "3": 0.44
+   },
+   "efm": 0.44,
+   "eam": 0.0,
+   "bougies_ecoulees": 3,
+   "prix_actuel": 4.957,
+   "variation": 0.44
   },
   {
    "id": "1788234000",
@@ -308,11 +315,33 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
+   "fwd": {
+    "1": 0.95
+   },
+   "efm": 1.04,
+   "eam": 0.19,
+   "bougies_ecoulees": 2,
+   "prix_actuel": 5.3749,
+   "variation": 0.95
+  },
+  {
+   "id": "1788233400",
+   "sens": "short",
+   "score": 58,
+   "rsi": 78.1,
+   "meche": 22,
+   "volume_x": 3.39,
+   "prix": 0.0051,
+   "ts": 1788233400,
+   "pair": "JASMYUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
    "fwd": {},
    "efm": null,
    "eam": null,
    "bougies_ecoulees": 0,
-   "prix_actuel": 5.4262,
+   "prix_actuel": 0.0051,
    "variation": -0.0
   }
  ],
@@ -5696,7 +5725,7 @@
  "perps_ts": 1788226194.765808,
  "last_scan": {
   "1j": 1788232135.8056362,
-  "30m": 1788233340.662497,
-  "5m": 1788234333.5067143
+  "30m": 1788235264.009077,
+  "5m": 1788235264.0090792
  }
 }
