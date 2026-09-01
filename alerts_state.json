@@ -274,12 +274,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": false,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.71585,
-   "variation": -0.0
+   "fwd": {
+    "1": -0.11,
+    "3": -1.72,
+    "5": -2.79
+   },
+   "efm": -0.04,
+   "eam": -3.33,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 0.73583,
+   "variation": -2.79
   }
  ],
  "history": [
@@ -5663,6 +5667,6 @@
  "last_scan": {
   "1j": 1788268854.1532042,
   "30m": 1788270821.0171356,
-  "5m": 1788270821.017138
+  "5m": 1788272241.4197505
  }
 }
