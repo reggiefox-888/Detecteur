@@ -263,28 +263,6 @@
  },
  "active": [
   {
-   "id": "1788273000",
-   "sens": "short",
-   "score": 44,
-   "rsi": 71.0,
-   "meche": 30,
-   "volume_x": 2.6,
-   "prix": 0.2622,
-   "ts": 1788273000,
-   "pair": "STXUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 0.08
-   },
-   "efm": 1.11,
-   "eam": -1.49,
-   "bougies_ecoulees": 2,
-   "prix_actuel": 0.2653,
-   "variation": -1.18
-  },
-  {
    "id": "1788279000",
    "sens": "long",
    "score": 44,
@@ -297,76 +275,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 82.57,
-   "variation": 0.0
-  },
-  {
-   "id": "1788273000",
-   "sens": "short",
-   "score": 41,
-   "rsi": 71.0,
-   "meche": 35,
-   "volume_x": 4.57,
-   "prix": 49.63,
-   "ts": 1788273000,
-   "pair": "LTCUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
    "fwd": {
-    "1": 0.18
+    "1": -0.19,
+    "3": -0.1,
+    "5": -0.27
    },
-   "efm": 0.64,
-   "eam": -0.64,
-   "bougies_ecoulees": 2,
-   "prix_actuel": 49.88,
-   "variation": -0.5
-  },
-  {
-   "id": "1788276600",
-   "sens": "long",
-   "score": 45,
-   "rsi": 29.6,
-   "meche": 34,
-   "volume_x": 3.38,
-   "prix": 16.081,
-   "ts": 1788276600,
-   "pair": "VVVUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 16.081,
-   "variation": 0.0
-  },
-  {
-   "id": "1788273000",
-   "sens": "short",
-   "score": 57,
-   "rsi": 72.4,
-   "meche": 75,
-   "volume_x": 2.21,
-   "prix": 0.1009,
-   "ts": 1788273000,
-   "pair": "OPUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 1.49
-   },
-   "efm": 2.48,
-   "eam": -0.4,
-   "bougies_ecoulees": 2,
-   "prix_actuel": 0.1002,
-   "variation": 0.69
+   "efm": 0.28,
+   "eam": -0.94,
+   "bougies_ecoulees": 6,
+   "prix_actuel": 81.9,
+   "variation": -0.81
   }
  ],
  "history": [
@@ -5750,6 +5668,6 @@
  "last_scan": {
   "1j": 1788279537.5136178,
   "30m": 1788279537.5136201,
-  "5m": 1788279537.5136209
+  "5m": 1788281171.9327152
  }
 }
