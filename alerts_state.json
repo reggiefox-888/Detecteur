@@ -148,7 +148,7 @@
    "WIFUSD": 1787680604.0710015,
    "SPXUSD": 1788094793.0967607,
    "FLRUSD": 1788192037.8558404,
-   "VVVUSD": 1788110981.0238032,
+   "VVVUSD": 1788279436.1453178,
    "ZROUSD": 1788135290.583625,
    "XCNUSD": 1788092002.25517,
    "SUIUSD": 1788135165.027774,
@@ -231,7 +231,7 @@
    "STXUSD": 1788042120.2477374,
    "POLUSD": 1788184720.1576674,
    "NEARUSD": 1788263394.692592,
-   "HYPEUSD": 1788249124.9569502,
+   "HYPEUSD": 1788279360.0582201,
    "LTCUSD": 1788251828.87102,
    "XLMUSD": 1788133292.7844927,
    "AKEUSD": 1788084744.5574336,
@@ -263,30 +263,6 @@
  },
  "active": [
   {
-   "id": "1788274200",
-   "sens": "short",
-   "score": 41,
-   "rsi": 78.8,
-   "meche": 18,
-   "volume_x": 1.43,
-   "prix": 0.22469,
-   "ts": 1788274200,
-   "pair": "JUPUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 0.15,
-    "3": 0.78,
-    "5": 0.82
-   },
-   "efm": 0.92,
-   "eam": 0.02,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.22284,
-   "variation": 0.82
-  },
-  {
    "id": "1788273000",
    "sens": "short",
    "score": 44,
@@ -299,12 +275,34 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": true,
+   "fwd": {
+    "1": 0.08
+   },
+   "efm": 1.11,
+   "eam": -1.49,
+   "bougies_ecoulees": 2,
+   "prix_actuel": 0.2653,
+   "variation": -1.18
+  },
+  {
+   "id": "1788279000",
+   "sens": "long",
+   "score": 44,
+   "rsi": 26.4,
+   "meche": 32,
+   "volume_x": 3.14,
+   "prix": 82.57,
+   "ts": 1788279000,
+   "pair": "HYPEUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
    "fwd": {},
    "efm": null,
    "eam": null,
    "bougies_ecoulees": 0,
-   "prix_actuel": 0.2622,
-   "variation": -0.0
+   "prix_actuel": 82.57,
+   "variation": 0.0
   },
   {
    "id": "1788273000",
@@ -319,12 +317,34 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": true,
+   "fwd": {
+    "1": 0.18
+   },
+   "efm": 0.64,
+   "eam": -0.64,
+   "bougies_ecoulees": 2,
+   "prix_actuel": 49.88,
+   "variation": -0.5
+  },
+  {
+   "id": "1788276600",
+   "sens": "long",
+   "score": 45,
+   "rsi": 29.6,
+   "meche": 34,
+   "volume_x": 3.38,
+   "prix": 16.081,
+   "ts": 1788276600,
+   "pair": "VVVUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false,
    "fwd": {},
    "efm": null,
    "eam": null,
    "bougies_ecoulees": 0,
-   "prix_actuel": 49.63,
-   "variation": -0.0
+   "prix_actuel": 16.081,
+   "variation": 0.0
   },
   {
    "id": "1788273000",
@@ -339,40 +359,17 @@
    "mode": "30m",
    "mode_nom": "30 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.1009,
-   "variation": -0.0
+   "fwd": {
+    "1": 1.49
+   },
+   "efm": 2.48,
+   "eam": -0.4,
+   "bougies_ecoulees": 2,
+   "prix_actuel": 0.1002,
+   "variation": 0.69
   }
  ],
  "history": [
-  {
-   "id": "1787686800",
-   "sens": "long",
-   "score": 52,
-   "rsi": 27.8,
-   "meche": 57,
-   "volume_x": 3.27,
-   "prix": 1.8668,
-   "ts": 1787686800,
-   "pair": "NEARUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": -0.04,
-    "3": -0.12,
-    "5": 0.22,
-    "10": 0.09
-   },
-   "efm": 0.49,
-   "eam": -0.44,
-   "bougies_ecoulees": 14,
-   "prix_actuel": 1.8542,
-   "variation": -0.67
-  },
   {
    "id": "1787671800",
    "sens": "short",
@@ -5347,6 +5344,31 @@
    "bougies_ecoulees": 13,
    "prix_actuel": 0.73621,
    "variation": -2.84
+  },
+  {
+   "id": "1788274200",
+   "sens": "short",
+   "score": 41,
+   "rsi": 78.8,
+   "meche": 18,
+   "volume_x": 1.43,
+   "prix": 0.22469,
+   "ts": 1788274200,
+   "pair": "JUPUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": 0.15,
+    "3": 0.78,
+    "5": 0.82,
+    "10": 0.2
+   },
+   "efm": 1.0,
+   "eam": 0.02,
+   "bougies_ecoulees": 16,
+   "prix_actuel": 0.22016,
+   "variation": 2.02
   }
  ],
  "universe": [
@@ -5726,8 +5748,8 @@
  ],
  "perps_ts": 1788226194.765808,
  "last_scan": {
-  "1j": 1788273521.5658946,
-  "30m": 1788276403.3636546,
-  "5m": 1788276403.3636575
+  "1j": 1788279537.5136178,
+  "30m": 1788279537.5136201,
+  "5m": 1788279537.5136209
  }
 }
