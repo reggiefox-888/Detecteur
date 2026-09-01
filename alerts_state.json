@@ -158,7 +158,7 @@
    "APTUSD": 1788265850.5216117,
    "TIAUSD": 1788135186.947423,
    "XLMUSD": 1788135218.9705102,
-   "FILUSD": 1788135221.4428313,
+   "FILUSD": 1788284545.068778,
    "SHIBUSD": 1788135231.2867982,
    "XDGUSD": 1788135246.241978,
    "TRXUSD": 1788282171.7398763,
@@ -204,7 +204,7 @@
    "PLAYUSD": 1788219030.6958265,
    "OPUSD": 1788276375.6997087,
    "ALGOUSD": 1788230269.1673653,
-   "BLESSUSD": 1788233316.784032,
+   "BLESSUSD": 1788284639.1313078,
    "JASMYUSD": 1788235248.907853,
    "SANDUSD": 1788237528.1093895,
    "BONKUSD": 1788241871.2065413,
@@ -248,7 +248,7 @@
    "HBARUSD": 1788132552.8328128,
    "PEPEUSD": 1788132558.165494,
    "DGAIUSD": 1788270736.8394954,
-   "PUMPUSD": 1788254259.1738682,
+   "PUMPUSD": 1788284562.4791675,
    "APTUSD": 1788264363.049711,
    "BTRUSD": 1788079330.2679112,
    "TONUSD": 1788252750.5217547,
@@ -263,6 +263,26 @@
  },
  "active": [
   {
+   "id": "1788282000",
+   "sens": "short",
+   "score": 56,
+   "rsi": 83.2,
+   "meche": 0,
+   "volume_x": 4.62,
+   "prix": 0.776,
+   "ts": 1788282000,
+   "pair": "FILUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.776,
+   "variation": -0.0
+  },
+  {
    "id": "1788282900",
    "sens": "short",
    "score": 46,
@@ -275,12 +295,55 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
+   "fwd": {
+    "1": -3.23,
+    "3": -4.97
+   },
+   "efm": -0.4,
+   "eam": -5.38,
+   "bougies_ecoulees": 4,
+   "prix_actuel": 0.764,
+   "variation": -2.69
+  },
+  {
+   "id": "1788284100",
+   "sens": "long",
+   "score": 40,
+   "rsi": 28.0,
+   "meche": 67,
+   "volume_x": 0.11,
+   "prix": 0.004295,
+   "ts": 1788284100,
+   "pair": "PUMPUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
    "fwd": {},
    "efm": null,
    "eam": null,
    "bougies_ecoulees": 0,
-   "prix_actuel": 0.744,
-   "variation": -0.0
+   "prix_actuel": 0.004295,
+   "variation": 0.0
+  },
+  {
+   "id": "1788282000",
+   "sens": "long",
+   "score": 44,
+   "rsi": 27.8,
+   "meche": 90,
+   "volume_x": 0.33,
+   "prix": 0.008692,
+   "ts": 1788282000,
+   "pair": "BLESSUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.008692,
+   "variation": 0.0
   }
  ],
  "history": [
@@ -5663,7 +5726,7 @@
  "perps_ts": 1788226194.765808,
  "last_scan": {
   "1j": 1788283575.9056847,
-  "30m": 1788282232.876974,
-  "5m": 1788283575.9056869
+  "30m": 1788284659.5765278,
+  "5m": 1788284659.5765305
  }
 }
