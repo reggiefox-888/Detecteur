@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-01 21:33 UTC",
+ "generated": "2026-09-01 21:48 UTC",
  "type": "observation",
  "horizons": [
   1,
@@ -5027,10 +5027,10 @@
  "watch": [
   {
    "dir": "long",
-   "rsi": 36.4,
-   "reste": 6.4,
-   "last": 220.2677,
-   "ts": 1788297900,
+   "rsi": 35.0,
+   "reste": 5.0,
+   "last": 220.0002,
+   "ts": 1788298800,
    "pair": "TAOUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
@@ -5038,22 +5038,11 @@
   },
   {
    "dir": "long",
-   "rsi": 37.5,
-   "reste": 7.5,
-   "last": 0.10884,
-   "ts": 1788297900,
-   "pair": "USELESSUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": false
-  },
-  {
-   "dir": "long",
-   "rsi": 37.9,
-   "reste": 7.9,
-   "last": 0.5456,
-   "ts": 1788297900,
-   "pair": "APTUSD",
+   "rsi": 36.1,
+   "reste": 6.1,
+   "last": 0.089,
+   "ts": 1788298800,
+   "pair": "POLUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
