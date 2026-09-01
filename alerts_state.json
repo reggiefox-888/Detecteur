@@ -211,7 +211,7 @@
   },
   "5m": {
    "ENAUSD": 1788132531.7908657,
-   "TAOUSD": 1788132518.535317,
+   "TAOUSD": 1788250701.0530605,
    "RENDERUSD": 1788242700.417776,
    "JUPUSD": 1788183761.3024507,
    "AAVEUSD": 1788132542.4019988,
@@ -259,24 +259,24 @@
  },
  "active": [
   {
-   "id": "1788246000",
-   "sens": "short",
-   "score": 57,
-   "rsi": 75.3,
-   "meche": 51,
-   "volume_x": 2.0,
-   "prix": 0.8716,
-   "ts": 1788246000,
-   "pair": "DOTUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
+   "id": "1788250200",
+   "sens": "long",
+   "score": 50,
+   "rsi": 28.3,
+   "meche": 64,
+   "volume_x": 4.11,
+   "prix": 227.2399,
+   "ts": 1788250200,
+   "pair": "TAOUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
    "perp": true,
    "fwd": {},
    "efm": null,
    "eam": null,
    "bougies_ecoulees": 0,
-   "prix_actuel": 0.8716,
-   "variation": -0.0
+   "prix_actuel": 227.2399,
+   "variation": 0.0
   },
   {
    "id": "1788248700",
@@ -291,12 +291,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 83.45,
-   "variation": 0.0
+   "fwd": {
+    "1": -0.06,
+    "3": 0.01,
+    "5": -0.5
+   },
+   "efm": 0.17,
+   "eam": -0.5,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 83.03,
+   "variation": -0.5
   }
  ],
  "history": [
@@ -5678,8 +5682,8 @@
  ],
  "perps_ts": 1788226194.765808,
  "last_scan": {
-  "1j": 1788245749.5269606,
+  "1j": 1788250843.7663143,
   "30m": 1788249219.6451573,
-  "5m": 1788249219.64516
+  "5m": 1788250843.766316
  }
 }
