@@ -215,7 +215,7 @@
    "ENAUSD": 1788264386.272297,
    "TAOUSD": 1788250701.0530605,
    "RENDERUSD": 1788242700.417776,
-   "JUPUSD": 1788183761.3024507,
+   "JUPUSD": 1788274539.1778145,
    "AAVEUSD": 1788132542.4019988,
    "TRUMPUSD": 1788129796.2449462,
    "DASHUSD": 1788195536.2467563,
@@ -263,96 +263,27 @@
  },
  "active": [
   {
-   "id": "1788271200",
+   "id": "1788274200",
    "sens": "short",
-   "score": 57,
-   "rsi": 73.1,
-   "meche": 44,
-   "volume_x": 4.76,
-   "prix": 2.0291,
-   "ts": 1788271200,
-   "pair": "NEARUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 2.0291,
-   "variation": -0.0
-  },
-  {
-   "id": "1788270300",
-   "sens": "short",
-   "score": 42,
-   "rsi": 73.1,
-   "meche": 32,
-   "volume_x": 1.56,
-   "prix": 0.71585,
-   "ts": 1788270300,
-   "pair": "DGAIUSD",
+   "score": 41,
+   "rsi": 78.8,
+   "meche": 18,
+   "volume_x": 1.43,
+   "prix": 0.22469,
+   "ts": 1788274200,
+   "pair": "JUPUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
-   "perp": false,
-   "fwd": {
-    "1": -0.11,
-    "3": -1.72,
-    "5": -2.79
-   },
-   "efm": -0.04,
-   "eam": -3.33,
-   "bougies_ecoulees": 9,
-   "prix_actuel": 0.73631,
-   "variation": -2.86
-  },
-  {
-   "id": "1788271200",
-   "sens": "short",
-   "score": 65,
-   "rsi": 74.4,
-   "meche": 55,
-   "volume_x": 3.44,
-   "prix": 0.07059,
-   "ts": 1788271200,
-   "pair": "MINAUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
    "perp": true,
    "fwd": {},
    "efm": null,
    "eam": null,
    "bougies_ecoulees": 0,
-   "prix_actuel": 0.07059,
+   "prix_actuel": 0.22469,
    "variation": -0.0
   }
  ],
  "history": [
-  {
-   "id": "1787664600",
-   "sens": "long",
-   "score": 63,
-   "rsi": 25.2,
-   "meche": 47,
-   "volume_x": 15.37,
-   "prix": 0.00651,
-   "ts": 1787664600,
-   "pair": "TRIAUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {
-    "1": 1.08,
-    "3": -0.15,
-    "5": -1.38,
-    "10": -0.46
-   },
-   "efm": 1.08,
-   "eam": -1.84,
-   "bougies_ecoulees": 11,
-   "prix_actuel": 0.00652,
-   "variation": 0.15
-  },
   {
    "id": "1787686800",
    "sens": "long",
@@ -5327,6 +5258,31 @@
    "bougies_ecoulees": 14,
    "prix_actuel": 0.21,
    "variation": 0.0
+  },
+  {
+   "id": "1788270300",
+   "sens": "short",
+   "score": 42,
+   "rsi": 73.1,
+   "meche": 32,
+   "volume_x": 1.56,
+   "prix": 0.71585,
+   "ts": 1788270300,
+   "pair": "DGAIUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": false,
+   "fwd": {
+    "1": -0.11,
+    "3": -1.72,
+    "5": -2.79,
+    "10": -2.84
+   },
+   "efm": -0.04,
+   "eam": -3.33,
+   "bougies_ecoulees": 13,
+   "prix_actuel": 0.73621,
+   "variation": -2.84
   }
  ],
  "universe": [
@@ -5708,6 +5664,6 @@
  "last_scan": {
   "1j": 1788273521.5658946,
   "30m": 1788273521.565897,
-  "5m": 1788273521.5658977
+  "5m": 1788274567.498986
  }
 }
