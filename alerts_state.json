@@ -272,30 +272,6 @@
  },
  "active": [
   {
-   "id": "1788349500",
-   "sens": "long",
-   "score": 60,
-   "rsi": 23.6,
-   "meche": 41,
-   "volume_x": 3.74,
-   "prix": 0.1066,
-   "ts": 1788349500,
-   "pair": "ARBUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 0.09,
-    "3": 0.94,
-    "5": 1.88
-   },
-   "efm": 2.06,
-   "eam": -0.19,
-   "bougies_ecoulees": 8,
-   "prix_actuel": 0.1082,
-   "variation": 1.5
-  },
-  {
    "id": "1788351900",
    "sens": "short",
    "score": 53,
@@ -308,40 +284,18 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.324355,
-   "variation": -0.0
+   "fwd": {
+    "1": -0.01,
+    "3": -0.01
+   },
+   "efm": 0.18,
+   "eam": -0.05,
+   "bougies_ecoulees": 4,
+   "prix_actuel": 0.323867,
+   "variation": 0.15
   }
  ],
  "history": [
-  {
-   "id": "1787982300",
-   "sens": "short",
-   "score": 47,
-   "rsi": 84.6,
-   "meche": 0,
-   "volume_x": 6.02,
-   "prix": 0.0884,
-   "ts": 1787982300,
-   "pair": "ARBUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 0.34,
-    "3": 0.23,
-    "5": 0.57,
-    "10": 0.57
-   },
-   "efm": 0.57,
-   "eam": 0.23,
-   "bougies_ecoulees": 12,
-   "prix_actuel": 0.0879,
-   "variation": 0.57
-  },
   {
    "id": "1787982300",
    "sens": "short",
@@ -5316,6 +5270,31 @@
    "bougies_ecoulees": 11,
    "prix_actuel": 0.63183,
    "variation": 1.09
+  },
+  {
+   "id": "1788349500",
+   "sens": "long",
+   "score": 60,
+   "rsi": 23.6,
+   "meche": 41,
+   "volume_x": 3.74,
+   "prix": 0.1066,
+   "ts": 1788349500,
+   "pair": "ARBUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": 0.09,
+    "3": 0.94,
+    "5": 1.88,
+    "10": 1.88
+   },
+   "efm": 2.06,
+   "eam": -0.19,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 0.1086,
+   "variation": 1.88
   }
  ],
  "universe": [
@@ -5705,8 +5684,8 @@
  ],
  "perps_ts": 1788313801.6094105,
  "last_scan": {
-  "1j": 1788349973.4203403,
+  "1j": 1788353767.505674,
   "30m": 1788352503.8559363,
-  "5m": 1788352503.8559394
+  "5m": 1788353767.505677
  }
 }
