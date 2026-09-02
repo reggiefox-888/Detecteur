@@ -275,30 +275,6 @@
  },
  "active": [
   {
-   "id": "1788385200",
-   "sens": "short",
-   "score": 60,
-   "rsi": 75.3,
-   "meche": 56,
-   "volume_x": 5.7,
-   "prix": 0.2634,
-   "ts": 1788385200,
-   "pair": "STXUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 0.8,
-    "3": 0.61,
-    "5": 1.14
-   },
-   "efm": 1.14,
-   "eam": 0.08,
-   "bougies_ecoulees": 7,
-   "prix_actuel": 0.2609,
-   "variation": 0.95
-  },
-  {
    "id": "1788386100",
    "sens": "short",
    "score": 53,
@@ -313,13 +289,14 @@
    "perp": true,
    "fwd": {
     "1": 0.02,
-    "3": 0.61
+    "3": 0.61,
+    "5": 1.09
    },
-   "efm": 1.13,
+   "efm": 1.62,
    "eam": -0.07,
-   "bougies_ecoulees": 4,
-   "prix_actuel": 0.36146,
-   "variation": 0.54
+   "bougies_ecoulees": 8,
+   "prix_actuel": 0.35914,
+   "variation": 1.18
   },
   {
    "id": "1788386100",
@@ -341,37 +318,12 @@
    },
    "efm": 1.23,
    "eam": -6.66,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.04481,
-   "variation": -1.82
+   "bougies_ecoulees": 8,
+   "prix_actuel": 0.04556,
+   "variation": -0.18
   }
  ],
  "history": [
-  {
-   "id": "1788012900",
-   "sens": "short",
-   "score": 43,
-   "rsi": 73.8,
-   "meche": 33,
-   "volume_x": 3.22,
-   "prix": 49.03,
-   "ts": 1788012900,
-   "pair": "LTCUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": -0.06,
-    "3": -0.06,
-    "5": -0.31,
-    "10": -0.33
-   },
-   "efm": 0.02,
-   "eam": -0.49,
-   "bougies_ecoulees": 12,
-   "prix_actuel": 49.18,
-   "variation": -0.31
-  },
   {
    "id": "1788013800",
    "sens": "short",
@@ -5346,6 +5298,31 @@
    "bougies_ecoulees": 11,
    "prix_actuel": 5.924,
    "variation": 0.0
+  },
+  {
+   "id": "1788385200",
+   "sens": "short",
+   "score": 60,
+   "rsi": 75.3,
+   "meche": 56,
+   "volume_x": 5.7,
+   "prix": 0.2634,
+   "ts": 1788385200,
+   "pair": "STXUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": 0.8,
+    "3": 0.61,
+    "5": 1.14,
+    "10": 1.1
+   },
+   "efm": 1.14,
+   "eam": 0.08,
+   "bougies_ecoulees": 11,
+   "prix_actuel": 0.2602,
+   "variation": 1.21
   }
  ],
  "universe": [
@@ -5737,6 +5714,6 @@
  "last_scan": {
   "1j": 1788388082.385719,
   "30m": 1788388082.3857212,
-  "5m": 1788388082.3857217
+  "5m": 1788388945.644269
  }
 }
