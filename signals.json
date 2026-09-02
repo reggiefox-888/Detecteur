@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-02 15:46 UTC",
+ "generated": "2026-09-02 16:00 UTC",
  "type": "observation",
  "horizons": [
   1,
@@ -21,7 +21,48 @@
    "nom": "5 minutes"
   }
  ],
- "active": [],
+ "active": [
+  {
+   "id": "1788363000",
+   "sens": "long",
+   "score": 45,
+   "rsi": 27.6,
+   "meche": 50,
+   "volume_x": 1.82,
+   "prix": 0.00325,
+   "ts": 1788363000,
+   "pair": "XCNUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.00325,
+   "variation": 0.0
+  },
+  {
+   "id": "1788363000",
+   "sens": "short",
+   "score": 43,
+   "rsi": 73.8,
+   "meche": 9,
+   "volume_x": 2.51,
+   "prix": 0.0589,
+   "ts": 1788363000,
+   "pair": "PYTHUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.0589,
+   "variation": -0.0
+  }
+ ],
  "history": [
   {
    "id": "1787991300",
@@ -5024,5 +5065,248 @@
    "variation": -0.0
   }
  ],
- "watch": []
+ "watch": [
+  {
+   "dir": "short",
+   "rsi": 67.1,
+   "reste": 2.9,
+   "last": 0.21562,
+   "ts": 1788363000,
+   "pair": "SYRUPUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 33.6,
+   "reste": 3.6,
+   "last": 0.0409,
+   "ts": 1788363000,
+   "pair": "CHIPUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false
+  },
+  {
+   "dir": "long",
+   "rsi": 33.7,
+   "reste": 3.7,
+   "last": 5.33,
+   "ts": 1788363000,
+   "pair": "ENSUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 66.2,
+   "reste": 3.8,
+   "last": 0.039,
+   "ts": 1788363000,
+   "pair": "SANDUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 34.1,
+   "reste": 4.1,
+   "last": 0.194,
+   "ts": 1788363000,
+   "pair": "SUSHIUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 65.3,
+   "reste": 4.7,
+   "last": 0.01032043,
+   "ts": 1788363000,
+   "pair": "AKEUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false
+  },
+  {
+   "dir": "long",
+   "rsi": 35.0,
+   "reste": 5.0,
+   "last": 0.06971,
+   "ts": 1788363000,
+   "pair": "SKYUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false
+  },
+  {
+   "dir": "short",
+   "rsi": 64.8,
+   "reste": 5.2,
+   "last": 4381.44,
+   "ts": 1788363000,
+   "pair": "PAXGUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 64.8,
+   "reste": 5.2,
+   "last": 0.024663,
+   "ts": 1788363000,
+   "pair": "SKRUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false
+  },
+  {
+   "dir": "short",
+   "rsi": 64.8,
+   "reste": 5.2,
+   "last": 0.72816,
+   "ts": 1788363000,
+   "pair": "ASTERUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 35.3,
+   "reste": 5.3,
+   "last": 0.35593,
+   "ts": 1788363000,
+   "pair": "CRVUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 35.4,
+   "reste": 5.4,
+   "last": 5.949,
+   "ts": 1788363000,
+   "pair": "SN8USD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false
+  },
+  {
+   "dir": "long",
+   "rsi": 35.4,
+   "reste": 5.4,
+   "last": 0.5418,
+   "ts": 1788363000,
+   "pair": "ETHFIUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 64.2,
+   "reste": 5.8,
+   "last": 0.0475,
+   "ts": 1788363000,
+   "pair": "SEIUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 36.0,
+   "reste": 6.0,
+   "last": 0.05144,
+   "ts": 1788363000,
+   "pair": "BTRUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false
+  },
+  {
+   "dir": "short",
+   "rsi": 64.0,
+   "reste": 6.0,
+   "last": 4367.3,
+   "ts": 1788363000,
+   "pair": "XAUTUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 36.6,
+   "reste": 6.6,
+   "last": 2.4743,
+   "ts": 1788363000,
+   "pair": "MORPHOUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 63.0,
+   "reste": 7.0,
+   "last": 0.1165,
+   "ts": 1788363000,
+   "pair": "ARBUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 37.4,
+   "reste": 7.4,
+   "last": 2.309,
+   "ts": 1788363000,
+   "pair": "CVXUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 37.5,
+   "reste": 7.5,
+   "last": 0.06227,
+   "ts": 1788363000,
+   "pair": "FOLDUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false
+  },
+  {
+   "dir": "short",
+   "rsi": 62.1,
+   "reste": 7.9,
+   "last": 0.00667,
+   "ts": 1788363000,
+   "pair": "FLRUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false
+  },
+  {
+   "dir": "short",
+   "rsi": 62.4,
+   "reste": 7.6,
+   "last": 0.1165,
+   "ts": 1788364500,
+   "pair": "ARBUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true
+  }
+ ]
 }
