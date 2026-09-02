@@ -255,7 +255,7 @@
    "DGAIUSD": 1788270736.8394954,
    "PUMPUSD": 1788313898.793768,
    "APTUSD": 1788264363.049711,
-   "BTRUSD": 1788320274.3767521,
+   "BTRUSD": 1788333928.8573215,
    "TONUSD": 1788252750.5217547,
    "HNTUSD": 1788158539.4470422,
    "DOGEUSD": 1788132502.5338569,
@@ -270,24 +270,24 @@
  },
  "active": [
   {
-   "id": "1788330600",
-   "sens": "short",
-   "score": 48,
-   "rsi": 74.5,
-   "meche": 28,
-   "volume_x": 4.14,
-   "prix": 65.65,
-   "ts": 1788330600,
-   "pair": "QNTUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
+   "id": "1788333600",
+   "sens": "long",
+   "score": 69,
+   "rsi": 20.5,
+   "meche": 47,
+   "volume_x": 1.66,
+   "prix": 0.05195,
+   "ts": 1788333600,
+   "pair": "BTRUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": false,
    "fwd": {},
    "efm": null,
    "eam": null,
    "bougies_ecoulees": 0,
-   "prix_actuel": 65.65,
-   "variation": -0.0
+   "prix_actuel": 0.05195,
+   "variation": 0.0
   }
  ],
  "history": [
@@ -5681,6 +5681,6 @@
  "last_scan": {
   "1j": 1788331868.8834324,
   "30m": 1788332697.6740005,
-  "5m": 1788332697.6740026
+  "5m": 1788333932.6759107
  }
 }
