@@ -247,12 +247,12 @@
    "SUIUSD": 1788222580.3419209,
    "ADAUSD": 1788288258.4712174,
    "XRPUSD": 1788288261.0568316,
-   "ETHUSD": 1788313819.2816455,
+   "ETHUSD": 1788338621.7272816,
    "DOTUSD": 1788132505.2024086,
    "FILUSD": 1788283465.7565277,
    "HBARUSD": 1788132552.8328128,
    "PEPEUSD": 1788132558.165494,
-   "DGAIUSD": 1788270736.8394954,
+   "DGAIUSD": 1788338664.14479,
    "PUMPUSD": 1788313898.793768,
    "APTUSD": 1788264363.049711,
    "BTRUSD": 1788333928.8573215,
@@ -270,6 +270,26 @@
  },
  "active": [
   {
+   "id": "1788338100",
+   "sens": "long",
+   "score": 41,
+   "rsi": 23.9,
+   "meche": 41,
+   "volume_x": 1.27,
+   "prix": 2404.5,
+   "ts": 1788338100,
+   "pair": "ETHUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 2404.5,
+   "variation": 0.0
+  },
+  {
    "id": "1788336900",
    "sens": "short",
    "score": 53,
@@ -282,32 +302,35 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.1188,
-   "variation": -0.0
+   "fwd": {
+    "1": 0.34,
+    "3": 1.52
+   },
+   "efm": 1.77,
+   "eam": 0.0,
+   "bougies_ecoulees": 4,
+   "prix_actuel": 0.1183,
+   "variation": 0.42
   },
   {
-   "id": "1788334200",
-   "sens": "short",
-   "score": 52,
-   "rsi": 78.7,
-   "meche": 32,
-   "volume_x": 1.0,
-   "prix": 0.20724,
-   "ts": 1788334200,
-   "pair": "SYRUPUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
+   "id": "1788338100",
+   "sens": "long",
+   "score": 48,
+   "rsi": 26.9,
+   "meche": 63,
+   "volume_x": 1.58,
+   "prix": 0.669,
+   "ts": 1788338100,
+   "pair": "DGAIUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": false,
    "fwd": {},
    "efm": null,
    "eam": null,
    "bougies_ecoulees": 0,
-   "prix_actuel": 0.20724,
-   "variation": -0.0
+   "prix_actuel": 0.669,
+   "variation": 0.0
   }
  ],
  "history": [
@@ -5701,6 +5724,6 @@
  "last_scan": {
   "1j": 1788336068.017691,
   "30m": 1788337423.2660344,
-  "5m": 1788337423.266037
+  "5m": 1788338664.144864
  }
 }
