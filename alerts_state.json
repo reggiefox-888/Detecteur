@@ -288,33 +288,14 @@
    "perp": true,
    "fwd": {
     "1": -0.49,
-    "3": 0.54
+    "3": 0.54,
+    "5": 0.77
    },
-   "efm": 0.54,
+   "efm": 1.13,
    "eam": -0.56,
-   "bougies_ecoulees": 3,
-   "prix_actuel": 0.5713,
-   "variation": 0.54
-  },
-  {
-   "id": "1788375600",
-   "sens": "long",
-   "score": 47,
-   "rsi": 24.9,
-   "meche": 20,
-   "volume_x": 2.93,
-   "prix": 2.222,
-   "ts": 1788375600,
-   "pair": "CVXUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 2.222,
-   "variation": 0.0
+   "bougies_ecoulees": 6,
+   "prix_actuel": 0.5683,
+   "variation": 1.06
   }
  ],
  "history": [
@@ -5708,6 +5689,6 @@
  "last_scan": {
   "1j": 1788375052.9789736,
   "30m": 1788377653.759326,
-  "5m": 1788377653.7593286
+  "5m": 1788378544.6752317
  }
 }
