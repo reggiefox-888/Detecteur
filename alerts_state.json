@@ -268,80 +268,8 @@
    "SN8USD": 1788328321.6174362
   }
  },
- "active": [
-  {
-   "id": "1788327900",
-   "sens": "short",
-   "score": 47,
-   "rsi": 83.2,
-   "meche": 0,
-   "volume_x": 10.26,
-   "prix": 6.187,
-   "ts": 1788327900,
-   "pair": "SN8USD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": false,
-   "fwd": {
-    "1": -0.03,
-    "3": -0.03,
-    "5": -0.03
-   },
-   "efm": -0.03,
-   "eam": -0.03,
-   "bougies_ecoulees": 7,
-   "prix_actuel": 6.189,
-   "variation": -0.03
-  },
-  {
-   "id": "1788325200",
-   "sens": "short",
-   "score": 45,
-   "rsi": 73.7,
-   "meche": 22,
-   "volume_x": 2.82,
-   "prix": 2.563,
-   "ts": 1788325200,
-   "pair": "ICPUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {
-    "1": -0.16
-   },
-   "efm": 0.23,
-   "eam": -0.94,
-   "bougies_ecoulees": 1,
-   "prix_actuel": 2.567,
-   "variation": -0.16
-  }
- ],
+ "active": [],
  "history": [
-  {
-   "id": "1787693400",
-   "sens": "long",
-   "score": 47,
-   "rsi": 18.2,
-   "meche": 35,
-   "volume_x": 0.3,
-   "prix": 0.337417,
-   "ts": 1787693400,
-   "pair": "TRXUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {
-    "1": -0.01,
-    "3": -0.36,
-    "5": -0.61,
-    "10": -0.09
-   },
-   "efm": 0.11,
-   "eam": -0.64,
-   "bougies_ecoulees": 11,
-   "prix_actuel": 0.337594,
-   "variation": 0.05
-  },
   {
    "id": "1787689800",
    "sens": "long",
@@ -5316,6 +5244,31 @@
    "bougies_ecoulees": 10,
    "prix_actuel": 133.26,
    "variation": 1.04
+  },
+  {
+   "id": "1788327900",
+   "sens": "short",
+   "score": 47,
+   "rsi": 83.2,
+   "meche": 0,
+   "volume_x": 10.26,
+   "prix": 6.187,
+   "ts": 1788327900,
+   "pair": "SN8USD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": false,
+   "fwd": {
+    "1": -0.03,
+    "3": -0.03,
+    "5": -0.03,
+    "10": -0.08
+   },
+   "efm": -0.03,
+   "eam": -0.08,
+   "bougies_ecoulees": 11,
+   "prix_actuel": 6.192,
+   "variation": -0.08
   }
  ],
  "universe": [
@@ -5705,8 +5658,8 @@
  ],
  "perps_ts": 1788313801.6094105,
  "last_scan": {
-  "1j": 1788327443.8544657,
+  "1j": 1788331868.8834324,
   "30m": 1788330532.2308683,
-  "5m": 1788330532.2308712
+  "5m": 1788331868.8834352
  }
 }
