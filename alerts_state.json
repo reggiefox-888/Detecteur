@@ -270,58 +270,8 @@
    "TRXUSD": 1788352416.5270977
   }
  },
- "active": [
-  {
-   "id": "1788360300",
-   "sens": "short",
-   "score": 57,
-   "rsi": 77.3,
-   "meche": 36,
-   "volume_x": 1.96,
-   "prix": 0.1165,
-   "ts": 1788360300,
-   "pair": "ARBUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 0.34,
-    "3": -0.26,
-    "5": 0.43
-   },
-   "efm": 0.94,
-   "eam": -2.83,
-   "bougies_ecoulees": 6,
-   "prix_actuel": 0.1166,
-   "variation": -0.09
-  }
- ],
+ "active": [],
  "history": [
-  {
-   "id": "1787992200",
-   "sens": "long",
-   "score": 52,
-   "rsi": 27.1,
-   "meche": 50,
-   "volume_x": 2.67,
-   "prix": 1.411,
-   "ts": 1787992200,
-   "pair": "RENDERUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 0.0,
-    "3": -0.28,
-    "5": -0.07,
-    "10": -0.07
-   },
-   "efm": 0.0,
-   "eam": -0.28,
-   "bougies_ecoulees": 12,
-   "prix_actuel": 1.41,
-   "variation": -0.07
-  },
   {
    "id": "1787991300",
    "sens": "long",
@@ -5296,6 +5246,31 @@
    "bougies_ecoulees": 12,
    "prix_actuel": 0.1517,
    "variation": 1.24
+  },
+  {
+   "id": "1788360300",
+   "sens": "short",
+   "score": 57,
+   "rsi": 77.3,
+   "meche": 36,
+   "volume_x": 1.96,
+   "prix": 0.1165,
+   "ts": 1788360300,
+   "pair": "ARBUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": 0.34,
+    "3": -0.26,
+    "5": 0.43,
+    "10": -0.26
+   },
+   "efm": 1.55,
+   "eam": -2.83,
+   "bougies_ecoulees": 11,
+   "prix_actuel": 0.1165,
+   "variation": -0.0
   }
  ],
  "universe": [
@@ -5687,6 +5662,6 @@
  "last_scan": {
   "1j": 1788362783.0518627,
   "30m": 1788362783.051865,
-  "5m": 1788362783.0518658
+  "5m": 1788364030.3263593
  }
 }
