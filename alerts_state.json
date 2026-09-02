@@ -95,7 +95,7 @@
   },
   "30m": {
    "LINKUSD": 1788135172.3288596,
-   "ETHUSD": 1788315144.9148307,
+   "ETHUSD": 1788342184.6581378,
    "GRTUSD": 1787496822.9998221,
    "BCHUSD": 1788094812.9259162,
    "XDCUSD": 1787715702.9473977,
@@ -243,7 +243,7 @@
    "LINKUSD": 1788339527.740447,
    "FETUSD": 1788339550.0519285,
    "SOLUSD": 1788286911.7628112,
-   "AVAXUSD": 1788313806.6527865,
+   "AVAXUSD": 1788342172.8094647,
    "SUIUSD": 1788222580.3419209,
    "ADAUSD": 1788288258.4712174,
    "XRPUSD": 1788339525.2720478,
@@ -270,6 +270,26 @@
  },
  "active": [
   {
+   "id": "1788341700",
+   "sens": "long",
+   "score": 40,
+   "rsi": 29.2,
+   "meche": 58,
+   "volume_x": 1.63,
+   "prix": 7.107,
+   "ts": 1788341700,
+   "pair": "AVAXUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 7.107,
+   "variation": 0.0
+  },
+  {
    "id": "1788339000",
    "sens": "long",
    "score": 50,
@@ -288,10 +308,10 @@
     "5": 0.23
    },
    "efm": 0.67,
-   "eam": -0.14,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 1.33005,
-   "variation": 0.23
+   "eam": -0.4,
+   "bougies_ecoulees": 9,
+   "prix_actuel": 1.32295,
+   "variation": -0.31
   },
   {
    "id": "1788339000",
@@ -312,34 +332,30 @@
     "5": 0.23
    },
    "efm": 0.53,
-   "eam": -0.05,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 11.1134,
-   "variation": 0.23
+   "eam": -0.68,
+   "bougies_ecoulees": 9,
+   "prix_actuel": 11.02938,
+   "variation": -0.52
   },
   {
-   "id": "1788338100",
+   "id": "1788339600",
    "sens": "long",
-   "score": 41,
-   "rsi": 23.9,
-   "meche": 41,
-   "volume_x": 1.27,
-   "prix": 2404.5,
-   "ts": 1788338100,
+   "score": 46,
+   "rsi": 29.6,
+   "meche": 46,
+   "volume_x": 3.71,
+   "prix": 2386.96,
+   "ts": 1788339600,
    "pair": "ETHUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
    "perp": true,
-   "fwd": {
-    "1": -0.38,
-    "3": -0.58,
-    "5": -0.33
-   },
-   "efm": -0.01,
-   "eam": -0.67,
-   "bougies_ecoulees": 8,
-   "prix_actuel": 2391.19,
-   "variation": -0.55
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 2386.96,
+   "variation": 0.0
   },
   {
    "id": "1788339000",
@@ -360,10 +376,10 @@
     "5": 0.24
    },
    "efm": 0.45,
-   "eam": -0.14,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.0810462,
-   "variation": 0.24
+   "eam": -0.31,
+   "bougies_ecoulees": 9,
+   "prix_actuel": 0.0806694,
+   "variation": -0.22
   },
   {
    "id": "1788339000",
@@ -384,10 +400,10 @@
     "5": 0.18
    },
    "efm": 0.52,
-   "eam": -0.23,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 217.35,
-   "variation": 0.18
+   "eam": -0.25,
+   "bougies_ecoulees": 9,
+   "prix_actuel": 216.6661,
+   "variation": -0.14
   },
   {
    "id": "1788339000",
@@ -407,11 +423,11 @@
     "3": 0.46,
     "5": 0.2
    },
-   "efm": 0.46,
+   "efm": 0.59,
    "eam": -0.26,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.1524,
-   "variation": 0.2
+   "bougies_ecoulees": 9,
+   "prix_actuel": 0.1519,
+   "variation": -0.13
   },
   {
    "id": "1788339000",
@@ -432,10 +448,10 @@
     "5": -0.69
    },
    "efm": 0.25,
-   "eam": -0.92,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 127.91,
-   "variation": -0.69
+   "eam": -1.99,
+   "bougies_ecoulees": 9,
+   "prix_actuel": 126.46,
+   "variation": -1.82
   },
   {
    "id": "1788339000",
@@ -456,10 +472,10 @@
     "5": 0.53
    },
    "efm": 0.64,
-   "eam": -0.06,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 3.435e-06,
-   "variation": 0.53
+   "eam": -0.18,
+   "bougies_ecoulees": 9,
+   "prix_actuel": 3.416e-06,
+   "variation": -0.03
   },
   {
    "id": "1788339000",
@@ -480,10 +496,10 @@
     "5": 0.28
    },
    "efm": 0.57,
-   "eam": 0.0,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 81.53,
-   "variation": 0.28
+   "eam": -0.32,
+   "bougies_ecoulees": 9,
+   "prix_actuel": 81.09,
+   "variation": -0.26
   },
   {
    "id": "1788339000",
@@ -504,10 +520,10 @@
     "5": 0.24
    },
    "efm": 0.45,
-   "eam": -0.14,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.0810462,
-   "variation": 0.24
+   "eam": -0.31,
+   "bougies_ecoulees": 9,
+   "prix_actuel": 0.0806694,
+   "variation": -0.22
   },
   {
    "id": "1788339000",
@@ -528,87 +544,13 @@
     "5": 0.1
    },
    "efm": 0.33,
-   "eam": -0.12,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 48.82,
-   "variation": 0.1
-  },
-  {
-   "id": "1788338100",
-   "sens": "long",
-   "score": 48,
-   "rsi": 26.9,
-   "meche": 63,
-   "volume_x": 1.58,
-   "prix": 0.669,
-   "ts": 1788338100,
-   "pair": "DGAIUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": false,
-   "fwd": {
-    "1": -1.08,
-    "3": -2.0,
-    "5": -0.99
-   },
-   "efm": -0.61,
-   "eam": -2.38,
-   "bougies_ecoulees": 8,
-   "prix_actuel": 0.65885,
-   "variation": -1.52
+   "eam": -0.35,
+   "bougies_ecoulees": 9,
+   "prix_actuel": 48.64,
+   "variation": -0.27
   }
  ],
  "history": [
-  {
-   "id": "1787693400",
-   "sens": "long",
-   "score": 47,
-   "rsi": 28.2,
-   "meche": 62,
-   "volume_x": 0.55,
-   "prix": 0.20144,
-   "ts": 1787693400,
-   "pair": "KNTQUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {
-    "1": 0.99,
-    "3": 1.85,
-    "5": 0.85,
-    "10": 2.25
-   },
-   "efm": 4.28,
-   "eam": -1.69,
-   "bougies_ecoulees": 11,
-   "prix_actuel": 0.20442,
-   "variation": 1.48
-  },
-  {
-   "id": "1787684400",
-   "sens": "long",
-   "score": 57,
-   "rsi": 28.5,
-   "meche": 41,
-   "volume_x": 4.65,
-   "prix": 0.29965,
-   "ts": 1787684400,
-   "pair": "UAIUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {
-    "1": -0.76,
-    "3": -4.26,
-    "5": -3.69,
-    "10": -4.96
-   },
-   "efm": -0.2,
-   "eam": -6.72,
-   "bougies_ecoulees": 16,
-   "prix_actuel": 0.28935,
-   "variation": -3.44
-  },
   {
    "id": "1787697000",
    "sens": "short",
@@ -5558,6 +5500,56 @@
    "bougies_ecoulees": 12,
    "prix_actuel": 0.1172,
    "variation": 1.35
+  },
+  {
+   "id": "1788338100",
+   "sens": "long",
+   "score": 41,
+   "rsi": 23.9,
+   "meche": 41,
+   "volume_x": 1.27,
+   "prix": 2404.5,
+   "ts": 1788338100,
+   "pair": "ETHUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": -0.38,
+    "3": -0.58,
+    "5": -0.33,
+    "10": -0.73
+   },
+   "efm": -0.01,
+   "eam": -1.16,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 2371.15,
+   "variation": -1.39
+  },
+  {
+   "id": "1788338100",
+   "sens": "long",
+   "score": 48,
+   "rsi": 26.9,
+   "meche": 63,
+   "volume_x": 1.58,
+   "prix": 0.669,
+   "ts": 1788338100,
+   "pair": "DGAIUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": false,
+   "fwd": {
+    "1": -1.08,
+    "3": -2.0,
+    "5": -0.99,
+    "10": -2.07
+   },
+   "efm": -0.61,
+   "eam": -3.08,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 0.63726,
+   "variation": -4.74
   }
  ],
  "universe": [
@@ -5948,7 +5940,7 @@
  "perps_ts": 1788313801.6094105,
  "last_scan": {
   "1j": 1788341001.5948422,
-  "30m": 1788339692.8107517,
-  "5m": 1788341001.5948455
+  "30m": 1788342355.6262605,
+  "5m": 1788342355.6262634
  }
 }
