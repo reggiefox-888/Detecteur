@@ -270,48 +270,7 @@
    "TRXUSD": 1788352416.5270977
   }
  },
- "active": [
-  {
-   "id": "1788363000",
-   "sens": "long",
-   "score": 45,
-   "rsi": 27.6,
-   "meche": 50,
-   "volume_x": 1.82,
-   "prix": 0.00325,
-   "ts": 1788363000,
-   "pair": "XCNUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.00325,
-   "variation": 0.0
-  },
-  {
-   "id": "1788363000",
-   "sens": "short",
-   "score": 43,
-   "rsi": 73.8,
-   "meche": 9,
-   "volume_x": 2.51,
-   "prix": 0.0589,
-   "ts": 1788363000,
-   "pair": "PYTHUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.0589,
-   "variation": -0.0
-  }
- ],
+ "active": [],
  "history": [
   {
    "id": "1787991300",
@@ -5701,8 +5660,8 @@
  ],
  "perps_ts": 1788313801.6094105,
  "last_scan": {
-  "1j": 1788362783.0518627,
+  "1j": 1788366552.1045926,
   "30m": 1788365001.8679116,
-  "5m": 1788365001.8679137
+  "5m": 1788366552.1045957
  }
 }
