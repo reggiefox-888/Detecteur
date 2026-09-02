@@ -273,28 +273,7 @@
    "TRXUSD": 1788352416.5270977
   }
  },
- "active": [
-  {
-   "id": "1788390000",
-   "sens": "long",
-   "score": 53,
-   "rsi": 25.4,
-   "meche": 48,
-   "volume_x": 0.83,
-   "prix": 0.44823,
-   "ts": 1788390000,
-   "pair": "UAIUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.44823,
-   "variation": 0.0
-  }
- ],
+ "active": [],
  "history": [
   {
    "id": "1788014700",
@@ -5686,6 +5665,6 @@
  "last_scan": {
   "1j": 1788392183.2589564,
   "30m": 1788392183.258959,
-  "5m": 1788392183.2589598
+  "5m": 1788392960.4292202
  }
 }
