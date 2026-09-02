@@ -273,107 +273,8 @@
    "TRXUSD": 1788352416.5270977
   }
  },
- "active": [
-  {
-   "id": "1788386100",
-   "sens": "short",
-   "score": 53,
-   "rsi": 71.9,
-   "meche": 49,
-   "volume_x": 4.0,
-   "prix": 0.36344,
-   "ts": 1788386100,
-   "pair": "CRVUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": 0.02,
-    "3": 0.61,
-    "5": 1.09
-   },
-   "efm": 1.62,
-   "eam": -0.07,
-   "bougies_ecoulees": 8,
-   "prix_actuel": 0.35914,
-   "variation": 1.18
-  },
-  {
-   "id": "1788386100",
-   "sens": "long",
-   "score": 56,
-   "rsi": 29.8,
-   "meche": 82,
-   "volume_x": 2.09,
-   "prix": 0.04564,
-   "ts": 1788386100,
-   "pair": "BTRUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": false,
-   "fwd": {
-    "1": 0.18,
-    "3": -3.16,
-    "5": -1.82
-   },
-   "efm": 1.23,
-   "eam": -6.66,
-   "bougies_ecoulees": 8,
-   "prix_actuel": 0.04556,
-   "variation": -0.18
-  }
- ],
+ "active": [],
  "history": [
-  {
-   "id": "1788013800",
-   "sens": "short",
-   "score": 63,
-   "rsi": 78.1,
-   "meche": 82,
-   "volume_x": 34.51,
-   "prix": 11.40106,
-   "ts": 1788013800,
-   "pair": "LINKUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": -0.14,
-    "3": -0.63,
-    "5": -0.58,
-    "10": -0.13
-   },
-   "efm": -0.03,
-   "eam": -0.77,
-   "bougies_ecoulees": 12,
-   "prix_actuel": 11.37545,
-   "variation": 0.22
-  },
-  {
-   "id": "1788013800",
-   "sens": "short",
-   "score": 43,
-   "rsi": 74.3,
-   "meche": 29,
-   "volume_x": 18.91,
-   "prix": 0.149,
-   "ts": 1788013800,
-   "pair": "FETUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": -0.2,
-    "3": -1.41,
-    "5": -1.88,
-    "10": -1.74
-   },
-   "efm": 0.0,
-   "eam": -2.01,
-   "bougies_ecoulees": 12,
-   "prix_actuel": 0.1503,
-   "variation": -0.87
-  },
   {
    "id": "1788014700",
    "sens": "short",
@@ -5323,6 +5224,56 @@
    "bougies_ecoulees": 11,
    "prix_actuel": 0.2602,
    "variation": 1.21
+  },
+  {
+   "id": "1788386100",
+   "sens": "short",
+   "score": 53,
+   "rsi": 71.9,
+   "meche": 49,
+   "volume_x": 4.0,
+   "prix": 0.36344,
+   "ts": 1788386100,
+   "pair": "CRVUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": 0.02,
+    "3": 0.61,
+    "5": 1.09,
+    "10": 1.16
+   },
+   "efm": 1.62,
+   "eam": -0.07,
+   "bougies_ecoulees": 11,
+   "prix_actuel": 0.35928,
+   "variation": 1.14
+  },
+  {
+   "id": "1788386100",
+   "sens": "long",
+   "score": 56,
+   "rsi": 29.8,
+   "meche": 82,
+   "volume_x": 2.09,
+   "prix": 0.04564,
+   "ts": 1788386100,
+   "pair": "BTRUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": false,
+   "fwd": {
+    "1": 0.18,
+    "3": -3.16,
+    "5": -1.82,
+    "10": 2.3
+   },
+   "efm": 2.5,
+   "eam": -6.66,
+   "bougies_ecoulees": 12,
+   "prix_actuel": 0.0459,
+   "variation": 0.57
   }
  ],
  "universe": [
@@ -5713,7 +5664,7 @@
  "perps_ts": 1788313801.6094105,
  "last_scan": {
   "1j": 1788388082.385719,
-  "30m": 1788388082.3857212,
-  "5m": 1788388945.644269
+  "30m": 1788390098.72645,
+  "5m": 1788390098.7264528
  }
 }
