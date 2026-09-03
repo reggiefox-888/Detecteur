@@ -153,7 +153,7 @@
    "PUMPUSD": 1788135233.8565996,
    "NESUSD": 1787612840.6018145,
    "VELVETUSD": 1787739200.146987,
-   "WIFUSD": 1787680604.0710015,
+   "WIFUSD": 1788454874.4929726,
    "SPXUSD": 1788447670.956802,
    "FLRUSD": 1788450350.7664013,
    "VVVUSD": 1788279436.1453178,
@@ -199,7 +199,7 @@
    "LIGHTERUSD": 1788450306.4591415,
    "DCRUSD": 1788118998.951433,
    "FARTCOINUSD": 1788339615.485247,
-   "WLDUSD": 1788132619.6149364,
+   "WLDUSD": 1788454857.13092,
    "XRPUSD": 1788450191.8998723,
    "RENDERUSD": 1788135199.03706,
    "JUPUSD": 1788216113.0640075,
@@ -215,7 +215,7 @@
    "BLESSUSD": 1788284639.1313078,
    "JASMYUSD": 1788235248.907853,
    "SANDUSD": 1788237528.1093895,
-   "BONKUSD": 1788241871.2065413,
+   "BONKUSD": 1788454879.4211977,
    "QNTUSD": 1788332664.22392,
    "NEARUSD": 1788452449.6844778,
    "SUSHIUSD": 1788326239.496595,
@@ -283,7 +283,68 @@
    "TRXUSD": 1788443164.7008796
   }
  },
- "active": [],
+ "active": [
+  {
+   "id": "1788453000",
+   "sens": "short",
+   "score": 42,
+   "rsi": 74.6,
+   "meche": 31,
+   "volume_x": 1.4,
+   "prix": 0.3951,
+   "ts": 1788453000,
+   "pair": "WLDUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.3951,
+   "variation": -0.0
+  },
+  {
+   "id": "1788453000",
+   "sens": "short",
+   "score": 48,
+   "rsi": 78.1,
+   "meche": 28,
+   "volume_x": 0.94,
+   "prix": 0.2146,
+   "ts": 1788453000,
+   "pair": "WIFUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.2146,
+   "variation": -0.0
+  },
+  {
+   "id": "1788453000",
+   "sens": "short",
+   "score": 69,
+   "rsi": 77.6,
+   "meche": 68,
+   "volume_x": 1.89,
+   "prix": 3.227e-06,
+   "ts": 1788453000,
+   "pair": "BONKUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 3.227e-06,
+   "variation": -0.0
+  }
+ ],
  "history": [
   {
    "id": "1788087000",
@@ -5674,7 +5735,7 @@
  "perps_ts": 1788400326.5710452,
  "last_scan": {
   "1j": 1788453996.54355,
-  "30m": 1788452624.237716,
-  "5m": 1788453996.5435529
+  "30m": 1788454904.305022,
+  "5m": 1788454904.305024
  }
 }
