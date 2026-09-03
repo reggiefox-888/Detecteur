@@ -281,26 +281,6 @@
  },
  "active": [
   {
-   "id": "1788418800",
-   "sens": "short",
-   "score": 79,
-   "rsi": 79.6,
-   "meche": 93,
-   "volume_x": 15.58,
-   "prix": 0.6262,
-   "ts": 1788418800,
-   "pair": "APTUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.6262,
-   "variation": -0.0
-  },
-  {
    "id": "1788419400",
    "sens": "short",
    "score": 70,
@@ -315,13 +295,14 @@
    "perp": true,
    "fwd": {
     "1": -0.22,
-    "3": -0.63
+    "3": -0.63,
+    "5": -0.32
    },
    "efm": 0.29,
-   "eam": -0.71,
-   "bougies_ecoulees": 3,
-   "prix_actuel": 0.6262,
-   "variation": -0.63
+   "eam": -0.88,
+   "bougies_ecoulees": 7,
+   "prix_actuel": 0.6217,
+   "variation": 0.1
   },
   {
    "id": "1788419400",
@@ -338,13 +319,14 @@
    "perp": true,
    "fwd": {
     "1": -0.0,
-    "3": -0.38
+    "3": -0.38,
+    "5": -0.06
    },
    "efm": 0.0,
-   "eam": -0.63,
-   "bougies_ecoulees": 3,
-   "prix_actuel": 0.22212,
-   "variation": -0.38
+   "eam": -0.66,
+   "bougies_ecoulees": 7,
+   "prix_actuel": 0.22238,
+   "variation": -0.5
   }
  ],
  "history": [
@@ -5736,8 +5718,8 @@
  ],
  "perps_ts": 1788400326.5710452,
  "last_scan": {
-  "1j": 1788417380.076689,
+  "1j": 1788422044.323247,
   "30m": 1788420988.4956627,
-  "5m": 1788420988.4956648
+  "5m": 1788422044.323249
  }
 }
