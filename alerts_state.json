@@ -283,48 +283,7 @@
    "TRXUSD": 1788443164.7008796
   }
  },
- "active": [
-  {
-   "id": "1788462000",
-   "sens": "short",
-   "score": 44,
-   "rsi": 73.2,
-   "meche": 38,
-   "volume_x": 0.14,
-   "prix": 0.18978,
-   "ts": 1788462000,
-   "pair": "USELESSUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.18978,
-   "variation": -0.0
-  },
-  {
-   "id": "1788462000",
-   "sens": "short",
-   "score": 47,
-   "rsi": 78.7,
-   "meche": 0,
-   "volume_x": 2.83,
-   "prix": 0.6276,
-   "ts": 1788462000,
-   "pair": "HNTUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.6276,
-   "variation": -0.0
-  }
- ],
+ "active": [],
  "history": [
   {
    "id": "1788091500",
@@ -5716,6 +5675,6 @@
  "last_scan": {
   "1j": 1788462018.723847,
   "30m": 1788464705.8042495,
-  "5m": 1788464705.8042529
+  "5m": 1788465537.4166222
  }
 }
