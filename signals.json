@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-03 20:34 UTC",
+ "generated": "2026-09-03 20:49 UTC",
  "type": "observation",
  "horizons": [
   1,
@@ -5027,22 +5027,55 @@
  "watch": [
   {
    "dir": "short",
-   "rsi": 68.8,
-   "reste": 1.2,
-   "last": 6.329,
-   "ts": 1788467100,
+   "rsi": 68.6,
+   "reste": 1.4,
+   "last": 6.347,
+   "ts": 1788468000,
    "pair": "UNIUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
   },
   {
-   "dir": "short",
-   "rsi": 67.3,
-   "reste": 2.7,
-   "last": 1.48173,
-   "ts": 1788467100,
-   "pair": "XRPUSD",
+   "dir": "long",
+   "rsi": 35.0,
+   "reste": 5.0,
+   "last": 0.004391,
+   "ts": 1788468000,
+   "pair": "PUMPUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 36.7,
+   "reste": 6.7,
+   "last": 3.758e-06,
+   "ts": 1788468000,
+   "pair": "PEPEUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 37.3,
+   "reste": 7.3,
+   "last": 0.2755,
+   "ts": 1788468000,
+   "pair": "STXUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 37.7,
+   "reste": 7.7,
+   "last": 0.1689,
+   "ts": 1788468000,
+   "pair": "ENAUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
