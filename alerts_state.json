@@ -283,118 +283,8 @@
    "TRXUSD": 1788443164.7008796
   }
  },
- "active": [
-  {
-   "id": "1788459000",
-   "sens": "short",
-   "score": 47,
-   "rsi": 70.2,
-   "meche": 44,
-   "volume_x": 2.55,
-   "prix": 0.1346,
-   "ts": 1788459000,
-   "pair": "ARBUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": -0.22,
-    "3": -1.93,
-    "5": -2.6
-   },
-   "efm": 0.15,
-   "eam": -6.91,
-   "bougies_ecoulees": 8,
-   "prix_actuel": 0.1428,
-   "variation": -6.09
-  },
-  {
-   "id": "1788458400",
-   "sens": "short",
-   "score": 57,
-   "rsi": 77.0,
-   "meche": 22,
-   "volume_x": 3.49,
-   "prix": 0.01712516,
-   "ts": 1788458400,
-   "pair": "AKEUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": false,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.01712516,
-   "variation": -0.0
-  },
-  {
-   "id": "1788458400",
-   "sens": "short",
-   "score": 59,
-   "rsi": 70.9,
-   "meche": 70,
-   "volume_x": 7.64,
-   "prix": 0.1729,
-   "ts": 1788458400,
-   "pair": "FARTCOINUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.1729,
-   "variation": -0.0
-  },
-  {
-   "id": "1788458400",
-   "sens": "short",
-   "score": 53,
-   "rsi": 73.1,
-   "meche": 64,
-   "volume_x": 1.71,
-   "prix": 1.947,
-   "ts": 1788458400,
-   "pair": "PENDLEUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 1.947,
-   "variation": -0.0
-  }
- ],
+ "active": [],
  "history": [
-  {
-   "id": "1788087900",
-   "sens": "short",
-   "score": 49,
-   "rsi": 80.2,
-   "meche": 30,
-   "volume_x": 1.81,
-   "prix": 125.58,
-   "ts": 1788087900,
-   "pair": "AAVEUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": -0.2,
-    "3": -0.18,
-    "5": 0.22,
-    "10": -0.81
-   },
-   "efm": 0.39,
-   "eam": -0.81,
-   "bougies_ecoulees": 12,
-   "prix_actuel": 126.65,
-   "variation": -0.85
-  },
   {
    "id": "1788091500",
    "sens": "short",
@@ -5369,6 +5259,31 @@
    "bougies_ecoulees": 13,
    "prix_actuel": 0.01599568,
    "variation": -1.25
+  },
+  {
+   "id": "1788459000",
+   "sens": "short",
+   "score": 47,
+   "rsi": 70.2,
+   "meche": 44,
+   "volume_x": 2.55,
+   "prix": 0.1346,
+   "ts": 1788459000,
+   "pair": "ARBUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": -0.22,
+    "3": -1.93,
+    "5": -2.6,
+    "10": -6.46
+   },
+   "efm": 0.15,
+   "eam": -7.65,
+   "bougies_ecoulees": 11,
+   "prix_actuel": 0.1429,
+   "variation": -6.17
   }
  ],
  "universe": [
@@ -5760,6 +5675,6 @@
  "last_scan": {
   "1j": 1788462018.723847,
   "30m": 1788462018.7238498,
-  "5m": 1788462018.7238505
+  "5m": 1788462862.2297447
  }
 }
