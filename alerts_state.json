@@ -247,7 +247,7 @@
    "STXUSD": 1788399436.843146,
    "POLUSD": 1788184720.1576674,
    "NEARUSD": 1788263394.692592,
-   "HYPEUSD": 1788339589.5487306,
+   "HYPEUSD": 1788432575.4304216,
    "LTCUSD": 1788339601.9378567,
    "XLMUSD": 1788398419.442451,
    "AKEUSD": 1788084744.5574336,
@@ -296,13 +296,34 @@
    "perp": true,
    "fwd": {
     "1": -0.68,
-    "3": -0.65
+    "3": -0.65,
+    "5": 0.22
    },
-   "efm": 0.16,
-   "eam": -0.97,
-   "bougies_ecoulees": 3,
-   "prix_actuel": 0.3717,
-   "variation": -0.65
+   "efm": 0.32,
+   "eam": -1.11,
+   "bougies_ecoulees": 6,
+   "prix_actuel": 0.3685,
+   "variation": 0.22
+  },
+  {
+   "id": "1788432000",
+   "sens": "long",
+   "score": 42,
+   "rsi": 27.3,
+   "meche": 33,
+   "volume_x": 2.48,
+   "prix": 81.25,
+   "ts": 1788432000,
+   "pair": "HYPEUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 81.25,
+   "variation": 0.0
   }
  ],
  "history": [
@@ -5696,6 +5717,6 @@
  "last_scan": {
   "1j": 1788431826.2164197,
   "30m": 1788430828.7406678,
-  "5m": 1788431826.216422
+  "5m": 1788432586.531468
  }
 }
