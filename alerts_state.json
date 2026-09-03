@@ -35,7 +35,7 @@
    "LCXUSD": 1787464707.8179824,
    "MINAUSD": 1788228177.7045455,
    "ETHFIUSD": 1787643437.610945,
-   "PYTHUSD": 1787464731.655107,
+   "PYTHUSD": 1788397006.0532165,
    "OPUSD": 1787464736.9132462,
    "POPCATUSD": 1787699246.6951506,
    "KSMUSD": 1787464800.5176935,
@@ -85,13 +85,14 @@
    "HONEYUSD": 1788053445.5435672,
    "SKRUSD": 1788313908.9981298,
    "AUCTIONUSD": 1788143530.0264935,
-   "USELESSUSD": 1788223984.4879665,
+   "USELESSUSD": 1788396929.678693,
    "ZORAUSD": 1788224001.37169,
    "0GUSD": 1788228087.8719532,
    "MLNUSD": 1788313930.8072507,
    "SCUSD": 1788313939.8232162,
    "ADIUSD": 1788313942.374121,
-   "TRIAUSD": 1788313969.3426776
+   "TRIAUSD": 1788313969.3426776,
+   "AKEUSD": 1788396958.891532
   },
   "30m": {
    "LINKUSD": 1788135172.3288596,
@@ -275,56 +276,67 @@
  },
  "active": [
   {
-   "id": "1788393300",
+   "id": "1788307200",
    "sens": "short",
-   "score": 59,
-   "rsi": 76.8,
-   "meche": 44,
-   "volume_x": 2.32,
-   "prix": 0.22367,
-   "ts": 1788393300,
-   "pair": "JUPUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
+   "score": 68,
+   "rsi": 81.2,
+   "meche": 35,
+   "volume_x": 1.98,
+   "prix": 0.12252,
+   "ts": 1788307200,
+   "pair": "USELESSUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": false,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.12252,
+   "variation": -0.0
+  },
+  {
+   "id": "1788307200",
+   "sens": "short",
+   "score": 63,
+   "rsi": 74.5,
+   "meche": 74,
+   "volume_x": 1.95,
+   "prix": 0.01641114,
+   "ts": 1788307200,
+   "pair": "AKEUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": false,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.01641114,
+   "variation": -0.0
+  },
+  {
+   "id": "1788307200",
+   "sens": "short",
+   "score": 57,
+   "rsi": 74.2,
+   "meche": 31,
+   "volume_x": 2.61,
+   "prix": 0.05744,
+   "ts": 1788307200,
+   "pair": "PYTHUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
    "perp": true,
-   "fwd": {
-    "1": 0.13,
-    "3": 0.67,
-    "5": 1.15
-   },
-   "efm": 1.53,
-   "eam": -0.33,
-   "bougies_ecoulees": 7,
-   "prix_actuel": 0.22025,
-   "variation": 1.53
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.05744,
+   "variation": -0.0
   }
  ],
  "history": [
-  {
-   "id": "1788014700",
-   "sens": "short",
-   "score": 62,
-   "rsi": 81.5,
-   "meche": 60,
-   "volume_x": 1.61,
-   "prix": 105.16,
-   "ts": 1788014700,
-   "pair": "SOLUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": -0.05,
-    "3": 0.02,
-    "5": 0.06,
-    "10": 0.13
-   },
-   "efm": 0.45,
-   "eam": -0.34,
-   "bougies_ecoulees": 12,
-   "prix_actuel": 105.12,
-   "variation": 0.04
-  },
   {
    "id": "1788014700",
    "sens": "short",
@@ -5299,6 +5311,31 @@
    "bougies_ecoulees": 12,
    "prix_actuel": 0.0459,
    "variation": 0.57
+  },
+  {
+   "id": "1788393300",
+   "sens": "short",
+   "score": 59,
+   "rsi": 76.8,
+   "meche": 44,
+   "volume_x": 2.32,
+   "prix": 0.22367,
+   "ts": 1788393300,
+   "pair": "JUPUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true,
+   "fwd": {
+    "1": 0.13,
+    "3": 0.67,
+    "5": 1.15,
+    "10": 1.39
+   },
+   "efm": 1.53,
+   "eam": -0.33,
+   "bougies_ecoulees": 10,
+   "prix_actuel": 0.22055,
+   "variation": 1.39
   }
  ],
  "universe": [
@@ -5688,8 +5725,8 @@
  ],
  "perps_ts": 1788313801.6094105,
  "last_scan": {
-  "1j": 1788392183.2589564,
+  "1j": 1788397015.4338708,
   "30m": 1788395857.9043944,
-  "5m": 1788395857.9043968
+  "5m": 1788397015.4338722
  }
 }
