@@ -291,48 +291,7 @@
    "BNBUSD": 1788507871.942112
   }
  },
- "active": [
-  {
-   "id": "1788526800",
-   "sens": "long",
-   "score": 41,
-   "rsi": 29.9,
-   "meche": 50,
-   "volume_x": 1.45,
-   "prix": 101.4,
-   "ts": 1788526800,
-   "pair": "SOLUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 101.4,
-   "variation": 0.0
-  },
-  {
-   "id": "1788526800",
-   "sens": "long",
-   "score": 47,
-   "rsi": 26.4,
-   "meche": 29,
-   "volume_x": 3.76,
-   "prix": 0.04693,
-   "ts": 1788526800,
-   "pair": "SEIUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.04693,
-   "variation": 0.0
-  }
- ],
+ "active": [],
  "history": [
   {
    "id": "1788153600",
@@ -5728,6 +5687,6 @@
  "last_scan": {
   "1j": 1788528092.9296982,
   "30m": 1788530065.4001656,
-  "5m": 1788530065.4001675
+  "5m": 1788531364.825809
  }
 }
