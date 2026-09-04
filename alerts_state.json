@@ -291,78 +291,8 @@
    "BNBUSD": 1788507871.942112
   }
  },
- "active": [
-  {
-   "id": "1788520200",
-   "sens": "short",
-   "score": 44,
-   "rsi": 77.5,
-   "meche": 18,
-   "volume_x": 15.91,
-   "prix": 1.394,
-   "ts": 1788520200,
-   "pair": "TONUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": false,
-   "fwd": {
-    "1": 0.36,
-    "3": 0.72,
-    "5": 0.14
-   },
-   "efm": 1.22,
-   "eam": 0.0,
-   "bougies_ecoulees": 7,
-   "prix_actuel": 1.387,
-   "variation": 0.5
-  },
-  {
-   "id": "1788519600",
-   "sens": "short",
-   "score": 45,
-   "rsi": 71.4,
-   "meche": 56,
-   "volume_x": 1.37,
-   "prix": 0.75063,
-   "ts": 1788519600,
-   "pair": "ASTERUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.75063,
-   "variation": -0.0
-  }
- ],
+ "active": [],
  "history": [
-  {
-   "id": "1788132000",
-   "sens": "long",
-   "score": 53,
-   "rsi": 22.2,
-   "meche": 32,
-   "volume_x": 20.85,
-   "prix": 7.211,
-   "ts": 1788132000,
-   "pair": "AVAXUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true,
-   "fwd": {
-    "1": -0.87,
-    "3": -1.53,
-    "5": -2.09,
-    "10": -1.16
-   },
-   "efm": 0.14,
-   "eam": -2.65,
-   "bougies_ecoulees": 12,
-   "prix_actuel": 7.155,
-   "variation": -0.78
-  },
   {
    "id": "1788132000",
    "sens": "long",
@@ -5337,6 +5267,31 @@
    "bougies_ecoulees": 11,
    "prix_actuel": 0.24824,
    "variation": 11.07
+  },
+  {
+   "id": "1788520200",
+   "sens": "short",
+   "score": 44,
+   "rsi": 77.5,
+   "meche": 18,
+   "volume_x": 15.91,
+   "prix": 1.394,
+   "ts": 1788520200,
+   "pair": "TONUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": false,
+   "fwd": {
+    "1": 0.36,
+    "3": 0.72,
+    "5": 0.14,
+    "10": -0.07
+   },
+   "efm": 1.22,
+   "eam": -0.43,
+   "bougies_ecoulees": 10,
+   "prix_actuel": 1.395,
+   "variation": -0.07
   }
  ],
  "universe": [
@@ -5732,6 +5687,6 @@
  "last_scan": {
   "1j": 1788522928.4869666,
   "30m": 1788522928.4869683,
-  "5m": 1788522928.486969
+  "5m": 1788523673.444423
  }
 }
