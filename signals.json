@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-04 09:43 UTC",
+ "generated": "2026-09-04 09:58 UTC",
  "type": "observation",
  "horizons": [
   1,
@@ -37,13 +37,14 @@
    "perp": true,
    "fwd": {
     "1": 0.7,
-    "3": 0.55
+    "3": 0.55,
+    "5": 0.65
    },
-   "efm": 0.81,
+   "efm": 0.97,
    "eam": 0.0,
-   "bougies_ecoulees": 4,
-   "prix_actuel": 0.7773,
-   "variation": 0.44
+   "bougies_ecoulees": 7,
+   "prix_actuel": 0.7767,
+   "variation": 0.51
   },
   {
    "id": "1788513300",
@@ -60,13 +61,14 @@
    "perp": true,
    "fwd": {
     "1": 0.72,
-    "3": 0.37
+    "3": 0.37,
+    "5": 0.5
    },
    "efm": 0.91,
    "eam": 0.01,
-   "bougies_ecoulees": 4,
-   "prix_actuel": 12.08747,
-   "variation": 0.29
+   "bougies_ecoulees": 7,
+   "prix_actuel": 12.08623,
+   "variation": 0.3
   },
   {
    "id": "1788513300",
@@ -83,13 +85,14 @@
    "perp": true,
    "fwd": {
     "1": 0.65,
-    "3": 0.49
+    "3": 0.49,
+    "5": 0.37
    },
    "efm": 0.78,
    "eam": -0.01,
-   "bougies_ecoulees": 4,
-   "prix_actuel": 2530.0,
-   "variation": 0.36
+   "bougies_ecoulees": 7,
+   "prix_actuel": 2523.55,
+   "variation": 0.61
   },
   {
    "id": "1788513300",
@@ -106,13 +109,14 @@
    "perp": true,
    "fwd": {
     "1": 0.22,
-    "3": -0.03
+    "3": -0.03,
+    "5": -0.1
    },
-   "efm": 0.23,
-   "eam": -0.08,
-   "bougies_ecoulees": 4,
-   "prix_actuel": 0.5977,
-   "variation": -0.05
+   "efm": 0.37,
+   "eam": -0.32,
+   "bougies_ecoulees": 7,
+   "prix_actuel": 0.5982,
+   "variation": -0.13
   },
   {
    "id": "1788513300",
@@ -129,13 +133,14 @@
    "perp": true,
    "fwd": {
     "1": 0.36,
-    "3": 0.52
+    "3": 0.52,
+    "5": 0.22
    },
-   "efm": 0.52,
+   "efm": 0.58,
    "eam": 0.11,
-   "bougies_ecoulees": 4,
-   "prix_actuel": 0.3638,
-   "variation": 0.22
+   "bougies_ecoulees": 7,
+   "prix_actuel": 0.3626,
+   "variation": 0.55
   },
   {
    "id": "1788513300",
@@ -152,13 +157,14 @@
    "perp": true,
    "fwd": {
     "1": 0.66,
-    "3": 0.39
+    "3": 0.39,
+    "5": 0.51
    },
    "efm": 0.85,
    "eam": 0.06,
-   "bougies_ecoulees": 4,
-   "prix_actuel": 0.185993,
-   "variation": 0.36
+   "bougies_ecoulees": 7,
+   "prix_actuel": 0.185759,
+   "variation": 0.48
   },
   {
    "id": "1788513300",
@@ -175,13 +181,14 @@
    "perp": true,
    "fwd": {
     "1": -0.0,
-    "3": 0.4
+    "3": 0.4,
+    "5": 0.17
    },
    "efm": 0.46,
    "eam": 0.0,
-   "bougies_ecoulees": 4,
-   "prix_actuel": 0.01732,
-   "variation": -0.0
+   "bougies_ecoulees": 7,
+   "prix_actuel": 0.01725,
+   "variation": 0.4
   },
   {
    "id": "1788513300",
@@ -198,13 +205,14 @@
    "perp": true,
    "fwd": {
     "1": 0.89,
-    "3": 0.51
+    "3": 0.51,
+    "5": 0.51
    },
    "efm": 0.89,
    "eam": 0.0,
-   "bougies_ecoulees": 4,
-   "prix_actuel": 3.683e-06,
-   "variation": 0.3
+   "bougies_ecoulees": 7,
+   "prix_actuel": 3.675e-06,
+   "variation": 0.51
   },
   {
    "id": "1788514500",
@@ -219,11 +227,74 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": false,
+   "fwd": {
+    "1": -0.57,
+    "3": -0.77
+   },
+   "efm": 0.61,
+   "eam": -2.62,
+   "bougies_ecoulees": 3,
+   "prix_actuel": 0.2813,
+   "variation": -0.77
+  },
+  {
+   "id": "1788512400",
+   "sens": "short",
+   "score": 46,
+   "rsi": 76.5,
+   "meche": 4,
+   "volume_x": 6.73,
+   "prix": 0.6523,
+   "ts": 1788512400,
+   "pair": "SPXUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
    "fwd": {},
    "efm": null,
    "eam": null,
    "bougies_ecoulees": 0,
-   "prix_actuel": 0.27915,
+   "prix_actuel": 0.6523,
+   "variation": -0.0
+  },
+  {
+   "id": "1788514200",
+   "sens": "short",
+   "score": 54,
+   "rsi": 81.6,
+   "meche": 12,
+   "volume_x": 1.89,
+   "prix": 0.02477,
+   "ts": 1788514200,
+   "pair": "SKRUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.02477,
+   "variation": -0.0
+  },
+  {
+   "id": "1788514200",
+   "sens": "short",
+   "score": 72,
+   "rsi": 82.8,
+   "meche": 42,
+   "volume_x": 2.93,
+   "prix": 14.751,
+   "ts": 1788514200,
+   "pair": "DCRUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 14.751,
    "variation": -0.0
   }
  ],
@@ -5231,33 +5302,198 @@
  ],
  "watch": [
   {
-   "dir": "long",
-   "rsi": 30.9,
-   "reste": 0.9,
-   "last": 0.0937,
-   "ts": 1788514500,
-   "pair": "POLUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
+   "dir": "short",
+   "rsi": 69.8,
+   "reste": 0.2,
+   "last": 0.020349,
+   "ts": 1788514200,
+   "pair": "NPCUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false
+  },
+  {
+   "dir": "short",
+   "rsi": 69.5,
+   "reste": 0.5,
+   "last": 53.0,
+   "ts": 1788512400,
+   "pair": "DASHUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
    "perp": true
   },
   {
    "dir": "short",
-   "rsi": 65.6,
-   "reste": 4.4,
-   "last": 4.865,
-   "ts": 1788514500,
-   "pair": "INJUSD",
+   "rsi": 68.0,
+   "reste": 2.0,
+   "last": 0.008073,
+   "ts": 1788514200,
+   "pair": "ZORAUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false
+  },
+  {
+   "dir": "short",
+   "rsi": 66.8,
+   "reste": 3.2,
+   "last": 2.691,
+   "ts": 1788514200,
+   "pair": "ARUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 65.7,
+   "reste": 4.3,
+   "last": 0.002455,
+   "ts": 1788514200,
+   "pair": "TACUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false
+  },
+  {
+   "dir": "long",
+   "rsi": 34.6,
+   "reste": 4.6,
+   "last": 0.21337,
+   "ts": 1788514200,
+   "pair": "APRUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false
+  },
+  {
+   "dir": "short",
+   "rsi": 64.7,
+   "reste": 5.3,
+   "last": 0.37832,
+   "ts": 1788512400,
+   "pair": "CRVUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 64.6,
+   "reste": 5.4,
+   "last": 2.58,
+   "ts": 1788514200,
+   "pair": "ICPUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 64.3,
+   "reste": 5.7,
+   "last": 4.551,
+   "ts": 1788512400,
+   "pair": "LIGHTERUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false
+  },
+  {
+   "dir": "long",
+   "rsi": 35.8,
+   "reste": 5.8,
+   "last": 0.328055,
+   "ts": 1788512400,
+   "pair": "TRXUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 63.8,
+   "reste": 6.2,
+   "last": 0.11338,
+   "ts": 1788514200,
+   "pair": "CCUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false
+  },
+  {
+   "dir": "short",
+   "rsi": 63.5,
+   "reste": 6.5,
+   "last": 1.9958,
+   "ts": 1788512400,
+   "pair": "NEARUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 63.4,
+   "reste": 6.6,
+   "last": 66.3,
+   "ts": 1788514200,
+   "pair": "QNTUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 37.0,
+   "reste": 7.0,
+   "last": 0.0617,
+   "ts": 1788514200,
+   "pair": "GHSTUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false
+  },
+  {
+   "dir": "long",
+   "rsi": 37.5,
+   "reste": 7.5,
+   "last": 0.15157,
+   "ts": 1788514200,
+   "pair": "DRVUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false
+  },
+  {
+   "dir": "short",
+   "rsi": 62.1,
+   "reste": 7.9,
+   "last": 0.0966,
+   "ts": 1788514200,
+   "pair": "XPLUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 69.0,
+   "reste": 1.0,
+   "last": 0.1712,
+   "ts": 1788515400,
+   "pair": "ENAUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
   },
   {
    "dir": "long",
-   "rsi": 36.6,
-   "reste": 6.6,
-   "last": 0.004292,
-   "ts": 1788514500,
+   "rsi": 32.5,
+   "reste": 2.5,
+   "last": 0.004266,
+   "ts": 1788515400,
    "pair": "PUMPUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
@@ -5265,21 +5501,43 @@
   },
   {
    "dir": "short",
-   "rsi": 63.0,
-   "reste": 7.0,
-   "last": 0.7928,
-   "ts": 1788514500,
-   "pair": "DGAIUSD",
+   "rsi": 66.1,
+   "reste": 3.9,
+   "last": 4.868,
+   "ts": 1788515400,
+   "pair": "INJUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
-   "perp": false
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 34.0,
+   "reste": 4.0,
+   "last": 0.09384,
+   "ts": 1788515400,
+   "pair": "POLUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true
   },
   {
    "dir": "short",
-   "rsi": 62.8,
-   "reste": 7.2,
-   "last": 0.07909,
-   "ts": 1788514500,
+   "rsi": 65.8,
+   "reste": 4.2,
+   "last": 0.1404,
+   "ts": 1788515400,
+   "pair": "ARBUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 65.7,
+   "reste": 4.3,
+   "last": 0.07925,
+   "ts": 1788515400,
    "pair": "HBARUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
@@ -5287,47 +5545,14 @@
   },
   {
    "dir": "short",
-   "rsi": 62.5,
-   "reste": 7.5,
-   "last": 0.36762,
-   "ts": 1788514500,
-   "pair": "ONDOUSD",
+   "rsi": 65.1,
+   "reste": 4.9,
+   "last": 0.2747,
+   "ts": 1788515400,
+   "pair": "STXUSD",
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 62.5,
-   "reste": 7.5,
-   "last": 1.378,
-   "ts": 1788514500,
-   "pair": "TONUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": false
-  },
-  {
-   "dir": "short",
-   "rsi": 62.1,
-   "reste": 7.9,
-   "last": 0.0879941,
-   "ts": 1788514500,
-   "pair": "DOGEUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": true
-  },
-  {
-   "dir": "short",
-   "rsi": 62.1,
-   "reste": 7.9,
-   "last": 0.0879941,
-   "ts": 1788514500,
-   "pair": "XDGUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
-   "perp": false
   }
  ]
 }
