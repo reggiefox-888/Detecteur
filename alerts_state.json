@@ -273,7 +273,7 @@
    "HBARUSD": 1788447620.329285,
    "PEPEUSD": 1788475740.8305619,
    "DGAIUSD": 1788440573.0166304,
-   "PUMPUSD": 1788485778.9583445,
+   "PUMPUSD": 1788493853.3831081,
    "APTUSD": 1788419816.5029426,
    "BTRUSD": 1788386663.349036,
    "TONUSD": 1788252750.5217547,
@@ -291,23 +291,23 @@
  },
  "active": [
   {
-   "id": "1788490800",
+   "id": "1788493500",
    "sens": "short",
-   "score": 71,
-   "rsi": 78.3,
-   "meche": 41,
-   "volume_x": 2.61,
-   "prix": 50.189,
-   "ts": 1788490800,
-   "pair": "DASHUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
+   "score": 40,
+   "rsi": 74.6,
+   "meche": 16,
+   "volume_x": 27.32,
+   "prix": 0.004316,
+   "ts": 1788493500,
+   "pair": "PUMPUSD",
+   "mode": "5m",
+   "mode_nom": "5 minutes",
    "perp": true,
    "fwd": {},
    "efm": null,
    "eam": null,
    "bougies_ecoulees": 0,
-   "prix_actuel": 50.189,
+   "prix_actuel": 0.004316,
    "variation": -0.0
   }
  ],
@@ -5706,6 +5706,6 @@
  "last_scan": {
   "1j": 1788492123.199935,
   "30m": 1788493122.3147566,
-  "5m": 1788493122.3147593
+  "5m": 1788493857.2578025
  }
 }
