@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-04 12:53 UTC",
+ "generated": "2026-09-04 13:15 UTC",
  "type": "observation",
  "horizons": [
   1,
@@ -35,12 +35,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 101.34,
-   "variation": 0.0
+   "fwd": {
+    "1": 0.45,
+    "3": 0.2,
+    "5": -0.26
+   },
+   "efm": 0.47,
+   "eam": -0.3,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 101.08,
+   "variation": -0.26
   },
   {
    "id": "1788525900",
@@ -55,12 +59,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 7.353,
-   "variation": 0.0
+   "fwd": {
+    "1": 0.26,
+    "3": 0.05,
+    "5": 0.04
+   },
+   "efm": 0.27,
+   "eam": -0.1,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 7.356,
+   "variation": 0.04
   },
   {
    "id": "1788525900",
@@ -75,12 +83,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.7504,
-   "variation": 0.0
+   "fwd": {
+    "1": 0.31,
+    "3": 0.15,
+    "5": -0.12
+   },
+   "efm": 0.56,
+   "eam": -0.24,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 0.7495,
+   "variation": -0.12
   },
   {
    "id": "1788525900",
@@ -95,12 +107,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.214429,
-   "variation": 0.0
+   "fwd": {
+    "1": 0.26,
+    "3": 0.11,
+    "5": -0.33
+   },
+   "efm": 0.38,
+   "eam": -0.45,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 0.213713,
+   "variation": -0.33
   },
   {
    "id": "1788525900",
@@ -115,12 +131,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 1.41067,
-   "variation": 0.0
+   "fwd": {
+    "1": 0.29,
+    "3": 0.08,
+    "5": -0.37
+   },
+   "efm": 0.34,
+   "eam": -0.4,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 1.40544,
+   "variation": -0.37
   },
   {
    "id": "1788525900",
@@ -135,12 +155,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 11.65532,
-   "variation": 0.0
+   "fwd": {
+    "1": 0.3,
+    "3": -0.31,
+    "5": -0.61
+   },
+   "efm": 0.34,
+   "eam": -0.72,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 11.58433,
+   "variation": -0.61
   },
   {
    "id": "1788525900",
@@ -155,12 +179,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 2448.65,
-   "variation": 0.0
+   "fwd": {
+    "1": 0.38,
+    "3": -0.03,
+    "5": -0.14
+   },
+   "efm": 0.38,
+   "eam": -0.16,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 2445.34,
+   "variation": -0.14
   },
   {
    "id": "1788525900",
@@ -175,12 +203,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.084997,
-   "variation": 0.0
+   "fwd": {
+    "1": 0.29,
+    "3": -0.05,
+    "5": -0.33
+   },
+   "efm": 0.38,
+   "eam": -0.39,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 0.0847154,
+   "variation": -0.33
   },
   {
    "id": "1788525900",
@@ -195,11 +227,35 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
+   "fwd": {
+    "1": 0.11,
+    "3": -0.02,
+    "5": 0.04
+   },
+   "efm": 0.15,
+   "eam": -0.34,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 0.8522,
+   "variation": 0.04
+  },
+  {
+   "id": "1788525000",
+   "sens": "long",
+   "score": 45,
+   "rsi": 26.7,
+   "meche": 26,
+   "volume_x": 29.09,
+   "prix": 0.5782,
+   "ts": 1788525000,
+   "pair": "APTUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
    "fwd": {},
    "efm": null,
    "eam": null,
    "bougies_ecoulees": 0,
-   "prix_actuel": 0.8519,
+   "prix_actuel": 0.5782,
    "variation": 0.0
   },
   {
@@ -215,12 +271,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.5769,
-   "variation": 0.0
+   "fwd": {
+    "1": 0.54,
+    "3": 0.43,
+    "5": 0.31
+   },
+   "efm": 0.55,
+   "eam": -0.03,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 0.5787,
+   "variation": 0.31
   },
   {
    "id": "1788525900",
@@ -235,11 +295,35 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
+   "fwd": {
+    "1": 0.47,
+    "3": -0.27,
+    "5": -0.09
+   },
+   "efm": 0.52,
+   "eam": -0.64,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 1.9451,
+   "variation": -0.09
+  },
+  {
+   "id": "1788525000",
+   "sens": "long",
+   "score": 40,
+   "rsi": 29.8,
+   "meche": 28,
+   "volume_x": 15.05,
+   "prix": 0.3503,
+   "ts": 1788525000,
+   "pair": "TIAUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
    "fwd": {},
    "efm": null,
    "eam": null,
    "bougies_ecoulees": 0,
-   "prix_actuel": 1.9469,
+   "prix_actuel": 0.3503,
    "variation": 0.0
   },
   {
@@ -255,12 +339,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.3499,
-   "variation": 0.0
+   "fwd": {
+    "1": 0.29,
+    "3": 0.26,
+    "5": 0.29
+   },
+   "efm": 0.63,
+   "eam": -0.17,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 0.3509,
+   "variation": 0.29
   },
   {
    "id": "1788525900",
@@ -275,12 +363,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 224.0549,
-   "variation": 0.0
+   "fwd": {
+    "1": 0.15,
+    "3": -0.17,
+    "5": -0.85
+   },
+   "efm": 0.32,
+   "eam": -1.15,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 222.1571,
+   "variation": -0.85
   },
   {
    "id": "1788525900",
@@ -295,12 +387,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.1534,
-   "variation": 0.0
+   "fwd": {
+    "1": 0.46,
+    "3": 0.26,
+    "5": -0.39
+   },
+   "efm": 0.46,
+   "eam": -0.39,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 0.1528,
+   "variation": -0.39
   },
   {
    "id": "1788525900",
@@ -315,12 +411,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.1305,
-   "variation": 0.0
+   "fwd": {
+    "1": -0.08,
+    "3": -0.46,
+    "5": 0.38
+   },
+   "efm": 0.84,
+   "eam": -1.84,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 0.131,
+   "variation": 0.38
   },
   {
    "id": "1788525900",
@@ -335,11 +435,35 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
+   "fwd": {
+    "1": 0.56,
+    "3": 0.07,
+    "5": -0.21
+   },
+   "efm": 0.56,
+   "eam": -0.21,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 1.417,
+   "variation": -0.21
+  },
+  {
+   "id": "1788525000",
+   "sens": "long",
+   "score": 58,
+   "rsi": 26.6,
+   "meche": 44,
+   "volume_x": 17.08,
+   "prix": 0.21495,
+   "ts": 1788525000,
+   "pair": "JUPUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
    "fwd": {},
    "efm": null,
    "eam": null,
    "bougies_ecoulees": 0,
-   "prix_actuel": 1.42,
+   "prix_actuel": 0.21495,
    "variation": 0.0
   },
   {
@@ -355,12 +479,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.21483,
-   "variation": 0.0
+   "fwd": {
+    "1": 0.44,
+    "3": 0.13,
+    "5": -0.7
+   },
+   "efm": 0.47,
+   "eam": -0.7,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 0.21332,
+   "variation": -0.7
   },
   {
    "id": "1788525900",
@@ -375,12 +503,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.35551,
-   "variation": 0.0
+   "fwd": {
+    "1": 0.4,
+    "3": 0.16,
+    "5": -0.19
+   },
+   "efm": 0.44,
+   "eam": -0.35,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 0.35483,
+   "variation": -0.19
   },
   {
    "id": "1788525900",
@@ -395,12 +527,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.2633,
-   "variation": 0.0
+   "fwd": {
+    "1": 0.68,
+    "3": 0.53,
+    "5": -0.23
+   },
+   "efm": 0.68,
+   "eam": -0.23,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 0.2627,
+   "variation": -0.23
   },
   {
    "id": "1788525900",
@@ -415,11 +551,35 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
+   "fwd": {
+    "1": 0.33,
+    "3": 0.46,
+    "5": 0.25
+   },
+   "efm": 0.61,
+   "eam": -0.19,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 0.179989,
+   "variation": 0.25
+  },
+  {
+   "id": "1788525000",
+   "sens": "long",
+   "score": 57,
+   "rsi": 21.3,
+   "meche": 26,
+   "volume_x": 47.14,
+   "prix": 0.746,
+   "ts": 1788525000,
+   "pair": "FILUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
    "fwd": {},
    "efm": null,
    "eam": null,
    "bougies_ecoulees": 0,
-   "prix_actuel": 0.179549,
+   "prix_actuel": 0.746,
    "variation": 0.0
   },
   {
@@ -435,12 +595,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.745,
-   "variation": 0.0
+   "fwd": {
+    "1": 0.4,
+    "3": 0.13,
+    "5": 0.4
+   },
+   "efm": 0.54,
+   "eam": 0.13,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 0.748,
+   "variation": 0.4
   },
   {
    "id": "1788525900",
@@ -455,12 +619,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.01663,
-   "variation": 0.0
+   "fwd": {
+    "1": 0.6,
+    "3": 0.66,
+    "5": -0.06
+   },
+   "efm": 0.66,
+   "eam": -0.06,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 0.01662,
+   "variation": -0.06
   },
   {
    "id": "1788525900",
@@ -475,12 +643,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 3.542e-06,
-   "variation": 0.0
+   "fwd": {
+    "1": 0.03,
+    "3": -0.03,
+    "5": -0.62
+   },
+   "efm": 0.23,
+   "eam": -0.71,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 3.52e-06,
+   "variation": -0.62
   },
   {
    "id": "1788525900",
@@ -495,12 +667,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 5.215e-06,
-   "variation": 0.0
+   "fwd": {
+    "1": 0.25,
+    "3": 0.21,
+    "5": -0.13
+   },
+   "efm": 0.27,
+   "eam": -0.13,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 5.208e-06,
+   "variation": -0.13
   },
   {
    "id": "1788525900",
@@ -515,12 +691,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 84.95,
-   "variation": 0.0
+   "fwd": {
+    "1": 0.6,
+    "3": 0.73,
+    "5": 0.07
+   },
+   "efm": 0.98,
+   "eam": -0.22,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 85.01,
+   "variation": 0.07
   },
   {
    "id": "1788525900",
@@ -535,12 +715,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": false,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.084997,
-   "variation": 0.0
+   "fwd": {
+    "1": 0.29,
+    "3": -0.05,
+    "5": -0.33
+   },
+   "efm": 0.38,
+   "eam": -0.39,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 0.0847154,
+   "variation": -0.33
   },
   {
    "id": "1788525900",
@@ -555,11 +739,35 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": false,
+   "fwd": {
+    "1": 0.44,
+    "3": 0.09,
+    "5": -0.47
+   },
+   "efm": 0.45,
+   "eam": -0.69,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 0.77537,
+   "variation": -0.47
+  },
+  {
+   "id": "1788525000",
+   "sens": "long",
+   "score": 56,
+   "rsi": 29.9,
+   "meche": 83,
+   "volume_x": 29.83,
+   "prix": 0.35515,
+   "ts": 1788525000,
+   "pair": "CRVUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
    "fwd": {},
    "efm": null,
    "eam": null,
    "bougies_ecoulees": 0,
-   "prix_actuel": 0.779,
+   "prix_actuel": 0.35515,
    "variation": 0.0
   },
   {
@@ -575,12 +783,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.35509,
-   "variation": 0.0
+   "fwd": {
+    "1": 0.46,
+    "3": -0.03,
+    "5": -0.68
+   },
+   "efm": 0.52,
+   "eam": -0.69,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 0.35266,
+   "variation": -0.68
   },
   {
    "id": "1788525900",
@@ -595,12 +807,16 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 50.39,
-   "variation": 0.0
+   "fwd": {
+    "1": 0.26,
+    "3": 0.06,
+    "5": 0.04
+   },
+   "efm": 0.32,
+   "eam": -0.14,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 50.41,
+   "variation": 0.04
   },
   {
    "id": "1788525900",
@@ -615,11 +831,75 @@
    "mode": "5m",
    "mode_nom": "5 minutes",
    "perp": true,
+   "fwd": {
+    "1": -0.24,
+    "3": -0.3,
+    "5": -0.91
+   },
+   "efm": 0.42,
+   "eam": -1.15,
+   "bougies_ecoulees": 5,
+   "prix_actuel": 0.1637,
+   "variation": -0.91
+  },
+  {
+   "id": "1788525000",
+   "sens": "long",
+   "score": 42,
+   "rsi": 23.0,
+   "meche": 15,
+   "volume_x": 68.43,
+   "prix": 4392.6,
+   "ts": 1788525000,
+   "pair": "XAUTUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
    "fwd": {},
    "efm": null,
    "eam": null,
    "bougies_ecoulees": 0,
-   "prix_actuel": 0.1652,
+   "prix_actuel": 4392.6,
+   "variation": 0.0
+  },
+  {
+   "id": "1788525000",
+   "sens": "long",
+   "score": 50,
+   "rsi": 29.4,
+   "meche": 39,
+   "volume_x": 11.48,
+   "prix": 0.2029,
+   "ts": 1788525000,
+   "pair": "WIFUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.2029,
+   "variation": 0.0
+  },
+  {
+   "id": "1788525000",
+   "sens": "long",
+   "score": 51,
+   "rsi": 25.9,
+   "meche": 36,
+   "volume_x": 9.21,
+   "prix": 0.0384,
+   "ts": 1788525000,
+   "pair": "SANDUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true,
+   "fwd": {},
+   "efm": null,
+   "eam": null,
+   "bougies_ecoulees": 0,
+   "prix_actuel": 0.0384,
    "variation": 0.0
   }
  ],
@@ -5627,58 +5907,443 @@
  ],
  "watch": [
   {
+   "dir": "short",
+   "rsi": 69.7,
+   "reste": 0.3,
+   "last": 87.47,
+   "ts": 1788393600,
+   "pair": "HYPEUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 69.5,
+   "reste": 0.5,
+   "last": 0.6087,
+   "ts": 1788393600,
+   "pair": "SPXUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 68.6,
+   "reste": 1.4,
+   "last": 0.0149494,
+   "ts": 1788393600,
+   "pair": "AKEUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": false
+  },
+  {
+   "dir": "short",
+   "rsi": 68.6,
+   "reste": 1.4,
+   "last": 0.834,
+   "ts": 1788393600,
+   "pair": "RAYUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 68.5,
+   "reste": 1.5,
+   "last": 0.36458,
+   "ts": 1788393600,
+   "pair": "CRVUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 68.5,
+   "reste": 1.5,
+   "last": 0.05561,
+   "ts": 1788393600,
+   "pair": "PYTHUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 67.8,
+   "reste": 2.2,
+   "last": 0.21324,
+   "ts": 1788393600,
+   "pair": "SYRUPUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 67.5,
+   "reste": 2.5,
+   "last": 2507.42,
+   "ts": 1788393600,
+   "pair": "ETHUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 67.4,
+   "reste": 2.6,
+   "last": 11.8362,
+   "ts": 1788393600,
+   "pair": "LINKUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 67.2,
+   "reste": 2.8,
+   "last": 103.95,
+   "ts": 1788393600,
+   "pair": "SOLUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 67.2,
+   "reste": 2.8,
+   "last": 0.2145,
+   "ts": 1788393600,
+   "pair": "WIFUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 67.1,
+   "reste": 2.9,
+   "last": 132.74,
+   "ts": 1788393600,
+   "pair": "AAVEUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 66.8,
+   "reste": 3.2,
+   "last": 0.1684,
+   "ts": 1788393600,
+   "pair": "ENAUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 66.5,
+   "reste": 3.5,
+   "last": 1.45113,
+   "ts": 1788393600,
+   "pair": "XRPUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 66.3,
+   "reste": 3.7,
+   "last": 0.395,
+   "ts": 1788393600,
+   "pair": "LDOUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 64.5,
+   "reste": 5.5,
+   "last": 0.07684,
+   "ts": 1788393600,
+   "pair": "MANAUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 64.3,
+   "reste": 5.7,
+   "last": 0.07927,
+   "ts": 1788393600,
+   "pair": "HBARUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 64.3,
+   "reste": 5.7,
+   "last": 0.02023,
+   "ts": 1788393600,
+   "pair": "SKRUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": false
+  },
+  {
+   "dir": "short",
+   "rsi": 64.1,
+   "reste": 5.9,
+   "last": 17.122,
+   "ts": 1788393600,
+   "pair": "VVVUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": false
+  },
+  {
+   "dir": "short",
+   "rsi": 64.0,
+   "reste": 6.0,
+   "last": 0.7229,
+   "ts": 1788393600,
+   "pair": "ASTERUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 63.9,
+   "reste": 6.1,
+   "last": 51.5,
+   "ts": 1788393600,
+   "pair": "LTCUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 63.3,
+   "reste": 6.7,
+   "last": 0.04933,
+   "ts": 1788393600,
+   "pair": "SEIUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 63.1,
+   "reste": 6.9,
+   "last": 0.221123,
+   "ts": 1788393600,
+   "pair": "ADAUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 62.5,
+   "reste": 7.5,
+   "last": 0.5903,
+   "ts": 1788393600,
+   "pair": "ETHFIUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 62.0,
+   "reste": 8.0,
+   "last": 0.0878124,
+   "ts": 1788393600,
+   "pair": "DOGEUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": true
+  },
+  {
+   "dir": "short",
+   "rsi": 62.0,
+   "reste": 8.0,
+   "last": 0.0878124,
+   "ts": 1788393600,
+   "pair": "XDGUSD",
+   "mode": "1j",
+   "mode_nom": "journalier",
+   "perp": false
+  },
+  {
    "dir": "long",
-   "rsi": 30.0,
-   "reste": 0.0,
-   "last": 714.2,
-   "ts": 1788525900,
-   "pair": "BNBUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
+   "rsi": 30.5,
+   "reste": 0.5,
+   "last": 1.422,
+   "ts": 1788525000,
+   "pair": "RENDERUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
    "perp": true
   },
   {
    "dir": "long",
    "rsi": 30.6,
    "reste": 0.6,
-   "last": 6.1704,
-   "ts": 1788525900,
-   "pair": "UNIUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
+   "last": 0.7517,
+   "ts": 1788525000,
+   "pair": "SUIUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 30.6,
+   "reste": 0.6,
+   "last": 4.736,
+   "ts": 1788525000,
+   "pair": "INJUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
    "perp": true
   },
   {
    "dir": "long",
    "rsi": 30.8,
    "reste": 0.8,
-   "last": 0.1639,
-   "ts": 1788525900,
-   "pair": "ENAUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
+   "last": 101.58,
+   "ts": 1788525000,
+   "pair": "SOLUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
    "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 30.9,
+   "reste": 0.9,
+   "last": 7.361,
+   "ts": 1788525000,
+   "pair": "AVAXUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 30.9,
+   "reste": 0.9,
+   "last": 0.1001,
+   "ts": 1788525000,
+   "pair": "CFGUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 31.1,
+   "reste": 1.1,
+   "last": 0.0849805,
+   "ts": 1788525000,
+   "pair": "DOGEUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 31.1,
+   "reste": 1.1,
+   "last": 0.0849805,
+   "ts": 1788525000,
+   "pair": "XDGUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false
+  },
+  {
+   "dir": "long",
+   "rsi": 31.2,
+   "reste": 1.2,
+   "last": 0.00677,
+   "ts": 1788525000,
+   "pair": "FLRUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": false
   },
   {
    "dir": "long",
    "rsi": 31.4,
    "reste": 1.4,
-   "last": 0.09289,
-   "ts": 1788525900,
-   "pair": "POLUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
+   "last": 2.245,
+   "ts": 1788525000,
+   "pair": "TRUMPUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 31.5,
+   "reste": 1.5,
+   "last": 0.0965,
+   "ts": 1788525000,
+   "pair": "OPUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 31.7,
+   "reste": 1.7,
+   "last": 0.6645,
+   "ts": 1788525000,
+   "pair": "VIRTUALUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
    "perp": true
   },
   {
    "dir": "long",
    "rsi": 32.1,
    "reste": 2.1,
-   "last": 131.52,
-   "ts": 1788525900,
-   "pair": "AAVEUSD",
-   "mode": "5m",
-   "mode_nom": "5 minutes",
+   "last": 1.4093,
+   "ts": 1788525000,
+   "pair": "XRPUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
+   "perp": true
+  },
+  {
+   "dir": "long",
+   "rsi": 32.1,
+   "reste": 2.1,
+   "last": 5.22e-06,
+   "ts": 1788525000,
+   "pair": "SHIBUSD",
+   "mode": "30m",
+   "mode_nom": "30 minutes",
    "perp": true
   }
  ]
