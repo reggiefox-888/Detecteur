@@ -312,9 +312,9 @@
    },
    "efm": 0.47,
    "eam": -0.3,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 101.08,
-   "variation": -0.26
+   "bougies_ecoulees": 8,
+   "prix_actuel": 101.4,
+   "variation": 0.06
   },
   {
    "id": "1788525900",
@@ -334,11 +334,11 @@
     "3": 0.05,
     "5": 0.04
    },
-   "efm": 0.27,
+   "efm": 0.35,
    "eam": -0.1,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 7.356,
-   "variation": 0.04
+   "bougies_ecoulees": 8,
+   "prix_actuel": 7.374,
+   "variation": 0.29
   },
   {
    "id": "1788525900",
@@ -358,11 +358,11 @@
     "3": 0.15,
     "5": -0.12
    },
-   "efm": 0.56,
-   "eam": -0.24,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.7495,
-   "variation": -0.12
+   "efm": 0.59,
+   "eam": -0.25,
+   "bougies_ecoulees": 8,
+   "prix_actuel": 0.7528,
+   "variation": 0.32
   },
   {
    "id": "1788525900",
@@ -384,9 +384,9 @@
    },
    "efm": 0.38,
    "eam": -0.45,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.213713,
-   "variation": -0.33
+   "bougies_ecoulees": 8,
+   "prix_actuel": 0.214139,
+   "variation": -0.14
   },
   {
    "id": "1788525900",
@@ -408,9 +408,9 @@
    },
    "efm": 0.34,
    "eam": -0.4,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 1.40544,
-   "variation": -0.37
+   "bougies_ecoulees": 8,
+   "prix_actuel": 1.40792,
+   "variation": -0.19
   },
   {
    "id": "1788525900",
@@ -432,9 +432,9 @@
    },
    "efm": 0.34,
    "eam": -0.72,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 11.58433,
-   "variation": -0.61
+   "bougies_ecoulees": 8,
+   "prix_actuel": 11.59604,
+   "variation": -0.51
   },
   {
    "id": "1788525900",
@@ -456,9 +456,9 @@
    },
    "efm": 0.38,
    "eam": -0.16,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 2445.34,
-   "variation": -0.14
+   "bougies_ecoulees": 8,
+   "prix_actuel": 2449.81,
+   "variation": 0.05
   },
   {
    "id": "1788525900",
@@ -480,9 +480,9 @@
    },
    "efm": 0.38,
    "eam": -0.39,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.0847154,
-   "variation": -0.33
+   "bougies_ecoulees": 8,
+   "prix_actuel": 0.0850419,
+   "variation": 0.05
   },
   {
    "id": "1788525900",
@@ -502,31 +502,11 @@
     "3": -0.02,
     "5": 0.04
    },
-   "efm": 0.15,
+   "efm": 0.69,
    "eam": -0.34,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.8522,
-   "variation": 0.04
-  },
-  {
-   "id": "1788525000",
-   "sens": "long",
-   "score": 45,
-   "rsi": 26.7,
-   "meche": 26,
-   "volume_x": 29.09,
-   "prix": 0.5782,
-   "ts": 1788525000,
-   "pair": "APTUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.5782,
-   "variation": 0.0
+   "bougies_ecoulees": 8,
+   "prix_actuel": 0.8556,
+   "variation": 0.43
   },
   {
    "id": "1788525900",
@@ -548,9 +528,9 @@
    },
    "efm": 0.55,
    "eam": -0.03,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.5787,
-   "variation": 0.31
+   "bougies_ecoulees": 8,
+   "prix_actuel": 0.5778,
+   "variation": 0.16
   },
   {
    "id": "1788525900",
@@ -570,31 +550,11 @@
     "3": -0.27,
     "5": -0.09
    },
-   "efm": 0.52,
+   "efm": 0.86,
    "eam": -0.64,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 1.9451,
-   "variation": -0.09
-  },
-  {
-   "id": "1788525000",
-   "sens": "long",
-   "score": 40,
-   "rsi": 29.8,
-   "meche": 28,
-   "volume_x": 15.05,
-   "prix": 0.3503,
-   "ts": 1788525000,
-   "pair": "TIAUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.3503,
-   "variation": 0.0
+   "bougies_ecoulees": 8,
+   "prix_actuel": 1.9601,
+   "variation": 0.68
   },
   {
    "id": "1788525900",
@@ -614,11 +574,11 @@
     "3": 0.26,
     "5": 0.29
    },
-   "efm": 0.63,
+   "efm": 0.74,
    "eam": -0.17,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.3509,
-   "variation": 0.29
+   "bougies_ecoulees": 8,
+   "prix_actuel": 0.352,
+   "variation": 0.6
   },
   {
    "id": "1788525900",
@@ -640,9 +600,9 @@
    },
    "efm": 0.32,
    "eam": -1.15,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 222.1571,
-   "variation": -0.85
+   "bougies_ecoulees": 8,
+   "prix_actuel": 222.551,
+   "variation": -0.67
   },
   {
    "id": "1788525900",
@@ -664,9 +624,9 @@
    },
    "efm": 0.46,
    "eam": -0.39,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.1528,
-   "variation": -0.39
+   "bougies_ecoulees": 8,
+   "prix_actuel": 0.1538,
+   "variation": 0.26
   },
   {
    "id": "1788525900",
@@ -686,11 +646,11 @@
     "3": -0.46,
     "5": 0.38
    },
-   "efm": 0.84,
+   "efm": 2.38,
    "eam": -1.84,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.131,
-   "variation": 0.38
+   "bougies_ecoulees": 8,
+   "prix_actuel": 0.1326,
+   "variation": 1.61
   },
   {
    "id": "1788525900",
@@ -712,28 +672,8 @@
    },
    "efm": 0.56,
    "eam": -0.21,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 1.417,
-   "variation": -0.21
-  },
-  {
-   "id": "1788525000",
-   "sens": "long",
-   "score": 58,
-   "rsi": 26.6,
-   "meche": 44,
-   "volume_x": 17.08,
-   "prix": 0.21495,
-   "ts": 1788525000,
-   "pair": "JUPUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.21495,
+   "bougies_ecoulees": 8,
+   "prix_actuel": 1.42,
    "variation": 0.0
   },
   {
@@ -754,11 +694,11 @@
     "3": 0.13,
     "5": -0.7
    },
-   "efm": 0.47,
+   "efm": 0.73,
    "eam": -0.7,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.21332,
-   "variation": -0.7
+   "bougies_ecoulees": 8,
+   "prix_actuel": 0.21466,
+   "variation": -0.08
   },
   {
    "id": "1788525900",
@@ -778,11 +718,11 @@
     "3": 0.16,
     "5": -0.19
    },
-   "efm": 0.44,
+   "efm": 0.51,
    "eam": -0.35,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.35483,
-   "variation": -0.19
+   "bougies_ecoulees": 8,
+   "prix_actuel": 0.35571,
+   "variation": 0.06
   },
   {
    "id": "1788525900",
@@ -802,11 +742,11 @@
     "3": 0.53,
     "5": -0.23
    },
-   "efm": 0.68,
+   "efm": 0.95,
    "eam": -0.23,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.2627,
-   "variation": -0.23
+   "bougies_ecoulees": 8,
+   "prix_actuel": 0.263,
+   "variation": -0.11
   },
   {
    "id": "1788525900",
@@ -826,31 +766,11 @@
     "3": 0.46,
     "5": 0.25
    },
-   "efm": 0.61,
+   "efm": 0.81,
    "eam": -0.19,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.179989,
-   "variation": 0.25
-  },
-  {
-   "id": "1788525000",
-   "sens": "long",
-   "score": 57,
-   "rsi": 21.3,
-   "meche": 26,
-   "volume_x": 47.14,
-   "prix": 0.746,
-   "ts": 1788525000,
-   "pair": "FILUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.746,
-   "variation": 0.0
+   "bougies_ecoulees": 8,
+   "prix_actuel": 0.18037,
+   "variation": 0.46
   },
   {
    "id": "1788525900",
@@ -870,11 +790,11 @@
     "3": 0.13,
     "5": 0.4
    },
-   "efm": 0.54,
+   "efm": 0.94,
    "eam": 0.13,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.748,
-   "variation": 0.4
+   "bougies_ecoulees": 8,
+   "prix_actuel": 0.751,
+   "variation": 0.81
   },
   {
    "id": "1788525900",
@@ -896,9 +816,9 @@
    },
    "efm": 0.66,
    "eam": -0.06,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.01662,
-   "variation": -0.06
+   "bougies_ecoulees": 8,
+   "prix_actuel": 0.0167,
+   "variation": 0.42
   },
   {
    "id": "1788525900",
@@ -920,9 +840,9 @@
    },
    "efm": 0.23,
    "eam": -0.71,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 3.52e-06,
-   "variation": -0.62
+   "bougies_ecoulees": 8,
+   "prix_actuel": 3.532e-06,
+   "variation": -0.28
   },
   {
    "id": "1788525900",
@@ -942,11 +862,11 @@
     "3": 0.21,
     "5": -0.13
    },
-   "efm": 0.27,
+   "efm": 0.63,
    "eam": -0.13,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 5.208e-06,
-   "variation": -0.13
+   "bougies_ecoulees": 8,
+   "prix_actuel": 5.233e-06,
+   "variation": 0.35
   },
   {
    "id": "1788525900",
@@ -968,9 +888,9 @@
    },
    "efm": 0.98,
    "eam": -0.22,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 85.01,
-   "variation": 0.07
+   "bougies_ecoulees": 8,
+   "prix_actuel": 85.41,
+   "variation": 0.54
   },
   {
    "id": "1788525900",
@@ -992,9 +912,9 @@
    },
    "efm": 0.38,
    "eam": -0.39,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.0847154,
-   "variation": -0.33
+   "bougies_ecoulees": 8,
+   "prix_actuel": 0.0850419,
+   "variation": 0.05
   },
   {
    "id": "1788525900",
@@ -1015,30 +935,10 @@
     "5": -0.47
    },
    "efm": 0.45,
-   "eam": -0.69,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.77537,
-   "variation": -0.47
-  },
-  {
-   "id": "1788525000",
-   "sens": "long",
-   "score": 56,
-   "rsi": 29.9,
-   "meche": 83,
-   "volume_x": 29.83,
-   "prix": 0.35515,
-   "ts": 1788525000,
-   "pair": "CRVUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.35515,
-   "variation": 0.0
+   "eam": -0.72,
+   "bougies_ecoulees": 8,
+   "prix_actuel": 0.77553,
+   "variation": -0.45
   },
   {
    "id": "1788525900",
@@ -1058,11 +958,11 @@
     "3": -0.03,
     "5": -0.68
    },
-   "efm": 0.52,
+   "efm": 1.29,
    "eam": -0.69,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.35266,
-   "variation": -0.68
+   "bougies_ecoulees": 8,
+   "prix_actuel": 0.35906,
+   "variation": 1.12
   },
   {
    "id": "1788525900",
@@ -1082,11 +982,11 @@
     "3": 0.06,
     "5": 0.04
    },
-   "efm": 0.32,
+   "efm": 0.42,
    "eam": -0.14,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 50.41,
-   "variation": 0.04
+   "bougies_ecoulees": 8,
+   "prix_actuel": 50.43,
+   "variation": 0.08
   },
   {
    "id": "1788525900",
@@ -1108,69 +1008,9 @@
    },
    "efm": 0.42,
    "eam": -1.15,
-   "bougies_ecoulees": 5,
-   "prix_actuel": 0.1637,
-   "variation": -0.91
-  },
-  {
-   "id": "1788525000",
-   "sens": "long",
-   "score": 42,
-   "rsi": 23.0,
-   "meche": 15,
-   "volume_x": 68.43,
-   "prix": 4392.6,
-   "ts": 1788525000,
-   "pair": "XAUTUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 4392.6,
-   "variation": 0.0
-  },
-  {
-   "id": "1788525000",
-   "sens": "long",
-   "score": 50,
-   "rsi": 29.4,
-   "meche": 39,
-   "volume_x": 11.48,
-   "prix": 0.2029,
-   "ts": 1788525000,
-   "pair": "WIFUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.2029,
-   "variation": 0.0
-  },
-  {
-   "id": "1788525000",
-   "sens": "long",
-   "score": 51,
-   "rsi": 25.9,
-   "meche": 36,
-   "volume_x": 9.21,
-   "prix": 0.0384,
-   "ts": 1788525000,
-   "pair": "SANDUSD",
-   "mode": "30m",
-   "mode_nom": "30 minutes",
-   "perp": true,
-   "fwd": {},
-   "efm": null,
-   "eam": null,
-   "bougies_ecoulees": 0,
-   "prix_actuel": 0.0384,
-   "variation": 0.0
+   "bougies_ecoulees": 8,
+   "prix_actuel": 0.1655,
+   "variation": 0.18
   }
  ],
  "history": [
@@ -6568,6 +6408,6 @@
  "last_scan": {
   "1j": 1788528092.9296982,
   "30m": 1788528092.9297004,
-  "5m": 1788528092.9297009
+  "5m": 1788528838.5833428
  }
 }
